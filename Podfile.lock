@@ -1,0 +1,65 @@
+PODS:
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
+  - SAAdLoader (0.8.3):
+    - SAModelSpace (= 0.3.2)
+    - SANetworking (= 0.2.5)
+    - SASession (= 0.2.7)
+    - SAUtils (= 1.4.5)
+  - SAEvents (1.6.3):
+    - SAEvents/Core (= 1.6.3)
+    - SAModelSpace (= 0.3.2)
+    - SANetworking (= 0.2.5)
+    - SAUtils (= 1.4.5)
+  - SAEvents/Core (1.6.3):
+    - SAModelSpace (= 0.3.2)
+    - SANetworking (= 0.2.5)
+    - SAUtils (= 1.4.5)
+  - SAEvents/Moat (1.6.3):
+    - SAEvents/Core
+    - SAModelSpace (= 0.3.2)
+    - SANetworking (= 0.2.5)
+    - SAUtils (= 1.4.5)
+  - SAJsonParser (1.2.9)
+  - SAModelSpace (0.3.2):
+    - SAJsonParser (= 1.2.9)
+  - SANetworking (0.2.5)
+  - SASession (0.2.7):
+    - SAUtils (= 1.4.5)
+  - SAUtils (1.4.5)
+  - SAVideoPlayer (1.1.8)
+  - SAWebPlayer (1.1.0)
+  - SuperAwesome (5.3.4):
+    - SuperAwesome/Full (= 5.3.4)
+  - SuperAwesome/Base (5.3.4):
+    - SAAdLoader (= 0.8.3)
+    - SAEvents (= 1.6.3)
+    - SAVideoPlayer (= 1.1.8)
+    - SAWebPlayer (= 1.1.0)
+  - SuperAwesome/Full (5.3.4):
+    - SAEvents/Moat
+    - SuperAwesome/Base
+
+DEPENDENCIES:
+  - RxCocoa (= 3.0.1)
+  - RxSwift (= 3.0.1)
+  - SuperAwesome
+
+SPEC CHECKSUMS:
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  SAAdLoader: 91c2f1257d4b45e9fe38eb954d6a5a5cf9d58c93
+  SAEvents: 89d04c71ac4b889f520ba2cc429c1713cc1ea950
+  SAJsonParser: 82e10833541da2efe6f558ab3de327a597235ce4
+  SAModelSpace: 1649aa86baaf0bdf8f7123fde7eca2773ae233c6
+  SANetworking: e70cffed7d4b1f910bf24cd8bae72bf98caee253
+  SASession: eab3fae9c7b2c8aa02917f4569a631ef1d9fea36
+  SAUtils: 4deab5b36d72a15f04e9c26ae2b96ac94bb028b4
+  SAVideoPlayer: 4f5c89a524c331eb3d2ff2b670de271a80bb97f1
+  SAWebPlayer: 0eb52c8d0fd47136534c3391043c18f969c6170f
+  SuperAwesome: 067b20cde5dc305fda45a58cd4764ad63c6510a8
+
+PODFILE CHECKSUM: 5814f222292ebe70667ecd18340a292db14db7ba
+
+COCOAPODS: 1.2.0.beta.1
