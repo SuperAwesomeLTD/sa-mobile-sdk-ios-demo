@@ -7,29 +7,49 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class DemoFormatsController: UIViewController {
+class DemoFormatsController: UIViewController, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    let disposeBag = DisposeBag()
+    private var currentPlacementId: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let provider = DemoFormatsProvider()
+        
+        provider.getDemoFormats().toArray()
+        .bindTo(tableView.rx.items(cellIdentifier: DemoFormatsRow.Identifier, cellType: DemoFormatsRow.self)) { index, model, row in
+            
+            row.icon.image = UIImage(named: model.getSource())
+            row.title.text = model.getName()
+            row.details.text = model.getDetails()
+                
+        }.addDisposableTo(disposeBag)
+        
+        tableView.rx.modelSelected(DemoFormatsViewModel.self).subscribe(onNext: { model in
+        
+            let settings = self.storyboard?.instantiateViewController(withIdentifier: "SettingsController") as! SettingsController
+            settings.placementId = model.getPlacementId()
+            settings.test = true
+            self.present(settings, animated: true, completion: nil)
+            
+        }).addDisposableTo(disposeBag)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 101
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        makeSANavigationController()
     }
-    */
-
 }

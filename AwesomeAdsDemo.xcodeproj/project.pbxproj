@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0A21B91DE858FF00E6C889 /* SANavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21B81DE858FF00E6C889 /* SANavigationBar.swift */; };
+		1B0A21BB1DE85AE600E6C889 /* SANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21BA1DE85AE600E6C889 /* SANavigationController.swift */; };
+		1B0A21C11DE85EFE00E6C889 /* DemoFormatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C01DE85EFE00E6C889 /* DemoFormatsViewModel.swift */; };
+		1B0A21C31DE85FCD00E6C889 /* DemoFormatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C21DE85FCD00E6C889 /* DemoFormatsProvider.swift */; };
+		1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */; };
+		1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21E91DE8A03000E6C889 /* AdFormat.swift */; };
+		1B0A21EC1DE8A06800E6C889 /* AdAux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21EB1DE8A06800E6C889 /* AdAux.swift */; };
+		1B0A21F21DE8A69900E6C889 /* AdPreload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21F11DE8A69900E6C889 /* AdPreload.swift */; };
+		1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */; };
 		1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6151DE8445000353E8C /* AppDelegate.swift */; };
 		1B46E61B1DE8445000353E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E6191DE8445000353E8C /* Main.storyboard */; };
 		1B46E61D1DE8445000353E8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E61C1DE8445000353E8C /* Assets.xcassets */; };
@@ -19,6 +28,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B0A21B81DE858FF00E6C889 /* SANavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SANavigationBar.swift; sourceTree = "<group>"; };
+		1B0A21BA1DE85AE600E6C889 /* SANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SANavigationController.swift; sourceTree = "<group>"; };
+		1B0A21C01DE85EFE00E6C889 /* DemoFormatsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsViewModel.swift; sourceTree = "<group>"; };
+		1B0A21C21DE85FCD00E6C889 /* DemoFormatsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsProvider.swift; sourceTree = "<group>"; };
+		1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsRow.swift; sourceTree = "<group>"; };
+		1B0A21E91DE8A03000E6C889 /* AdFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdFormat.swift; sourceTree = "<group>"; };
+		1B0A21EB1DE8A06800E6C889 /* AdAux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdAux.swift; sourceTree = "<group>"; };
+		1B0A21ED1DE8A0F900E6C889 /* AwesomeAdsDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AwesomeAdsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		1B0A21F11DE8A69900E6C889 /* AdPreload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdPreload.swift; sourceTree = "<group>"; };
+		1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1B46E6121DE8445000353E8C /* AwesomeAdsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeAdsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B46E6151DE8445000353E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B46E61A1DE8445000353E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +65,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B0A21F01DE8A68900E6C889 /* AdAux */ = {
+			isa = PBXGroup;
+			children = (
+				1B0A21E91DE8A03000E6C889 /* AdFormat.swift */,
+				1B0A21EB1DE8A06800E6C889 /* AdAux.swift */,
+				1B0A21F11DE8A69900E6C889 /* AdPreload.swift */,
+			);
+			name = AdAux;
+			sourceTree = "<group>";
+		};
+		1B0A21F31DE8AD3700E6C889 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		1B46E6091DE8445000353E8C = {
 			isa = PBXGroup;
 			children = (
@@ -67,8 +104,9 @@
 		1B46E6141DE8445000353E8C /* AwesomeAdsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1B0A21F01DE8A68900E6C889 /* AdAux */,
 				1B46E6361DE84CF300353E8C /* Aux */,
-				1B46E6311DE84C9F00353E8C /* TabBar */,
+				1B46E6311DE84C9F00353E8C /* Navigation */,
 				1B46E62A1DE8494100353E8C /* Meta */,
 				1B46E6291DE8493400353E8C /* Storyboard */,
 				1B46E6281DE8492700353E8C /* Controllers */,
@@ -88,8 +126,9 @@
 		1B46E6281DE8492700353E8C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1B46E6301DE84A8900353E8C /* User */,
-				1B46E62F1DE84A8400353E8C /* DemoFormats */,
+				1B0A21F31DE8AD3700E6C889 /* Settings */,
+				1B46E6301DE84A8900353E8C /* DemoFormats */,
+				1B46E62F1DE84A8400353E8C /* User */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -108,32 +147,38 @@
 			children = (
 				1B46E61C1DE8445000353E8C /* Assets.xcassets */,
 				1B46E6211DE8445000353E8C /* Info.plist */,
+				1B0A21ED1DE8A0F900E6C889 /* AwesomeAdsDemo-Bridging-Header.h */,
 			);
 			name = Meta;
 			sourceTree = "<group>";
 		};
-		1B46E62F1DE84A8400353E8C /* DemoFormats */ = {
+		1B46E62F1DE84A8400353E8C /* User */ = {
 			isa = PBXGroup;
 			children = (
 				1B46E62D1DE8497400353E8C /* UserController.swift */,
 			);
-			name = DemoFormats;
-			sourceTree = "<group>";
-		};
-		1B46E6301DE84A8900353E8C /* User */ = {
-			isa = PBXGroup;
-			children = (
-				1B46E62B1DE8496A00353E8C /* DemoFormatsController.swift */,
-			);
 			name = User;
 			sourceTree = "<group>";
 		};
-		1B46E6311DE84C9F00353E8C /* TabBar */ = {
+		1B46E6301DE84A8900353E8C /* DemoFormats */ = {
+			isa = PBXGroup;
+			children = (
+				1B46E62B1DE8496A00353E8C /* DemoFormatsController.swift */,
+				1B0A21C01DE85EFE00E6C889 /* DemoFormatsViewModel.swift */,
+				1B0A21C21DE85FCD00E6C889 /* DemoFormatsProvider.swift */,
+				1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */,
+			);
+			name = DemoFormats;
+			sourceTree = "<group>";
+		};
+		1B46E6311DE84C9F00353E8C /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				1B46E6391DE84D3900353E8C /* SATabBarController.swift */,
+				1B0A21B81DE858FF00E6C889 /* SANavigationBar.swift */,
+				1B0A21BA1DE85AE600E6C889 /* SANavigationController.swift */,
 			);
-			name = TabBar;
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 		1B46E6361DE84CF300353E8C /* Aux */ = {
@@ -197,6 +242,7 @@
 					1B46E6111DE8445000353E8C = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = DCC9L689QJ;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -285,11 +331,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */,
+				1B0A21C11DE85EFE00E6C889 /* DemoFormatsViewModel.swift in Sources */,
+				1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */,
 				1B46E62C1DE8496A00353E8C /* DemoFormatsController.swift in Sources */,
+				1B0A21B91DE858FF00E6C889 /* SANavigationBar.swift in Sources */,
+				1B0A21EC1DE8A06800E6C889 /* AdAux.swift in Sources */,
 				1B46E6381DE84D0600353E8C /* UIColor+IntegerValues.swift in Sources */,
 				1B46E63A1DE84D3900353E8C /* SATabBarController.swift in Sources */,
+				1B0A21BB1DE85AE600E6C889 /* SANavigationController.swift in Sources */,
 				1B46E62E1DE8497400353E8C /* UserController.swift in Sources */,
+				1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */,
 				1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */,
+				1B0A21F21DE8A69900E6C889 /* AdPreload.swift in Sources */,
+				1B0A21C31DE85FCD00E6C889 /* DemoFormatsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +388,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -360,6 +416,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "AwesomeAdsDemo/AwesomeAdsDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -383,6 +440,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -402,6 +460,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AwesomeAdsDemo/AwesomeAdsDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -413,11 +472,14 @@
 			baseConfigurationReference = 5D589A348184E10589839BCA /* Pods-AwesomeAdsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = DCC9L689QJ;
 				INFOPLIST_FILE = AwesomeAdsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tv.superawesome.AwesomeAdsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AwesomeAdsDemo/AwesomeAdsDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -427,11 +489,13 @@
 			baseConfigurationReference = 71AB627BFB62FCEC92C3A7AF /* Pods-AwesomeAdsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = DCC9L689QJ;
 				INFOPLIST_FILE = AwesomeAdsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tv.superawesome.AwesomeAdsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AwesomeAdsDemo/AwesomeAdsDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
