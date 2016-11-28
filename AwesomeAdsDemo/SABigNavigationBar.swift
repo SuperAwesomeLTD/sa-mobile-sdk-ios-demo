@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SANavigationBar: UINavigationBar {
+class SABigNavigationBar: UINavigationBar {
     
     init() {
         let W = Int(UIScreen.main.bounds.size.width)

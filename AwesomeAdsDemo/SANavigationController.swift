@@ -9,9 +9,26 @@
 import UIKit
 
 extension UIViewController {
-    func makeSANavigationController () {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        let navigation: SANavigationBar = SANavigationBar()
-        self.view.addSubview(navigation)
+    func makeSABigNavigationController () {
+        if let nav = self.navigationController {
+            nav.setNavigationBarHidden(true, animated: false)
+            let navigation = SABigNavigationBar()
+            self.view.addSubview(navigation)
+        }
+    }
+    
+    func makeSASmallNavigationController (_ title: String) {
+        if let nav = self.navigationController {
+            nav.setNavigationBarHidden(true, animated: false)
+            let navigation = SASmallNavigationBar(title)
+            if let close = navigation.closeBtn {
+                close.addTarget(self, action: #selector(closeViewController), for: .touchUpInside)
+            }
+            self.view.addSubview(navigation)
+        }
+    }
+    
+    func closeViewController () {
+        // not implemented
     }
 }

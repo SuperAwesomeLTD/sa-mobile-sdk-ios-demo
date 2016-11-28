@@ -12,12 +12,18 @@ import RxCocoa
 
 class DemoFormatsController: UIViewController, UITableViewDelegate {
 
+    // outlets
     @IBOutlet weak var tableView: UITableView!
+    
+    // other vars
     let disposeBag = DisposeBag()
     private var currentPlacementId: Int = 0
+    private var placementId: Int = 0
+    private var test: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeSABigNavigationController()
         
         let provider = DemoFormatsProvider()
         
@@ -32,10 +38,9 @@ class DemoFormatsController: UIViewController, UITableViewDelegate {
         
         tableView.rx.modelSelected(DemoFormatsViewModel.self).subscribe(onNext: { model in
         
-            let settings = self.storyboard?.instantiateViewController(withIdentifier: "SettingsController") as! SettingsController
-            settings.placementId = model.getPlacementId()
-            settings.test = true
-            self.present(settings, animated: true, completion: nil)
+            self.placementId = model.getPlacementId()
+            self.test = true
+            self.performSegue(withIdentifier: "DemoToSettings", sender: self)
             
         }).addDisposableTo(disposeBag)
     }
@@ -48,8 +53,12 @@ class DemoFormatsController: UIViewController, UITableViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        makeSANavigationController()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nav = segue.destination as? UINavigationController,
+           let dest = nav.viewControllers.first as? SettingsController
+        {
+            dest.placementId = self.placementId
+            dest.test = self.test
+        }
     }
 }

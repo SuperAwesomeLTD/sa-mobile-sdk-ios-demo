@@ -35,14 +35,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-Bc-g1d">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Placement ID ..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-Bc-g1d">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="82k-fS-DJR"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d31-dq-4V2">
                                 <constraints>
@@ -83,6 +83,7 @@
                         <outlet property="moreButton" destination="d31-dq-4V2" id="qNW-1d-ziu"/>
                         <outlet property="nextButton" destination="cvE-lv-1Rd" id="D2r-UL-PpF"/>
                         <outlet property="placementTextView" destination="Yxb-Bc-g1d" id="3Dw-P4-5VO"/>
+                        <segue destination="OA5-VK-c9t" kind="presentation" identifier="UserToSettings" id="jcW-my-0Hs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7T-YP-XiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -196,29 +197,47 @@
                     <navigationItem key="navigationItem" id="zUi-LE-3um"/>
                     <connections>
                         <outlet property="tableView" destination="YNB-s8-4PX" id="rT8-pT-8jg"/>
+                        <segue destination="OA5-VK-c9t" kind="presentation" identifier="DemoToSettings" id="RKC-U9-HW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50I-6R-BWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1345" y="-465"/>
         </scene>
-        <!--Settings Controller-->
-        <scene sceneID="PDo-ST-4lf">
+        <!--Navigation Controller-->
+        <scene sceneID="7z7-ya-hvs">
             <objects>
-                <viewController storyboardIdentifier="SettingsController" id="9fd-2Z-irz" customClass="SettingsController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="OA5-VK-c9t" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oqh-DQ-TS1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WT9-14-Jpq" kind="relationship" relationship="rootViewController" id="N8A-tj-bE4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WdY-Ma-ozP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2138" y="-148"/>
+        </scene>
+        <!--Settings Controller-->
+        <scene sceneID="4NG-8e-v7q">
+            <objects>
+                <viewController id="WT9-14-Jpq" customClass="SettingsController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="243-Ky-KFy"/>
-                        <viewControllerLayoutGuide type="bottom" id="yzx-4B-amy"/>
+                        <viewControllerLayoutGuide type="top" id="f1t-f4-B7N"/>
+                        <viewControllerLayoutGuide type="bottom" id="t77-KW-Cy0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="L10-dG-A6P">
+                    <view key="view" contentMode="scaleToFill" id="zGb-lZ-83g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sUU-H1-2iL"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mo7-6q-UuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o9g-yy-8Yf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="-130"/>
+            <point key="canvasLocation" x="2868" y="-149"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b7p-Bp-2ia">
@@ -239,4 +258,7 @@
             <point key="canvasLocation" x="-398" y="-96"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jcW-my-0Hs"/>
+    </inferredMetricsTieBreakers>
 </document>
