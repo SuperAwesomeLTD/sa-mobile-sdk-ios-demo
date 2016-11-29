@@ -10,13 +10,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DemoFormatsController: UIViewController, UITableViewDelegate {
+class DemoFormatsController: UIViewController {
 
     // outlets
     @IBOutlet weak var tableView: UITableView!
     
-    // other vars
+    // the dispose bag
     let disposeBag = DisposeBag()
+    
+    // other vars
     private var currentPlacementId: Int = 0
     private var placementId: Int = 0
     private var test: Bool = false
@@ -25,30 +27,32 @@ class DemoFormatsController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         makeSABigNavigationController()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 101
+        
         let provider = DemoFormatsProvider()
         
+        // bind provider to table
         provider.getDemoFormats().toArray()
-        .bindTo(tableView.rx.items(cellIdentifier: DemoFormatsRow.Identifier, cellType: DemoFormatsRow.self)) { index, model, row in
+            .bindTo(tableView.rx.items(cellIdentifier: DemoFormatsRow.Identifier, cellType: DemoFormatsRow.self)) { index, model, row in
             
-            row.icon.image = UIImage(named: model.getSource())
-            row.title.text = model.getName()
-            row.details.text = model.getDetails()
+                row.icon.image = UIImage(named: model.getSource())
+                row.title.text = model.getName()
+                row.details.text = model.getDetails()
                 
-        }.addDisposableTo(disposeBag)
+            }.addDisposableTo(disposeBag)
         
-        tableView.rx.modelSelected(DemoFormatsViewModel.self).subscribe(onNext: { model in
+        // bind selection for table
+        tableView.rx.modelSelected(DemoFormatsViewModel.self)
+            .subscribe(onNext: { model in
         
-            self.placementId = model.getPlacementId()
-            self.test = true
-            self.performSegue(withIdentifier: "DemoToSettings", sender: self)
+                self.placementId = model.getPlacementId()
+                self.test = true
+                self.performSegue(withIdentifier: "DemoToSettings", sender: self)
             
-        }).addDisposableTo(disposeBag)
+            }).addDisposableTo(disposeBag)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 101
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

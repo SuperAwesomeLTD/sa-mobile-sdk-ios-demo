@@ -17,7 +17,7 @@ extension UIViewController {
         }
     }
     
-    func makeSASmallNavigationController (_ title: String) {
+    func makeSASmallNavigationController (withTitle title: String) {
         if let nav = self.navigationController {
             nav.setNavigationBarHidden(true, animated: false)
             let navigation = SASmallNavigationBar(title)
@@ -29,6 +29,6 @@ extension UIViewController {
     }
     
     func closeViewController () {
-        // not implemented
+        self.dismiss(animated: true, completion: nil)
     }
 }

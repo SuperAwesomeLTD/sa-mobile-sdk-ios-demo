@@ -18,9 +18,11 @@ class UserController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     
-    // other vars
+    // the dispose abg
     let disposeBag = DisposeBag()
-    private var currentModel: UserModel?
+    
+    // other vars
+    private var currentModel: UserModel!
     private var placementId: Int = 0
     private var test: Bool = false
     
@@ -28,43 +30,50 @@ class UserController: UIViewController {
         super.viewDidLoad()
         makeSABigNavigationController()
         
+        // placement text view
         placementTextView.rx.text.orEmpty
-            .map({ text -> UserModel in return UserModel(text) })
-            .do(onNext: { userModel in self.currentModel = userModel })
-            .map({ userModel -> Bool in return userModel.isValid() })
-            .subscribe(onNext: { isValid in self.setNextButtonState(isValid) })
+            .map({ text -> UserModel in
+                return UserModel(text)
+            })
+            .do(onNext: { userModel in
+                self.currentModel = userModel
+            })
+            .map({ userModel -> Bool in
+                return userModel.isValid()
+            })
+            .subscribe(onNext: { isValid in
+                self.nextButton.isEnabled = isValid
+                self.nextButton.backgroundColor = isValid ? SAColor(red: 20, green: 124, blue: 205) : UIColor.lightGray
+            })
             .addDisposableTo(disposeBag)
         
-        nextButton.rx.tap.subscribe(onNext: { Void in
+        // next button tap
+        nextButton.rx.tap
+            .subscribe(onNext: { Void in
             
-            if let current = self.currentModel {
-                self.placementId = current.getPlacementID()
+                self.placementId = self.currentModel.getPlacementID()
                 self.test = false
                 self.performSegue(withIdentifier: "UserToSettings", sender: self)
-            }
             
-        }).addDisposableTo(disposeBag)
+            }).addDisposableTo(disposeBag)
         
-        moreButton.rx.tap.subscribe(onNext: { Void in self.findOutMorePopup() } ).addDisposableTo(disposeBag)
+        // more button tap
+        moreButton.rx.tap
+            .subscribe(onNext: { Void in
+            
+                SAPopup.sharedManager().show(withTitle: "Log in to AwesomeAds",
+                                             andMessage: "Under the \'Apps and Sites\' section you\'ll see a \'Placement ID\' column next to each of your placements.",
+                                             andOKTitle: "Got it!",
+                                             andNOKTitle: nil,
+                                             andTextField: false,
+                                             andKeyboardTyle: .default,
+                                         	andPressed: nil)
+            
+            }).addDisposableTo(disposeBag)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func setNextButtonState (_ state: Bool) {
-        nextButton.isEnabled = state
-        nextButton.backgroundColor = state ? SAColor(red: 20, green: 124, blue: 205) : UIColor.lightGray
-    }
-    
-    func findOutMorePopup () {
-        SAPopup.sharedManager().show(withTitle: "Log in to AwesomeAds",
-                                     andMessage: "Under the \'Apps and Sites\' section you\'ll see a \'Placement ID\' column next to each of your placements.",
-                                     andOKTitle: "Got it!",
-                                     andNOKTitle: nil,
-                                     andTextField: false,
-                                     andKeyboardTyle: .default,
-                                     andPressed: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
