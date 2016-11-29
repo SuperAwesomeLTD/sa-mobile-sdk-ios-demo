@@ -8,6 +8,7 @@
 
 import UIKit
 import SuperAwesome
+import SAModelSpace
 
 class AdAux: NSObject {
 

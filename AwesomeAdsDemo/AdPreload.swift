@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 import SAAdLoader
 import SuperAwesome
+import SASession
 
 class AdPreload: NSObject {
 
@@ -28,12 +29,8 @@ class AdPreload: NSObject {
             loader.loadAd(placementId, with: session) { response in
                 
                 let format: AdFormat = adAux.determineAdType(response)
-                if format == .unknown {
-                    observer.onError(NSError())
-                } else {
-                    observer.onNext(format)
-                    observer.onCompleted()
-                }
+                observer.onNext(format)
+                observer.onCompleted()
             }
             
             return Disposables.create()

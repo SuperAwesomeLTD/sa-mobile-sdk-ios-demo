@@ -123,10 +123,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DemoFormatsRowID" rowHeight="101" id="Yge-qb-baY" customClass="DemoFormatsRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="1000" height="101"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yge-qb-baY" id="sod-uf-ru4">
-                                            <frame key="frameInset" width="1000" height="101"/>
+                                            <frame key="frameInset" width="375" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umT-ci-4Pi">
@@ -332,11 +332,30 @@
                     <connections>
                         <outlet property="loadButton" destination="Hml-rX-7e1" id="MNN-5z-yRL"/>
                         <outlet property="tableView" destination="kym-R2-dda" id="auG-NW-RUx"/>
+                        <segue destination="6OP-Vx-Dlb" kind="show" identifier="SettingsToDisplay" id="JVy-Sr-Eqq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9g-yy-8Yf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2868" y="-149.77511244377811"/>
+        </scene>
+        <!--Display Controller-->
+        <scene sceneID="fli-eE-Zqr">
+            <objects>
+                <viewController id="6OP-Vx-Dlb" customClass="DisplayController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="igb-hr-3g6"/>
+                        <viewControllerLayoutGuide type="bottom" id="HOO-RC-zrM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mfu-BH-Uo9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zq-y8-GYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3684" y="-149"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b7p-Bp-2ia">
