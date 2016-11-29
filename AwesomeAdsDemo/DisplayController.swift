@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import SuperAwesome
 
-class DisplayController: UIViewController {
+class DisplayController: SABaseViewController {
 
+    @IBOutlet weak var normalAndSmallBanner: SABannerAd!
+    @IBOutlet weak var mpuBanner: SABannerAd!
+    @IBOutlet weak var bigBanner: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

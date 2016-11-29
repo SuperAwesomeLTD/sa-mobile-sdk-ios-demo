@@ -13,7 +13,7 @@ import SAUtils
 import SuperAwesome
 import SAUtils
 
-class SettingsController: UIViewController {
+class SettingsController: SABaseViewController {
 
     // outlets
     @IBOutlet weak var tableView: UITableView!
@@ -110,7 +110,11 @@ class SettingsController: UIViewController {
                 return Void()
             }
             .subscribe(onNext: {
-                self.performSegue(withIdentifier: "SettingsToDisplay", sender: self)
+                
+                self.performSegue(withIdentifier: "SettingsToDisplay", sender: self, onSegue: { (destination) in
+                    
+                })
+    
             }).addDisposableTo(disposeBag)
         
         // act on the loading and button observables together to make a

@@ -25,6 +25,7 @@
 		1B46E6381DE84D0600353E8C /* UIColor+IntegerValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6371DE84D0600353E8C /* UIColor+IntegerValues.swift */; };
 		1B46E63A1DE84D3900353E8C /* SATabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6391DE84D3900353E8C /* SATabBarController.swift */; };
 		1B4A518B1DEDEDD40041DE7B /* DisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A518A1DEDEDD40041DE7B /* DisplayController.swift */; };
+		1B4A518D1DEDFEC20041DE7B /* SABaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4A518C1DEDFEC20041DE7B /* SABaseViewController.swift */; };
 		1B56355A1DEC409600EEA239 /* SASmallNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5635591DEC409600EEA239 /* SASmallNavigationBar.swift */; };
 		1B56355D1DEC6ACD00EEA239 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B56355C1DEC6ACD00EEA239 /* UserModel.swift */; };
 		1B56355F1DEC7E7C00EEA239 /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B56355E1DEC7E7C00EEA239 /* SettingsRow.swift */; };
@@ -55,6 +56,7 @@
 		1B46E6371DE84D0600353E8C /* UIColor+IntegerValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+IntegerValues.swift"; sourceTree = "<group>"; };
 		1B46E6391DE84D3900353E8C /* SATabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SATabBarController.swift; sourceTree = "<group>"; };
 		1B4A518A1DEDEDD40041DE7B /* DisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayController.swift; sourceTree = "<group>"; };
+		1B4A518C1DEDFEC20041DE7B /* SABaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SABaseViewController.swift; sourceTree = "<group>"; };
 		1B5635591DEC409600EEA239 /* SASmallNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SASmallNavigationBar.swift; sourceTree = "<group>"; };
 		1B56355C1DEC6ACD00EEA239 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		1B56355E1DEC7E7C00EEA239 /* SettingsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				1B0A21B81DE858FF00E6C889 /* SABigNavigationBar.swift */,
 				1B5635591DEC409600EEA239 /* SASmallNavigationBar.swift */,
 				1B0A21BA1DE85AE600E6C889 /* SANavigationController.swift */,
+				1B4A518C1DEDFEC20041DE7B /* SABaseViewController.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				1B4A518B1DEDEDD40041DE7B /* DisplayController.swift in Sources */,
 				1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */,
 				1B0A21F21DE8A69900E6C889 /* AdPreload.swift in Sources */,
+				1B4A518D1DEDFEC20041DE7B /* SABaseViewController.swift in Sources */,
 				1B0A21C31DE85FCD00E6C889 /* DemoFormatsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

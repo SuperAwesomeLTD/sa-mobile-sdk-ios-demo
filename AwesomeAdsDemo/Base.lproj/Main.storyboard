@@ -332,12 +332,28 @@
                     <connections>
                         <outlet property="loadButton" destination="Hml-rX-7e1" id="MNN-5z-yRL"/>
                         <outlet property="tableView" destination="kym-R2-dda" id="auG-NW-RUx"/>
-                        <segue destination="6OP-Vx-Dlb" kind="show" identifier="SettingsToDisplay" id="JVy-Sr-Eqq"/>
+                        <segue destination="DcO-0Y-3v8" kind="presentation" identifier="SettingsToDisplay" id="El0-C5-iOy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9g-yy-8Yf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2868" y="-149.77511244377811"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r08-QX-2y9">
+            <objects>
+                <navigationController id="DcO-0Y-3v8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MBF-ho-RDz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6OP-Vx-Dlb" kind="relationship" relationship="rootViewController" id="oAx-Fb-eJK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLb-J0-jya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3650" y="-152"/>
         </scene>
         <!--Display Controller-->
         <scene sceneID="fli-eE-Zqr">
@@ -350,12 +366,72 @@
                     <view key="view" contentMode="scaleToFill" id="Mfu-BH-Uo9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8i5-WI-Pql" customClass="SABannerAd">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jdk-zd-xmO"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YmL-NT-Xwk">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kbx-vU-ube" customClass="SABannerAd">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="236" id="4k2-el-jKp"/>
+                                    <constraint firstAttribute="width" constant="242" id="uvm-Nq-WDp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XgV-uO-x4B">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUs-Sw-39j">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="236" id="isB-Lo-cVr"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vm8-tn-wD3" customClass="SABannerAd">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wlf-TL-Le9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8i5-WI-Pql" firstAttribute="leading" secondItem="Mfu-BH-Uo9" secondAttribute="leading" constant="9" id="2U2-TY-iug"/>
+                            <constraint firstItem="vm8-tn-wD3" firstAttribute="top" secondItem="Kbx-vU-ube" secondAttribute="bottom" constant="7.5" id="59a-le-a2f"/>
+                            <constraint firstAttribute="trailing" secondItem="vm8-tn-wD3" secondAttribute="trailing" constant="10" id="5EU-Ri-F3a"/>
+                            <constraint firstItem="HOO-RC-zrM" firstAttribute="top" secondItem="XgV-uO-x4B" secondAttribute="bottom" constant="8" id="8ZC-GU-E6T"/>
+                            <constraint firstItem="jUs-Sw-39j" firstAttribute="top" secondItem="YmL-NT-Xwk" secondAttribute="bottom" constant="7" id="AX9-TH-eND"/>
+                            <constraint firstAttribute="trailing" secondItem="XgV-uO-x4B" secondAttribute="trailing" constant="10" id="BPY-x4-3xH"/>
+                            <constraint firstItem="vm8-tn-wD3" firstAttribute="leading" secondItem="Mfu-BH-Uo9" secondAttribute="leading" constant="9" id="De1-bt-6bq"/>
+                            <constraint firstItem="Kbx-vU-ube" firstAttribute="leading" secondItem="Mfu-BH-Uo9" secondAttribute="leading" constant="9" id="EIS-5Z-j6s"/>
+                            <constraint firstItem="YmL-NT-Xwk" firstAttribute="leading" secondItem="Mfu-BH-Uo9" secondAttribute="leading" constant="9" id="H2k-oL-IkC"/>
+                            <constraint firstItem="XgV-uO-x4B" firstAttribute="leading" secondItem="Mfu-BH-Uo9" secondAttribute="leading" constant="9" id="Rtr-e3-aNh"/>
+                            <constraint firstAttribute="trailing" secondItem="jUs-Sw-39j" secondAttribute="trailing" constant="10" id="YZh-qP-Xhs"/>
+                            <constraint firstItem="XgV-uO-x4B" firstAttribute="top" secondItem="vm8-tn-wD3" secondAttribute="bottom" constant="8" id="bUl-uw-jXb"/>
+                            <constraint firstAttribute="trailing" secondItem="8i5-WI-Pql" secondAttribute="trailing" constant="10" id="hPM-iw-I8v"/>
+                            <constraint firstItem="Kbx-vU-ube" firstAttribute="centerY" secondItem="Mfu-BH-Uo9" secondAttribute="centerY" id="iPk-z9-bEX"/>
+                            <constraint firstAttribute="trailing" secondItem="YmL-NT-Xwk" secondAttribute="trailing" constant="10" id="rjf-VY-I1G"/>
+                            <constraint firstItem="YmL-NT-Xwk" firstAttribute="top" secondItem="8i5-WI-Pql" secondAttribute="bottom" constant="8" id="t8z-ZN-La5"/>
+                            <constraint firstItem="jUs-Sw-39j" firstAttribute="centerY" secondItem="Mfu-BH-Uo9" secondAttribute="centerY" id="tH3-Se-Ae5"/>
+                            <constraint firstItem="jUs-Sw-39j" firstAttribute="leading" secondItem="Kbx-vU-ube" secondAttribute="trailing" constant="8" id="z2K-vk-Wqf"/>
+                            <constraint firstItem="8i5-WI-Pql" firstAttribute="top" secondItem="igb-hr-3g6" secondAttribute="bottom" constant="58" id="z9E-GB-w4m"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nX7-Jw-VJh"/>
+                    <connections>
+                        <outlet property="bigBanner" destination="jUs-Sw-39j" id="aoe-8w-pLZ"/>
+                        <outlet property="mpuBanner" destination="Kbx-vU-ube" id="yN0-oS-qV0"/>
+                        <outlet property="normalAndSmallBanner" destination="8i5-WI-Pql" id="GAZ-mV-1BU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zq-y8-GYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3684" y="-149"/>
+            <point key="canvasLocation" x="4438" y="-152"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b7p-Bp-2ia">

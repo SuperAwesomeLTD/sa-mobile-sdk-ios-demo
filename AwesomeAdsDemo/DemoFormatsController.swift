@@ -10,18 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DemoFormatsController: UIViewController {
+class DemoFormatsController: SABaseViewController {
 
     // outlets
     @IBOutlet weak var tableView: UITableView!
     
     // the dispose bag
     let disposeBag = DisposeBag()
-    
-    // other vars
-    private var currentPlacementId: Int = 0
-    private var placementId: Int = 0
-    private var test: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,23 +41,19 @@ class DemoFormatsController: UIViewController {
         tableView.rx.modelSelected(DemoFormatsViewModel.self)
             .subscribe(onNext: { model in
         
-                self.placementId = model.getPlacementId()
-                self.test = true
-                self.performSegue(withIdentifier: "DemoToSettings", sender: self)
+                self.performSegue(withIdentifier: "DemoToSettings", sender: self, onSegue: { (destination) in
+                    if let nav = destination as? UINavigationController,
+                        let dest = nav.viewControllers.first as? SettingsController
+                    {
+                        dest.placementId = model.getPlacementId()
+                        dest.test = true
+                    }
+                })
             
             }).addDisposableTo(disposeBag)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nav = segue.destination as? UINavigationController,
-           let dest = nav.viewControllers.first as? SettingsController
-        {
-            dest.placementId = self.placementId
-            dest.test = self.test
-        }
     }
 }

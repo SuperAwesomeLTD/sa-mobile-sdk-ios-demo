@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import SAUtils
 
-class UserController: UIViewController {
+class UserController: SABaseViewController {
 
     // outlets
     @IBOutlet weak var placementTextView: UITextField!
@@ -23,8 +23,6 @@ class UserController: UIViewController {
     
     // other vars
     private var currentModel: UserModel!
-    private var placementId: Int = 0
-    private var test: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +49,14 @@ class UserController: UIViewController {
         nextButton.rx.tap
             .subscribe(onNext: { Void in
             
-                self.placementId = self.currentModel.getPlacementID()
-                self.test = false
-                self.performSegue(withIdentifier: "UserToSettings", sender: self)
+                self.performSegue(withIdentifier: "UserToSettings", sender: self, onSegue: { (destination: UIViewController) in
+                    if let nav = destination as? UINavigationController,
+                        let dest = nav.viewControllers.first as? SettingsController {
+                        
+                        dest.placementId = self.currentModel.getPlacementID()
+                        dest.test = false
+                    }
+                })
             
             }).addDisposableTo(disposeBag)
         
@@ -74,14 +77,4 @@ class UserController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nav = segue.destination as? UINavigationController,
-            let dest = nav.viewControllers.first as? SettingsController
-        {
-            dest.placementId = self.placementId
-            dest.test = self.test
-        }
-    }
-}
+    }}
