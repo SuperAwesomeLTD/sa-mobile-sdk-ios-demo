@@ -31,6 +31,7 @@
 		1B56355F1DEC7E7C00EEA239 /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B56355E1DEC7E7C00EEA239 /* SettingsRow.swift */; };
 		1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5635601DEC803C00EEA239 /* SettingsProvider.swift */; };
 		1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5635621DEC804600EEA239 /* SettingsViewModel.swift */; };
+		1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD63851DEF37B0003F7F31 /* AdRx.swift */; };
 		B4408C61ABA60EA095F6C619 /* Pods_AwesomeAdsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18092C0E7DE877641F84353 /* Pods_AwesomeAdsDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		1B56355E1DEC7E7C00EEA239 /* SettingsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		1B5635601DEC803C00EEA239 /* SettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProvider.swift; sourceTree = "<group>"; };
 		1B5635621DEC804600EEA239 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		1BFD63851DEF37B0003F7F31 /* AdRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdRx.swift; sourceTree = "<group>"; };
 		5D589A348184E10589839BCA /* Pods-AwesomeAdsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		71AB627BFB62FCEC92C3A7AF /* Pods-AwesomeAdsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F18092C0E7DE877641F84353 /* Pods_AwesomeAdsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				1B0A21E91DE8A03000E6C889 /* AdFormat.swift */,
 				1B0A21EB1DE8A06800E6C889 /* AdAux.swift */,
 				1B0A21F11DE8A69900E6C889 /* AdPreload.swift */,
+				1BFD63851DEF37B0003F7F31 /* AdRx.swift */,
 			);
 			name = AdAux;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */,
 				1B0A21C11DE85EFE00E6C889 /* DemoFormatsViewModel.swift in Sources */,
+				1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */,
 				1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */,
 				1B46E62C1DE8496A00353E8C /* DemoFormatsController.swift in Sources */,
 				1B0A21B91DE858FF00E6C889 /* SABigNavigationBar.swift in Sources */,
@@ -447,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -493,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "AwesomeAdsDemo/AwesomeAdsDemo-Bridging-Header.h";

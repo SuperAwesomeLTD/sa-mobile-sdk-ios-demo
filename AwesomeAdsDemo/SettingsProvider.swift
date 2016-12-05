@@ -129,4 +129,32 @@ class SettingsProvider: NSObject {
         return settingsDict[KEY_SMALL_CLICK]!
     }
     
+    func getParentalGateValue () -> Bool {
+        return getParentalGate().getItemValue()
+    }
+    
+    func getTransparentBgValue () -> Bool {
+        return getTransparentBg().getItemValue()
+    }
+    
+    func getLockToPortraitValue () -> Bool {
+        return getLockToPortrait().getItemValue()
+    }
+    
+    func getLockToLandscapeValue () -> Bool {
+        return getLockToLandscape().getItemValue()
+    }
+    
+    func getCloseButtonValue () -> Bool {
+        return getCloseButton().getItemValue()
+    }
+    
+    func getAutoCloseValue () -> Bool {
+        return getAutoClose().getItemValue()
+    }
+    
+    func getSmallClickValue () -> Bool {
+        return getSmallClick().getItemValue()
+    }
+    
 }

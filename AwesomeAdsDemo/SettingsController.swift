@@ -22,15 +22,14 @@ class SettingsController: SABaseViewController {
     // state vars to know what to load
     var placementId: Int = 0
     var test: Bool = false
-    
-    // the ad preload object
-    let disposeBag = DisposeBag ()
+    var headerTitle: String = ""
+    var format: AdFormat = .unknown
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // prepare view controller
-        self.makeSASmallNavigationController(withTitle: "Settings")
+        self.makeSASmallNavigationController()
         
         // prepare table
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -47,11 +46,25 @@ class SettingsController: SABaseViewController {
         // act on the loading observable
         loadRx
             .do(onNext: { (format) in
-                    // do nothing
+                
+                switch format {
+                case .smallbanner: self.headerTitle = "Mobile Small Leaderboard"; break
+                case .normalbanner: self.headerTitle = "Mobile Leaderboard"; break
+                case .bigbanner: self.headerTitle = "Tablet Leaderboard"; break
+                case .mpu: self.headerTitle = "Tablet MPU"; break
+                case .interstitial: self.headerTitle = "Interstitial"; break
+                case .video: self.headerTitle = "Video"; break
+                case .gamewall: self.headerTitle = "App Wall"; break
+                case .unknown: break
+                }
+                
+                self.format = format
+                
                 }, onError: { (error) in
                     SAActivityView.sharedManager().hide()
                 }, onCompleted: { 
                     SAActivityView.sharedManager().hide()
+                    self.setSASmallNavigationControllerTitle(self.headerTitle)
                 }, onSubscribe: { 
                     SAActivityView.sharedManager().show()
                 })
@@ -97,25 +110,32 @@ class SettingsController: SABaseViewController {
         
         // act on the loading and button observables together to make a
         // decision for the banner type ad
-        Observable.combineLatest(buttonRx, loadRx) { (_, format: AdFormat) -> Bool in
+        Observable.combineLatest(buttonRx, loadRx) { (_, format: AdFormat) -> AdFormat in
+                return format
+            }
+            .filter { (format) -> Bool in
                 return format == AdFormat.smallbanner ||
                        format == AdFormat.normalbanner ||
                        format == AdFormat.bigbanner ||
                        format == AdFormat.mpu
+
             }
-            .filter { (value) -> Bool in
-                return value
-            }
-            .map { (value) -> Void in
-                return Void()
-            }
-            .subscribe(onNext: {
+            .flatMap({ (format) -> Observable<UIViewController> in
+                return self.rxSeque(withIdentifier: "SettingsToDisplay")
+            })
+            .subscribe(onNext: { (destination) in
                 
-                self.performSegue(withIdentifier: "SettingsToDisplay", sender: self, onSegue: { (destination) in
-                    
-                })
-    
-            }).addDisposableTo(disposeBag)
+                if let nav = destination as? UINavigationController, let dest = nav.viewControllers.first as? DisplayController {
+                    dest.headerTitle = self.headerTitle
+                    dest.placementId = self.placementId
+                    dest.test = self.test
+                    dest.format = self.format
+                    dest.parentalGate = provider.getParentalGate().getItemValue()
+                    dest.bgColor = provider.getTransparentBg().getItemValue()
+                }
+                
+            })
+            .addDisposableTo(disposeBag)
         
         // act on the loading and button observables together to make a
         // decision for the interstitial type ad
@@ -125,24 +145,25 @@ class SettingsController: SABaseViewController {
             .filter { (format) -> Bool in
                 return format == .interstitial
             }
-            .map({ (format) -> Void in
-                return Void()
-            })
-            .subscribe(onNext: {
-                
-                // get latest values from the provider
-                let pid = self.placementId
-                let test = self.test
-                let pg = provider.getParentalGate().getItemValue()
-                let portrait = provider.getLockToPortrait().getItemValue()
-                let landscape = provider.getLockToLandscape().getItemValue()
+            .do(onNext: { (format) in
                 
                 // setup & load
-                SAInterstitialAd.setTestMode(test)
-                SAInterstitialAd.setParentalGate(pg)
-                SAInterstitialAd.setOrientation(landscape ? .LANDSCAPE : portrait ? .PORTRAIT : .ANY)
-                SAInterstitialAd.load(pid)
+                SAInterstitialAd.setTestMode(self.test)
+                SAInterstitialAd.setParentalGate(provider.getParentalGateValue())
+                SAInterstitialAd.setOrientation(
+                    provider.getLockToLandscapeValue() ? .LANDSCAPE :
+                        provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)
+
                 
+            })
+            .flatMap({ (format) -> Observable<SAEvent> in
+                return SAInterstitialAd.loadRx(self.placementId)
+            })
+            .filter({ (event) -> Bool in
+                return event == .adLoaded
+            })
+            .subscribe(onNext: { (event) in
+                SAInterstitialAd.play(self.placementId, fromVC: self)
             })
             .addDisposableTo(disposeBag)
         
@@ -154,48 +175,34 @@ class SettingsController: SABaseViewController {
             .filter { (format) -> Bool in
                 return format == .video
             }
-            .map { (format) -> Void in
-                return Void()
-            }
-            .subscribe(onNext: {
-            
-                // get latest values from the provider
-                let pid = self.placementId
-                let test = self.test
-                let pg = provider.getParentalGate().getItemValue()
-                let portrait = provider.getLockToPortrait().getItemValue()
-                let landscape = provider.getLockToLandscape().getItemValue()
-                let closebtn = provider.getCloseButton().getItemValue()
-                let autoclose = provider.getAutoClose().getItemValue()
-                let smallclick = provider.getSmallClick().getItemValue()
+            .do(onNext: { (format) in
                 
                 // setup & load
-                SAVideoAd.setTestMode(test)
-                SAVideoAd.setParentalGate(pg)
-                SAVideoAd.setOrientation(landscape ? .LANDSCAPE : portrait ? .PORTRAIT : .ANY)
-                SAVideoAd.setCloseButton(closebtn)
-                SAVideoAd.setCloseAtEnd(autoclose)
-                SAVideoAd.setSmallClick(smallclick)
-                SAVideoAd.load(pid)
+                SAVideoAd.setTestMode(self.test)
+                SAVideoAd.setParentalGate(provider.getParentalGateValue())
+                SAVideoAd.setOrientation(
+                    provider.getLockToLandscapeValue() ? .LANDSCAPE :
+                        provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)
+                SAVideoAd.setCloseButton(provider.getCloseButtonValue())
+                SAVideoAd.setCloseAtEnd(provider.getAutoCloseValue())
+                SAVideoAd.setSmallClick(provider.getSmallClickValue())
                 
             })
+            .flatMap({ (format) -> Observable<SAEvent> in
+                return SAVideoAd.loadRx(self.placementId)
+            })
+            .filter({ (event) -> Bool in
+                return event == .adLoaded
+            })
+            .subscribe(onNext: { (event) in
+                SAVideoAd.play(self.placementId, fromVC: self)
+            })
             .addDisposableTo(disposeBag)
-        
-        // add handlers
-        SAInterstitialAd.setCallback { (placementId: Int, event: SAEvent) in
-            if event == .adLoaded {
-                SAInterstitialAd.play(placementId, fromVC: self)
-            }
-        }
-        
-        SAVideoAd.setCallback { (placementId: Int, event: SAEvent) in
-            if event == .adLoaded {
-                SAVideoAd.play(placementId, fromVC: self)
-            }
-        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return .lightContent
+        }
     }
 }

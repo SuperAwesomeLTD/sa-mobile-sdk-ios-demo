@@ -49,11 +49,6 @@ class SATabBarController: UITabBarController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        let frame = CGRect(x: 0, y: size.height - tabBar.frame.size.height, width: size.width, height: tabBar.frame.height)
-        rearrangeSubviews(frame: frame)
-    }
-    
     func rearrangeSubviews (frame: CGRect) {
         // data
         let half = frame.width / 2
@@ -89,6 +84,24 @@ class SATabBarController: UITabBarController {
         
         if let vcs = self.viewControllers {
             self.selectedViewController = vcs[1]
+        }
+    }
+    
+    override var shouldAutorotate: Bool {
+        get {
+            return true
+        }
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return .portrait
+        }
+    }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        get {
+            return .portrait
         }
     }
 }

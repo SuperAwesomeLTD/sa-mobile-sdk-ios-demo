@@ -1,6 +1,9 @@
 PODS:
   - RxCocoa (3.0.1):
     - RxSwift (~> 3.0)
+  - RxGesture (0.2.0):
+    - RxCocoa (~> 3.0.0)
+    - RxSwift (~> 3.0.0)
   - RxSwift (3.0.1)
   - SAAdLoader (0.8.5):
     - SAModelSpace (= 0.3.2)
@@ -42,12 +45,12 @@ PODS:
     - SuperAwesome/Base
 
 DEPENDENCIES:
-  - RxCocoa (= 3.0.1)
-  - RxSwift (= 3.0.1)
+  - RxGesture
   - SuperAwesome
 
 SPEC CHECKSUMS:
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxGesture: 17b250d3c6732b35fab53d09800d35ceef717847
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
   SAAdLoader: e8cab295f891ee0946e42fd9e7926595042c4652
   SAEvents: 89d04c71ac4b889f520ba2cc429c1713cc1ea950
@@ -60,6 +63,6 @@ SPEC CHECKSUMS:
   SAWebPlayer: 0eb52c8d0fd47136534c3391043c18f969c6170f
   SuperAwesome: bde915d0f80aa9f5a5be7a4201d4b288e7473988
 
-PODFILE CHECKSUM: f43e5cade6933ca9085a026888da6c48b887ffc1
+PODFILE CHECKSUM: 3a56f20999c1f437683120605d499fc348ba738e
 
 COCOAPODS: 1.2.0.beta.1

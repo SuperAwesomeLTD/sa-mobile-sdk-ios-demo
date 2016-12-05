@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
-extension UIViewController {
+extension SABaseViewController {
+    
     func makeSABigNavigationController () {
         if let nav = self.navigationController {
             nav.setNavigationBarHidden(true, animated: false)
@@ -17,19 +20,46 @@ extension UIViewController {
         }
     }
     
-    func makeSASmallNavigationController (withTitle title: String) {
+    func makeSASmallNavigationController () {
         if let nav = self.navigationController {
             nav.setNavigationBarHidden(true, animated: false)
-            let navigation = SASmallNavigationBar(title)
+            let navigation = SASmallNavigationBar()
             if let close = navigation.closeBtn {
-                close.addTarget(self, action: #selector(closeViewController), for: .touchUpInside)
+                close.rx.tap
+                    .subscribe(onNext: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                    .addDisposableTo(disposeBag)
             }
             self.view.addSubview(navigation)
         }
     }
     
-    func closeViewController () {
-        self.dismiss(animated: true, completion: nil)
+    func setSASmallNavigationControllerTitle (_ title: String) {
+        for v in self.view.subviews {
+            if let v = v as? SASmallNavigationBar {
+                v.setTitle(title)
+            }
+        }
+    }
+}
+
+class SANavigationController : UINavigationController {
+    override var shouldAutorotate: Bool {
+        get {
+            return true
+        }
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return .portrait
+        }
+    }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        get {
+            return .portrait
+        }
+    }
 }

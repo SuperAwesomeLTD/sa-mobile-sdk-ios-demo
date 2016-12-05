@@ -15,8 +15,8 @@ class DemoFormatsController: SABaseViewController {
     // outlets
     @IBOutlet weak var tableView: UITableView!
     
-    // the dispose bag
-    let disposeBag = DisposeBag()
+    // private vars
+    private var currentModel: DemoFormatsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,21 +39,20 @@ class DemoFormatsController: SABaseViewController {
         
         // bind selection for table
         tableView.rx.modelSelected(DemoFormatsViewModel.self)
-            .subscribe(onNext: { model in
-        
-                self.performSegue(withIdentifier: "DemoToSettings", sender: self, onSegue: { (destination) in
-                    if let nav = destination as? UINavigationController,
-                        let dest = nav.viewControllers.first as? SettingsController
-                    {
-                        dest.placementId = model.getPlacementId()
-                        dest.test = true
-                    }
-                })
-            
-            }).addDisposableTo(disposeBag)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+            .do(onNext: { (model) in
+                self.currentModel = model
+            })
+            .flatMap { (model) -> Observable<UIViewController> in
+                return self.rxSeque(withIdentifier: "DemoToSettings")
+            }
+            .subscribe(onNext: { (destination) in
+                
+                if let nav = destination as? UINavigationController, let dest = nav.viewControllers.first as? SettingsController {
+                    dest.placementId = self.currentModel.getPlacementId()
+                    dest.test = true
+                }
+                
+            })
+            .addDisposableTo(disposeBag)
     }
 }

@@ -9,13 +9,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AwesomeAdsDemo/AdAux.swift"
-            timestampString = "502127111.001585"
+            filePath = "Pods/SuperAwesome/Pod/Classes/Views/SABannerAd.m"
+            timestampString = "502196252.91053"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "determineAdType(_:)"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "-resize:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/SAWebPlayer/Pod/Classes/SAWebPlayer.m"
+            timestampString = "502194030.893753"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-updateToFrame:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

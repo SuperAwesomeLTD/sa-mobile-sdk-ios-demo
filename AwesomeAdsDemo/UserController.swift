@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SAUtils
+import RxGesture
 
 class UserController: SABaseViewController {
 
@@ -17,9 +18,6 @@ class UserController: SABaseViewController {
     @IBOutlet weak var placementTextView: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
-    
-    // the dispose abg
-    let disposeBag = DisposeBag()
     
     // other vars
     private var currentModel: UserModel!
@@ -47,19 +45,21 @@ class UserController: SABaseViewController {
         
         // next button tap
         nextButton.rx.tap
-            .subscribe(onNext: { Void in
-            
-                self.performSegue(withIdentifier: "UserToSettings", sender: self, onSegue: { (destination: UIViewController) in
-                    if let nav = destination as? UINavigationController,
-                        let dest = nav.viewControllers.first as? SettingsController {
-                        
-                        dest.placementId = self.currentModel.getPlacementID()
-                        dest.test = false
-                    }
-                })
-            
-            }).addDisposableTo(disposeBag)
-        
+            .flatMap  { (void) -> Observable<UIViewController> in
+                return self.rxSeque(withIdentifier: "UserToSettings")
+            }
+            .subscribe(onNext: { (destination) in
+                
+                if let nav = destination as? UINavigationController,
+                    let dest = nav.viewControllers.first as? SettingsController {
+                    
+                    dest.placementId = self.currentModel.getPlacementID()
+                    dest.test = false
+                }
+                
+            })
+            .addDisposableTo(disposeBag)
+                
         // more button tap
         moreButton.rx.tap
             .subscribe(onNext: { Void in
@@ -70,11 +70,15 @@ class UserController: SABaseViewController {
                                              andNOKTitle: nil,
                                              andTextField: false,
                                              andKeyboardTyle: .default,
-                                         	andPressed: nil)
+                                         	 andPressed: nil)
             
             }).addDisposableTo(disposeBag)
+        
+        // what happens on "tap"
+        self.view.rx.gesture(.tap)
+            .subscribe(onNext: { (option) in
+                self.placementTextView.resignFirstResponder()
+            })
+            .addDisposableTo(disposeBag)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }}
+}

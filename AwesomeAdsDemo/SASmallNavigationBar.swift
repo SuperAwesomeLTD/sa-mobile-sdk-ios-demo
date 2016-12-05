@@ -10,9 +10,10 @@ import UIKit
 
 class SASmallNavigationBar: UINavigationBar {
 
+    private var title: UILabel?
     public var closeBtn: UIButton?
     
-    init(_ titleTxt: String) {
+    init() {
         let W = Int(UIScreen.main.bounds.size.width)
         let H = 70
         
@@ -20,16 +21,18 @@ class SASmallNavigationBar: UINavigationBar {
         super.init(frame: CGRect(x: 0, y: 0, width: W, height: H))
         
         // set the background
-        self.backgroundColor = SAColor(red: 250, green: 250, blue: 250)
+        self.isTranslucent = false
+        self.barTintColor = SAColor(red: 237, green: 28, blue: 35)
         
         // add the title
-        let title = UILabel()
-        title.frame = CGRect(x: 0, y: 20, width: W, height: 50)
-        title.text = titleTxt
-        title.textAlignment = .center
-        title.font = UIFont.boldSystemFont(ofSize: 14)
-        title.textColor = UIColor.black
-        self.addSubview(title)
+        title = UILabel()
+        if let title = title {
+            title.frame = CGRect(x: 0, y: 20, width: W, height: 50)
+            title.textAlignment = .center
+            title.font = UIFont.boldSystemFont(ofSize: 14)
+            title.textColor = UIColor.white
+            self.addSubview(title)
+        }
         
         // add the close button
         closeBtn = UIButton()
@@ -42,6 +45,12 @@ class SASmallNavigationBar: UINavigationBar {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setTitle (_ text: String) {
+        if let title = title {
+            title.text = text
+        }
     }
 
 }
