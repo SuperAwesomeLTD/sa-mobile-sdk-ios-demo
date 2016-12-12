@@ -6,6 +6,7 @@ target 'AwesomeAdsDemo' do
   use_frameworks!
 
   # Pods for TestRxGesture
-  pod 'RxGesture'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'SuperAwesome'
 end

@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SAUtils
-import RxGesture
 
 class UserController: SABaseViewController {
 
@@ -24,7 +23,6 @@ class UserController: SABaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeSABigNavigationController()
         
         // placement text view
         placementTextView.rx.text.orEmpty
@@ -39,27 +37,16 @@ class UserController: SABaseViewController {
             })
             .subscribe(onNext: { isValid in
                 self.nextButton.isEnabled = isValid
-                self.nextButton.backgroundColor = isValid ? SAColor(red: 20, green: 124, blue: 205) : UIColor.lightGray
+                self.nextButton.backgroundColor = isValid ? UIColorFromHex(0x147CCD) : UIColor.lightGray
             })
             .addDisposableTo(disposeBag)
         
         // next button tap
-        nextButton.rx.tap
-            .flatMap  { (void) -> Observable<UIViewController> in
-                return self.rxSeque(withIdentifier: "UserToSettings")
-            }
-            .subscribe(onNext: { (destination) in
-                
-                if let nav = destination as? UINavigationController,
-                    let dest = nav.viewControllers.first as? SettingsController {
-                    
-                    dest.placementId = self.currentModel.getPlacementID()
-                    dest.test = false
-                }
-                
-            })
-            .addDisposableTo(disposeBag)
-                
+        nextButton.rx.tap.subscribe (onNext: { (Void) in
+            self.performSegue(withIdentifier: "UserToSettings", sender: self)
+        })
+        .addDisposableTo(disposeBag)
+        
         // more button tap
         moreButton.rx.tap
             .subscribe(onNext: { Void in
@@ -73,12 +60,15 @@ class UserController: SABaseViewController {
                                          	 andPressed: nil)
             
             }).addDisposableTo(disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         
-        // what happens on "tap"
-        self.view.rx.gesture(.tap)
-            .subscribe(onNext: { (option) in
-                self.placementTextView.resignFirstResponder()
-            })
-            .addDisposableTo(disposeBag)
+        if let destination = segue.destination as? SettingsController {
+            destination.placementId = self.currentModel.getPlacementID()
+            destination.test = false
+
+        }
     }
 }

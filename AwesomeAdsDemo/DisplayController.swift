@@ -33,10 +33,6 @@ class DisplayController: SABaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set the controller nav ba & title
-        self.makeSASmallNavigationController()
-        self.setSASmallNavigationControllerTitle(headerTitle)
-        
         // create the observable that will fire just once
         formatSubject = PublishSubject()
         

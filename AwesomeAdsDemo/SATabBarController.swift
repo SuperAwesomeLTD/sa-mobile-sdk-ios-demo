@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SAUtils
 
 class SATabBarController: UITabBarController {
     
@@ -35,7 +36,7 @@ class SATabBarController: UITabBarController {
         secondVCTabBarItem.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         
         redView = UIView()
-        redView.backgroundColor = SAColor(red: 227, green: 7, blue: 22)
+        redView.backgroundColor = UIColorFromHex(0xE30716)
         
         tabBar.addSubview(firstVCTabBarItem)
         tabBar.addSubview(secondVCTabBarItem)
@@ -63,7 +64,7 @@ class SATabBarController: UITabBarController {
     
     func firstItemAction () {
         firstVCTabBarItem.setTitleColor(UIColor.white, for: .normal)
-        secondVCTabBarItem.setTitleColor(SAColor(red: 200, green: 200, blue: 200), for: .normal)
+        secondVCTabBarItem.setTitleColor(UIColorFromHex(0xC8C8C8), for: .normal)
         
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
             self.redView.frame = self.firstRect!
@@ -75,7 +76,7 @@ class SATabBarController: UITabBarController {
     }
     
     func secondItemAction () {
-        firstVCTabBarItem.setTitleColor(SAColor(red: 200, green: 200, blue: 200), for: .normal)
+        firstVCTabBarItem.setTitleColor(UIColorFromHex(0xC8C8C8), for: .normal)
         secondVCTabBarItem.setTitleColor(UIColor.white, for: .normal)
         
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {

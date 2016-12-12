@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SAUtils
 
 class SASmallNavigationBar: UINavigationBar {
 
@@ -22,7 +23,7 @@ class SASmallNavigationBar: UINavigationBar {
         
         // set the background
         self.isTranslucent = false
-        self.barTintColor = SAColor(red: 237, green: 28, blue: 35)
+        self.barTintColor = UIColorFromHex(0xED1C23)
         
         // add the title
         title = UILabel()
@@ -43,8 +44,8 @@ class SASmallNavigationBar: UINavigationBar {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init ()
     }
     
     public func setTitle (_ text: String) {

@@ -17,42 +17,52 @@ class DemoFormatsController: SABaseViewController {
     
     // private vars
     private var currentModel: DemoFormatsViewModel!
+    private var dataSource: RxDataSource?
+    private let provider = DemoFormatsProvider ()
     
-    override func viewDidLoad() {
+    override func viewDidLoad () {
         super.viewDidLoad()
-        makeSABigNavigationController()
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 101
-        
-        let provider = DemoFormatsProvider()
-        
-        // bind provider to table
-        provider.getDemoFormats().toArray()
-            .bindTo(tableView.rx.items(cellIdentifier: DemoFormatsRow.Identifier, cellType: DemoFormatsRow.self)) { index, model, row in
-            
-                row.icon.image = UIImage(named: model.getSource())
-                row.title.text = model.getName()
-                row.details.text = model.getDetails()
+
+        provider.getDemoFormats()
+            .toArray()
+            .subscribe(onNext: { (dataArry: [DemoFormatsViewModel]) in
                 
-            }.addDisposableTo(disposeBag)
-        
-        // bind selection for table
-        tableView.rx.modelSelected(DemoFormatsViewModel.self)
-            .do(onNext: { (model) in
-                self.currentModel = model
-            })
-            .flatMap { (model) -> Observable<UIViewController> in
-                return self.rxSeque(withIdentifier: "DemoToSettings")
-            }
-            .subscribe(onNext: { (destination) in
+                self.dataSource = RxDataSource
+                    .bindTable(self.tableView)
+                    .estimateRowHeight(101)
+                    .customiseRow(cellIdentifier: "DemoFormatsRowID",
+                                  cellType: DemoFormatsViewModel.self)
+                    { (model, cell) in
+                        
+                        let cell = cell as? DemoFormatsRow
+                        let model = model as? DemoFormatsViewModel
+                        
+                        cell?.icon.image = UIImage(named: (model?.getSource())!)
+                        cell?.title.text = model?.getName()
+                        cell?.details.text = model?.getDetails()
+                        
+                    }
+                    .clickRow(cellIdentifier: "DemoFormatsRowID")
+                    { (index, model) in
+                        
+                        self.currentModel = model as? DemoFormatsViewModel
+                        self.performSegue(withIdentifier: "DemoToSettings", sender: self)
+                        
+                    }
                 
-                if let nav = destination as? UINavigationController, let dest = nav.viewControllers.first as? SettingsController {
-                    dest.placementId = self.currentModel.getPlacementId()
-                    dest.test = true
-                }
+                self.dataSource?.update(dataArry)
                 
             })
             .addDisposableTo(disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let destination = segue.destination as? SettingsController {
+            destination.placementId = self.currentModel.getPlacementId()
+            destination.test = false
+            
+        }
     }
 }

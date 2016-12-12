@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SAUtils
 
 class SABigNavigationBar: UINavigationBar {
     
@@ -18,7 +19,7 @@ class SABigNavigationBar: UINavigationBar {
         super.init(frame: CGRect(x: 0, y: 0, width: W, height: H))
         
         // set the background
-        self.backgroundColor = SAColor(red: 250, green: 250, blue: 250)
+        self.backgroundColor = UIColorFromHex(0xFAFAFA)
         
         // create the Awesome Ads image
         let imgX = W/2 - 61

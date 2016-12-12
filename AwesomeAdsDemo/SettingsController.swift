@@ -25,23 +25,20 @@ class SettingsController: SABaseViewController {
     var headerTitle: String = ""
     var format: AdFormat = .unknown
     
+    // constants needed
+    let preload = AdPreload ()
+    let provider = SettingsProvider ()
+    var dataSource: RxDataSource? = nil
+    
+    var loadRx: Observable<AdFormat>!
+    var buttonRx: ControlEvent<Void>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // prepare view controller
-        self.makeSASmallNavigationController()
-        
-        // prepare table
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 61
-        
-        // create data providers
-        let preload = AdPreload ()
-        let provider = SettingsProvider ()
-        
         // create observables
-        let loadRx = preload.loadAd(placementId: placementId, test: test).share()
-        let buttonRx = loadButton.rx.tap
+        loadRx = preload.loadAd(placementId: placementId, test: test).share()
+        buttonRx = loadButton.rx.tap
         
         // act on the loading observable
         loadRx
@@ -61,31 +58,42 @@ class SettingsController: SABaseViewController {
                 self.format = format
                 
                 }, onError: { (error) in
-                    SAActivityView.sharedManager().hide()
-                }, onCompleted: { 
-                    SAActivityView.sharedManager().hide()
-                    self.setSASmallNavigationControllerTitle(self.headerTitle)
-                }, onSubscribe: { 
-                    SAActivityView.sharedManager().show()
-                })
+                }, onCompleted: {
+                }, onSubscribe: {
+            })
             .flatMap { (format) -> Observable<SettingsViewModel> in
-                return provider.getSettings(forAdFormat: format)
+                return self.provider.getSettings(forAdFormat: format)
             }
             .filter({ (setting: SettingsViewModel) -> Bool in
                 return setting.getActive()
             })
             .toArray()
-            .bindTo(tableView.rx.items(cellIdentifier: SettingsRow.Identifier, cellType: SettingsRow.self)) { index, model, row in
+            .subscribe(onNext: { (dataArry) in
                 
-                row.settingsItem?.text = model.getItemTitle()
-                row.settingsDescription?.text = model.getItemDetails()
-                row.settingsSwitch.isOn = model.getItemValue()
+                self.dataSource = RxDataSource
+                    .bindTable(self.tableView)
+                    .estimateRowHeight(250)
+                    .customiseRow(cellIdentifier: "SettingsRowID",
+                                  cellType: SettingsViewModel.self)
+                    { (model, cell) in
+                     
+                        let cell = cell as? SettingsRow
+                        let model = model as? SettingsViewModel
+                        
+                        cell?.settingsItem?.text = model?.getItemTitle()
+                        cell?.settingsDescription?.text = model?.getItemDetails()
+                        cell?.settingsSwitch.isOn = (model?.getItemValue())!
+                        
+                        cell?.settingsSwitch.rx.value
+                            .subscribe(onNext: { (val) in
+                                model?.setValue(val)
+                            })
+                            .addDisposableTo(self.disposeBag)
+                    }
                 
-                row.settingsSwitch.rx.value.shareReplay(1)
-                    .subscribe(onNext: { (val) in model.setValue(val) })
-                    .addDisposableTo(self.disposeBag)
+                self.dataSource?.update(dataArry)
                 
-            }
+            })
             .addDisposableTo(disposeBag)
         
         // act for the case the format is unknown (and ad could not be
@@ -95,16 +103,7 @@ class SettingsController: SABaseViewController {
                 return format == .unknown
             }
             .subscribe(onNext: { (format) in
-                
-                SAPopup.sharedManager().show(withTitle: "Hey!",
-                                             andMessage: "The Placement ID you tried to load appears to have no ad data.",
-                                             andOKTitle: "Got it!",
-                                             andNOKTitle: nil,
-                                             andTextField: false,
-                                             andKeyboardTyle: .default, andPressed: { (button, text) in
-                                                self.dismiss(animated: true, completion: nil)
-                                            })
-                
+                // do nothing
             })
             .addDisposableTo(disposeBag)
         
@@ -120,19 +119,9 @@ class SettingsController: SABaseViewController {
                        format == AdFormat.mpu
 
             }
-            .flatMap({ (format) -> Observable<UIViewController> in
-                return self.rxSeque(withIdentifier: "SettingsToDisplay")
-            })
-            .subscribe(onNext: { (destination) in
+            .subscribe(onNext: { (Void) in
                 
-                if let nav = destination as? UINavigationController, let dest = nav.viewControllers.first as? DisplayController {
-                    dest.headerTitle = self.headerTitle
-                    dest.placementId = self.placementId
-                    dest.test = self.test
-                    dest.format = self.format
-                    dest.parentalGate = provider.getParentalGate().getItemValue()
-                    dest.bgColor = provider.getTransparentBg().getItemValue()
-                }
+                self.performSegue(withIdentifier: "SettingsToDisplay", sender: self)
                 
             })
             .addDisposableTo(disposeBag)
@@ -149,10 +138,10 @@ class SettingsController: SABaseViewController {
                 
                 // setup & load
                 SAInterstitialAd.setTestMode(self.test)
-                SAInterstitialAd.setParentalGate(provider.getParentalGateValue())
+                SAInterstitialAd.setParentalGate(self.provider.getParentalGateValue())
                 SAInterstitialAd.setOrientation(
-                    provider.getLockToLandscapeValue() ? .LANDSCAPE :
-                        provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)
+                    self.provider.getLockToLandscapeValue() ? .LANDSCAPE :
+                        self.provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)
 
                 
             })
@@ -179,13 +168,13 @@ class SettingsController: SABaseViewController {
                 
                 // setup & load
                 SAVideoAd.setTestMode(self.test)
-                SAVideoAd.setParentalGate(provider.getParentalGateValue())
+                SAVideoAd.setParentalGate(self.provider.getParentalGateValue())
                 SAVideoAd.setOrientation(
-                    provider.getLockToLandscapeValue() ? .LANDSCAPE :
-                        provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)
-                SAVideoAd.setCloseButton(provider.getCloseButtonValue())
-                SAVideoAd.setCloseAtEnd(provider.getAutoCloseValue())
-                SAVideoAd.setSmallClick(provider.getSmallClickValue())
+                    self.provider.getLockToLandscapeValue() ? .LANDSCAPE :
+                        self.provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)
+                SAVideoAd.setCloseButton(self.provider.getCloseButtonValue())
+                SAVideoAd.setCloseAtEnd(self.provider.getAutoCloseValue())
+                SAVideoAd.setSmallClick(self.provider.getSmallClickValue())
                 
             })
             .flatMap({ (format) -> Observable<SAEvent> in
@@ -203,6 +192,19 @@ class SettingsController: SABaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get {
             return .lightContent
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let dest = segue.destination as? DisplayController {
+            dest.headerTitle = self.headerTitle
+            dest.placementId = self.placementId
+            dest.test = self.test
+            dest.format = self.format
+            dest.parentalGate = provider.getParentalGate().getItemValue()
+            dest.bgColor = provider.getTransparentBg().getItemValue()
         }
     }
 }
