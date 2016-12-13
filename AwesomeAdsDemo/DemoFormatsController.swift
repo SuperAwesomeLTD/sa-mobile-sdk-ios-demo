@@ -56,12 +56,17 @@ class DemoFormatsController: SABaseViewController {
             .addDisposableTo(disposeBag)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.topItem?.title = "Demo formats"
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
         if let destination = segue.destination as? SettingsController {
             destination.placementId = self.currentModel.getPlacementId()
-            destination.test = false
+            destination.test = true
             
         }
     }

@@ -11,7 +11,6 @@ import RxCocoa
 import RxSwift
 import SAUtils
 import SuperAwesome
-import SAUtils
 
 class SettingsController: SABaseViewController {
 
@@ -189,12 +188,6 @@ class SettingsController: SABaseViewController {
             .addDisposableTo(disposeBag)
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        get {
-            return .lightContent
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         

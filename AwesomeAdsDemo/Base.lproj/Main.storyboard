@@ -8,10 +8,15 @@
         <!--Navigation Controller-->
         <scene sceneID="fc6-LM-SZh">
             <objects>
-                <navigationController id="stP-x8-cqa" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TY4-K1-glh">
+                <navigationController id="stP-x8-cqa" customClass="SANavigationController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="TY4-K1-glh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="4tZ-dL-sP6" kind="relationship" relationship="rootViewController" id="x5c-oj-zgx"/>
@@ -24,7 +29,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="bcC-Hm-8pO">
             <objects>
-                <tabBarController id="4tZ-dL-sP6" sceneMemberID="viewController">
+                <tabBarController id="4tZ-dL-sP6" customClass="SATabBarController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="DFq-77-qLL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Mwt-UM-iYF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -49,7 +54,7 @@
                         <viewControllerLayoutGuide type="bottom" id="agc-a5-8ZY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ku1-VI-sbU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Placement ID ..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-Bc-g1d">
@@ -117,14 +122,14 @@
                         <viewControllerLayoutGuide type="bottom" id="bfM-f0-GKJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oQ5-Uw-a8x">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YNB-s8-4PX">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DemoFormatsRowID" rowHeight="101" id="Yge-qb-baY" customClass="DemoFormatsRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="101"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yge-qb-baY" id="sod-uf-ru4">
                                             <frame key="frameInset" width="375" height="101"/>
@@ -213,14 +218,14 @@
                         <viewControllerLayoutGuide type="bottom" id="t77-KW-Cy0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zGb-lZ-83g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kym-R2-dda">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsRowID" rowHeight="61" id="iyT-CX-Ehz" customClass="SettingsRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="61"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iyT-CX-Ehz" id="UdD-M3-omN">
                                             <frame key="frameInset" width="375" height="61"/>
@@ -334,7 +339,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HOO-RC-zrM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mfu-BH-Uo9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZR-yw-o9i" customClass="SABannerAd">

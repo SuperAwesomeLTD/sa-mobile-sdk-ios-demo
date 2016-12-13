@@ -127,12 +127,18 @@ class RxDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let dt = data[indexPath.row]
-        let key = "\(type(of: dt))"
-        let row = viewModelToRxRow [key]
-        let height = row?.cellHeight ?? 0
+        if estimatedRowHeight != nil {
+            return UITableViewAutomaticDimension
+        }
+        else {
         
-        return height
+        	let dt = data[indexPath.row]
+            let key = "\(type(of: dt))"
+            let row = viewModelToRxRow [key]
+            let height = row?.cellHeight ?? 44
+        
+            return height
+        }
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
