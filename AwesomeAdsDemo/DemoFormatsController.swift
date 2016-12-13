@@ -58,7 +58,7 @@ class DemoFormatsController: SABaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = "Demo formats"
+        self.navigationController?.navigationBar.topItem?.title = "demo_controller_title".localized
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

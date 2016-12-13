@@ -25,13 +25,13 @@ class SATabBarController: UITabBarController {
         
         firstVCTabBarItem = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         firstVCTabBarItem.addTarget(self, action: #selector(firstItemAction), for: .touchUpInside)
-        firstVCTabBarItem.setTitle("Demo formats".uppercased(), for: .normal)
+        firstVCTabBarItem.setTitle("tab_bar_demo_formats".localized.uppercased(), for: .normal)
         firstVCTabBarItem.backgroundColor = UIColor.black
         firstVCTabBarItem.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         
         secondVCTabBarItem = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         secondVCTabBarItem.addTarget(self, action: #selector(secondItemAction), for: .touchUpInside)
-        secondVCTabBarItem.setTitle("Your placement".uppercased(), for: .normal)
+        secondVCTabBarItem.setTitle("tab_bar_user_placement".localized.uppercased(), for: .normal)
         secondVCTabBarItem.backgroundColor = UIColor.black
         secondVCTabBarItem.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         

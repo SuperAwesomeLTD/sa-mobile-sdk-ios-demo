@@ -21,8 +21,15 @@ class UserController: SABaseViewController {
     // other vars
     private var currentModel: UserModel!
     
+    // touch
+    private var touch: UIGestureRecognizer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        moreButton.setTitle("user_controller_more_button_title".localized, for: .normal)
+        nextButton.setTitle("user_controller_next_button_title".localized, for: .normal)
+        placementTextView.placeholder = "user_controller_textfield_placeholder".localized
         
         // placement text view
         placementTextView.rx.text.orEmpty
@@ -42,29 +49,39 @@ class UserController: SABaseViewController {
             .addDisposableTo(disposeBag)
         
         // next button tap
-        nextButton.rx.tap.subscribe (onNext: { (Void) in
-            self.performSegue(withIdentifier: "UserToSettings", sender: self)
-        })
-        .addDisposableTo(disposeBag)
+        nextButton.rx.tap
+            .subscribe (onNext: { (Void) in
+                self.performSegue(withIdentifier: "UserToSettings", sender: self)
+            })
+            .addDisposableTo(disposeBag)
         
         // more button tap
         moreButton.rx.tap
             .subscribe(onNext: { Void in
             
-                SAPopup.sharedManager().show(withTitle: "Log in to AwesomeAds",
-                                             andMessage: "Under the \'Apps and Sites\' section you\'ll see a \'Placement ID\' column next to each of your placements.",
-                                             andOKTitle: "Got it!",
+                SAPopup.sharedManager().show(withTitle: "user_controller_more_popup_title".localized,
+                                             andMessage: "user_controller_more_popup_message".localized,
+                                             andOKTitle: "user_controller_more_popup_ok_button".localized,
                                              andNOKTitle: nil,
                                              andTextField: false,
                                              andKeyboardTyle: .default,
                                          	 andPressed: nil)
             
             }).addDisposableTo(disposeBag)
+        
+        // the touch gesture recogniser
+        touch = UITapGestureRecognizer ()
+        touch?.rx.event.asObservable()
+            .subscribe(onNext: { (event) in
+                self.placementTextView.resignFirstResponder()
+            })
+            .addDisposableTo(disposeBag)
+        self.view.addGestureRecognizer(touch!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = "Your placement"
+        self.navigationController?.navigationBar.topItem?.title = "user_controller_title".localized
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,7 +90,6 @@ class UserController: SABaseViewController {
         if let destination = segue.destination as? SettingsController {
             destination.placementId = self.currentModel.getPlacementID()
             destination.test = false
-
         }
     }
 }

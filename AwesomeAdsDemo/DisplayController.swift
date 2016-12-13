@@ -19,7 +19,6 @@ class DisplayController: SABaseViewController {
     @IBOutlet weak var bigBanner: SABannerAd!
     
     // other vars needed
-    var headerTitle: String = "Ad Unit"
     var placementId: Int = 0
     var test: Bool = false
     var format: AdFormat = .unknown

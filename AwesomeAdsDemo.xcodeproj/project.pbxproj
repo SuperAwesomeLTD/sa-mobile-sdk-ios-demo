@@ -29,6 +29,8 @@
 		1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5635601DEC803C00EEA239 /* SettingsProvider.swift */; };
 		1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5635621DEC804600EEA239 /* SettingsViewModel.swift */; };
 		1BAE466A1DFEA68700377895 /* RxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE46691DFEA68700377895 /* RxDataSource.swift */; };
+		1BBA88E91DFFFE0B00C94553 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA88EB1DFFFE0B00C94553 /* Localizable.strings */; };
+		1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA88EC1DFFFE2200C94553 /* SAString.swift */; };
 		1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD63851DEF37B0003F7F31 /* AdRx.swift */; };
 		B4408C61ABA60EA095F6C619 /* Pods_AwesomeAdsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18092C0E7DE877641F84353 /* Pods_AwesomeAdsDemo.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,9 @@
 		1B5635601DEC803C00EEA239 /* SettingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProvider.swift; sourceTree = "<group>"; };
 		1B5635621DEC804600EEA239 /* SettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		1BAE46691DFEA68700377895 /* RxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxDataSource.swift; sourceTree = "<group>"; };
+		1BBA88E61DFFFD5700C94553 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1BBA88EA1DFFFE0B00C94553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1BBA88EC1DFFFE2200C94553 /* SAString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAString.swift; sourceTree = "<group>"; };
 		1BFD63851DEF37B0003F7F31 /* AdRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdRx.swift; sourceTree = "<group>"; };
 		5D589A348184E10589839BCA /* Pods-AwesomeAdsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		71AB627BFB62FCEC92C3A7AF /* Pods-AwesomeAdsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +170,7 @@
 				1B46E61C1DE8445000353E8C /* Assets.xcassets */,
 				1B46E6211DE8445000353E8C /* Info.plist */,
 				1B0A21ED1DE8A0F900E6C889 /* AwesomeAdsDemo-Bridging-Header.h */,
+				1BBA88EB1DFFFE0B00C94553 /* Localizable.strings */,
 			);
 			name = Meta;
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 				1B46E6391DE84D3900353E8C /* SATabBarController.swift */,
 				1B0A21BA1DE85AE600E6C889 /* SANavigationController.swift */,
 				1B4A518C1DEDFEC20041DE7B /* SABaseViewController.swift */,
+				1BBA88EC1DFFFE2200C94553 /* SAString.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -297,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B46E6201DE8445000353E8C /* LaunchScreen.storyboard in Resources */,
+				1BBA88E91DFFFE0B00C94553 /* Localizable.strings in Resources */,
 				1B46E61D1DE8445000353E8C /* Assets.xcassets in Resources */,
 				1B46E61B1DE8445000353E8C /* Main.storyboard in Resources */,
 			);
@@ -368,6 +376,7 @@
 				1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */,
 				1B46E63A1DE84D3900353E8C /* SATabBarController.swift in Sources */,
 				1B0A21BB1DE85AE600E6C889 /* SANavigationController.swift in Sources */,
+				1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */,
 				1B46E62E1DE8497400353E8C /* UserController.swift in Sources */,
 				1B56355D1DEC6ACD00EEA239 /* UserModel.swift in Sources */,
 				1B56355F1DEC7E7C00EEA239 /* SettingsRow.swift in Sources */,
@@ -387,6 +396,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1B46E61A1DE8445000353E8C /* Base */,
+				1BBA88E61DFFFD5700C94553 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -397,6 +407,14 @@
 				1B46E61F1DE8445000353E8C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1BBA88EB1DFFFE0B00C94553 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BBA88EA1DFFFE0B00C94553 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

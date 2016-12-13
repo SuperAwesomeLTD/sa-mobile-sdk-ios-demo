@@ -21,7 +21,6 @@ class SettingsController: SABaseViewController {
     // state vars to know what to load
     var placementId: Int = 0
     var test: Bool = false
-    var headerTitle: String = ""
     var format: AdFormat = .unknown
     
     // constants needed
@@ -35,6 +34,9 @@ class SettingsController: SABaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // localise
+        loadButton.setTitle("settings_controller_load_button".localized, for: .normal)
+        
         // create observables
         loadRx = preload.loadAd(placementId: placementId, test: test).share()
         buttonRx = loadButton.rx.tap
@@ -43,22 +45,14 @@ class SettingsController: SABaseViewController {
         loadRx
             .do(onNext: { (format) in
                 
-                switch format {
-                case .smallbanner: self.headerTitle = "Mobile Small Leaderboard"; break
-                case .normalbanner: self.headerTitle = "Mobile Leaderboard"; break
-                case .bigbanner: self.headerTitle = "Tablet Leaderboard"; break
-                case .mpu: self.headerTitle = "Tablet MPU"; break
-                case .interstitial: self.headerTitle = "Interstitial"; break
-                case .video: self.headerTitle = "Video"; break
-                case .gamewall: self.headerTitle = "App Wall"; break
-                case .unknown: break
-                }
-                
                 self.format = format
                 
-                }, onError: { (error) in
-                }, onCompleted: {
-                }, onSubscribe: {
+            }, onError: { (error) in
+                SAActivityView.sharedManager().hide()
+            }, onCompleted: {
+                SAActivityView.sharedManager().hide()
+            }, onSubscribe: {
+                SAActivityView.sharedManager().show()
             })
             .flatMap { (format) -> Observable<SettingsViewModel> in
                 return self.provider.getSettings(forAdFormat: format)
@@ -102,7 +96,19 @@ class SettingsController: SABaseViewController {
                 return format == .unknown
             }
             .subscribe(onNext: { (format) in
-                // do nothing
+                
+                SAPopup.sharedManager().show(withTitle: "settings_controller_error_popup_title".localized,
+                                             andMessage: "settings_controller_error_popup_message".localized,
+                                             andOKTitle: "settings_controller_error_popup_ok_button".localized,
+                                             andNOKTitle: nil,
+                                             andTextField: false,
+                                             andKeyboardTyle: .default)
+                { (button, text) in
+                    
+                    self.navigationController?.popViewController(animated: true)
+                    
+                }
+                
             })
             .addDisposableTo(disposeBag)
         
@@ -192,7 +198,6 @@ class SettingsController: SABaseViewController {
         super.prepare(for: segue, sender: sender)
         
         if let dest = segue.destination as? DisplayController {
-            dest.headerTitle = self.headerTitle
             dest.placementId = self.placementId
             dest.test = self.test
             dest.format = self.format

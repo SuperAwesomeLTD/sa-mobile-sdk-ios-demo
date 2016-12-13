@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "90V-HA-ewu"; */
+"90V-HA-ewu.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Load Ad"; ObjectID = "Hml-rX-7e1"; */
+"Hml-rX-7e1.normalTitle" = "Load Ad";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ocq-fw-zVW"; */
+"Ocq-fw-zVW.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Placement ID ..."; ObjectID = "Yxb-Bc-g1d"; */
+"Yxb-Bc-g1d.placeholder" = "Placement ID ...";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "cvE-lv-1Rd"; */
+"cvE-lv-1Rd.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Find out more"; ObjectID = "d31-dq-4V2"; */
+"d31-dq-4V2.normalTitle" = "Find out more";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "ef8-8F-H92"; */
+"ef8-8F-H92.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "l73-RR-IXL"; */
+"l73-RR-IXL.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mte-bM-6VI"; */
+"mte-bM-6VI.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pwD-51-ZO4"; */
+"pwD-51-ZO4.text" = "Label";
