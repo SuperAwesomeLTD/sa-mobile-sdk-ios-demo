@@ -1,11 +1,3 @@
-/* 
-  localizable.strings
-  AwesomeAdsDemo
-
-  Created by Gabriel Coman on 13/12/2016.
-  Copyright © 2016 Gabriel Coman. All rights reserved.
-*/
-
 // tab bar
 "tab_bar_demo_formats" = "Demo formats";
 "tab_bar_user_placement" = "User placement";
@@ -13,7 +5,7 @@
 // user controller
 "user_controller_title" = "Your placement";
 
-"user_controller_more_button_title" = "Find out more";
+"user_controller_more_button_title" = "Where can I find this?";
 "user_controller_next_button_title" = "Next";
 "user_controller_textfield_placeholder" = "Placement ID ...";
 

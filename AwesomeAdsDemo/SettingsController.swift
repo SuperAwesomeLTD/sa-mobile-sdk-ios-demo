@@ -105,7 +105,7 @@ class SettingsController: SABaseViewController {
                                              andKeyboardTyle: .default)
                 { (button, text) in
                     
-                    self.navigationController?.popViewController(animated: true)
+                    _ = self.navigationController?.popViewController(animated: true)
                     
                 }
                 
