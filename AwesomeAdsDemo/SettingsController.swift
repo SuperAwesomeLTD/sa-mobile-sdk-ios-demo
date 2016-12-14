@@ -35,7 +35,7 @@ class SettingsController: SABaseViewController {
         super.viewDidLoad()
         
         // localise
-        loadButton.setTitle("settings_controller_load_button".localized, for: .normal)
+        loadButton.setTitle("page_settings_button_load".localized, for: .normal)
         
         // create observables
         loadRx = preload.loadAd(placementId: placementId, test: test).share()
@@ -97,9 +97,9 @@ class SettingsController: SABaseViewController {
             }
             .subscribe(onNext: { (format) in
                 
-                SAPopup.sharedManager().show(withTitle: "settings_controller_error_popup_title".localized,
-                                             andMessage: "settings_controller_error_popup_message".localized,
-                                             andOKTitle: "settings_controller_error_popup_ok_button".localized,
+                SAPopup.sharedManager().show(withTitle: "page_settings_popup_error_title".localized,
+                                             andMessage: "page_settings_popup_error_message".localized,
+                                             andOKTitle: "page_settings_popup_error_ok_button".localized,
                                              andNOKTitle: nil,
                                              andTextField: false,
                                              andKeyboardTyle: .default)

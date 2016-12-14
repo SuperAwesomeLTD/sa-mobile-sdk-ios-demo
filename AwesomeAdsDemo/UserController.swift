@@ -27,9 +27,9 @@ class UserController: SABaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        moreButton.setTitle("user_controller_more_button_title".localized, for: .normal)
-        nextButton.setTitle("user_controller_next_button_title".localized, for: .normal)
-        placementTextView.placeholder = "user_controller_textfield_placeholder".localized
+        moreButton.setTitle("page_user_button_more_title".localized, for: .normal)
+        nextButton.setTitle("page_user_button_next_title".localized, for: .normal)
+        placementTextView.placeholder = "page_user_textfield_placement_placeholder".localized
         
         // placement text view
         placementTextView.rx.text.orEmpty
@@ -59,9 +59,9 @@ class UserController: SABaseViewController {
         moreButton.rx.tap
             .subscribe(onNext: { Void in
             
-                SAPopup.sharedManager().show(withTitle: "user_controller_more_popup_title".localized,
-                                             andMessage: "user_controller_more_popup_message".localized,
-                                             andOKTitle: "user_controller_more_popup_ok_button".localized,
+                SAPopup.sharedManager().show(withTitle: "page_user_popup_more_title".localized,
+                                             andMessage: "page_user_popup_more_message".localized,
+                                             andOKTitle: "page_user_popup_more_ok_button".localized,
                                              andNOKTitle: nil,
                                              andTextField: false,
                                              andKeyboardTyle: .default,
@@ -81,7 +81,7 @@ class UserController: SABaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = "user_controller_title".localized
+        self.navigationController?.navigationBar.topItem?.title = "page_user_title".localized
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

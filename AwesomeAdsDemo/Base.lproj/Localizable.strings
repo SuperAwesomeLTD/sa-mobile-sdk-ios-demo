@@ -1,73 +1,83 @@
-// tab bar
-"tab_bar_demo_formats" = "Demo formats";
-"tab_bar_user_placement" = "User placement";
-
 // user controller
-"user_controller_title" = "Your placement";
+"page_user_title" = "Your placement";
 
-"user_controller_more_button_title" = "Where can I find this?";
-"user_controller_next_button_title" = "Next";
-"user_controller_textfield_placeholder" = "Placement ID ...";
+"page_user_button_more_title" = "Where can I find this?";
+"page_user_button_next_title" = "Next";
+"page_user_textfield_placement_placeholder" = "Placement ID ...";
 
-"user_controller_more_popup_title" = "Log in to AwesomeAds";
-"user_controller_more_popup_message" = "Under the \'Apps and Sites\' section you\'ll see a \'Placement ID\' column next to each of your placements.";
-"user_controller_more_popup_ok_button" = "Got it!";
+"page_user_popup_more_title" = "Log in to AwesomeAds";
+"page_user_popup_more_message" = "Under the \'Apps and Sites\' section you\'ll see a \'Placement ID\' column next to each of your placements.";
+"page_user_popup_more_ok_button" = "Got it!";
 
 // demo formats controller
-"demo_controller_title" = "Demo formats";
+"page_demo_title" = "Demo formats";
 
-"demo_controller_table_row_1_title" = "Mobile Small Leaderboard";
-"demo_controller_table_row_1_details" = "Size: 300x50";
+"page_demo_table_row_1_title" = "Mobile Small Leaderboard";
+"page_demo_table_row_1_details" = "Size: 300x50";
 
-"demo_controller_table_row_2_title" = "Mobile Leaderboard";
-"demo_controller_table_row_2_details" = "Size: 320x50";
+"page_demo_table_row_2_title" = "Mobile Leaderboard";
+"page_demo_table_row_2_details" = "Size: 320x50";
 
-"demo_controller_table_row_3_title" = "Tablet Leaderboard";
-"demo_controller_table_row_3_details" = "Size: 728x90";
+"page_demo_table_row_3_title" = "Tablet Leaderboard";
+"page_demo_table_row_3_details" = "Size: 728x90";
 
-"demo_controller_table_row_4_title" = "Tablet MPU";
-"demo_controller_table_row_4_details" = "Size: 300x250";
+"page_demo_table_row_4_title" = "Tablet MPU";
+"page_demo_table_row_4_details" = "Size: 300x250";
 
-"demo_controller_table_row_5_title" = "Mobile Interstitial Portrait";
-"demo_controller_table_row_5_details" = "Size: 320x480";
+"page_demo_table_row_5_title" = "Mobile Interstitial Portrait";
+"page_demo_table_row_5_details" = "Size: 320x480";
 
-"demo_controller_table_row_6_title" = "Mobile Interstitial Landscape";
-"demo_controller_table_row_6_details" = "Size: 480x320";
+"page_demo_table_row_6_title" = "Mobile Interstitial Landscape";
+"page_demo_table_row_6_details" = "Size: 480x320";
 
-"demo_controller_table_row_7_title" = "Tablet Interstitial Portrait";
-"demo_controller_table_row_7_details" = "Size: 768x1024";
+"page_demo_table_row_7_title" = "Tablet Interstitial Portrait";
+"page_demo_table_row_7_details" = "Size: 768x1024";
 
-"demo_controller_table_row_8_title" = "Tablet Interstitial Landscape";
-"demo_controller_table_row_8_details" = "Size: 1024x768";
+"page_demo_table_row_8_title" = "Tablet Interstitial Landscape";
+"page_demo_table_row_8_details" = "Size: 1024x768";
 
-"demo_controller_table_row_9_title" = "Mobile Video";
-"demo_controller_table_row_9_details" = "Size: 600x480";
+"page_demo_table_row_9_title" = "Mobile Video";
+"page_demo_table_row_9_details" = "Size: 600x480";
+
+"page_demo_table_row_def_title" = "Title";
+"page_demo_table_row_def_details" = "Details";
 
 // settings controller
-"settings_controller_load_button" = "Load Ad";
+"page_settings_title" = "Settings";
 
-"settings_controller_row_pg_gate_title" = "Parental gate enabled";
-"settings_controller_row_pg_gate_details" = "Enabling this setting means that users will be greeted by a Parental Gate before proceeding to the click through destination. The Parental Gate will only allow them to go forward if they perform a simple mathematical operation.";
+"page_settings_button_load" = "Load Ad";
 
-"settings_controller_row_bg_color_title" = "Transparent background color";
-"settings_controller_row_bg_color_details" = "This setting controls whether a display ad (banner, MPU, etc) will have a solid grey background or a transparent one.";
+"page_settings_row_default_title" = "Item";
+"page_settings_row_default_details" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
 
-"settings_controller_row_lock_portrait_title" = "Lock to portrait";
-"settings_controller_row_lock_portrait_details" = "Enabling this setting will lock the ad unit to portrait mode, irrespective of the user\'s original lock setting. This is useful when you're sure ads running on your placements are better displayed in portrait mode (e.g. rich media interstitials). Cannot be set at the same time as \'Lock to landscape\'.";
+"page_settings_row_pg_gate_title" = "Parental gate enabled";
+"page_settings_row_pg_gate_details" = "Enabling this setting means that users will be greeted by a Parental Gate before proceeding to the click through destination. The Parental Gate will only allow them to go forward if they perform a simple mathematical operation.";
 
-"settings_controller_row_lock_landscape_title" = "Lock to landscape";
-"settings_controller_row_lock_landscape_details" = "Enabling this setting will lock the ad unit to landscape mode, irrespective of the user\'s original lock setting. This is useful when you're sure ads running on your placements are better displayed in landscape mode (e.g. video ads). Cannot be set at the same time as \'Lock to portrait\'.";
+"page_settings_row_bg_color_title" = "Transparent background color";
+"page_settings_row_bg_color_details" = "This setting controls whether a display ad (banner, MPU, etc) will have a solid grey background or a transparent one.";
 
-"settings_controller_row_close_button_title" = "Close button";
-"settings_controller_row_close_button_details" = "This setting controls whether video ads will allow for a close button to appear in the top-right corner of the ad. This will allow users to close ads before they have finished running in full. It is enabled by default. Must always be anabled if \'Auto close at end\' is disabled.";
+"page_settings_row_back_button_title" = "Enable back button";
+"page_settings_row_back_button_details" = "Enabling this setting will permit users to close an interstitial or fullscreen video ad to close it by tapping on the standard Android device \'back button\'";
 
-"settings_controller_row_auto_close_title" = "Auto close at end";
-"settings_controller_row_auto_close_details" = "Enabling this setting will tell a video ad to automatically close when it has finished running. Disabled by default. Must always be enabled if \'Close button\' is disabled.";
+"page_settings_row_lock_portrait_title" = "Lock to portrait";
+"page_settings_row_lock_portrait_details" = "Enabling this setting will lock the ad unit to portrait mode, irrespective of the user\'s original lock setting. This is useful when you\'re sure ads running on your placements are better displayed in portrait mode (e.g. rich media interstitials). Cannot be set at the same time as \'Lock to landscape\'.";
 
-"settings_controller_row_small_click_title" = "Small click button";
-"settings_controller_row_small_click_details" = "Enabling this setting will provide a video ad a small button in the bottom-left side of the screen to direct the user to the click through. This setting is disabled by default, and the full video surface is clickable.";
+"page_settings_row_lock_landscape_title" = "Lock to landscape";
+"page_settings_row_lock_landscape_details" = "Enabling this setting will lock the ad unit to landscape mode, irrespective of the user\'s original lock setting. This is useful when you\'re sure ads running on your placements are better displayed in landscape mode (e.g. video ads). Cannot be set at the same time as \'Lock to portrait\'.";
 
-"settings_controller_error_popup_title" = "Oops!";
-"settings_controller_error_popup_message" = "It seems the Placement ID you wanted to load an ad for doesn't contain any actual ads. Please try again!";
-"settings_controller_error_popup_ok_button" = "Got it!";
+"page_settings_row_close_button_title" = "Close button";
+"page_settings_row_close_button_details" = "This setting controls whether video ads will allow for a close button to appear in the top-right corner of the ad. This will allow users to close ads before they have finished running in full. It is enabled by default. Must always be anabled if \'Auto close at end\' is disabled.";
+
+"page_settings_row_auto_close_title" = "Auto close at end";
+"page_settings_row_auto_close_details" = "Enabling this setting will tell a video ad to automatically close when it has finished running. Disabled by default. Must always be enabled if \'Close button\' is disabled.";
+
+"page_settings_row_small_click_title" = "Small click button";
+"page_settings_row_small_click_details" = "Enabling this setting will provide a video ad a small button in the bottom-left side of the screen to direct the user to the click through. This setting is disabled by default, and the full video surface is clickable.";
+
+"page_settings_popup_error_title" = "Oops!";
+"page_settings_popup_error_message" = "It seems the Placement ID you wanted to load an ad for doesn't contain any actual ads. Please try again!";
+"page_settings_popup_error_ok_button" = "Got it!";
+
+// for the "display activity
+"page_display_title" = "Display Ads";
 

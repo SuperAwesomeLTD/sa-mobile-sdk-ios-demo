@@ -9,13 +9,14 @@
         <scene sceneID="fc6-LM-SZh">
             <objects>
                 <navigationController id="stP-x8-cqa" customClass="SANavigationController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="TY4-K1-glh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="TY4-K1-glh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -29,12 +30,15 @@
         <!--Tab Bar Controller-->
         <scene sceneID="bcC-Hm-8pO">
             <objects>
-                <tabBarController id="4tZ-dL-sP6" customClass="SATabBarController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="4tZ-dL-sP6" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="DFq-77-qLL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Mwt-UM-iYF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="y2n-ve-Ggy" kind="relationship" relationship="viewControllers" id="xbT-up-CZN"/>
@@ -45,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="518" y="1232"/>
         </scene>
-        <!--Item-->
+        <!--Your placement-->
         <scene sceneID="L45-ET-tW9">
             <objects>
                 <viewController id="6Zj-SV-Qjd" customClass="UserController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,8 +61,8 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-Bc-g1d">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-Bc-g1d" customClass="SATextField" customModule="AwesomeAdsDemo" customModuleProvider="target">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="82k-fS-DJR"/>
                                 </constraints>
@@ -100,7 +104,14 @@
                             <constraint firstAttribute="trailing" secondItem="Yxb-Bc-g1d" secondAttribute="trailing" constant="16" id="mtQ-qF-mcd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ef8-8F-H92"/>
+                    <tabBarItem key="tabBarItem" title="Your placement" image="your placement_inactive" selectedImage="your placement_active" id="ef8-8F-H92">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.92941176470588238" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your placement"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="IT7-Xc-8K6"/>
                     <connections>
                         <outlet property="moreButton" destination="d31-dq-4V2" id="qNW-1d-ziu"/>
@@ -113,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="1592.8" y="1640.3298350824589"/>
         </scene>
-        <!--Item-->
+        <!--Demo formats-->
         <scene sceneID="q7j-sT-eDC">
             <objects>
                 <viewController id="y2n-ve-Ggy" customClass="DemoFormatsController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -195,7 +206,14 @@
                             <constraint firstItem="YNB-s8-4PX" firstAttribute="top" secondItem="oQ5-Uw-a8x" secondAttribute="top" id="ftz-DI-d4a"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="l73-RR-IXL"/>
+                    <tabBarItem key="tabBarItem" title="Demo formats" image="demo formats_inactive" selectedImage="demo formats_active" id="l73-RR-IXL">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.92941176470588238" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Demo formats"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="zUi-LE-3um"/>
                     <connections>
                         <outlet property="tableView" destination="YNB-s8-4PX" id="rT8-pT-8jg"/>
@@ -406,6 +424,12 @@
             <point key="canvasLocation" x="3348" y="1245"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="demo formats_active" width="30" height="30"/>
+        <image name="demo formats_inactive" width="30" height="30"/>
+        <image name="your placement_active" width="30" height="30"/>
+        <image name="your placement_inactive" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IPD-9x-344"/>
     </inferredMetricsTieBreakers>
