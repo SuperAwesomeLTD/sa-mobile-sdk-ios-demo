@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AwesomeAdsDemo.xcscheme</key>
+		<key>AwesomeAdsDemo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -13,6 +13,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1B46E6111DE8445000353E8C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1B993B471E0300E300EE5001</key>
 		<dict>
 			<key>primary</key>
 			<true/>
