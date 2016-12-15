@@ -10,7 +10,7 @@
 "page_user_popup_more_ok_button" = "Got it!";
 
 // demo formats controller
-"page_demo_title" = "Demo formats";
+"page_demo_title" = "Default formats";
 
 "page_demo_table_row_1_title" = "Mobile Small Leaderboard";
 "page_demo_table_row_1_details" = "Size: 300x50";

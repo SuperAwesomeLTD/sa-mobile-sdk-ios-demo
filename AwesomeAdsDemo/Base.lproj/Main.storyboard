@@ -9,7 +9,7 @@
         <scene sceneID="fc6-LM-SZh">
             <objects>
                 <navigationController id="stP-x8-cqa" customClass="SANavigationController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="TY4-K1-glh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="TY4-K1-glh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="1592.8" y="1640.3298350824589"/>
         </scene>
-        <!--Demo formats-->
+        <!--Default formats-->
         <scene sceneID="q7j-sT-eDC">
             <objects>
                 <viewController id="y2n-ve-Ggy" customClass="DemoFormatsController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -206,12 +206,12 @@
                             <constraint firstItem="YNB-s8-4PX" firstAttribute="top" secondItem="oQ5-Uw-a8x" secondAttribute="top" id="ftz-DI-d4a"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Demo formats" image="demo formats_inactive" selectedImage="demo formats_active" id="l73-RR-IXL">
+                    <tabBarItem key="tabBarItem" title="Default formats" image="demo formats_inactive" selectedImage="demo formats_active" id="l73-RR-IXL">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="0.92941176470588238" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Demo formats"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Default formats"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="zUi-LE-3um"/>
@@ -431,6 +431,6 @@
         <image name="your placement_inactive" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IPD-9x-344"/>
+        <segue reference="0sB-s7-TVW"/>
     </inferredMetricsTieBreakers>
 </document>
