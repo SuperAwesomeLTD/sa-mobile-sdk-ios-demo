@@ -33,6 +33,7 @@
 		1BBA88E91DFFFE0B00C94553 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA88EB1DFFFE0B00C94553 /* Localizable.strings */; };
 		1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA88EC1DFFFE2200C94553 /* SAString.swift */; };
 		1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD63851DEF37B0003F7F31 /* AdRx.swift */; };
+		4DC4C91C2D6197C7050A3D30 /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0ED747B14B6DA74E44FF8D /* Pods_AwesomeAdsDemo_Tests.framework */; };
 		B4408C61ABA60EA095F6C619 /* Pods_AwesomeAdsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18092C0E7DE877641F84353 /* Pods_AwesomeAdsDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		187635708A7A4FB6F8C35F2B /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0A21BA1DE85AE600E6C889 /* SANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SANavigationController.swift; sourceTree = "<group>"; };
 		1B0A21C01DE85EFE00E6C889 /* DemoFormatsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsViewModel.swift; sourceTree = "<group>"; };
 		1B0A21C21DE85FCD00E6C889 /* DemoFormatsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsProvider.swift; sourceTree = "<group>"; };
@@ -79,7 +81,9 @@
 		1BBA88EA1DFFFE0B00C94553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1BBA88EC1DFFFE2200C94553 /* SAString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAString.swift; sourceTree = "<group>"; };
 		1BFD63851DEF37B0003F7F31 /* AdRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdRx.swift; sourceTree = "<group>"; };
+		5D0ED747B14B6DA74E44FF8D /* Pods_AwesomeAdsDemo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D589A348184E10589839BCA /* Pods-AwesomeAdsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6252BB9D5DCB9B90357B0214 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71AB627BFB62FCEC92C3A7AF /* Pods-AwesomeAdsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F18092C0E7DE877641F84353 /* Pods_AwesomeAdsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC4C91C2D6197C7050A3D30 /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +264,8 @@
 			children = (
 				5D589A348184E10589839BCA /* Pods-AwesomeAdsDemo.debug.xcconfig */,
 				71AB627BFB62FCEC92C3A7AF /* Pods-AwesomeAdsDemo.release.xcconfig */,
+				187635708A7A4FB6F8C35F2B /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */,
+				6252BB9D5DCB9B90357B0214 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -267,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				F18092C0E7DE877641F84353 /* Pods_AwesomeAdsDemo.framework */,
+				5D0ED747B14B6DA74E44FF8D /* Pods_AwesomeAdsDemo_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -298,9 +306,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B993B511E0300E400EE5001 /* Build configuration list for PBXNativeTarget "AwesomeAdsDemo_Tests" */;
 			buildPhases = (
+				CEA579FF9D97F32485DA0A1D /* [CP] Check Pods Manifest.lock */,
 				1B993B441E0300E300EE5001 /* Sources */,
 				1B993B451E0300E300EE5001 /* Frameworks */,
 				1B993B461E0300E300EE5001 /* Resources */,
+				3FE83D644BB551BC8C224A5F /* [CP] Embed Pods Frameworks */,
+				AD73BE8905BE63AB871F9A6C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -376,6 +387,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3FE83D644BB551BC8C224A5F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6FA730DF80598789C8A4142C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +430,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD73BE8905BE63AB871F9A6C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEA579FF9D97F32485DA0A1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F8695223A63D45A767954F54 /* [CP] Embed Pods Frameworks */ = {
@@ -633,6 +689,7 @@
 		};
 		1B993B4F1E0300E400EE5001 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 187635708A7A4FB6F8C35F2B /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AwesomeAdsDemo_Tests/Info.plist;
@@ -646,6 +703,7 @@
 		};
 		1B993B501E0300E400EE5001 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6252BB9D5DCB9B90357B0214 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AwesomeAdsDemo_Tests/Info.plist;
