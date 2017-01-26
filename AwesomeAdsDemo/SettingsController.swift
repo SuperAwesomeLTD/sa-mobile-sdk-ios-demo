@@ -48,11 +48,11 @@ class SettingsController: SABaseViewController {
                 self.format = format
                 
             }, onError: { (error) in
-                SAActivityView.sharedManager().hide()
+                SALoadScreen.getInstance().hide()
             }, onCompleted: {
-                SAActivityView.sharedManager().hide()
+                SALoadScreen.getInstance().hide()
             }, onSubscribe: {
-                SAActivityView.sharedManager().show()
+                SALoadScreen.getInstance().show()
             })
             .flatMap { (format) -> Observable<SettingsViewModel> in
                 return self.provider.getSettings(forAdFormat: format)
@@ -97,12 +97,12 @@ class SettingsController: SABaseViewController {
             }
             .subscribe(onNext: { (format) in
                 
-                SAPopup.sharedManager().show(withTitle: "page_settings_popup_error_title".localized,
-                                             andMessage: "page_settings_popup_error_message".localized,
-                                             andOKTitle: "page_settings_popup_error_ok_button".localized,
-                                             andNOKTitle: nil,
-                                             andTextField: false,
-                                             andKeyboardTyle: .default)
+                SAAlert.getInstance().show(withTitle: "page_settings_popup_error_title".localized,
+                                           andMessage: "page_settings_popup_error_message".localized,
+                                           andOKTitle: "page_settings_popup_error_ok_button".localized,
+                                           andNOKTitle: nil,
+                                           andTextField: false,
+                                           andKeyboardTyle: .default)
                 { (button, text) in
                     
                     _ = self.navigationController?.popViewController(animated: true)

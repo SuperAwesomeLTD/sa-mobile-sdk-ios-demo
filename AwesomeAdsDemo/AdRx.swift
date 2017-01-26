@@ -22,7 +22,10 @@ extension SABannerAd {
             // observer events
             self.setCallback({ (placementId: Int, event: SAEvent) in
                 observer.onNext(event)
-                observer.onCompleted()
+                
+                if (event == .adLoaded) {
+                    observer.onCompleted()
+                }
             })
             
             // load ad for placement ID
@@ -47,7 +50,10 @@ extension SAInterstitialAd {
             // observer events
             SAInterstitialAd.setCallback({ (placementId: Int, event: SAEvent) in
                 observer.onNext(event)
-                observer.onCompleted()
+                
+                if (event == .adLoaded) {
+                    observer.onCompleted()
+                }
             })
             
             // load ad for placement ID
@@ -73,7 +79,10 @@ extension SAVideoAd {
             // observer events
             SAVideoAd.setCallback({ (placementId: Int, event: SAEvent) in
                 observer.onNext(event)
-                observer.onCompleted()
+                
+                if (event == .adLoaded) {
+                    observer.onCompleted()
+                }
             })
             
             // load ad for placement ID
@@ -99,7 +108,10 @@ extension SAAppWall {
             // observer events
             SAAppWall.setCallback({ (placementId: Int, event: SAEvent) in
                 observer.onNext(event)
-                observer.onCompleted()
+                
+                if (event == .adLoaded) {
+                    observer.onCompleted()
+                }
             })
             
             // load ad for placement ID

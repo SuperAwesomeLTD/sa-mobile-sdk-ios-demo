@@ -16,7 +16,7 @@ class AdAux: NSObject {
         
         if let response = response {
             
-            if response.format == .gamewall {
+            if response.format == .appwall {
                 return .gamewall
             }
             else if response.format == .video {

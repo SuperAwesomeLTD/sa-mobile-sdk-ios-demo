@@ -59,13 +59,13 @@ class UserController: SABaseViewController {
         moreButton.rx.tap
             .subscribe(onNext: { Void in
             
-                SAPopup.sharedManager().show(withTitle: "page_user_popup_more_title".localized,
-                                             andMessage: "page_user_popup_more_message".localized,
-                                             andOKTitle: "page_user_popup_more_ok_button".localized,
-                                             andNOKTitle: nil,
-                                             andTextField: false,
-                                             andKeyboardTyle: .default,
-                                         	 andPressed: nil)
+                SAAlert.getInstance().show(withTitle: "page_user_popup_more_title".localized,
+                                           andMessage: "page_user_popup_more_message".localized,
+                                           andOKTitle: "page_user_popup_more_ok_button".localized,
+                                           andNOKTitle: nil,
+                                           andTextField: false,
+                                           andKeyboardTyle: .default,
+                                           andPressed: nil)
             
             }).addDisposableTo(disposeBag)
         
