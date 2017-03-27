@@ -1,3 +1,14 @@
+// login controller
+
+"page_login_title" = "Login to AwesomeAds";
+"page_login_textfield_user_placeholder" = "User name";
+"page_login_textfield_password_placeholder" = "Password";
+"page_login_button_login" = "Login";
+
+"page_login_popup_more_title" = "Login failed";
+"page_login_popup_more_message" = "Username of password incorrect.";
+"page_login_popup_more_ok_button" = "Try again!";
+
 // user controller
 "page_user_title" = "Your placement";
 

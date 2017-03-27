@@ -33,6 +33,12 @@
 		1BBA88E91DFFFE0B00C94553 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA88EB1DFFFE0B00C94553 /* Localizable.strings */; };
 		1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA88EC1DFFFE2200C94553 /* SAString.swift */; };
 		1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD63851DEF37B0003F7F31 /* AdRx.swift */; };
+		1BFEA6AE1E89281A0023807D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6AD1E89281A0023807D /* LoginController.swift */; };
+		1BFEA6B01E8930710023807D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6AF1E8930710023807D /* LoginModel.swift */; };
+		1BFEA6B31E8946B80023807D /* LoginMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6B21E8946B80023807D /* LoginMetadata.swift */; };
+		1BFEA6B51E8955D90023807D /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6B41E8955D90023807D /* LoginUser.swift */; };
+		1BFEA6B71E8958510023807D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6B61E8958510023807D /* LoginService.swift */; };
+		1BFEA6B91E895D430023807D /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6B81E895D430023807D /* LoginManager.swift */; };
 		88D6422E1D7BA0218B685454 /* Pods_AwesomeAdsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */; };
 		9E4B80B0BA3D951AB826612F /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +87,12 @@
 		1BBA88EA1DFFFE0B00C94553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1BBA88EC1DFFFE2200C94553 /* SAString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAString.swift; sourceTree = "<group>"; };
 		1BFD63851DEF37B0003F7F31 /* AdRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdRx.swift; sourceTree = "<group>"; };
+		1BFEA6AD1E89281A0023807D /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		1BFEA6AF1E8930710023807D /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		1BFEA6B21E8946B80023807D /* LoginMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMetadata.swift; sourceTree = "<group>"; };
+		1BFEA6B41E8955D90023807D /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		1BFEA6B61E8958510023807D /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		1BFEA6B81E895D430023807D /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		783A881A13DCC59F57931B38 /* Pods-AwesomeAdsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +176,7 @@
 		1B46E6141DE8445000353E8C /* AwesomeAdsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1BFEA6B11E89469D0023807D /* LoginAux */,
 				1B0A21F01DE8A68900E6C889 /* AdAux */,
 				1B46E6361DE84CF300353E8C /* Aux */,
 				1B46E6311DE84C9F00353E8C /* Navigation */,
@@ -186,6 +199,7 @@
 		1B46E6281DE8492700353E8C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1BFEA6AC1E8927FC0023807D /* Login */,
 				1B4A51891DEDEDC50041DE7B /* Display */,
 				1B0A21F31DE8AD3700E6C889 /* Settings */,
 				1B46E6301DE84A8900353E8C /* DemoFormats */,
@@ -268,6 +282,26 @@
 				1B993B4C1E0300E400EE5001 /* Info.plist */,
 			);
 			path = AwesomeAdsDemo_Tests;
+			sourceTree = "<group>";
+		};
+		1BFEA6AC1E8927FC0023807D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1BFEA6AD1E89281A0023807D /* LoginController.swift */,
+				1BFEA6AF1E8930710023807D /* LoginModel.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		1BFEA6B11E89469D0023807D /* LoginAux */ = {
+			isa = PBXGroup;
+			children = (
+				1BFEA6B21E8946B80023807D /* LoginMetadata.swift */,
+				1BFEA6B41E8955D90023807D /* LoginUser.swift */,
+				1BFEA6B61E8958510023807D /* LoginService.swift */,
+				1BFEA6B81E895D430023807D /* LoginManager.swift */,
+			);
+			name = LoginAux;
 			sourceTree = "<group>";
 		};
 		85AD4D11B226CB202CBC9683 /* Frameworks */ = {
@@ -485,8 +519,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */,
+				1BFEA6B71E8958510023807D /* LoginService.swift in Sources */,
+				1BFEA6B51E8955D90023807D /* LoginUser.swift in Sources */,
 				1B0A21C11DE85EFE00E6C889 /* DemoFormatsViewModel.swift in Sources */,
 				1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */,
+				1BFEA6B91E895D430023807D /* LoginManager.swift in Sources */,
 				1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */,
 				1B46E62C1DE8496A00353E8C /* DemoFormatsController.swift in Sources */,
 				1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */,
@@ -495,9 +532,12 @@
 				1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */,
 				1B0A21BB1DE85AE600E6C889 /* SANavigationController.swift in Sources */,
 				1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */,
+				1BFEA6AE1E89281A0023807D /* LoginController.swift in Sources */,
 				1B974A151E016E3C00CE9EA7 /* SATextField.swift in Sources */,
+				1BFEA6B01E8930710023807D /* LoginModel.swift in Sources */,
 				1B46E62E1DE8497400353E8C /* UserController.swift in Sources */,
 				1B56355D1DEC6ACD00EEA239 /* UserModel.swift in Sources */,
+				1BFEA6B31E8946B80023807D /* LoginMetadata.swift in Sources */,
 				1B56355F1DEC7E7C00EEA239 /* SettingsRow.swift in Sources */,
 				1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */,
 				1B4A518B1DEDEDD40041DE7B /* DisplayController.swift in Sources */,
