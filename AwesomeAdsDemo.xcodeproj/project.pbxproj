@@ -33,8 +33,8 @@
 		1BBA88E91DFFFE0B00C94553 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA88EB1DFFFE0B00C94553 /* Localizable.strings */; };
 		1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA88EC1DFFFE2200C94553 /* SAString.swift */; };
 		1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD63851DEF37B0003F7F31 /* AdRx.swift */; };
-		4E820AC019678272027511F4 /* Pods_AwesomeAdsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041E0FDF65EFFB55B63126E3 /* Pods_AwesomeAdsDemo.framework */; };
-		7F7E3E220F04C8615B034AC0 /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A61E453E989FA544D8AD78 /* Pods_AwesomeAdsDemo_Tests.framework */; };
+		88D6422E1D7BA0218B685454 /* Pods_AwesomeAdsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */; };
+		9E4B80B0BA3D951AB826612F /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		041E0FDF65EFFB55B63126E3 /* Pods_AwesomeAdsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		154F11C6CDDB26E73546C980 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1B0A21BA1DE85AE600E6C889 /* SANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SANavigationController.swift; sourceTree = "<group>"; };
 		1B0A21C01DE85EFE00E6C889 /* DemoFormatsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsViewModel.swift; sourceTree = "<group>"; };
 		1B0A21C21DE85FCD00E6C889 /* DemoFormatsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsProvider.swift; sourceTree = "<group>"; };
@@ -81,11 +81,11 @@
 		1BBA88EA1DFFFE0B00C94553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1BBA88EC1DFFFE2200C94553 /* SAString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAString.swift; sourceTree = "<group>"; };
 		1BFD63851DEF37B0003F7F31 /* AdRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdRx.swift; sourceTree = "<group>"; };
-		85FEFE669098ABA2524BE138 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		87E6B507CFBDAAE5041F759C /* Pods-AwesomeAdsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		95789C99422DCA479B8DCBF9 /* Pods-AwesomeAdsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.release.xcconfig"; sourceTree = "<group>"; };
-		A5319EA9A73C7C1624D0F762 /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		D0A61E453E989FA544D8AD78 /* Pods_AwesomeAdsDemo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		783A881A13DCC59F57931B38 /* Pods-AwesomeAdsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB6014893636545B6883AFE /* Pods-AwesomeAdsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		ECB78357C7D4AA31BA28C61E /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E820AC019678272027511F4 /* Pods_AwesomeAdsDemo.framework in Frameworks */,
+				88D6422E1D7BA0218B685454 /* Pods_AwesomeAdsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,13 +101,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F7E3E220F04C8615B034AC0 /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */,
+				9E4B80B0BA3D951AB826612F /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		082B3937D401ECC4908C3689 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAB6014893636545B6883AFE /* Pods-AwesomeAdsDemo.debug.xcconfig */,
+				783A881A13DCC59F57931B38 /* Pods-AwesomeAdsDemo.release.xcconfig */,
+				ECB78357C7D4AA31BA28C61E /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */,
+				154F11C6CDDB26E73546C980 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1B0A21F01DE8A68900E6C889 /* AdAux */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,8 +147,8 @@
 				1B46E6141DE8445000353E8C /* AwesomeAdsDemo */,
 				1B993B491E0300E400EE5001 /* AwesomeAdsDemo_Tests */,
 				1B46E6131DE8445000353E8C /* Products */,
-				DF9688B73A3BC20D3F3F5C7F /* Pods */,
-				4477217E089DBF714E0EE9EF /* Frameworks */,
+				082B3937D401ECC4908C3689 /* Pods */,
+				85AD4D11B226CB202CBC9683 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,24 +270,13 @@
 			path = AwesomeAdsDemo_Tests;
 			sourceTree = "<group>";
 		};
-		4477217E089DBF714E0EE9EF /* Frameworks */ = {
+		85AD4D11B226CB202CBC9683 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				041E0FDF65EFFB55B63126E3 /* Pods_AwesomeAdsDemo.framework */,
-				D0A61E453E989FA544D8AD78 /* Pods_AwesomeAdsDemo_Tests.framework */,
+				8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */,
+				7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DF9688B73A3BC20D3F3F5C7F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				87E6B507CFBDAAE5041F759C /* Pods-AwesomeAdsDemo.debug.xcconfig */,
-				95789C99422DCA479B8DCBF9 /* Pods-AwesomeAdsDemo.release.xcconfig */,
-				A5319EA9A73C7C1624D0F762 /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */,
-				85FEFE669098ABA2524BE138 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,12 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B46E6241DE8445000353E8C /* Build configuration list for PBXNativeTarget "AwesomeAdsDemo" */;
 			buildPhases = (
-				09C17802DC8C96FB83F16078 /* [CP] Check Pods Manifest.lock */,
+				4545536D963E4B97149CE004 /* [CP] Check Pods Manifest.lock */,
 				1B46E60E1DE8445000353E8C /* Sources */,
 				1B46E60F1DE8445000353E8C /* Frameworks */,
 				1B46E6101DE8445000353E8C /* Resources */,
-				22F682B79EB3EDD812F89D76 /* [CP] Embed Pods Frameworks */,
-				643BC537D377230016BBC373 /* [CP] Copy Pods Resources */,
+				83AA01E99C9AF96A451BEA0B /* [CP] Embed Pods Frameworks */,
+				82DC040D12B5D68C2EDC6970 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,12 +306,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B993B511E0300E400EE5001 /* Build configuration list for PBXNativeTarget "AwesomeAdsDemo_Tests" */;
 			buildPhases = (
-				4B90E005806004CC20C044BA /* [CP] Check Pods Manifest.lock */,
+				4D88FA81EFFF1A6230BD1B24 /* [CP] Check Pods Manifest.lock */,
 				1B993B441E0300E300EE5001 /* Sources */,
 				1B993B451E0300E300EE5001 /* Frameworks */,
 				1B993B461E0300E300EE5001 /* Resources */,
-				B4E7727C468B04FAD4BFE431 /* [CP] Embed Pods Frameworks */,
-				74BC4B627A7698BBCC3ED2AC /* [CP] Copy Pods Resources */,
+				40EAA8B1458277DF2D38096B /* [CP] Embed Pods Frameworks */,
+				767F4892D1B1A764F0912ED4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,22 +387,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09C17802DC8C96FB83F16078 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		22F682B79EB3EDD812F89D76 /* [CP] Embed Pods Frameworks */ = {
+		40EAA8B1458277DF2D38096B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -414,10 +399,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4B90E005806004CC20C044BA /* [CP] Check Pods Manifest.lock */ = {
+		4545536D963E4B97149CE004 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -432,22 +417,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		643BC537D377230016BBC373 /* [CP] Copy Pods Resources */ = {
+		4D88FA81EFFF1A6230BD1B24 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		74BC4B627A7698BBCC3ED2AC /* [CP] Copy Pods Resources */ = {
+		767F4892D1B1A764F0912ED4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -462,7 +447,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B4E7727C468B04FAD4BFE431 /* [CP] Embed Pods Frameworks */ = {
+		82DC040D12B5D68C2EDC6970 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83AA01E99C9AF96A451BEA0B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -474,7 +474,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo_Tests/Pods-AwesomeAdsDemo_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -658,7 +658,7 @@
 		};
 		1B46E6251DE8445000353E8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87E6B507CFBDAAE5041F759C /* Pods-AwesomeAdsDemo.debug.xcconfig */;
+			baseConfigurationReference = DAB6014893636545B6883AFE /* Pods-AwesomeAdsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -681,7 +681,7 @@
 		};
 		1B46E6261DE8445000353E8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95789C99422DCA479B8DCBF9 /* Pods-AwesomeAdsDemo.release.xcconfig */;
+			baseConfigurationReference = 783A881A13DCC59F57931B38 /* Pods-AwesomeAdsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -703,7 +703,7 @@
 		};
 		1B993B4F1E0300E400EE5001 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5319EA9A73C7C1624D0F762 /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */;
+			baseConfigurationReference = ECB78357C7D4AA31BA28C61E /* Pods-AwesomeAdsDemo_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AwesomeAdsDemo_Tests/Info.plist;
@@ -717,7 +717,7 @@
 		};
 		1B993B501E0300E400EE5001 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85FEFE669098ABA2524BE138 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */;
+			baseConfigurationReference = 154F11C6CDDB26E73546C980 /* Pods-AwesomeAdsDemo_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AwesomeAdsDemo_Tests/Info.plist;

@@ -8,7 +8,7 @@ target 'AwesomeAdsDemo' do
   # Pods for TestRxGesture
   pod 'RxSwift', '3.1.0'
   pod 'RxCocoa', '3.1.0'
-  pod 'SuperAwesome', '5.4.0'
+  pod 'SuperAwesome', '5.5.4'
 
   target 'AwesomeAdsDemo_Tests' do
       inherit! :search_paths
