@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SAUtils
+import SuperAwesome
 
 class UserController: SABaseViewController {
 
@@ -51,7 +52,7 @@ class UserController: SABaseViewController {
         // next button tap
         nextButton.rx.tap
             .subscribe (onNext: { (Void) in
-                self.performSegue(withIdentifier: "UserToSettings", sender: self)
+                self.performSegue(withIdentifier: "UserToCreatives", sender: self)
             })
             .addDisposableTo(disposeBag)
         
@@ -87,9 +88,8 @@ class UserController: SABaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if let destination = segue.destination as? SettingsController {
+        if let destination = segue.destination as? CreativesController {
             destination.placementId = self.currentModel.getPlacementID()
-            destination.test = false
         }
     }
 }

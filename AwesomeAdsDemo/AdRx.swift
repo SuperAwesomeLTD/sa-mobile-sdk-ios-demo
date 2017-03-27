@@ -10,6 +10,73 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SuperAwesome
+import SANetworking
+import SAModelSpace
+
+extension SuperAwesome {
+    
+    enum CreativesError : Error {
+        case InvalidData
+        case NoResults
+    }
+    
+    static func loadCreatives (placementId: Int) -> Observable<SACreative> {
+        
+        let session = SASession ()
+        let url = session.getBaseUrl() + "/ad/\(placementId)"
+        let query:[String : Any] = [
+            "debug": "json",
+            "forceCreative": 1,
+            "jwtToken": LoginManager.sharedInstance.getLoggedUserToken()
+        ]
+        
+        let network = SANetwork()
+        
+        return Observable.create({ (subscriber) -> Disposable in
+            
+            network.sendGET(url, withQuery: query, andHeader: [:]) { (status, payload, success) in
+                
+                var results: [SACreative] = []
+                
+                if let payload = payload, let data = payload.data(using: .utf8) {
+                    
+                    do {
+                        let bigJson = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                        
+                        if let allCreatives = bigJson?["allCreatives"] as? [[String:Any]] {
+                            
+                            for dict in allCreatives {
+                                if let creative = SACreative(jsonDictionary: dict) {
+                                    results.append(creative)
+                                }
+                            }
+                            
+                        }
+                        
+                    } catch {
+                        subscriber.onError(CreativesError.InvalidData)
+                    }
+                } else {
+                    subscriber.onError(CreativesError.InvalidData)
+                }
+                
+                if (results.count == 0) {
+                    subscriber.onError(CreativesError.NoResults)
+                }
+                else {
+                
+                    for result in results {
+                        subscriber.onNext(result)
+                    }
+                    subscriber.onCompleted()
+                }
+            }
+            
+            return Disposables.create()
+        })
+    }
+    
+}
 
 extension SABannerAd {
     

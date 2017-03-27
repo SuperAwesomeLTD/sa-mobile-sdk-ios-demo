@@ -53,6 +53,17 @@
 "page_demo_table_row_def_title" = "Title";
 "page_demo_table_row_def_details" = "Details";
 
+// for the "creatives" activity
+"page_creatives_title" = "Select Ad";
+
+"page_creatives_popup_error_load_title" = "Hey!";
+"page_creatives_popup_error_load_message" = "The Placement ID you tried to load an ad for doesn\'t appear to have any data.";
+"page_creatives_popup_error_load_ok_button" = "Got it!";
+
+"page_creatives_popup_error_format_title" = "Hey!";
+"page_creatives_popup_error_format_message" = "The format you\'re tyring to display is not supported on mobile.";
+"page_creatives_popup_error_format_ok_button" = "Got it!";
+
 // settings controller
 "page_settings_title" = "Settings";
 
@@ -91,4 +102,5 @@
 
 // for the "display activity
 "page_display_title" = "Display Ads";
+
 

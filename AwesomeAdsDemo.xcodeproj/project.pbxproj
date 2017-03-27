@@ -39,6 +39,9 @@
 		1BFEA6B51E8955D90023807D /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6B41E8955D90023807D /* LoginUser.swift */; };
 		1BFEA6B71E8958510023807D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6B61E8958510023807D /* LoginService.swift */; };
 		1BFEA6B91E895D430023807D /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6B81E895D430023807D /* LoginManager.swift */; };
+		1BFEA6BE1E896E2D0023807D /* CreativesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6BD1E896E2D0023807D /* CreativesController.swift */; };
+		1BFEA6C01E8971CA0023807D /* CreativesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6BF1E8971CA0023807D /* CreativesViewModel.swift */; };
+		1BFEA6C21E8971D80023807D /* CreativesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6C11E8971D80023807D /* CreativesRow.swift */; };
 		88D6422E1D7BA0218B685454 /* Pods_AwesomeAdsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */; };
 		9E4B80B0BA3D951AB826612F /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +96,9 @@
 		1BFEA6B41E8955D90023807D /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		1BFEA6B61E8958510023807D /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		1BFEA6B81E895D430023807D /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		1BFEA6BD1E896E2D0023807D /* CreativesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreativesController.swift; sourceTree = "<group>"; };
+		1BFEA6BF1E8971CA0023807D /* CreativesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreativesViewModel.swift; sourceTree = "<group>"; };
+		1BFEA6C11E8971D80023807D /* CreativesRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreativesRow.swift; sourceTree = "<group>"; };
 		7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		783A881A13DCC59F57931B38 /* Pods-AwesomeAdsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +205,7 @@
 		1B46E6281DE8492700353E8C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1BFEA6BA1E896D420023807D /* Creatives */,
 				1BFEA6AC1E8927FC0023807D /* Login */,
 				1B4A51891DEDEDC50041DE7B /* Display */,
 				1B0A21F31DE8AD3700E6C889 /* Settings */,
@@ -302,6 +309,16 @@
 				1BFEA6B81E895D430023807D /* LoginManager.swift */,
 			);
 			name = LoginAux;
+			sourceTree = "<group>";
+		};
+		1BFEA6BA1E896D420023807D /* Creatives */ = {
+			isa = PBXGroup;
+			children = (
+				1BFEA6BD1E896E2D0023807D /* CreativesController.swift */,
+				1BFEA6BF1E8971CA0023807D /* CreativesViewModel.swift */,
+				1BFEA6C11E8971D80023807D /* CreativesRow.swift */,
+			);
+			name = Creatives;
 			sourceTree = "<group>";
 		};
 		85AD4D11B226CB202CBC9683 /* Frameworks */ = {
@@ -528,6 +545,7 @@
 				1B46E62C1DE8496A00353E8C /* DemoFormatsController.swift in Sources */,
 				1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */,
 				1BAE466A1DFEA68700377895 /* RxDataSource.swift in Sources */,
+				1BFEA6BE1E896E2D0023807D /* CreativesController.swift in Sources */,
 				1B0A21EC1DE8A06800E6C889 /* AdAux.swift in Sources */,
 				1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */,
 				1B0A21BB1DE85AE600E6C889 /* SANavigationController.swift in Sources */,
@@ -541,8 +559,10 @@
 				1B56355F1DEC7E7C00EEA239 /* SettingsRow.swift in Sources */,
 				1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */,
 				1B4A518B1DEDEDD40041DE7B /* DisplayController.swift in Sources */,
+				1BFEA6C01E8971CA0023807D /* CreativesViewModel.swift in Sources */,
 				1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */,
 				1B0A21F21DE8A69900E6C889 /* AdPreload.swift in Sources */,
+				1BFEA6C21E8971D80023807D /* CreativesRow.swift in Sources */,
 				1B4A518D1DEDFEC20041DE7B /* SABaseViewController.swift in Sources */,
 				1B0A21C31DE85FCD00E6C889 /* DemoFormatsProvider.swift in Sources */,
 			);
