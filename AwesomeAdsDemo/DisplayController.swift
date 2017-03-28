@@ -10,101 +10,47 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SuperAwesome
+import SAModelSpace
 
 class DisplayController: SABaseViewController {
 
-    // outlets
     @IBOutlet weak var normalAndSmallBanner: SABannerAd!
     @IBOutlet weak var mpuBanner: SABannerAd!
     @IBOutlet weak var bigBanner: SABannerAd!
     
-    // other vars needed
-    var placementId: Int = 0
-    var test: Bool = false
-    var format: AdFormat = .unknown
+    var response: SAResponse?
     var parentalGate: Bool = false
     var bgColor: Bool = false
-    var loadHappened: Bool = false
-    
-    // observable
-    var formatSubject: PublishSubject<AdFormat>!
+    var format: AdFormat = .unknown
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // create the observable that will fire just once
-        formatSubject = PublishSubject()
+        let ad: SAAd = response?.ads.object(at: 0) as! SAAd
         
-        // handle the smallbanner & normalbanner cases
-        formatSubject
-            .asObservable()
-            .subscribe(onNext: { (format) in
-              
-                switch format {
-                case .smallbanner, .normalbanner:
-                    
-                    self.normalAndSmallBanner.setParentalGate(self.parentalGate)
-                    self.normalAndSmallBanner.setColor(self.bgColor)
-                    self.normalAndSmallBanner.setTestMode(self.test)
-                    
-                    self.normalAndSmallBanner.loadRx(self.placementId)
-                        .filter({ (event) -> Bool in
-                            return event == .adLoaded
-                        })
-                        .subscribe(onNext: { (event) in
-                            self.normalAndSmallBanner.play()
-                        })
-                        .addDisposableTo(self.disposeBag)
-                    
-                    break
-                case .mpu:
-                    
-                    self.mpuBanner.setParentalGate(self.parentalGate)
-                    self.mpuBanner.setColor(self.bgColor)
-                    self.mpuBanner.setTestMode(self.test)
-                    
-                    self.mpuBanner.loadRx(self.placementId)
-                        .filter({ (event) -> Bool in
-                            return event == .adLoaded
-                        })
-                        .subscribe(onNext: { (event) in
-                            self.mpuBanner.play()
-                        })
-                        .addDisposableTo(self.disposeBag)
-                    
-                    break
-                case .bigbanner:
-                    
-                    self.bigBanner.setParentalGate(self.parentalGate)
-                    self.bigBanner.setColor(self.bgColor)
-                    self.bigBanner.setTestMode(self.test)
-                    
-                    self.bigBanner.loadRx(self.placementId)
-                        .filter({ (event) -> Bool in
-                            return event == .adLoaded
-                        })
-                        .subscribe(onNext: { (event) in
-                            self.bigBanner.play()
-                        })
-                        .addDisposableTo(self.disposeBag)
-                    
-                    break
-                default:break
-                }
-                
-            })
-            .addDisposableTo(disposeBag)
+        switch format {
+        case .smallbanner, .normalbanner:
+            normalAndSmallBanner.setParentalGate(parentalGate)
+            normalAndSmallBanner.setColor(bgColor)
+            normalAndSmallBanner.setAd(ad)
+            normalAndSmallBanner.play()
+            break
+        case .bigbanner:
+            bigBanner.setParentalGate(parentalGate)
+            bigBanner.setColor(bgColor)
+            bigBanner.setAd(ad)
+            bigBanner.play()
+            break
+        case .mpu:
+            mpuBanner.setParentalGate(parentalGate)
+            mpuBanner.setColor(bgColor)
+            mpuBanner.setAd(ad)
+            mpuBanner.play()
+            break
+        default:break
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        // call super
-        super.viewDidAppear(animated)
-        
-        // publish a subject with format (because now it's safe to display
-        // banner ads that othervise might be affected by weird behaviour)
-        formatSubject.on(.next(format))
-    }
-
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get {
             return UIStatusBarStyle.lightContent

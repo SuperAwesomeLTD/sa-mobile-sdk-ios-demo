@@ -4,6 +4,11 @@ import RxSwift
 
 class LoginManager: NSObject {
     
+    enum LoginManagerError: Error {
+        case UserNotLogged
+        case SessionExpired
+    }
+    
     static let sharedInstance: LoginManager = LoginManager ()
     private override init() {}
     
@@ -26,8 +31,15 @@ class LoginManager: NSObject {
             
             if let data = data as? String {
                 let user = LoginUser(jsonString: data)
-                subscriber.onNext(user)
-                subscriber.onCompleted()
+                
+                if user.isValid() {
+                    subscriber.onNext(user)
+                    subscriber.onCompleted()
+                } else {
+                    subscriber.onError(LoginManagerError.SessionExpired)
+                }
+            } else {
+                subscriber.onError(LoginManagerError.UserNotLogged)
             }
             
             return Disposables.create()

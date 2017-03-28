@@ -19,39 +19,23 @@ class LoginController: SABaseViewController {
         loginButton.setTitle("page_login_button_login".localized, for: .normal)
         usernameField.placeholder = "page_login_textfield_user_placeholder".localized
         passwordField.placeholder = "page_login_textfield_password_placeholder".localized
-        
-        // if user is already logged this will catch it
-        LoginManager.sharedInstance
-            .check()
-            .filter { (loggedUser) -> Bool in
-                return loggedUser.isValid()
-            }
-            .subscribe(onNext: { (loggedUser) in
-                
-                // save logged user
-                LoginManager.sharedInstance.setLoggedUser(user: loggedUser)
-                
-                // goto next screen
-                self.performSegue(withIdentifier: "LoginToTabBar", sender: self)
-            })
-            .addDisposableTo(disposeBag)
-        
+       
         // this checks to see if the user has inputed username + password
         // and updates the current model
         Observable.combineLatest(usernameField.rx.text.orEmpty, passwordField.rx.text.orEmpty) { (username, password) -> LoginModel in
-            return LoginModel(username: username, password: password)
-        }
-        .do(onNext: { (model) in
-            self.model = model
-        })
-        .map { (model) -> Bool in
-            return model.isValid()
-        }
-        .subscribe(onNext: { (isValid) in
-            self.loginButton.isEnabled = isValid
-            self.loginButton.backgroundColor = isValid ? UIColorFromHex(0xED1C24) : UIColor.lightGray
-        })
-        .addDisposableTo(disposeBag)
+                return LoginModel(username: username, password: password)
+            }
+            .do(onNext: { (model) in
+                self.model = model
+            })
+            .map { (model) -> Bool in
+                return model.isValid()
+            }
+            .subscribe(onNext: { (isValid) in
+                self.loginButton.isEnabled = isValid
+                self.loginButton.backgroundColor = isValid ? UIColorFromHex(0xED1C24) : UIColor.lightGray
+            })
+            .addDisposableTo(disposeBag)
         
         // every button tap there's a network request to see if the user
         // is correctly auth-ed and, if that's the case,
@@ -87,11 +71,6 @@ class LoginController: SABaseViewController {
             })
             .addDisposableTo(disposeBag)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = "page_login_title".localized
     }
 
     override func didReceiveMemoryWarning() {

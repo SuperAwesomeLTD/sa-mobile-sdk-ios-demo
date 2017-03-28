@@ -110,5 +110,9 @@ class CreativesViewModel: NSObject {
     func getLocalImage () -> String {
         return localImage!
     }
+    
+    func getCreative () -> SACreative {
+        return creative!
+    }
 
 }

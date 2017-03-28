@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SuperAwesome
 
 class SettingsProvider: NSObject {
 
@@ -44,10 +45,10 @@ class SettingsProvider: NSObject {
                                                     value: false),
             KEY_CLOSE_BUTTON    : SettingsViewModel(item: "page_settings_row_close_button_title".localized,
                                                     details: "page_settings_row_close_button_details".localized,
-                                                    value: true),
+                                                    value: false),
             KEY_AUTO_CLOSE      : SettingsViewModel(item: "page_settings_row_auto_close_title".localized,
                                                     details: "page_settings_row_auto_close_details".localized,
-                                                    value: false),
+                                                    value: true),
             KEY_SMALL_CLICK     : SettingsViewModel(item: "page_settings_row_small_click_title".localized,
                                                     details: "page_settings_row_small_click_details".localized,
                                                     value: false),

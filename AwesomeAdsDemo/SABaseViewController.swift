@@ -12,6 +12,8 @@ import RxSwift
 
 class SABaseViewController: UIViewController {
 
+    private var prepared: ((_ segue: UIStoryboardSegue, _ sender: Any?) -> Void)?
+    
     let disposeBag = DisposeBag ()
     
     override func viewDidLoad() {
@@ -20,5 +22,15 @@ class SABaseViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func performSegue(withIdentifier identifier: String, sender: Any?, prepared: @escaping ((_ segue: UIStoryboardSegue, _ sender: Any?) -> Void)) {
+        self.prepared = prepared
+        self.performSegue(withIdentifier: identifier, sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        self.prepared? (segue, sender)
     }
 }

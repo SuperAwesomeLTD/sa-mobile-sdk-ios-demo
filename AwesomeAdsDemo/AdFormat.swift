@@ -148,7 +148,7 @@ enum AdFormat {
         }
     }
     
-    func isBannerTyoe () -> Bool {
+    func isBannerType () -> Bool {
         return self == .smallbanner ||
             self == .bigbanner ||
             self == .normalbanner ||

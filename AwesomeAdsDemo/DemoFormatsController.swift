@@ -9,6 +9,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SuperAwesome
+import SAModelSpace
+import SAUtils
 
 class DemoFormatsController: SABaseViewController {
 
@@ -16,13 +19,12 @@ class DemoFormatsController: SABaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // private vars
-    private var currentModel: DemoFormatsViewModel!
     private var dataSource: RxDataSource?
     private let provider = DemoFormatsProvider ()
     
     override func viewDidLoad () {
         super.viewDidLoad()
-
+        
         provider.getDemoFormats()
             .toArray()
             .subscribe(onNext: { (dataArry: [DemoFormatsViewModel]) in
@@ -45,29 +47,34 @@ class DemoFormatsController: SABaseViewController {
                     .clickRow(cellIdentifier: "DemoFormatsRowID")
                     { (index, model) in
                         
-                        self.currentModel = model as? DemoFormatsViewModel
-                        self.performSegue(withIdentifier: "DemoToSettings", sender: self)
+                        let model = model as? DemoFormatsViewModel
                         
+                        SALoadScreen.getInstance().show()
+                        
+                        // load ad
+                        SuperAwesome.loadTestAd(placementId: model!.getPlacementId())
+                            .subscribe(onNext: { (ad: SAAd) in
+                                
+                                // goto next screen
+                                self.performSegue(withIdentifier: "DemoToSettings", sender: self) { (segue, sender) in
+                                    
+                                    if let dest = segue.destination as? SettingsController {
+                                        dest.ad = ad
+                                    }
+                                    
+                                }
+                                
+                            }, onError: { (error) in
+                                SALoadScreen.getInstance().hide()
+                            }, onCompleted: { 
+                                SALoadScreen.getInstance().hide()
+                            })
+                            .addDisposableTo(self.disposeBag)
                     }
                 
                 self.dataSource?.update(dataArry)
                 
             })
             .addDisposableTo(disposeBag)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = "page_demo_title".localized
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if let destination = segue.destination as? SettingsController {
-            destination.placementId = self.currentModel.getPlacementId()
-            destination.test = true
-            
-        }
     }
 }

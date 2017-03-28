@@ -8,7 +8,7 @@ target 'AwesomeAdsDemo' do
   # Pods for TestRxGesture
   pod 'RxSwift', '3.1.0'
   pod 'RxCocoa', '3.1.0'
-  pod 'SuperAwesome', '5.5.4'
+  pod 'SuperAwesome', '5.5.7'
   pod 'Kingfisher', '~> 3.0'
 
   target 'AwesomeAdsDemo_Tests' do

@@ -12,12 +12,15 @@ import RxSwift
 import SuperAwesome
 import SANetworking
 import SAModelSpace
+import SAAdLoader
+import SASession
 
 extension SuperAwesome {
     
-    enum CreativesError : Error {
+    enum SAError : Error {
         case InvalidData
         case NoResults
+        case NoAdData
     }
     
     static func loadCreatives (placementId: Int) -> Observable<SACreative> {
@@ -54,14 +57,14 @@ extension SuperAwesome {
                         }
                         
                     } catch {
-                        subscriber.onError(CreativesError.InvalidData)
+                        subscriber.onError(SAError.InvalidData)
                     }
                 } else {
-                    subscriber.onError(CreativesError.InvalidData)
+                    subscriber.onError(SAError.InvalidData)
                 }
                 
                 if (results.count == 0) {
-                    subscriber.onError(CreativesError.NoResults)
+                    subscriber.onError(SAError.NoResults)
                 }
                 else {
                 
@@ -74,6 +77,56 @@ extension SuperAwesome {
             
             return Disposables.create()
         })
+    }
+    
+    static func loadTestAd (placementId: Int) -> Observable<SAAd> {
+        
+        let loader: SALoader = SALoader ()
+        let session: SASession = SASession ()
+        session.enableTestMode()
+        
+        return Observable.create({ (subscriber) -> Disposable in
+            
+            loader.loadAd(placementId, with: session) { (response: SAResponse?) in
+                
+                if let response = response, response.isValid (), let ad = response.ads.object(at: 0) as? SAAd  {
+                    subscriber.onNext(ad)
+                    subscriber.onCompleted()
+                }
+                else {
+                    subscriber.onError(SAError.NoAdData)
+                }
+                
+            }
+            
+            return Disposables.create()
+        })
+    }
+    
+    static func processAd (ad: SAAd) -> Observable <SAResponse> {
+        
+        let payload = ad.jsonPreetyStringRepresentation()
+        let testPlacement = 10000;
+        let loader: SALoader = SALoader ()
+        let session: SASession = SASession ()
+        
+        return Observable.create({ (subscriber) -> Disposable in
+            
+            loader.processAd(testPlacement, andData: payload, andStatus: 200, andSession: session, andResult: { (response: SAResponse?) in
+                
+                if let response = response, response.isValid () {
+                    subscriber.onNext(response)
+                    subscriber.onCompleted()
+                }
+                else {
+                    subscriber.onError(SAError.NoAdData)
+                }
+                
+            })
+            
+            return Disposables.create()
+        })
+        
     }
     
 }

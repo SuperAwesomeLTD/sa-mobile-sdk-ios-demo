@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XzS-c8-eXr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="96i-Bu-SXq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,48 +9,79 @@
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
-        <scene sceneID="J9M-6j-T3f">
+        <scene sceneID="MFe-iE-Aky">
             <objects>
-                <navigationController id="XzS-c8-eXr" customClass="SANavigationController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="AIR-6a-Ld3">
+                <navigationController navigationBarHidden="YES" id="96i-Bu-SXq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NP3-IX-RxE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="BL5-SW-XJl" kind="relationship" relationship="rootViewController" id="nls-IA-pce"/>
+                        <segue destination="06y-R4-jc0" kind="relationship" relationship="rootViewController" id="aQt-FS-fSS"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GqY-l7-SCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Gl-W3-cVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1754" y="1232"/>
+            <point key="canvasLocation" x="-2655" y="871"/>
+        </scene>
+        <!--Intro Controller-->
+        <scene sceneID="Cq0-Sy-K1b">
+            <objects>
+                <viewController id="06y-R4-jc0" customClass="IntroController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PUw-Jz-1SZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="pUF-nr-kFn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VCg-3W-rQV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AWESOMEADS" translatesAutoresizingMaskIntoConstraints="NO" id="W3M-XU-8nX">
+                                <rect key="frame" x="67" y="269.5" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="lbq-MY-Ozy"/>
+                                    <constraint firstAttribute="height" constant="128" id="mgg-nz-LVC"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="W3M-XU-8nX" firstAttribute="centerY" secondItem="VCg-3W-rQV" secondAttribute="centerY" id="9en-Ck-YqU"/>
+                            <constraint firstItem="W3M-XU-8nX" firstAttribute="centerX" secondItem="VCg-3W-rQV" secondAttribute="centerX" id="tRO-a0-csE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="16P-ob-2ny"/>
+                    <connections>
+                        <segue destination="fNn-xC-lgI" kind="show" identifier="IntroToLogin" id="VQM-HS-bMl"/>
+                        <segue destination="9rj-vO-i8s" kind="show" identifier="IntroToTabBar" id="3K3-HZ-iHf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YNu-5e-JcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1916" y="871"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="fc6-LM-SZh">
+        <scene sceneID="4pa-qh-47I">
             <objects>
-                <navigationController id="stP-x8-cqa" customClass="SANavigationController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="TY4-K1-glh">
+                <navigationController id="fNn-xC-lgI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="HPq-sb-bSJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="4tZ-dL-sP6" kind="relationship" relationship="rootViewController" id="i3H-0T-O80"/>
+                        <segue destination="BL5-SW-XJl" kind="relationship" relationship="rootViewController" id="c6Z-33-m7a"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u1x-Ef-tCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLm-k6-t3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-222" y="1232"/>
+            <point key="canvasLocation" x="-922" y="424"/>
         </scene>
-        <!--Login Controller-->
+        <!--Login to AwesomeAds-->
         <scene sceneID="0Fb-xg-MR1">
             <objects>
                 <viewController id="BL5-SW-XJl" customClass="LoginController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,24 +150,47 @@
                             <constraint firstItem="gVW-cs-pNg" firstAttribute="top" secondItem="7Wg-wi-J4i" secondAttribute="bottom" constant="67" id="yia-ei-5cs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xBQ-oM-SSj"/>
+                    <navigationItem key="navigationItem" title="Login to AwesomeAds" id="xBQ-oM-SSj">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="E0L-HX-joj"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="loginButton" destination="x58-mP-XEa" id="sUV-F7-vru"/>
                         <outlet property="mainLogo" destination="gVW-cs-pNg" id="9I9-TU-rYT"/>
                         <outlet property="passwordField" destination="vvl-s7-k31" id="djZ-Jo-x6v"/>
                         <outlet property="usernameField" destination="f0W-20-2nF" id="6dX-Ar-gXo"/>
-                        <segue destination="stP-x8-cqa" kind="presentation" identifier="LoginToTabBar" id="qyg-gi-waq"/>
+                        <segue destination="9rj-vO-i8s" kind="show" identifier="LoginToTabBar" id="TD3-AL-6HO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRo-OO-s4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1006" y="1232"/>
+            <point key="canvasLocation" x="-202" y="425"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="mB9-UW-Iwc">
+            <objects>
+                <navigationController id="9rj-vO-i8s" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="XAZ-5O-2Rl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4tZ-dL-sP6" kind="relationship" relationship="rootViewController" id="OEq-Oe-Vea"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mQa-zn-a63" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-202" y="1232"/>
+        </scene>
+        <!--Ad Formats-->
         <scene sceneID="bcC-Hm-8pO">
             <objects>
                 <tabBarController id="4tZ-dL-sP6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="DFq-77-qLL"/>
+                    <navigationItem key="navigationItem" title="Ad Formats" id="DFq-77-qLL"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Mwt-UM-iYF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -220,19 +274,19 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your placement"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="IT7-Xc-8K6"/>
+                    <navigationItem key="navigationItem" title="Your placement" id="IT7-Xc-8K6"/>
                     <connections>
                         <outlet property="moreButton" destination="d31-dq-4V2" id="qNW-1d-ziu"/>
                         <outlet property="nextButton" destination="cvE-lv-1Rd" id="D2r-UL-PpF"/>
                         <outlet property="placementTextView" destination="Yxb-Bc-g1d" id="3Dw-P4-5VO"/>
-                        <segue destination="bah-oC-yF8" kind="show" identifier="UserToCreatives" id="i4j-2x-xhC"/>
+                        <segue destination="bah-oC-yF8" kind="show" identifier="UserToCreatives" id="nJt-m1-FNs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7T-YP-XiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1592.8" y="1640.3298350824589"/>
         </scene>
-        <!--Creatives Controller-->
+        <!--Creatives-->
         <scene sceneID="mZA-sX-rai">
             <objects>
                 <viewController id="bah-oC-yF8" customClass="CreativesController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,6 +386,7 @@
                             <constraint firstItem="rWw-J6-L0c" firstAttribute="leading" secondItem="A26-6o-3O4" secondAttribute="leading" id="xD6-yI-5zr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Creatives" id="Lri-m0-nMf"/>
                     <connections>
                         <outlet property="tableView" destination="rWw-J6-L0c" id="kkV-Am-5Gv"/>
                         <segue destination="WT9-14-Jpq" kind="show" identifier="CreativesToSettings" id="0XS-XA-lzN"/>
@@ -436,7 +491,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Default formats"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="zUi-LE-3um"/>
+                    <navigationItem key="navigationItem" title="Default formats" id="zUi-LE-3um"/>
                     <connections>
                         <outlet property="tableView" destination="YNB-s8-4PX" id="rT8-pT-8jg"/>
                         <segue destination="WT9-14-Jpq" kind="show" identifier="DemoToSettings" id="0sB-s7-TVW"/>
@@ -446,7 +501,7 @@
             </objects>
             <point key="canvasLocation" x="1592.8" y="928.78560719640188"/>
         </scene>
-        <!--Settings Controller-->
+        <!--Settings-->
         <scene sceneID="4NG-8e-v7q">
             <objects>
                 <viewController id="WT9-14-Jpq" customClass="SettingsController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -563,7 +618,7 @@
                             <constraint firstAttribute="trailing" secondItem="kym-R2-dda" secondAttribute="trailing" id="w4Q-EK-COC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sUU-H1-2iL"/>
+                    <navigationItem key="navigationItem" title="Settings" id="sUU-H1-2iL"/>
                     <connections>
                         <outlet property="loadButton" destination="Hml-rX-7e1" id="MNN-5z-yRL"/>
                         <outlet property="tableView" destination="kym-R2-dda" id="auG-NW-RUx"/>
@@ -572,9 +627,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9g-yy-8Yf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3271" y="1232"/>
+            <point key="canvasLocation" x="3252" y="929"/>
         </scene>
-        <!--Display Controller-->
+        <!--Display-->
         <scene sceneID="fli-eE-Zqr">
             <objects>
                 <viewController id="6OP-Vx-Dlb" customClass="DisplayController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -647,7 +702,7 @@
                             <constraint firstItem="HAC-sh-aAB" firstAttribute="centerY" secondItem="Mfu-BH-Uo9" secondAttribute="centerY" id="zr4-bh-mh0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="nX7-Jw-VJh"/>
+                    <navigationItem key="navigationItem" title="Display" id="nX7-Jw-VJh"/>
                     <connections>
                         <outlet property="bigBanner" destination="PsI-ex-hvr" id="b3h-Vl-hG0"/>
                         <outlet property="mpuBanner" destination="HAC-sh-aAB" id="Hus-oG-OxN"/>
@@ -656,7 +711,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zq-y8-GYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4150" y="1232"/>
+            <point key="canvasLocation" x="4025" y="929"/>
         </scene>
     </scenes>
     <resources>
@@ -667,6 +722,7 @@
         <image name="your placement_inactive" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="TD3-AL-6HO"/>
         <segue reference="0XS-XA-lzN"/>
     </inferredMetricsTieBreakers>
 </document>

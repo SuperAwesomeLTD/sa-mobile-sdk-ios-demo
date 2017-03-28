@@ -46,6 +46,25 @@ class CreativesController: SABaseViewController {
                         cell?.format.text = model?.getFormat()
                         cell?.source.text = model?.getSource()
                     })
+                    .clickRow(cellIdentifier: "CreativesRowID", click: { (indexPath, model) in
+                    
+                        let model = model as? CreativesViewModel
+                        let ad = SAAd ()
+                        ad.placementId = self.placementId
+                        ad.creative = model?.getCreative()
+                        if ad.creative.format == .tag && ad.creative.details.format.contains("video") {
+                            ad.creative.format = .video
+                            ad.creative.details.vast = ad.creative.details.tag
+                        }
+                        
+                        self.performSegue(withIdentifier: "CreativesToSettings", sender: self) { (segue, sender) in
+                            
+                            if let dest = segue.destination as? SettingsController {
+                                dest.ad = ad
+                            }
+                        }
+                        
+                    })
                 
                 self.dataSource?.update(creatives)
                 
