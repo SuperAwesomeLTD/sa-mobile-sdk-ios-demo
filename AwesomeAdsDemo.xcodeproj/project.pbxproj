@@ -12,7 +12,6 @@
 		1B0A21C31DE85FCD00E6C889 /* DemoFormatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C21DE85FCD00E6C889 /* DemoFormatsProvider.swift */; };
 		1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */; };
 		1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21E91DE8A03000E6C889 /* AdFormat.swift */; };
-		1B0A21EC1DE8A06800E6C889 /* AdAux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21EB1DE8A06800E6C889 /* AdAux.swift */; };
 		1B0A21F21DE8A69900E6C889 /* AdPreload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21F11DE8A69900E6C889 /* AdPreload.swift */; };
 		1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */; };
 		1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6151DE8445000353E8C /* AppDelegate.swift */; };
@@ -63,7 +62,6 @@
 		1B0A21C21DE85FCD00E6C889 /* DemoFormatsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsProvider.swift; sourceTree = "<group>"; };
 		1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsRow.swift; sourceTree = "<group>"; };
 		1B0A21E91DE8A03000E6C889 /* AdFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdFormat.swift; sourceTree = "<group>"; };
-		1B0A21EB1DE8A06800E6C889 /* AdAux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdAux.swift; sourceTree = "<group>"; };
 		1B0A21ED1DE8A0F900E6C889 /* AwesomeAdsDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AwesomeAdsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B0A21F11DE8A69900E6C889 /* AdPreload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdPreload.swift; sourceTree = "<group>"; };
 		1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				1B0A21E91DE8A03000E6C889 /* AdFormat.swift */,
-				1B0A21EB1DE8A06800E6C889 /* AdAux.swift */,
 				1B0A21F11DE8A69900E6C889 /* AdPreload.swift */,
 				1BFD63851DEF37B0003F7F31 /* AdRx.swift */,
 			);
@@ -546,7 +543,6 @@
 				1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */,
 				1BAE466A1DFEA68700377895 /* RxDataSource.swift in Sources */,
 				1BFEA6BE1E896E2D0023807D /* CreativesController.swift in Sources */,
-				1B0A21EC1DE8A06800E6C889 /* AdAux.swift in Sources */,
 				1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */,
 				1B0A21BB1DE85AE600E6C889 /* SANavigationController.swift in Sources */,
 				1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */,

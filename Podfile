@@ -9,6 +9,7 @@ target 'AwesomeAdsDemo' do
   pod 'RxSwift', '3.1.0'
   pod 'RxCocoa', '3.1.0'
   pod 'SuperAwesome', '5.5.4'
+  pod 'Kingfisher', '~> 3.0'
 
   target 'AwesomeAdsDemo_Tests' do
       inherit! :search_paths

@@ -118,11 +118,7 @@ class SettingsController: SABaseViewController {
                 return format
             }
             .filter { (format) -> Bool in
-                return format == AdFormat.smallbanner ||
-                       format == AdFormat.normalbanner ||
-                       format == AdFormat.bigbanner ||
-                       format == AdFormat.mpu
-
+                return format.isBannerTyoe()
             }
             .subscribe(onNext: { (Void) in
                 
@@ -137,7 +133,7 @@ class SettingsController: SABaseViewController {
                 return format
             }
             .filter { (format) -> Bool in
-                return format == .interstitial
+                return format.isInterstitialType()
             }
             .do(onNext: { (format) in
                 
@@ -167,7 +163,7 @@ class SettingsController: SABaseViewController {
                 return format
             }
             .filter { (format) -> Bool in
-                return format == .video
+                return format.isVideoType()
             }
             .do(onNext: { (format) in
                 

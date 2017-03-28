@@ -67,7 +67,10 @@ class SettingsProvider: NSObject {
             case .smallbanner, .normalbanner, .bigbanner,  .mpu:
                 self.getTransparentBg().setActive(true)
                 break
-            case .interstitial:
+            case .mobile_portrait_interstitial,
+                 .mobile_landscape_interstitial,
+                 .tablet_portrait_interstitial,
+                 .tablet_landscape_interstitial:
                 self.getLockToPortrait().setActive(true)
                 self.getLockToLandscape().setActive(true)
                 break

@@ -1,4 +1,5 @@
 PODS:
+  - Kingfisher (3.6.0)
   - RxCocoa (3.1.0):
     - RxSwift (~> 3.1)
   - RxSwift (3.1.0)
@@ -57,11 +58,13 @@ PODS:
     - SuperAwesome/Base
 
 DEPENDENCIES:
+  - Kingfisher (~> 3.0)
   - RxCocoa (= 3.1.0)
   - RxSwift (= 3.1.0)
   - SuperAwesome (= 5.5.4)
 
 SPEC CHECKSUMS:
+  Kingfisher: 300035f9a40634dc9b452d946c9f22250688fecd
   RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
   RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   SAAdLoader: 0d80411a2a31e8e8cb9ae74f3df80c1d7dbdc367
@@ -77,6 +80,6 @@ SPEC CHECKSUMS:
   SAWebPlayer: 69f56d3e75f33b25992f060bf20a309b1d5a8ae5
   SuperAwesome: 3dfc259408c289fc3e72be04c7b2dd2acc8b7132
 
-PODFILE CHECKSUM: abfb0d5fdc32c1c5266fa1322177372d20b48bde
+PODFILE CHECKSUM: fb88d63959045a708f5117dce1e5e037e8fb1e39
 
 COCOAPODS: 1.2.0.beta.1

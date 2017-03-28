@@ -22,13 +22,12 @@ class AdPreload: NSObject {
             session.enableTestMode()
         }
         let loader = SALoader ()
-        let adAux = AdAux ()
         
         return Observable.create({ (observer) -> Disposable in
             
             loader.loadAd(placementId, with: session) { response in
                 
-                let format: AdFormat = adAux.determineAdType(response)
+                let format: AdFormat = AdFormat.fromResponse(response)
                 observer.onNext(format)
                 observer.onCompleted()
             }

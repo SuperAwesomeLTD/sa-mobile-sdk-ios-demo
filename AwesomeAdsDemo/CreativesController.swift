@@ -4,6 +4,7 @@ import RxCocoa
 import SAUtils
 import SuperAwesome
 import SAModelSpace
+import Kingfisher
 
 class CreativesController: SABaseViewController {
     
@@ -33,6 +34,13 @@ class CreativesController: SABaseViewController {
                         
                         let cell = cell as? CreativesRow
                         let model = model as? CreativesViewModel
+                        
+                        if let bitmap = model?.getBitmapUrl() {
+                            cell?.icon.kf.setImage(with: URL(string: bitmap))
+                        }
+                        else {
+                            cell?.icon.image = UIImage(named: model!.getLocalImage())
+                        }
                         
                         cell?.name.text = model?.getName()
                         cell?.format.text = model?.getFormat()
