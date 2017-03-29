@@ -11,7 +11,6 @@
 		1B0A21C31DE85FCD00E6C889 /* DemoFormatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C21DE85FCD00E6C889 /* DemoFormatsProvider.swift */; };
 		1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */; };
 		1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21E91DE8A03000E6C889 /* AdFormat.swift */; };
-		1B0A21F21DE8A69900E6C889 /* AdPreload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21F11DE8A69900E6C889 /* AdPreload.swift */; };
 		1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */; };
 		1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6151DE8445000353E8C /* AppDelegate.swift */; };
 		1B46E61B1DE8445000353E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E6191DE8445000353E8C /* Main.storyboard */; };
@@ -41,6 +40,10 @@
 		1BFEA6C01E8971CA0023807D /* CreativesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6BF1E8971CA0023807D /* CreativesViewModel.swift */; };
 		1BFEA6C21E8971D80023807D /* CreativesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6C11E8971D80023807D /* CreativesRow.swift */; };
 		1BFEA6F21E8AA6960023807D /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6F11E8AA6960023807D /* IntroController.swift */; };
+		1BFEA6F41E8ACA570023807D /* UserHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6F31E8ACA570023807D /* UserHistory.swift */; };
+		1BFEA6F61E8ACA610023807D /* UserHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6F51E8ACA610023807D /* UserHistoryViewModel.swift */; };
+		1BFEA6F81E8ACC5C0023807D /* DbAux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6F71E8ACC5C0023807D /* DbAux.swift */; };
+		1BFEA6FD1E8BB5FA0023807D /* UserHistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEA6FC1E8BB5FA0023807D /* UserHistoryRow.swift */; };
 		88D6422E1D7BA0218B685454 /* Pods_AwesomeAdsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */; };
 		9E4B80B0BA3D951AB826612F /* Pods_AwesomeAdsDemo_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -62,7 +65,6 @@
 		1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFormatsRow.swift; sourceTree = "<group>"; };
 		1B0A21E91DE8A03000E6C889 /* AdFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdFormat.swift; sourceTree = "<group>"; };
 		1B0A21ED1DE8A0F900E6C889 /* AwesomeAdsDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AwesomeAdsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		1B0A21F11DE8A69900E6C889 /* AdPreload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdPreload.swift; sourceTree = "<group>"; };
 		1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1B46E6121DE8445000353E8C /* AwesomeAdsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeAdsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B46E6151DE8445000353E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,10 @@
 		1BFEA6BF1E8971CA0023807D /* CreativesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreativesViewModel.swift; sourceTree = "<group>"; };
 		1BFEA6C11E8971D80023807D /* CreativesRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreativesRow.swift; sourceTree = "<group>"; };
 		1BFEA6F11E8AA6960023807D /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
+		1BFEA6F31E8ACA570023807D /* UserHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHistory.swift; sourceTree = "<group>"; };
+		1BFEA6F51E8ACA610023807D /* UserHistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHistoryViewModel.swift; sourceTree = "<group>"; };
+		1BFEA6F71E8ACC5C0023807D /* DbAux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbAux.swift; sourceTree = "<group>"; };
+		1BFEA6FC1E8BB5FA0023807D /* UserHistoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHistoryRow.swift; sourceTree = "<group>"; };
 		7532A830B87B2A8854B4CE7C /* Pods_AwesomeAdsDemo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		783A881A13DCC59F57931B38 /* Pods-AwesomeAdsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeAdsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8F818E7990501342E00B9516 /* Pods_AwesomeAdsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeAdsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,8 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				1B0A21E91DE8A03000E6C889 /* AdFormat.swift */,
-				1B0A21F11DE8A69900E6C889 /* AdPreload.swift */,
 				1BFD63851DEF37B0003F7F31 /* AdRx.swift */,
+				1BFEA6F71E8ACC5C0023807D /* DbAux.swift */,
 			);
 			name = AdAux;
 			sourceTree = "<group>";
@@ -238,6 +244,9 @@
 			children = (
 				1B46E62D1DE8497400353E8C /* UserController.swift */,
 				1B56355C1DEC6ACD00EEA239 /* UserModel.swift */,
+				1BFEA6F31E8ACA570023807D /* UserHistory.swift */,
+				1BFEA6F51E8ACA610023807D /* UserHistoryViewModel.swift */,
+				1BFEA6FC1E8BB5FA0023807D /* UserHistoryRow.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -543,10 +552,12 @@
 				1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */,
 				1BFEA6B71E8958510023807D /* LoginService.swift in Sources */,
 				1BFEA6B51E8955D90023807D /* LoginUser.swift in Sources */,
+				1BFEA6F41E8ACA570023807D /* UserHistory.swift in Sources */,
 				1B0A21C11DE85EFE00E6C889 /* DemoFormatsViewModel.swift in Sources */,
 				1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */,
 				1BFEA6B91E895D430023807D /* LoginManager.swift in Sources */,
 				1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */,
+				1BFEA6F81E8ACC5C0023807D /* DbAux.swift in Sources */,
 				1B46E62C1DE8496A00353E8C /* DemoFormatsController.swift in Sources */,
 				1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */,
 				1BAE466A1DFEA68700377895 /* RxDataSource.swift in Sources */,
@@ -556,16 +567,17 @@
 				1BFEA6AE1E89281A0023807D /* LoginController.swift in Sources */,
 				1B974A151E016E3C00CE9EA7 /* SATextField.swift in Sources */,
 				1BFEA6B01E8930710023807D /* LoginModel.swift in Sources */,
+				1BFEA6F61E8ACA610023807D /* UserHistoryViewModel.swift in Sources */,
 				1B46E62E1DE8497400353E8C /* UserController.swift in Sources */,
 				1B56355D1DEC6ACD00EEA239 /* UserModel.swift in Sources */,
 				1BFEA6B31E8946B80023807D /* LoginMetadata.swift in Sources */,
 				1B56355F1DEC7E7C00EEA239 /* SettingsRow.swift in Sources */,
 				1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */,
+				1BFEA6FD1E8BB5FA0023807D /* UserHistoryRow.swift in Sources */,
 				1B4A518B1DEDEDD40041DE7B /* DisplayController.swift in Sources */,
 				1BFEA6C01E8971CA0023807D /* CreativesViewModel.swift in Sources */,
 				1BFEA6F21E8AA6960023807D /* IntroController.swift in Sources */,
 				1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */,
-				1B0A21F21DE8A69900E6C889 /* AdPreload.swift in Sources */,
 				1BFEA6C21E8971D80023807D /* CreativesRow.swift in Sources */,
 				1B4A518D1DEDFEC20041DE7B /* SABaseViewController.swift in Sources */,
 				1B0A21C31DE85FCD00E6C889 /* DemoFormatsProvider.swift in Sources */,

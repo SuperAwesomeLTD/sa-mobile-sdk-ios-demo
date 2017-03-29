@@ -1,48 +1,41 @@
-//
-//  UserController.swift
-//  AwesomeAdsDemo
-//
-//  Created by Gabriel Coman on 25/11/2016.
-//  Copyright © 2016 Gabriel Coman. All rights reserved.
-//
-
 import UIKit
 import RxSwift
 import RxCocoa
 import SAUtils
 import SuperAwesome
 
-class UserController: SABaseViewController {
+class UserController: SABaseViewController, UITextFieldDelegate {
 
     // outlets
     @IBOutlet weak var placementTextView: UITextField!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var table: UITableView!
     
     // other vars
     private var currentModel: UserModel!
-    
-    // touch
-    private var touch: UIGestureRecognizer?
+    private var touch: UIGestureRecognizer = UITapGestureRecognizer ()
+    private var dataSource: RxDataSource?
+    private var subject: PublishSubject<[UserHistory]>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        moreButton.setTitle("page_user_button_more_title".localized, for: .normal)
+        // setup localized text
         nextButton.setTitle("page_user_button_next_title".localized, for: .normal)
         placementTextView.placeholder = "page_user_textfield_placement_placeholder".localized
         
         // placement text view
+        placementTextView.delegate = self
         placementTextView.rx.text.orEmpty
-            .map({ text -> UserModel in
+            .map { text -> UserModel in
                 return UserModel(text)
-            })
+            }
             .do(onNext: { userModel in
                 self.currentModel = userModel
             })
-            .map({ userModel -> Bool in
+            .map { userModel -> Bool in
                 return userModel.isValid()
-            })
+            }
             .subscribe(onNext: { isValid in
                 self.nextButton.isEnabled = isValid
                 self.nextButton.backgroundColor = isValid ? UIColorFromHex(0x147CCD) : UIColor.lightGray
@@ -51,9 +44,13 @@ class UserController: SABaseViewController {
         
         // next button tap
         nextButton.rx.tap
-            .subscribe (onNext: { (Void) in
+            .subscribe (onNext: {
                 
-                self.performSegue(withIdentifier: "UserToCreatives", sender: self) { (segue, sender) in
+                // save to history
+                DbAux.savePlacementToHistory(history: UserHistory(placementId: self.currentModel.getPlacementID()))
+                
+                // perform segue
+                self.performSegue(withIdentifier: "UserToCreatives", sender: self) { segue, sender in
                     
                     if let dest = segue.destination as? CreativesController {
                         dest.placementId = self.currentModel.getPlacementID()
@@ -62,27 +59,67 @@ class UserController: SABaseViewController {
             })
             .addDisposableTo(disposeBag)
         
-        // more button tap
-        moreButton.rx.tap
-            .subscribe(onNext: { Void in
-            
-                SAAlert.getInstance().show(withTitle: "page_user_popup_more_title".localized,
-                                           andMessage: "page_user_popup_more_message".localized,
-                                           andOKTitle: "page_user_popup_more_ok_button".localized,
-                                           andNOKTitle: nil,
-                                           andTextField: false,
-                                           andKeyboardTyle: .default,
-                                           andPressed: nil)
-            
-            }).addDisposableTo(disposeBag)
+        // the rows
+        subject = PublishSubject.init()
+        subject?.asObserver()
+            .startWith(DbAux.getPlacementsFromHistory())
+            .map({ (userHistories) -> [UserHistoryViewModel] in
+                return userHistories.map { history -> UserHistoryViewModel in
+                    return UserHistoryViewModel(history: history)
+                }
+            })
+            .subscribe(onNext: { viewModels in
+                
+                self.dataSource = RxDataSource
+                    .bindTable(self.table)
+                    .customiseRow(cellIdentifier: "UserHistoryRowID", cellType: UserHistoryViewModel.self, cellHeight: 80) { model, cell in
+                        
+                        let cell = cell as? UserHistoryRow
+                        let model = model as? UserHistoryViewModel
+                        
+                        cell?.placement.text = model?.getPlacement()
+                        cell?.date.text = model?.getDate()
+                        
+                    }
+                    .clickRow(cellIdentifier: "UserHistoryRowID") { index, model in
+                        
+                        let model = model as? UserHistoryViewModel
+                        
+                        self.performSegue(withIdentifier: "UserToCreatives", sender: self) { segue, sender in
+                            
+                            if let dest = segue.destination as? CreativesController {
+                                dest.placementId = model!.getPlacementId()
+                            }
+                        }
+                        
+                }
+                
+                self.dataSource?.update(viewModels)
+                
+            })
+            .addDisposableTo(disposeBag)
         
         // the touch gesture recogniser
-        touch = UITapGestureRecognizer ()
-        touch?.rx.event.asObservable()
+        touch.rx.event.asObservable()
             .subscribe(onNext: { (event) in
                 self.placementTextView.resignFirstResponder()
             })
             .addDisposableTo(disposeBag)
-        self.view.addGestureRecognizer(touch!)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let s = subject {
+            s.onNext(DbAux.getPlacementsFromHistory())
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.view.addGestureRecognizer(touch)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.view.removeGestureRecognizer(touch)
     }
 }

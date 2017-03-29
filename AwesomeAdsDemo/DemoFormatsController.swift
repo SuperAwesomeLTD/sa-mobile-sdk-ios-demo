@@ -33,8 +33,7 @@ class DemoFormatsController: SABaseViewController {
                     .bindTable(self.tableView)
                     .estimateRowHeight(101)
                     .customiseRow(cellIdentifier: "DemoFormatsRowID",
-                                  cellType: DemoFormatsViewModel.self)
-                    { (model, cell) in
+                                  cellType: DemoFormatsViewModel.self) { (model, cell) in
                         
                         let cell = cell as? DemoFormatsRow
                         let model = model as? DemoFormatsViewModel
@@ -44,8 +43,7 @@ class DemoFormatsController: SABaseViewController {
                         cell?.details.text = model?.getDetails()
                         
                     }
-                    .clickRow(cellIdentifier: "DemoFormatsRowID")
-                    { (index, model) in
+                    .clickRow(cellIdentifier: "DemoFormatsRowID") { (index, model) in
                         
                         let model = model as? DemoFormatsViewModel
                         

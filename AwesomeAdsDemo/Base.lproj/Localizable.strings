@@ -12,7 +12,6 @@
 // user controller
 "page_user_title" = "Your placement";
 
-"page_user_button_more_title" = "Where can I find this?";
 "page_user_button_next_title" = "Next";
 "page_user_textfield_placement_placeholder" = "Placement ID ...";
 

@@ -25,6 +25,16 @@ class DisplayController: SABaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return UIStatusBarStyle.lightContent
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         let ad: SAAd = response?.ads.object(at: 0) as! SAAd
         
@@ -48,12 +58,6 @@ class DisplayController: SABaseViewController {
             mpuBanner.play()
             break
         default:break
-        }
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        get {
-            return UIStatusBarStyle.lightContent
         }
     }
 }
