@@ -32,7 +32,6 @@ class DbAux: NSObject {
             }
         }
         
-        
         return histories
         
     }

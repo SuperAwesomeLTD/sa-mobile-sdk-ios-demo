@@ -36,26 +36,24 @@ class SettingsController: SABaseViewController {
         
         // process the ad that's come from the segue
         SuperAwesome.processAd(ad: ad)
-            .subscribe(onNext: { (response: SAResponse) in
+            .subscribe(onNext: { response in
                 
                 let format = AdFormat.fromResponse(response)
                 
                 // get all the active settings array based on the
                 // format of the ad being processed
                 self.provider.getSettings(forAdFormat: format)
-                    .filter({ (settings: SettingsViewModel) -> Bool in
+                    .filter { settings -> Bool in
                         return settings.getActive()
-                    })
+                    }
                     .toArray()
-                    .subscribe(onNext: { (dataArry) in
+                    .subscribe(onNext: { dataArry in
                         
                         // customise the data source
                         self.dataSource = RxDataSource
                             .bindTable(self.tableView)
                             .estimateRowHeight(250)
-                            .customiseRow(cellIdentifier: "SettingsRowID",
-                                          cellType: SettingsViewModel.self)
-                            { (model, cell) in
+                            .customiseRow(cellIdentifier: "SettingsRowID", cellType: SettingsViewModel.self) { model, cell in
                                 
                                 let cell = cell as? SettingsRow
                                 let model = model as? SettingsViewModel
@@ -65,7 +63,7 @@ class SettingsController: SABaseViewController {
                                 cell?.settingsSwitch.isOn = (model?.getItemValue())!
                                 
                                 cell?.settingsSwitch.rx.value
-                                    .subscribe(onNext: { (val) in
+                                    .subscribe(onNext: { val in
                                         model?.setValue(val)
                                     })
                                     .addDisposableTo(self.disposeBag)
@@ -79,7 +77,7 @@ class SettingsController: SABaseViewController {
                 
                 // manage clicks
                 self.loadButton.rx.tap
-                    .subscribe(onNext: { () in
+                    .subscribe(onNext: {
                         
                         if (format.isBannerType()) {
                             self.playBanner(response: response, format: format, provider: self.provider)
@@ -98,7 +96,7 @@ class SettingsController: SABaseViewController {
                     .addDisposableTo(self.disposeBag)
                 
                 
-            }, onError: { (error) in
+            }, onError: { error in
                 
                 SALoadScreen.getInstance().hide()
             
@@ -112,7 +110,7 @@ class SettingsController: SABaseViewController {
     
     func playBanner (response: SAResponse, format: AdFormat, provider: SettingsProvider) {
         
-        self.performSegue(withIdentifier: "SettingsToDisplay", sender: self) { (segue, sender) in
+        self.performSegue(withIdentifier: "SettingsToDisplay", sender: self) { segue, sender in
             
             if let dest = segue.destination as? DisplayController {
                 dest.parentalGate = provider.getParentalGateValue()
@@ -128,9 +126,6 @@ class SettingsController: SABaseViewController {
         
         let ad = response.ads.object(at: 0) as! SAAd
         
-        SAInterstitialAd.setCallback { (placement, event: SAEvent) in
-            print("Event is \(event)")
-        }
         SAInterstitialAd.setParentalGate(provider.getParentalGateValue())
         SAInterstitialAd.setOrientation(
             provider.getLockToLandscapeValue() ? .LANDSCAPE :

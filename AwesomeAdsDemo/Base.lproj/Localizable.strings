@@ -19,6 +19,8 @@
 "page_user_popup_more_message" = "Under the \'Apps and Sites\' section you\'ll see a \'Placement ID\' column next to each of your placements.";
 "page_user_popup_more_ok_button" = "Got it!";
 
+"page_user_logout_button_title" = "Logout";
+
 // demo formats controller
 "page_demo_title" = "Default formats";
 

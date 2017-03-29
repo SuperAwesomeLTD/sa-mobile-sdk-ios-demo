@@ -22,16 +22,16 @@ class LoginController: SABaseViewController {
        
         // this checks to see if the user has inputed username + password
         // and updates the current model
-        Observable.combineLatest(usernameField.rx.text.orEmpty, passwordField.rx.text.orEmpty) { (username, password) -> LoginModel in
+        Observable.combineLatest(usernameField.rx.text.orEmpty, passwordField.rx.text.orEmpty) { username, password -> LoginModel in
                 return LoginModel(username: username, password: password)
             }
-            .do(onNext: { (model) in
+            .do(onNext: { model in
                 self.model = model
             })
-            .map { (model) -> Bool in
+            .map { model -> Bool in
                 return model.isValid()
             }
-            .subscribe(onNext: { (isValid) in
+            .subscribe(onNext: { isValid in
                 self.loginButton.isEnabled = isValid
                 self.loginButton.backgroundColor = isValid ? UIColorFromHex(0xED1C24) : UIColor.lightGray
             })
@@ -41,19 +41,22 @@ class LoginController: SABaseViewController {
         // is correctly auth-ed and, if that's the case,
         // move forward
         loginButton.rx.tap
-            .do(onNext: { (Void) in
+            .do(onNext: {
                 SALoadScreen.getInstance().show()
             })
-            .flatMap { (Void) -> Observable<LoginUser> in
+            .flatMap { Void -> Observable<LoginUser> in
                 return LoginManager.sharedInstance.login(username: self.model.getUsername(), password: self.model.getPassword())
             }
-            .subscribe(onNext: { (loginUser) in
+            .subscribe(onNext: { loginUser in
             
                 // stop this
                 SALoadScreen.getInstance().hide()
                 
                 // if user is valid
                 if (loginUser.isValid()) {
+                    
+                    // clear fields
+                    self.clearFields()
                     
                     // save the user
                     LoginManager.sharedInstance.saveUser(user: loginUser)
@@ -71,6 +74,11 @@ class LoginController: SABaseViewController {
             })
             .addDisposableTo(disposeBag)
         
+    }
+    
+    private func clearFields () {
+        usernameField.text = ""
+        passwordField.text = ""
     }
 
     override func didReceiveMemoryWarning() {

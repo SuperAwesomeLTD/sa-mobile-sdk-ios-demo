@@ -33,7 +33,7 @@ class DemoFormatsController: SABaseViewController {
                     .bindTable(self.tableView)
                     .estimateRowHeight(101)
                     .customiseRow(cellIdentifier: "DemoFormatsRowID",
-                                  cellType: DemoFormatsViewModel.self) { (model, cell) in
+                                  cellType: DemoFormatsViewModel.self) { model, cell in
                         
                         let cell = cell as? DemoFormatsRow
                         let model = model as? DemoFormatsViewModel
@@ -43,7 +43,7 @@ class DemoFormatsController: SABaseViewController {
                         cell?.details.text = model?.getDetails()
                         
                     }
-                    .clickRow(cellIdentifier: "DemoFormatsRowID") { (index, model) in
+                    .clickRow(cellIdentifier: "DemoFormatsRowID") { index, model in
                         
                         let model = model as? DemoFormatsViewModel
                         
@@ -51,10 +51,10 @@ class DemoFormatsController: SABaseViewController {
                         
                         // load ad
                         SuperAwesome.loadTestAd(placementId: model!.getPlacementId())
-                            .subscribe(onNext: { (ad: SAAd) in
+                            .subscribe(onNext: { ad in
                                 
                                 // goto next screen
-                                self.performSegue(withIdentifier: "DemoToSettings", sender: self) { (segue, sender) in
+                                self.performSegue(withIdentifier: "DemoToSettings", sender: self) { segue, sender in
                                     
                                     if let dest = segue.destination as? SettingsController {
                                         dest.ad = ad
@@ -62,10 +62,14 @@ class DemoFormatsController: SABaseViewController {
                                     
                                 }
                                 
-                            }, onError: { (error) in
+                            }, onError: { error in
+                                
                                 SALoadScreen.getInstance().hide()
-                            }, onCompleted: { 
+                                
+                            }, onCompleted: {
+                                
                                 SALoadScreen.getInstance().hide()
+                                
                             })
                             .addDisposableTo(self.disposeBag)
                     }

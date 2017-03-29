@@ -21,16 +21,16 @@ class CreativesController: SABaseViewController {
         SALoadScreen.getInstance().show()
         
         SuperAwesome.loadCreatives(placementId: placementId)
-            .map({ (creative) -> CreativesViewModel in
+            .map { creative -> CreativesViewModel in
                 return CreativesViewModel (creative)
-            })
+            }
             .toArray()
             .subscribe(onNext: { (creatives: [CreativesViewModel]) in
                 
                 self.dataSource = RxDataSource
                     .bindTable(self.tableView)
                     .estimateRowHeight(110)
-                    .customiseRow(cellIdentifier: "CreativesRowID", cellType: CreativesViewModel.self, customise: { (model, cell) in
+                    .customiseRow(cellIdentifier: "CreativesRowID", cellType: CreativesViewModel.self, customise: { model, cell in
                         
                         let cell = cell as? CreativesRow
                         let model = model as? CreativesViewModel
@@ -46,7 +46,7 @@ class CreativesController: SABaseViewController {
                         cell?.format.text = model?.getFormat()
                         cell?.source.text = model?.getSource()
                     })
-                    .clickRow(cellIdentifier: "CreativesRowID", click: { (indexPath, model) in
+                    .clickRow(cellIdentifier: "CreativesRowID", click: { indexPath, model in
                     
                         let model = model as? CreativesViewModel
                         let ad = SAAd ()
@@ -57,7 +57,7 @@ class CreativesController: SABaseViewController {
                             ad.creative.details.vast = ad.creative.details.tag
                         }
                         
-                        self.performSegue(withIdentifier: "CreativesToSettings", sender: self) { (segue, sender) in
+                        self.performSegue(withIdentifier: "CreativesToSettings", sender: self) { segue, sender in
                             
                             if let dest = segue.destination as? SettingsController {
                                 dest.ad = ad
@@ -68,7 +68,7 @@ class CreativesController: SABaseViewController {
                 
                 self.dataSource?.update(creatives)
                 
-            }, onError: { (error) in
+            }, onError: { error in
                 
                 SALoadScreen.getInstance().hide()
                 self.creativesError()

@@ -24,6 +24,9 @@ class UserController: SABaseViewController, UITextFieldDelegate {
         nextButton.setTitle("page_user_button_next_title".localized, for: .normal)
         placementTextView.placeholder = "page_user_textfield_placement_placeholder".localized
         
+        let rightBtn = UIBarButtonItem(title: "page_user_logout_button_title".localized, style: .plain, target: self, action: #selector(logout))
+        self.tabBarController?.navigationItem.rightBarButtonItem = rightBtn
+        
         // placement text view
         placementTextView.delegate = self
         placementTextView.rx.text.orEmpty
@@ -121,5 +124,10 @@ class UserController: SABaseViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.view.removeGestureRecognizer(touch)
+    }
+    
+    func logout () {
+        LoginManager.sharedInstance.logout()
+        self.dismiss(animated: true)
     }
 }

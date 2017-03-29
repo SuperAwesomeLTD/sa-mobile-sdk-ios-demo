@@ -15,6 +15,12 @@ class IntroController: SABaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         LoginManager.sharedInstance
             .check()
             .subscribe(onNext: { (loggedUser) in

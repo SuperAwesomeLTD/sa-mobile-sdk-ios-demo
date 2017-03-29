@@ -13,7 +13,7 @@ import RxSwift
 class DemoFormatsProvider: NSObject {
 
     func getDemoFormats () -> Observable <DemoFormatsViewModel> {
-        return Observable.create({ (observer) -> Disposable in
+        return Observable.create({ subscriber -> Disposable in
             
             let data: [DemoFormatsViewModel] = [
                 DemoFormatsViewModel(placementId: 30472,
@@ -55,9 +55,9 @@ class DemoFormatsProvider: NSObject {
             ]
             
             for d in data {
-                observer.onNext(d)
+                subscriber.onNext(d)
             }
-            observer.onCompleted()
+            subscriber.onCompleted()
             
             return Disposables.create()
         })

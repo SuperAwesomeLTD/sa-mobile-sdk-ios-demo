@@ -56,7 +56,7 @@ class SettingsProvider: NSObject {
     }
     
     func getSettings(forAdFormat adFormat: AdFormat) -> Observable<SettingsViewModel> {
-        return Observable.create({ (observer) -> Disposable in
+        return Observable.create({ subscriber -> Disposable in
             
             // customise options
             self.getParentalGate().setActive(true)
@@ -96,9 +96,9 @@ class SettingsProvider: NSObject {
             
             // call observer methods
             for setting in settings {
-                observer.onNext(setting)
+                subscriber.onNext(setting)
             }
-            observer.onCompleted()
+            subscriber.onCompleted()
             
             // return the disposable
             return Disposables.create ()
