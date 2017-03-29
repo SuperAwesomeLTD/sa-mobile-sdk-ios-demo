@@ -5,11 +5,15 @@ import SAUtils
 
 class LoginController: SABaseViewController {
     
+    private let maxContraintHeight: CGFloat = 67.0
+    private let minContraintHeight: CGFloat = 0.0
+    
     @IBOutlet weak var mainLogo: UIImageView!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-
+    @IBOutlet weak var topContraint: NSLayoutConstraint!
+    
     private var model: LoginModel = LoginModel.createEmpty()
     
     override func viewDidLoad() {
@@ -19,7 +23,21 @@ class LoginController: SABaseViewController {
         loginButton.setTitle("page_login_button_login".localized, for: .normal)
         usernameField.placeholder = "page_login_textfield_user_placeholder".localized
         passwordField.placeholder = "page_login_textfield_password_placeholder".localized
-       
+        
+        // whichever field starts, move the UI up
+        Observable.of(usernameField.rx.controlEvent(.editingDidBegin), passwordField.rx.controlEvent(.editingDidBegin))
+            .merge()
+            .subscribe(onNext: {
+                self.topContraint.constant = self.minContraintHeight
+            })
+            .addDisposableTo(disposeBag)
+        
+        usernameField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: {
+                self.passwordField.becomeFirstResponder()
+            })
+            .addDisposableTo(disposeBag)
+        
         // this checks to see if the user has inputed username + password
         // and updates the current model
         Observable.combineLatest(usernameField.rx.text.orEmpty, passwordField.rx.text.orEmpty) { username, password -> LoginModel in
@@ -37,18 +55,18 @@ class LoginController: SABaseViewController {
             })
             .addDisposableTo(disposeBag)
         
-        // every button tap there's a network request to see if the user
-        // is correctly auth-ed and, if that's the case,
-        // move forward
-        loginButton.rx.tap
+        // click on either the 
+        Observable.of(loginButton.rx.tap, passwordField.rx.controlEvent(.editingDidEndOnExit))
+            .merge()
             .do(onNext: {
+                self.resignFields()
                 SALoadScreen.getInstance().show()
             })
             .flatMap { Void -> Observable<LoginUser> in
                 return LoginManager.sharedInstance.login(username: self.model.getUsername(), password: self.model.getPassword())
             }
             .subscribe(onNext: { loginUser in
-            
+                
                 // stop this
                 SALoadScreen.getInstance().hide()
                 
@@ -57,6 +75,7 @@ class LoginController: SABaseViewController {
                     
                     // clear fields
                     self.clearFields()
+                    self.clearModel()
                     
                     // save the user
                     LoginManager.sharedInstance.saveUser(user: loginUser)
@@ -73,16 +92,6 @@ class LoginController: SABaseViewController {
                 
             })
             .addDisposableTo(disposeBag)
-        
-    }
-    
-    private func clearFields () {
-        usernameField.text = ""
-        passwordField.text = ""
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     private func authError () {
@@ -95,4 +104,18 @@ class LoginController: SABaseViewController {
                                    andPressed: nil)
     }
     
+    private func clearFields () {
+        usernameField.text = ""
+        passwordField.text = ""
+    }
+    
+    private func clearModel () {
+        model = LoginModel.createEmpty()
+    }
+    
+    private func resignFields () {
+        topContraint.constant = maxContraintHeight
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+    }
 }

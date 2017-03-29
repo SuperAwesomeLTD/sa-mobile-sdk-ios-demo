@@ -101,27 +101,27 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="f0W-20-2nF" customClass="SATextField" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                <rect key="frame" x="16" y="209" width="343" height="30"/>
+                                <rect key="frame" x="16" y="195" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7yc-xW-pzt"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vvl-s7-k31" customClass="SATextField" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                <rect key="frame" x="16" y="247" width="343" height="30"/>
+                                <rect key="frame" x="16" y="233" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="d6U-Gg-JhJ"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x58-mP-XEa">
-                                <rect key="frame" x="259" y="300" width="100" height="30"/>
+                                <rect key="frame" x="259" y="286" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.48627450979999998" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Wxl-2h-NdE"/>
@@ -138,7 +138,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="f0W-20-2nF" firstAttribute="top" secondItem="gVW-cs-pNg" secondAttribute="bottom" constant="14" id="0Ev-fK-Amh"/>
+                            <constraint firstItem="f0W-20-2nF" firstAttribute="top" secondItem="gVW-cs-pNg" secondAttribute="bottom" id="0Ev-fK-Amh"/>
                             <constraint firstItem="vvl-s7-k31" firstAttribute="top" secondItem="f0W-20-2nF" secondAttribute="bottom" constant="8" id="GpC-yR-Sa4"/>
                             <constraint firstItem="f0W-20-2nF" firstAttribute="leading" secondItem="F6Z-KK-8yx" secondAttribute="leading" constant="16" id="Nvh-j0-xl5"/>
                             <constraint firstItem="gVW-cs-pNg" firstAttribute="centerX" secondItem="F6Z-KK-8yx" secondAttribute="centerX" id="W7B-Y6-qme"/>
@@ -157,6 +157,7 @@
                         <outlet property="loginButton" destination="x58-mP-XEa" id="sUV-F7-vru"/>
                         <outlet property="mainLogo" destination="gVW-cs-pNg" id="9I9-TU-rYT"/>
                         <outlet property="passwordField" destination="vvl-s7-k31" id="djZ-Jo-x6v"/>
+                        <outlet property="topContraint" destination="yia-ei-5cs" id="ZnY-Hu-5rl"/>
                         <outlet property="usernameField" destination="f0W-20-2nF" id="6dX-Ar-gXo"/>
                         <segue destination="9rj-vO-i8s" kind="show" identifier="LoginToTabBar" id="TD3-AL-6HO"/>
                     </connections>
