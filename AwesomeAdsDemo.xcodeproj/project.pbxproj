@@ -12,6 +12,7 @@
 		1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */; };
 		1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21E91DE8A03000E6C889 /* AdFormat.swift */; };
 		1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */; };
+		1B3FF1571E8C0EA9007BF9FB /* RxDataSource2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FF1561E8C0EA9007BF9FB /* RxDataSource2.swift */; };
 		1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6151DE8445000353E8C /* AppDelegate.swift */; };
 		1B46E61B1DE8445000353E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E6191DE8445000353E8C /* Main.storyboard */; };
 		1B46E61D1DE8445000353E8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E61C1DE8445000353E8C /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		1B0A21E91DE8A03000E6C889 /* AdFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdFormat.swift; sourceTree = "<group>"; };
 		1B0A21ED1DE8A0F900E6C889 /* AwesomeAdsDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AwesomeAdsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		1B3FF1561E8C0EA9007BF9FB /* RxDataSource2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxDataSource2.swift; sourceTree = "<group>"; };
 		1B46E6121DE8445000353E8C /* AwesomeAdsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeAdsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B46E6151DE8445000353E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B46E61A1DE8445000353E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				1BAE46691DFEA68700377895 /* RxDataSource.swift */,
+				1B3FF1561E8C0EA9007BF9FB /* RxDataSource2.swift */,
 			);
 			name = Aux;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */,
 				1BAE466A1DFEA68700377895 /* RxDataSource.swift in Sources */,
 				1BFEA6BE1E896E2D0023807D /* CreativesController.swift in Sources */,
+				1B3FF1571E8C0EA9007BF9FB /* RxDataSource2.swift in Sources */,
 				1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */,
 				1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */,
 				1BFEA6AE1E89281A0023807D /* LoginController.swift in Sources */,

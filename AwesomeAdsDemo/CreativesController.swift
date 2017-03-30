@@ -57,13 +57,12 @@ class CreativesController: SABaseViewController {
                             ad.creative.details.vast = ad.creative.details.tag
                         }
                         
-                        self.performSegue(withIdentifier: "CreativesToSettings", sender: self) { segue, sender in
-                            
-                            if let dest = segue.destination as? SettingsController {
+                        self.performSegue("CreativesToSettings")
+                            .subscribe(onNext: { (dest: SettingsController) in
                                 dest.ad = ad
-                            }
-                        }
-                        
+                            })
+                            .addDisposableTo(self.disposeBag)
+
                     })
                 
                 self.dataSource?.update(creatives)

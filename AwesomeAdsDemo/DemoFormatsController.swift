@@ -19,8 +19,11 @@ class DemoFormatsController: SABaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // private vars
+    private var dataSource2: RxDataSource2?
     private var dataSource: RxDataSource?
     private let provider = DemoFormatsProvider ()
+    
+    private var ad: SAAd?
     
     override func viewDidLoad () {
         super.viewDidLoad()
@@ -29,52 +32,45 @@ class DemoFormatsController: SABaseViewController {
             .toArray()
             .subscribe(onNext: { (dataArry: [DemoFormatsViewModel]) in
                 
-                self.dataSource = RxDataSource
+                self.dataSource2 =  RxDataSource2
+                    .create()
                     .bindTable(self.tableView)
                     .estimateRowHeight(101)
-                    .customiseRow(cellIdentifier: "DemoFormatsRowID",
-                                  cellType: DemoFormatsViewModel.self) { model, cell in
+                    .customiseRow(identifier: "DemoFormatsRowID",
+                                  modelType: DemoFormatsViewModel.self,
+                                  cellType: DemoFormatsRow.self,
+                                  cellHeight: 0,
+                                  customise: { cell, model in
                         
-                        let cell = cell as? DemoFormatsRow
-                        let model = model as? DemoFormatsViewModel
+                        cell.icon.image = UIImage(named: model.getSource())
+                        cell.title.text = model.getName()
+                        cell.details.text = model.getDetails()
                         
-                        cell?.icon.image = UIImage(named: (model?.getSource())!)
-                        cell?.title.text = model?.getName()
-                        cell?.details.text = model?.getDetails()
-                        
-                    }
-                    .clickRow(cellIdentifier: "DemoFormatsRowID") { index, model in
-                        
-                        let model = model as? DemoFormatsViewModel
+                    })
+                    .clickRow(withIdentifier: "DemoFormatsRowID",
+                              forModel: DemoFormatsViewModel.self,
+                              onClick: { (index, model) in
                         
                         SALoadScreen.getInstance().show()
                         
-                        // load ad
-                        SuperAwesome.loadTestAd(placementId: model!.getPlacementId())
-                            .subscribe(onNext: { ad in
-                                
-                                // goto next screen
-                                self.performSegue(withIdentifier: "DemoToSettings", sender: self) { segue, sender in
-                                    
-                                    if let dest = segue.destination as? SettingsController {
-                                        dest.ad = ad
-                                    }
-                                    
-                                }
-                                
+                        SuperAwesome.loadTestAd(placementId: model.getPlacementId())
+                            .do(onNext: { ad in
+                                self.ad = ad
+                            })
+                            .flatMap { ad -> Observable<SettingsController> in
+                                return self.performSegue("DemoToSettings")
+                            }
+                            .subscribe (onNext: { (dest: SettingsController) in
+                                dest.ad = self.ad
                             }, onError: { error in
-                                
                                 SALoadScreen.getInstance().hide()
-                                
                             }, onCompleted: {
-                                
                                 SALoadScreen.getInstance().hide()
-                                
                             })
                             .addDisposableTo(self.disposeBag)
-                    }
-                
-                self.dataSource?.update(dataArry)
+                        
+                    })
+                self.dataSource2?.update(dataArry)
                 
             })
             .addDisposableTo(disposeBag)

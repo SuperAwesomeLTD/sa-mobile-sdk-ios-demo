@@ -53,12 +53,11 @@ class UserController: SABaseViewController, UITextFieldDelegate {
                 DbAux.savePlacementToHistory(history: UserHistory(placementId: self.currentModel.getPlacementID()))
                 
                 // perform segue
-                self.performSegue(withIdentifier: "UserToCreatives", sender: self) { segue, sender in
-                    
-                    if let dest = segue.destination as? CreativesController {
+                self.performSegue("UserToCreatives")
+                    .subscribe(onNext: { (dest: CreativesController) in
                         dest.placementId = self.currentModel.getPlacementID()
-                    }
-                }
+                    })
+                    .addDisposableTo(self.disposeBag)
             })
             .addDisposableTo(disposeBag)
         
@@ -88,12 +87,11 @@ class UserController: SABaseViewController, UITextFieldDelegate {
                         
                         let model = model as? UserHistoryViewModel
                         
-                        self.performSegue(withIdentifier: "UserToCreatives", sender: self) { segue, sender in
-                            
-                            if let dest = segue.destination as? CreativesController {
+                        self.performSegue("UserToCreatives")
+                            .subscribe(onNext: { (dest: CreativesController) in
                                 dest.placementId = model!.getPlacementId()
-                            }
-                        }
+                            })
+                            .addDisposableTo(self.disposeBag)
                         
                 }
                 

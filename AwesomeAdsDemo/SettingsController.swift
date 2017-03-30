@@ -110,16 +110,16 @@ class SettingsController: SABaseViewController {
     
     func playBanner (response: SAResponse, format: AdFormat, provider: SettingsProvider) {
         
-        self.performSegue(withIdentifier: "SettingsToDisplay", sender: self) { segue, sender in
-            
-            if let dest = segue.destination as? DisplayController {
+        self.performSegue("SettingsToDisplay")
+            .subscribe(onNext: { (dest: DisplayController) in
+                
                 dest.parentalGate = provider.getParentalGateValue()
                 dest.bgColor = provider.getTransparentBgValue()
                 dest.format = format
                 dest.response = response
-            }
-            
-        }
+                
+            })
+            .addDisposableTo(disposeBag)
     }
     
     func playInterstitial (response: SAResponse, provider: SettingsProvider) {

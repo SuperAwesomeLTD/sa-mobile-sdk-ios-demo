@@ -84,7 +84,7 @@ class LoginController: SABaseViewController {
                     LoginManager.sharedInstance.setLoggedUser(user: loginUser)
                     
                     // go forward
-                    self.performSegue(withIdentifier: "LoginToTabBar", sender: self)
+                    self.performSegue("LoginToTabBar")
                 }
                 else {
                     self.authError()

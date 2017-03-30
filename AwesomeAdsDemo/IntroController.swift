@@ -23,13 +23,13 @@ class IntroController: SABaseViewController {
         
         LoginManager.sharedInstance
             .check()
-            .subscribe(onNext: { (loggedUser) in
+            .subscribe(onNext: { loggedUser in
                 
                 LoginManager.sharedInstance.setLoggedUser(user: loggedUser)
-                self.performSegue(withIdentifier: "IntroToTabBar", sender: self)
+                self.performSegue("IntroToTabBar")
                 
             }, onError: { (error) in
-                self.performSegue(withIdentifier: "IntroToLogin", sender: self)
+                self.performSegue("IntroToLogin")
             })
             .addDisposableTo(disposeBag)
     }

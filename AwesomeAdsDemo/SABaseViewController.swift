@@ -24,7 +24,29 @@ class SABaseViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func performSegue(withIdentifier identifier: String, sender: Any?, prepared: @escaping ((_ segue: UIStoryboardSegue, _ sender: Any?) -> Void)) {
+    func performSegue (_ identifier: String) {
+        self.performSegue(withIdentifier: identifier, sender: self)
+    }
+    
+    func performSegue <T> (_ identifier: String) -> Observable<T> {
+        
+        return Observable.create { subscriber -> Disposable in
+         
+            self.performSegue(withIdentifier: identifier, sender: self, prepared: { (segue, sender) in
+                
+                if let dest = segue.destination as? T {
+                    subscriber.onNext(dest)
+                    subscriber.onCompleted()
+                }
+                
+            })
+            
+            return Disposables.create()
+        }
+        
+    }
+    
+    private func performSegue(withIdentifier identifier: String, sender: Any?, prepared: @escaping ((_ segue: UIStoryboardSegue, _ sender: Any?) -> Void)) {
         self.prepared = prepared
         self.performSegue(withIdentifier: identifier, sender: sender)
     }
