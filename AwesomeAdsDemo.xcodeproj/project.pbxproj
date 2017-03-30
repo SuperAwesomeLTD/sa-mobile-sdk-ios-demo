@@ -12,7 +12,6 @@
 		1B0A21C61DE862AB00E6C889 /* DemoFormatsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21C41DE862AB00E6C889 /* DemoFormatsRow.swift */; };
 		1B0A21EA1DE8A03000E6C889 /* AdFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21E91DE8A03000E6C889 /* AdFormat.swift */; };
 		1B0A21F51DE8AD4800E6C889 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */; };
-		1B3FF1571E8C0EA9007BF9FB /* RxDataSource2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FF1561E8C0EA9007BF9FB /* RxDataSource2.swift */; };
 		1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6151DE8445000353E8C /* AppDelegate.swift */; };
 		1B46E61B1DE8445000353E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E6191DE8445000353E8C /* Main.storyboard */; };
 		1B46E61D1DE8445000353E8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E61C1DE8445000353E8C /* Assets.xcassets */; };
@@ -27,7 +26,6 @@
 		1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5635621DEC804600EEA239 /* SettingsViewModel.swift */; };
 		1B974A151E016E3C00CE9EA7 /* SATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B974A141E016E3C00CE9EA7 /* SATextField.swift */; };
 		1B993B4B1E0300E400EE5001 /* AwesomeAdsDemo_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B993B4A1E0300E400EE5001 /* AwesomeAdsDemo_Tests.swift */; };
-		1BAE466A1DFEA68700377895 /* RxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE46691DFEA68700377895 /* RxDataSource.swift */; };
 		1BBA88E91DFFFE0B00C94553 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA88EB1DFFFE0B00C94553 /* Localizable.strings */; };
 		1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA88EC1DFFFE2200C94553 /* SAString.swift */; };
 		1BFD63861DEF37B0003F7F31 /* AdRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD63851DEF37B0003F7F31 /* AdRx.swift */; };
@@ -67,7 +65,6 @@
 		1B0A21E91DE8A03000E6C889 /* AdFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdFormat.swift; sourceTree = "<group>"; };
 		1B0A21ED1DE8A0F900E6C889 /* AwesomeAdsDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AwesomeAdsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B0A21F41DE8AD4800E6C889 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		1B3FF1561E8C0EA9007BF9FB /* RxDataSource2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxDataSource2.swift; sourceTree = "<group>"; };
 		1B46E6121DE8445000353E8C /* AwesomeAdsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeAdsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B46E6151DE8445000353E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B46E61A1DE8445000353E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,7 +83,6 @@
 		1B993B481E0300E300EE5001 /* AwesomeAdsDemo_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeAdsDemo_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B993B4A1E0300E400EE5001 /* AwesomeAdsDemo_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeAdsDemo_Tests.swift; sourceTree = "<group>"; };
 		1B993B4C1E0300E400EE5001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BAE46691DFEA68700377895 /* RxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxDataSource.swift; sourceTree = "<group>"; };
 		1BBA88E61DFFFD5700C94553 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1BBA88EA1DFFFE0B00C94553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1BBA88EC1DFFFE2200C94553 /* SAString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAString.swift; sourceTree = "<group>"; };
@@ -189,7 +185,6 @@
 			children = (
 				1BFEA6B11E89469D0023807D /* LoginAux */,
 				1B0A21F01DE8A68900E6C889 /* AdAux */,
-				1B46E6361DE84CF300353E8C /* Aux */,
 				1B46E6311DE84C9F00353E8C /* Navigation */,
 				1B46E62A1DE8494100353E8C /* Meta */,
 				1B46E6291DE8493400353E8C /* Storyboard */,
@@ -272,15 +267,6 @@
 				1B974A141E016E3C00CE9EA7 /* SATextField.swift */,
 			);
 			name = Navigation;
-			sourceTree = "<group>";
-		};
-		1B46E6361DE84CF300353E8C /* Aux */ = {
-			isa = PBXGroup;
-			children = (
-				1BAE46691DFEA68700377895 /* RxDataSource.swift */,
-				1B3FF1561E8C0EA9007BF9FB /* RxDataSource2.swift */,
-			);
-			name = Aux;
 			sourceTree = "<group>";
 		};
 		1B4A51891DEDEDC50041DE7B /* Display */ = {
@@ -563,9 +549,7 @@
 				1BFEA6F81E8ACC5C0023807D /* DbAux.swift in Sources */,
 				1B46E62C1DE8496A00353E8C /* DemoFormatsController.swift in Sources */,
 				1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */,
-				1BAE466A1DFEA68700377895 /* RxDataSource.swift in Sources */,
 				1BFEA6BE1E896E2D0023807D /* CreativesController.swift in Sources */,
-				1B3FF1571E8C0EA9007BF9FB /* RxDataSource2.swift in Sources */,
 				1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */,
 				1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */,
 				1BFEA6AE1E89281A0023807D /* LoginController.swift in Sources */,

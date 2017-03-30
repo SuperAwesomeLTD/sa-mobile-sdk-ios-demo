@@ -3,6 +3,7 @@ import RxSwift
 import RxCocoa
 import SAUtils
 import SuperAwesome
+import RxTableView
 
 class UserController: SABaseViewController, UITextFieldDelegate {
 
@@ -14,7 +15,7 @@ class UserController: SABaseViewController, UITextFieldDelegate {
     // other vars
     private var currentModel: UserModel!
     private var touch: UIGestureRecognizer = UITapGestureRecognizer ()
-    private var dataSource: RxDataSource?
+    private var rxTable: RxTableView?
     private var subject: PublishSubject<[UserHistory]>?
     
     override func viewDidLoad() {
@@ -72,30 +73,21 @@ class UserController: SABaseViewController, UITextFieldDelegate {
             })
             .subscribe(onNext: { viewModels in
                 
-                self.dataSource = RxDataSource
-                    .bindTable(self.table)
-                    .customiseRow(cellIdentifier: "UserHistoryRowID", cellType: UserHistoryViewModel.self, cellHeight: 80) { model, cell in
-                        
-                        let cell = cell as? UserHistoryRow
-                        let model = model as? UserHistoryViewModel
-                        
-                        cell?.placement.text = model?.getPlacement()
-                        cell?.date.text = model?.getDate()
-                        
+                self.rxTable = RxTableView
+                    .create()
+                    .bind(toTable: self.table)
+                    .customiseRow(forReuseIdentifier: "UserHistoryRowID", andHeight: 80) { (index, cell: UserHistoryRow, model: UserHistoryViewModel) in
+                        cell.placement.text = model.getPlacement()
+                        cell.date.text = model.getDate()
                     }
-                    .clickRow(cellIdentifier: "UserHistoryRowID") { index, model in
-                        
-                        let model = model as? UserHistoryViewModel
-                        
+                    .clickRow(forReuseIdentifier: "UserHistoryRowID") { (index, model: UserHistoryViewModel) in
                         self.performSegue("UserToCreatives")
                             .subscribe(onNext: { (dest: CreativesController) in
-                                dest.placementId = model!.getPlacementId()
+                                dest.placementId = model.getPlacementId()
                             })
                             .addDisposableTo(self.disposeBag)
-                        
-                }
-                
-                self.dataSource?.update(viewModels)
+                    }
+                self.rxTable?.update(viewModels)
                 
             })
             .addDisposableTo(disposeBag)

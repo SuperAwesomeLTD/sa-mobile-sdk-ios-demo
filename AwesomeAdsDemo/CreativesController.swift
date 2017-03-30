@@ -5,6 +5,7 @@ import SAUtils
 import SuperAwesome
 import SAModelSpace
 import Kingfisher
+import RxTableView
 
 class CreativesController: SABaseViewController {
     
@@ -13,7 +14,7 @@ class CreativesController: SABaseViewController {
     
     // state vars to know what to load
     var placementId: Int = 0
-    var dataSource: RxDataSource? = nil
+    var rxTable: RxTableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,31 +28,29 @@ class CreativesController: SABaseViewController {
             .toArray()
             .subscribe(onNext: { (creatives: [CreativesViewModel]) in
                 
-                self.dataSource = RxDataSource
-                    .bindTable(self.tableView)
+                self.rxTable = RxTableView
+                    .create()
+                    .bind(toTable: self.tableView)
                     .estimateRowHeight(110)
-                    .customiseRow(cellIdentifier: "CreativesRowID", cellType: CreativesViewModel.self, customise: { model, cell in
+                    .customiseRow(forReuseIdentifier: "CreativesRowID") { (index, cell: CreativesRow, model: CreativesViewModel) in
                         
-                        let cell = cell as? CreativesRow
-                        let model = model as? CreativesViewModel
-                        
-                        if let bitmap = model?.getBitmapUrl() {
-                            cell?.icon.kf.setImage(with: URL(string: bitmap))
+                        if let bitmap = model.getBitmapUrl() {
+                            cell.icon.kf.setImage(with: URL(string: bitmap))
                         }
                         else {
-                            cell?.icon.image = UIImage(named: model!.getLocalImage())
+                            cell.icon.image = UIImage(named: model.getLocalImage())
                         }
                         
-                        cell?.name.text = model?.getName()
-                        cell?.format.text = model?.getFormat()
-                        cell?.source.text = model?.getSource()
-                    })
-                    .clickRow(cellIdentifier: "CreativesRowID", click: { indexPath, model in
-                    
-                        let model = model as? CreativesViewModel
+                        cell.name.text = model.getName()
+                        cell.format.text = model.getFormat()
+                        cell.source.text = model.getSource()
+                        
+                    }
+                    .clickRow(forReuseIdentifier: "CreativesRowID") { (index, model: CreativesViewModel) in
+                        
                         let ad = SAAd ()
                         ad.placementId = self.placementId
-                        ad.creative = model?.getCreative()
+                        ad.creative = model.getCreative()
                         if ad.creative.format == .tag && ad.creative.details.format.contains("video") {
                             ad.creative.format = .video
                             ad.creative.details.vast = ad.creative.details.tag
@@ -62,10 +61,9 @@ class CreativesController: SABaseViewController {
                                 dest.ad = ad
                             })
                             .addDisposableTo(self.disposeBag)
-
-                    })
-                
-                self.dataSource?.update(creatives)
+                        
+                    }
+                self.rxTable?.update(creatives)
                 
             }, onError: { error in
                 

@@ -12,6 +12,7 @@ import RxCocoa
 import SuperAwesome
 import SAModelSpace
 import SAUtils
+import RxTableView
 
 class DemoFormatsController: SABaseViewController {
 
@@ -19,10 +20,8 @@ class DemoFormatsController: SABaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // private vars
-    private var dataSource2: RxDataSource2?
-    private var dataSource: RxDataSource?
+    private var rxTable: RxTableView?
     private let provider = DemoFormatsProvider ()
-    
     private var ad: SAAd?
     
     override func viewDidLoad () {
@@ -32,24 +31,19 @@ class DemoFormatsController: SABaseViewController {
             .toArray()
             .subscribe(onNext: { (dataArry: [DemoFormatsViewModel]) in
                 
-                self.dataSource2 =  RxDataSource2
+                
+                self.rxTable = RxTableView
                     .create()
-                    .bindTable(self.tableView)
+                    .bind(toTable: self.tableView)
                     .estimateRowHeight(101)
-                    .customiseRow(identifier: "DemoFormatsRowID",
-                                  modelType: DemoFormatsViewModel.self,
-                                  cellType: DemoFormatsRow.self,
-                                  cellHeight: 0,
-                                  customise: { cell, model in
+                    .customiseRow(forReuseIdentifier: "DemoFormatsRowID") { (index, cell: DemoFormatsRow, model: DemoFormatsViewModel) in
                         
                         cell.icon.image = UIImage(named: model.getSource())
                         cell.title.text = model.getName()
                         cell.details.text = model.getDetails()
                         
-                    })
-                    .clickRow(withIdentifier: "DemoFormatsRowID",
-                              forModel: DemoFormatsViewModel.self,
-                              onClick: { (index, model) in
+                    }
+                    .clickRow(forReuseIdentifier: "DemoFormatsRowID") { (index, model: DemoFormatsViewModel) in
                         
                         SALoadScreen.getInstance().show()
                         
@@ -69,8 +63,9 @@ class DemoFormatsController: SABaseViewController {
                             })
                             .addDisposableTo(self.disposeBag)
                         
-                    })
-                self.dataSource2?.update(dataArry)
+                    }
+                
+                self.rxTable?.update(dataArry)
                 
             })
             .addDisposableTo(disposeBag)

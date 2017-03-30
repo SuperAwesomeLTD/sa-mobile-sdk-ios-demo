@@ -12,6 +12,7 @@ import RxSwift
 import SAUtils
 import SuperAwesome
 import SAModelSpace
+import RxTableView
 
 class SettingsController: SABaseViewController {
 
@@ -24,7 +25,7 @@ class SettingsController: SABaseViewController {
     
     // constants needed
     let provider = SettingsProvider ()
-    var dataSource: RxDataSource? = nil
+    var rxTable: RxTableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,28 +50,24 @@ class SettingsController: SABaseViewController {
                     .toArray()
                     .subscribe(onNext: { dataArry in
                         
-                        // customise the data source
-                        self.dataSource = RxDataSource
-                            .bindTable(self.tableView)
+                        self.rxTable = RxTableView
+                            .create()
+                            .bind(toTable: self.tableView)
                             .estimateRowHeight(250)
-                            .customiseRow(cellIdentifier: "SettingsRowID", cellType: SettingsViewModel.self) { model, cell in
+                            .customiseRow(forReuseIdentifier: "SettingsRowID") { (index, cell: SettingsRow, model: SettingsViewModel) in
                                 
-                                let cell = cell as? SettingsRow
-                                let model = model as? SettingsViewModel
+                                cell.settingsItem?.text = model.getItemTitle()
+                                cell.settingsDescription?.text = model.getItemDetails()
+                                cell.settingsSwitch.isOn = model.getItemValue()
                                 
-                                cell?.settingsItem?.text = model?.getItemTitle()
-                                cell?.settingsDescription?.text = model?.getItemDetails()
-                                cell?.settingsSwitch.isOn = (model?.getItemValue())!
-                                
-                                cell?.settingsSwitch.rx.value
+                                cell.settingsSwitch.rx.value
                                     .subscribe(onNext: { val in
-                                        model?.setValue(val)
+                                        model.setValue(val)
                                     })
                                     .addDisposableTo(self.disposeBag)
-                        }
-                        
-                        self.dataSource?.update(dataArry)
-
+                                
+                            }
+                        self.rxTable?.update(dataArry)
                         
                     })
                     .addDisposableTo(self.disposeBag)
