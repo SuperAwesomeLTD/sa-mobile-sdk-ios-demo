@@ -5,18 +5,24 @@ import SAUtils
 import SuperAwesome
 import RxTableView
 
-class UserController: SABaseViewController, UITextFieldDelegate {
+class UserController: SABaseViewController {
 
+    private let kTOP_CONTRAINT_WITH_DATA: CGFloat = 40
+    private let kTOP_CONSTRANT_NO_DATA: CGFloat = 170
+    
     // outlets
     @IBOutlet weak var placementTextView: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var separator: UIView!
     
     // other vars
     private var currentModel: UserModel!
     private var touch: UIGestureRecognizer = UITapGestureRecognizer ()
     private var rxTable: RxTableView?
     private var subject: PublishSubject<[UserHistory]>?
+    
+    @IBOutlet weak var topContraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +31,10 @@ class UserController: SABaseViewController, UITextFieldDelegate {
         nextButton.setTitle("page_user_button_next_title".localized, for: .normal)
         placementTextView.placeholder = "page_user_textfield_placement_placeholder".localized
         
-        let rightBtn = UIBarButtonItem(title: "page_user_logout_button_title".localized, style: .plain, target: self, action: #selector(logout))
+        let rightBtn = UIBarButtonItem(title: "page_user_logout_button_title".localized, style: .plain, target: self, action: nil)
         self.tabBarController?.navigationItem.rightBarButtonItem = rightBtn
         
         // placement text view
-        placementTextView.delegate = self
         placementTextView.rx.text.orEmpty
             .map { text -> UserModel in
                 return UserModel(text)
@@ -43,6 +48,18 @@ class UserController: SABaseViewController, UITextFieldDelegate {
             .subscribe(onNext: { isValid in
                 self.nextButton.isEnabled = isValid
                 self.nextButton.backgroundColor = isValid ? UIColorFromHex(0x147CCD) : UIColor.lightGray
+            })
+            .addDisposableTo(disposeBag)
+        
+        placementTextView.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: {
+                self.view.addGestureRecognizer(self.touch)
+            })
+            .addDisposableTo(disposeBag)
+        
+        placementTextView.rx.controlEvent(.editingDidEnd)
+            .subscribe(onNext: {
+                self.view.removeGestureRecognizer(self.touch)
             })
             .addDisposableTo(disposeBag)
         
@@ -73,6 +90,9 @@ class UserController: SABaseViewController, UITextFieldDelegate {
             })
             .subscribe(onNext: { viewModels in
                 
+                self.topContraint.constant = viewModels.count == 0 ? self.kTOP_CONSTRANT_NO_DATA : self.kTOP_CONTRAINT_WITH_DATA
+                self.separator.isHidden = viewModels.count == 0
+                
                 self.rxTable = RxTableView
                     .create()
                     .bind(toTable: self.table)
@@ -81,6 +101,7 @@ class UserController: SABaseViewController, UITextFieldDelegate {
                         cell.date.text = model.getDate()
                     }
                     .clickRow(forReuseIdentifier: "UserHistoryRowID") { (index, model: UserHistoryViewModel) in
+                        
                         self.performSegue("UserToCreatives")
                             .subscribe(onNext: { (dest: CreativesController) in
                                 dest.placementId = model.getPlacementId()
@@ -98,6 +119,13 @@ class UserController: SABaseViewController, UITextFieldDelegate {
                 self.placementTextView.resignFirstResponder()
             })
             .addDisposableTo(disposeBag)
+        
+        rightBtn.rx.tap
+            .subscribe(onNext: {
+                LoginManager.sharedInstance.logout()
+                self.dismiss(animated: true)
+            })
+            .addDisposableTo(disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,18 +134,5 @@ class UserController: SABaseViewController, UITextFieldDelegate {
         if let s = subject {
             s.onNext(DbAux.getPlacementsFromHistory())
         }
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.view.addGestureRecognizer(touch)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.view.removeGestureRecognizer(touch)
-    }
-    
-    func logout () {
-        LoginManager.sharedInstance.logout()
-        self.dismiss(animated: true)
     }
 }

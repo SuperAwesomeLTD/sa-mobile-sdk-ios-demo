@@ -221,33 +221,8 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-Bc-g1d" customClass="SATextField" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                <rect key="frame" x="16" y="32" width="235" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="wlz-o9-tqq"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvE-lv-1Rd">
-                                <rect key="frame" x="259" y="32" width="100" height="30"/>
-                                <color key="backgroundColor" red="0.078431372549019607" green="0.48627450980392156" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="g1X-13-c3D"/>
-                                    <constraint firstAttribute="height" constant="30" id="gsG-uH-1Ad"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YN7-mR-I9w">
-                                <rect key="frame" x="0.0" y="90" width="375" height="464"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="414"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserHistoryRowID" rowHeight="80" id="NTR-5p-6fW" customClass="UserHistoryRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
@@ -304,8 +279,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDh-Mf-icH">
-                                <rect key="frame" x="0.0" y="89" width="375" height="1"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-Bc-g1d" customClass="SATextField" customModule="AwesomeAdsDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="40" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wlz-o9-tqq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvE-lv-1Rd">
+                                <rect key="frame" x="259" y="90" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.078431372549019607" green="0.48627450980392156" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="g1X-13-c3D"/>
+                                    <constraint firstAttribute="height" constant="30" id="gsG-uH-1Ad"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDh-Mf-icH">
+                                <rect key="frame" x="0.0" y="140" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="bpE-pp-MRv"/>
@@ -315,14 +315,14 @@
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cvE-lv-1Rd" secondAttribute="trailing" constant="16" id="1Wa-uz-QjD"/>
-                            <constraint firstItem="Yxb-Bc-g1d" firstAttribute="top" secondItem="n6Q-5h-QfQ" secondAttribute="bottom" constant="32" id="JDz-sE-coy"/>
-                            <constraint firstItem="YN7-mR-I9w" firstAttribute="top" secondItem="RDh-Mf-icH" secondAttribute="bottom" id="M1r-AG-VZ7"/>
-                            <constraint firstItem="cvE-lv-1Rd" firstAttribute="top" secondItem="n6Q-5h-QfQ" secondAttribute="bottom" constant="32" id="XPn-G1-Uy0"/>
+                            <constraint firstItem="Yxb-Bc-g1d" firstAttribute="top" secondItem="n6Q-5h-QfQ" secondAttribute="bottom" constant="40" id="JDz-sE-coy"/>
+                            <constraint firstItem="YN7-mR-I9w" firstAttribute="top" secondItem="RDh-Mf-icH" secondAttribute="bottom" constant="-1" id="M1r-AG-VZ7"/>
+                            <constraint firstItem="cvE-lv-1Rd" firstAttribute="top" secondItem="Yxb-Bc-g1d" secondAttribute="bottom" constant="20" id="VLt-qH-HGn"/>
                             <constraint firstItem="RDh-Mf-icH" firstAttribute="leading" secondItem="ku1-VI-sbU" secondAttribute="leading" id="aCC-cX-ycg"/>
                             <constraint firstAttribute="trailing" secondItem="RDh-Mf-icH" secondAttribute="trailing" id="d6w-Kj-nzx"/>
                             <constraint firstItem="agc-a5-8ZY" firstAttribute="top" secondItem="YN7-mR-I9w" secondAttribute="bottom" id="hF5-a1-eqd"/>
-                            <constraint firstItem="cvE-lv-1Rd" firstAttribute="leading" secondItem="Yxb-Bc-g1d" secondAttribute="trailing" constant="8" id="ipD-cG-7tf"/>
-                            <constraint firstItem="RDh-Mf-icH" firstAttribute="top" secondItem="cvE-lv-1Rd" secondAttribute="bottom" constant="27" id="jtc-uM-ikT"/>
+                            <constraint firstItem="cvE-lv-1Rd" firstAttribute="leading" secondItem="Yxb-Bc-g1d" secondAttribute="trailing" constant="-100" id="ipD-cG-7tf"/>
+                            <constraint firstItem="RDh-Mf-icH" firstAttribute="top" secondItem="cvE-lv-1Rd" secondAttribute="bottom" constant="20" id="jtc-uM-ikT"/>
                             <constraint firstItem="Yxb-Bc-g1d" firstAttribute="leading" secondItem="ku1-VI-sbU" secondAttribute="leading" constant="16" id="n9c-j1-hIr"/>
                             <constraint firstAttribute="trailing" secondItem="YN7-mR-I9w" secondAttribute="trailing" id="o6E-HC-bPc"/>
                             <constraint firstItem="YN7-mR-I9w" firstAttribute="leading" secondItem="ku1-VI-sbU" secondAttribute="leading" id="ykA-LY-Fzb"/>
@@ -340,13 +340,15 @@
                     <connections>
                         <outlet property="nextButton" destination="cvE-lv-1Rd" id="D2r-UL-PpF"/>
                         <outlet property="placementTextView" destination="Yxb-Bc-g1d" id="3Dw-P4-5VO"/>
+                        <outlet property="separator" destination="RDh-Mf-icH" id="ae7-pV-NB6"/>
                         <outlet property="table" destination="YN7-mR-I9w" id="afM-QH-UUm"/>
+                        <outlet property="topContraint" destination="JDz-sE-coy" id="GtQ-Sj-jFC"/>
                         <segue destination="bah-oC-yF8" kind="show" identifier="UserToCreatives" id="nJt-m1-FNs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7T-YP-XiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="762"/>
+            <point key="canvasLocation" x="1541.5999999999999" y="761.46926536731644"/>
         </scene>
         <!--Creatives-->
         <scene sceneID="mZA-sX-rai">

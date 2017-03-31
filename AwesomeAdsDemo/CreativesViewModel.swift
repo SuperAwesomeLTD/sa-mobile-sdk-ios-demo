@@ -7,7 +7,7 @@ class CreativesViewModel: NSObject {
     private var adFormat: AdFormat = .unknown
     private var creative: SACreative!
     private var bitmapUrl: String?
-    private var localImage: String!
+    private var localUrl: String!
     
     init (_ creative: SACreative) {
         self.creative = creative
@@ -34,37 +34,37 @@ class CreativesViewModel: NSObject {
         
         switch adFormat {
         case .unknown:
-            localImage = "icon_placeholder"
+            localUrl = "icon_placeholder"
             break
         case .smallbanner:
-            localImage = "smallbanner"
+            localUrl = "smallbanner"
             break
         case .normalbanner:
-            localImage = "banner"
+            localUrl = "banner"
             break
         case .bigbanner:
-            localImage = "leaderboard"
+            localUrl = "leaderboard"
             break
         case .mpu:
-            localImage = "mpu"
+            localUrl = "mpu"
             break
         case .mobile_portrait_interstitial:
-            localImage = "small_inter_port"
+            localUrl = "small_inter_port"
             break
         case .mobile_landscape_interstitial:
-            localImage = "small_inter_land"
+            localUrl = "small_inter_land"
             break
         case .tablet_portrait_interstitial:
-            localImage = "large_inter_port"
+            localUrl = "large_inter_port"
             break
         case .tablet_landscape_interstitial:
-            localImage = "large_inter_land"
+            localUrl = "large_inter_land"
             break
         case .video:
-            localImage = "video"
+            localUrl = "video"
             break
         case .gamewall:
-            localImage = "appwall"
+            localUrl = "appwall"
             break
         }
     }
@@ -99,7 +99,11 @@ class CreativesViewModel: NSObject {
         return source
     }
     
-    func getFormat () -> String {
+    func getFormat () -> AdFormat {
+        return adFormat
+    }
+    
+    func getCreativeFormat () -> String {
         return "Format: \(self.adFormat.toString())"
     }
     
@@ -107,12 +111,11 @@ class CreativesViewModel: NSObject {
         return bitmapUrl
     }
     
-    func getLocalImage () -> String {
-        return localImage!
+    func getLocalUrl () -> String {
+        return localUrl!
     }
     
     func getCreative () -> SACreative {
         return creative!
     }
-
 }

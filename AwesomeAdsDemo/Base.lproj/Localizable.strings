@@ -12,7 +12,7 @@
 // user controller
 "page_user_title" = "Your placement";
 
-"page_user_button_next_title" = "Next";
+"page_user_button_next_title" = "Load";
 "page_user_textfield_placement_placeholder" = "Placement ID ...";
 
 "page_user_popup_more_title" = "Log in to AwesomeAds";

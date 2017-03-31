@@ -34,15 +34,14 @@ class CreativesController: SABaseViewController {
                     .estimateRowHeight(110)
                     .customiseRow(forReuseIdentifier: "CreativesRowID") { (index, cell: CreativesRow, model: CreativesViewModel) in
                         
-                        if let bitmap = model.getBitmapUrl() {
-                            cell.icon.kf.setImage(with: URL(string: bitmap))
-                        }
-                        else {
-                            cell.icon.image = UIImage(named: model.getLocalImage())
+                        if let remote = model.getBitmapUrl() {
+                            cell.icon.kf.setImage(with: URL(string: remote))
+                        } else {
+                            cell.icon.image = UIImage (named: model.getLocalUrl())
                         }
                         
                         cell.name.text = model.getName()
-                        cell.format.text = model.getFormat()
+                        cell.format.text = model.getCreativeFormat()
                         cell.source.text = model.getSource()
                         
                     }
