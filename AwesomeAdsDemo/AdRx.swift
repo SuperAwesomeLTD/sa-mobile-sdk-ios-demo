@@ -53,6 +53,9 @@ extension SuperAwesome {
                             
                             for dict in allCreatives {
                                 if let creative = SACreative(jsonDictionary: dict) {
+                                    if creative.clickUrl == nil, let click = dict["clickUrl"] as? String {
+                                        creative.clickUrl = click
+                                    }
                                     results.append(creative)
                                 }
                             }
