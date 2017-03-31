@@ -56,6 +56,7 @@ class SettingsController: SABaseViewController {
                             .estimateRowHeight(250)
                             .customiseRow(forReuseIdentifier: "SettingsRowID") { (index, cell: SettingsRow, model: SettingsViewModel) in
                                 
+                                cell.backgroundColor = index.row % 2 == 0 ? UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) : UIColor.white
                                 cell.settingsItem?.text = model.getItemTitle()
                                 cell.settingsDescription?.text = model.getItemDetails()
                                 cell.settingsSwitch.isOn = model.getItemValue()

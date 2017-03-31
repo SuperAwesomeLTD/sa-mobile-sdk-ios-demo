@@ -32,12 +32,15 @@ extension SuperAwesome {
             "forceCreative": 1,
             "jwtToken": LoginManager.sharedInstance.getLoggedUserToken()
         ]
+        let header:[String:Any] = [
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36"
+        ]
         
         let network = SANetwork()
         
         return Observable.create({ (subscriber) -> Disposable in
             
-            network.sendGET(url, withQuery: query, andHeader: [:]) { (status, payload, success) in
+            network.sendGET(url, withQuery: query, andHeader: header) { (status, payload, success) in
                 
                 var results: [SACreative] = []
                 

@@ -38,6 +38,7 @@ class DemoFormatsController: SABaseViewController {
                     .estimateRowHeight(101)
                     .customiseRow(forReuseIdentifier: "DemoFormatsRowID") { (index, cell: DemoFormatsRow, model: DemoFormatsViewModel) in
                         
+                        cell.backgroundColor = index.row % 2 == 0 ? UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) : UIColor.white
                         cell.icon.image = UIImage(named: model.getSource())
                         cell.title.text = model.getName()
                         cell.details.text = model.getDetails()

@@ -10,13 +10,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SATextField: UITextField {
+class SATextField: UITextField, UITextFieldDelegate {
     
     // public border value
     public var border: UIView?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        self.delegate = self
         
         // set background color
         self.backgroundColor = UIColor.clear
@@ -27,13 +29,25 @@ class SATextField: UITextField {
         
         // add a border
         border = UIView()
-        border?.frame = CGRect(x: 0, y: H-1, width: Int(W), height: 1)
-        border?.backgroundColor = UIColor.lightGray
+        border?.frame = CGRect(x: 0, y: H-2, width: Int(W), height: 2)
+        setGrayBorder()
         self.addSubview(border!)
     }
     
-    func setRedOrGrayBorder (_ isValid: Bool) {
-        border?.backgroundColor = isValid ? UIColor.lightGray : UIColor.red
+    private func setGrayBorder () {
+        border?.backgroundColor = UIColor(colorLiteralRed: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+    }
+    
+    private func setGreenBorder () {
+        border?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0.588, blue: 0.5411, alpha: 1)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        setGreenBorder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        setGrayBorder()
     }
     
 }

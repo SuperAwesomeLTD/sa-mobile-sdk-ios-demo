@@ -26,6 +26,11 @@ class CreativesController: SABaseViewController {
                 return CreativesViewModel (creative)
             }
             .toArray()
+            .map { creatives -> [CreativesViewModel] in
+                return creatives.sorted(by: { m1, m2 -> Bool in
+                    return m1.getName() > m2.getName()
+                })
+            }
             .subscribe(onNext: { (creatives: [CreativesViewModel]) in
                 
                 self.rxTable = RxTableView
@@ -40,6 +45,7 @@ class CreativesController: SABaseViewController {
                             cell.icon.image = UIImage (named: model.getLocalUrl())
                         }
                         
+                        cell.backgroundColor = index.row % 2 == 0 ? UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) : UIColor.white
                         cell.name.text = model.getName()
                         cell.format.text = model.getCreativeFormat()
                         cell.source.text = model.getSource()
@@ -47,27 +53,33 @@ class CreativesController: SABaseViewController {
                     }
                     .clickRow(forReuseIdentifier: "CreativesRowID") { (index, model: CreativesViewModel) in
                         
-                        let ad = SAAd ()
-                        ad.placementId = self.placementId
-                        ad.creative = model.getCreative()
-                        if ad.creative.format == .tag && ad.creative.details.format.contains("video") {
-                            ad.creative.format = .video
-                            ad.creative.details.vast = ad.creative.details.tag
+                        if model.getFormat() != .unknown {
+                            
+                            let ad = SAAd ()
+                            ad.placementId = self.placementId
+                            ad.creative = model.getCreative()
+                            if ad.creative.format == .tag && ad.creative.details.format.contains("video") {
+                                ad.creative.format = .video
+                                ad.creative.details.vast = ad.creative.details.tag
+                            }
+                            
+                            self.performSegue("CreativesToSettings")
+                                .subscribe(onNext: { (dest: SettingsController) in
+                                    dest.ad = ad
+                                })
+                                .addDisposableTo(self.disposeBag)
+                            
                         }
-                        
-                        self.performSegue("CreativesToSettings")
-                            .subscribe(onNext: { (dest: SettingsController) in
-                                dest.ad = ad
-                            })
-                            .addDisposableTo(self.disposeBag)
-                        
+                        else {
+                            self.unsupportedFormatError()
+                        }
                     }
                 self.rxTable?.update(creatives)
                 
             }, onError: { error in
                 
                 SALoadScreen.getInstance().hide()
-                self.creativesError()
+                self.loadAdError()
                 
             }, onCompleted: {
                 SALoadScreen.getInstance().hide()
@@ -79,7 +91,7 @@ class CreativesController: SABaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    private func creativesError () {
+    private func loadAdError () {
         SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_load_title".localized,
                                    andMessage: "page_creatives_popup_error_load_message".localized,
                                    andOKTitle: "page_creatives_popup_error_load_ok_button".localized,
@@ -88,5 +100,16 @@ class CreativesController: SABaseViewController {
                                    andKeyboardTyle: .default) { (pos, val) in
             _ = self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    private func unsupportedFormatError () {
+        
+        SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_format_title".localized,
+                                   andMessage: "page_creatives_popup_error_format_message".localized,
+                                   andOKTitle: "page_creatives_popup_error_format_ok_button".localized,
+                                   andNOKTitle: nil,
+                                   andTextField: false,
+                                   andKeyboardTyle: .default,
+                                   andPressed: nil)
     }
 }

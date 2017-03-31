@@ -13,11 +13,13 @@ class UserHistoryViewModel: NSObject {
     private var placementId: Int = 0
     private var placementString: String!
     private var dateStr: String!
+    private var timestamp: TimeInterval = 0
     
     init(history: UserHistory) {
         super.init()
         self.placementId = history.getPlacementId()
         self.placementString = "\(self.placementId)"
+        self.timestamp = history.getTimestamp()
         
         let date = Date(timeIntervalSince1970: history.getTimestamp())
         let formatter = DateFormatter()
@@ -37,6 +39,10 @@ class UserHistoryViewModel: NSObject {
     
     func getPlacementId () -> Int {
         return placementId
+    }
+    
+    func getTimestamp () -> TimeInterval {
+        return timestamp
     }
     
 }

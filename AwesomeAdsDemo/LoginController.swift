@@ -9,8 +9,8 @@ class LoginController: SABaseViewController {
     private let minContraintHeight: CGFloat = 0.0
     
     @IBOutlet weak var mainLogo: UIImageView!
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var usernameField: SATextField!
+    @IBOutlet weak var passwordField: SATextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var topContraint: NSLayoutConstraint!
     
@@ -23,7 +23,7 @@ class LoginController: SABaseViewController {
         loginButton.setTitle("page_login_button_login".localized, for: .normal)
         usernameField.placeholder = "page_login_textfield_user_placeholder".localized
         passwordField.placeholder = "page_login_textfield_password_placeholder".localized
-        
+            
         // whichever field starts, move the UI up
         Observable.of(usernameField.rx.controlEvent(.editingDidBegin), passwordField.rx.controlEvent(.editingDidBegin))
             .merge()

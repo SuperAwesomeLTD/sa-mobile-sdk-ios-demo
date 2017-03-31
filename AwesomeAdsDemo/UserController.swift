@@ -14,7 +14,6 @@ class UserController: SABaseViewController {
     @IBOutlet weak var placementTextView: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var table: UITableView!
-    @IBOutlet weak var separator: UIView!
     
     // other vars
     private var currentModel: UserModel!
@@ -86,17 +85,20 @@ class UserController: SABaseViewController {
             .map({ (userHistories) -> [UserHistoryViewModel] in
                 return userHistories.map { history -> UserHistoryViewModel in
                     return UserHistoryViewModel(history: history)
-                }
+                }.sorted(by: { m1, m2 -> Bool in
+                    return m1.getTimestamp() > m2.getTimestamp()
+                })
             })
             .subscribe(onNext: { viewModels in
                 
                 self.topContraint.constant = viewModels.count == 0 ? self.kTOP_CONSTRANT_NO_DATA : self.kTOP_CONTRAINT_WITH_DATA
-                self.separator.isHidden = viewModels.count == 0
                 
                 self.rxTable = RxTableView
                     .create()
                     .bind(toTable: self.table)
                     .customiseRow(forReuseIdentifier: "UserHistoryRowID", andHeight: 80) { (index, cell: UserHistoryRow, model: UserHistoryViewModel) in
+                        
+                        cell.backgroundColor = index.row % 2 == 0 ? UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) : UIColor.white 
                         cell.placement.text = model.getPlacement()
                         cell.date.text = model.getDate()
                     }
