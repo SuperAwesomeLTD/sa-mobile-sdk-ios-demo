@@ -57,6 +57,7 @@ class CreativesController: SABaseViewController {
                             
                             let ad = SAAd ()
                             ad.placementId = self.placementId
+                            ad.lineItemId = 10000;
                             ad.creative = model.getCreative()
                             if ad.creative.format == .tag && ad.creative.details.format.contains("video") {
                                 ad.creative.format = .video
