@@ -6,7 +6,11 @@ class CreativesViewModel: NSObject {
     private let cdnUrl: String = "https://s3-eu-west-1.amazonaws.com/beta-ads-video-transcoded-thumbnails/"
     private var adFormat: AdFormat = .unknown
     private var creative: SACreative!
-    private var bitmapUrl: String?
+    
+    
+    private var imageThumbnailUrl: String?
+    private var videoMidpointThumbnailUrl: String?
+    private var videoStartThumbnailUrl: String?
     private var localUrl: String!
     
     init (_ creative: SACreative) {
@@ -15,18 +19,20 @@ class CreativesViewModel: NSObject {
         
         switch creative.format {
         case .invalid, .rich, .tag, .appwall:
-            bitmapUrl = nil
+            // do nothing
             break
         case .image:
-            bitmapUrl = creative.details.image
+            imageThumbnailUrl = creative.details.image
             break
         case .video:
             let videoUrl = creative.details.video
             if videoUrl != nil {
                 let parts = videoUrl?.components(separatedBy: "/")
                 if let parts = parts, parts.count > 0 {
-                    let name = parts[parts.count - 1].replacingOccurrences(of: ".mp4", with: "-low-00001.jpg")
-                    bitmapUrl = cdnUrl + name
+                    let startName = parts[parts.count - 1].replacingOccurrences(of: ".mp4", with: "-low-00001.jpg")
+                    videoStartThumbnailUrl = cdnUrl + startName
+                    let midpointName = parts[parts.count - 1].replacingOccurrences(of: ".mp4", with: "-low-00002.jpg")
+                    videoMidpointThumbnailUrl = cdnUrl + midpointName
                 }
             }
             break
@@ -107,12 +113,20 @@ class CreativesViewModel: NSObject {
         return "Format: \(self.adFormat.toString())"
     }
     
-    func getBitmapUrl () -> String? {
-        return bitmapUrl
-    }
-    
     func getLocalUrl () -> String {
         return localUrl!
+    }
+    
+    func getImageThumbnailUrl () -> String? {
+        return imageThumbnailUrl
+    }
+    
+    func getVideoMidpointThumbnailUrl () -> String? {
+        return videoMidpointThumbnailUrl
+    }
+    
+    func getVideoStartThumbnailUrl () -> String? {
+        return videoStartThumbnailUrl
     }
     
     func getCreative () -> SACreative {
