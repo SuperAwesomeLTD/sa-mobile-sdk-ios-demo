@@ -36,7 +36,7 @@ class CreativesController: SABaseViewController {
                 self.rxTable = RxTableView
                     .create()
                     .bind(toTable: self.tableView)
-                    .estimateRowHeight(110)
+                    .estimateRowHeight(130)
                     .customiseRow(forReuseIdentifier: "CreativesRowID") { (index, cell: CreativesRow, model: CreativesViewModel) in
                         
                         // set the default image no matter what
@@ -97,6 +97,7 @@ class CreativesController: SABaseViewController {
                         cell.name.text = model.getName()
                         cell.format.text = model.getCreativeFormat()
                         cell.source.text = model.getSource()
+                        cell.os.text = model.getOSTarget()
                         
                     }
                     .clickRow(forReuseIdentifier: "CreativesRowID") { (index, model: CreativesViewModel) in

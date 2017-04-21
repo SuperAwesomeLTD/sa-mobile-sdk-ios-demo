@@ -132,4 +132,14 @@ class CreativesViewModel: NSObject {
     func getCreative () -> SACreative {
         return creative!
     }
+    
+    func getOSTarget () -> String {
+        var os = "System: "
+        if let targets = creative.osTarget as? [String] {
+            os += targets.count == 0 ? "All" : targets.joined(separator: ",")
+        } else {
+            os += "N/A"
+        }
+        return os
+    }
 }
