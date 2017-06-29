@@ -118,8 +118,4 @@ class LoginController: SABaseViewController {
         usernameField.resignFirstResponder()
         passwordField.resignFirstResponder()
     }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
 }

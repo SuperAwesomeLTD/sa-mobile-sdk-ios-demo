@@ -149,10 +149,6 @@ class SettingsController: SABaseViewController {
         SAVideoAd.play(ad.placementId, fromVC: self)
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-    
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

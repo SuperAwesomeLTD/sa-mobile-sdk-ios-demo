@@ -36,20 +36,7 @@
                     <view key="view" contentMode="scaleToFill" id="VCg-3W-rQV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AWESOMEADS" translatesAutoresizingMaskIntoConstraints="NO" id="W3M-XU-8nX">
-                                <rect key="frame" x="67" y="269.5" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="lbq-MY-Ozy"/>
-                                    <constraint firstAttribute="height" constant="128" id="mgg-nz-LVC"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="W3M-XU-8nX" firstAttribute="centerY" secondItem="VCg-3W-rQV" secondAttribute="centerY" id="9en-Ck-YqU"/>
-                            <constraint firstItem="W3M-XU-8nX" firstAttribute="centerX" secondItem="VCg-3W-rQV" secondAttribute="centerX" id="tRO-a0-csE"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="16P-ob-2ny"/>
                     <connections>
@@ -606,6 +593,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="YNB-s8-4PX" secondAttribute="trailing" id="Bgv-Ei-MAV"/>
                             <constraint firstItem="YNB-s8-4PX" firstAttribute="leading" secondItem="oQ5-Uw-a8x" secondAttribute="leading" id="Yew-8e-qqC"/>
@@ -771,7 +759,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3X7-9m-RDa" secondAttribute="trailing" id="JqI-lO-EH4"/>
                             <constraint firstItem="kym-R2-dda" firstAttribute="leading" secondItem="zGb-lZ-83g" secondAttribute="leading" id="NFh-lI-7yG"/>
@@ -927,7 +915,7 @@
         <image name="your placement_inactive" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0XS-XA-lzN"/>
         <segue reference="Obk-c6-kwj"/>
+        <segue reference="0XS-XA-lzN"/>
     </inferredMetricsTieBreakers>
 </document>

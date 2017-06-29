@@ -27,8 +27,4 @@ class IntroController: SABaseViewController {
             })
             .addDisposableTo(disposeBag)
     }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
 }

@@ -161,10 +161,6 @@ class CreativesController: SABaseViewController {
                                    andPressed: nil)
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-    
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

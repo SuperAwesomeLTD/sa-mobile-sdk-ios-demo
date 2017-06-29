@@ -38,8 +38,4 @@ class MainController: SABaseViewController {
             break; 
         }
     }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
 }
