@@ -183,7 +183,7 @@
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="t8F-gm-uIS" firstAttribute="centerX" secondItem="8Qa-08-5Vu" secondAttribute="centerX" id="fUs-Sh-7kl"/>
                                     <constraint firstItem="uX6-mb-H7O" firstAttribute="centerX" secondItem="8Qa-08-5Vu" secondAttribute="centerX" id="g9k-PP-bZ8"/>
@@ -193,7 +193,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ScM-PF-jRq" firstAttribute="top" secondItem="8Qa-08-5Vu" secondAttribute="bottom" id="475-ge-zjo"/>
                             <constraint firstItem="8Qa-08-5Vu" firstAttribute="leading" secondItem="rpn-D4-dFC" secondAttribute="leading" id="5aJ-Hk-JBj"/>
@@ -314,7 +314,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cvE-lv-1Rd" secondAttribute="trailing" constant="16" id="1Wa-uz-QjD"/>
                             <constraint firstItem="YN7-mR-I9w" firstAttribute="top" secondItem="cvE-lv-1Rd" secondAttribute="bottom" constant="20" id="E2E-b0-vHi"/>
@@ -593,7 +593,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="YNB-s8-4PX" secondAttribute="trailing" id="Bgv-Ei-MAV"/>
                             <constraint firstItem="YNB-s8-4PX" firstAttribute="leading" secondItem="oQ5-Uw-a8x" secondAttribute="leading" id="Yew-8e-qqC"/>
@@ -916,6 +916,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Obk-c6-kwj"/>
-        <segue reference="0XS-XA-lzN"/>
+        <segue reference="0sB-s7-TVW"/>
     </inferredMetricsTieBreakers>
 </document>

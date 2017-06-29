@@ -103,7 +103,7 @@ class UserController: SABaseViewController {
                     .bind(toTable: self.table)
                     .customiseRow(forReuseIdentifier: "UserHistoryRowID", andHeight: 80) { (index, cell: UserHistoryRow, model: UserHistoryViewModel) in
                         
-                        cell.backgroundColor = index.row % 2 == 0 ? UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) : UIColor.white 
+                        cell.backgroundColor = index.row % 2 == 0 ? UIColor.white : UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) 
                         cell.placement.text = model.getPlacement()
                         cell.date.text = model.getDate()
                     }
