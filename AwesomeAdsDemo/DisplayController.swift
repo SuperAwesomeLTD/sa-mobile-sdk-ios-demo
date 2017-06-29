@@ -17,6 +17,7 @@ class DisplayController: SABaseViewController {
     @IBOutlet weak var normalAndSmallBanner: SABannerAd!
     @IBOutlet weak var mpuBanner: SABannerAd!
     @IBOutlet weak var bigBanner: SABannerAd!
+    @IBOutlet weak var titleText: UILabel!
     
     var response: SAResponse?
     var parentalGate: Bool = false
@@ -25,6 +26,8 @@ class DisplayController: SABaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleText.text = "Display Ads".localized
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -63,5 +66,9 @@ class DisplayController: SABaseViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

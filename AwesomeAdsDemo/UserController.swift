@@ -21,6 +21,7 @@ class UserController: SABaseViewController {
     private var rxTable: RxTableView?
     private var subject: PublishSubject<[UserHistory]>?
     
+    private var previousTopConstraint: CGFloat = 0
     @IBOutlet weak var topContraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -52,12 +53,15 @@ class UserController: SABaseViewController {
         
         placementTextView.rx.controlEvent(.editingDidBegin)
             .subscribe(onNext: {
+                self.previousTopConstraint = self.topContraint.constant
+                self.topContraint.constant = self.kTOP_CONTRAINT_WITH_DATA
                 self.view.addGestureRecognizer(self.touch)
             })
             .addDisposableTo(disposeBag)
         
         placementTextView.rx.controlEvent(.editingDidEnd)
             .subscribe(onNext: {
+                self.topContraint.constant = self.previousTopConstraint
                 self.view.removeGestureRecognizer(self.touch)
             })
             .addDisposableTo(disposeBag)
@@ -92,6 +96,7 @@ class UserController: SABaseViewController {
             .subscribe(onNext: { viewModels in
                 
                 self.topContraint.constant = viewModels.count == 0 ? self.kTOP_CONSTRANT_NO_DATA : self.kTOP_CONTRAINT_WITH_DATA
+                self.previousTopConstraint = self.topContraint.constant
                 
                 self.rxTable = RxTableView
                     .create()

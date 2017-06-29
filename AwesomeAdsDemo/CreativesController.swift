@@ -11,6 +11,7 @@ class CreativesController: SABaseViewController {
     
     // outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleText: UILabel!
     
     // state vars to know what to load
     var placementId: Int = 0
@@ -19,6 +20,7 @@ class CreativesController: SABaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleText.text = "Select Ad".localized
         SALoadScreen.getInstance().show()
         
         SuperAwesome.loadCreatives(placementId: placementId)
@@ -161,5 +163,9 @@ class CreativesController: SABaseViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

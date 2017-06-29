@@ -19,6 +19,7 @@ class SettingsController: SABaseViewController {
     // outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet weak var titleText: UILabel!
     
     // state vars to know what to load
     var ad: SAAd!
@@ -31,6 +32,7 @@ class SettingsController: SABaseViewController {
         super.viewDidLoad()
         
         // localise
+        titleText.text = "Settings".localized
         loadButton.setTitle("page_settings_button_load".localized, for: .normal)
         
         SALoadScreen.getInstance().show()
@@ -149,5 +151,9 @@ class SettingsController: SABaseViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
