@@ -35,7 +35,7 @@ class SATextField: UITextField, UITextFieldDelegate {
     }
     
     private func setGrayBorder () {
-        border?.backgroundColor = UIColor(colorLiteralRed: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        border?.backgroundColor = UIColor(colorLiteralRed: 0.8, green: 0.8, blue: 0.8, alpha: 1)
     }
     
     private func setGreenBorder () {
