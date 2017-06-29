@@ -60,4 +60,8 @@ class DisplayController: SABaseViewController {
         default:break
         }
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 }

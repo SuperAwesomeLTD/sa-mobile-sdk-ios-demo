@@ -39,7 +39,7 @@ class SATextField: UITextField, UITextFieldDelegate {
     }
     
     private func setGreenBorder () {
-        border?.backgroundColor = UIColor(colorLiteralRed: 0, green: 0.588, blue: 0.5411, alpha: 1)
+        border?.backgroundColor = UIColor(colorLiteralRed: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

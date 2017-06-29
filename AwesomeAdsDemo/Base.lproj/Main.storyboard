@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="96i-Bu-SXq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="96i-Bu-SXq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,34 +53,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="16P-ob-2ny"/>
                     <connections>
-                        <segue destination="fNn-xC-lgI" kind="show" identifier="IntroToLogin" id="VQM-HS-bMl"/>
-                        <segue destination="9rj-vO-i8s" kind="show" identifier="IntroToTabBar" id="3K3-HZ-iHf"/>
+                        <segue destination="BL5-SW-XJl" kind="show" identifier="IntroToLogin" id="gv9-Pa-lga"/>
+                        <segue destination="wdO-qy-PDs" kind="show" identifier="IntroToMain" id="cKl-Qb-QWv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNu-5e-JcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1916" y="871"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4pa-qh-47I">
-            <objects>
-                <navigationController id="fNn-xC-lgI" customClass="SANavigationController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="HPq-sb-bSJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BL5-SW-XJl" kind="relationship" relationship="rootViewController" id="c6Z-33-m7a"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nLm-k6-t3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-922" y="424"/>
         </scene>
         <!--Login to AwesomeAds-->
         <scene sceneID="0Fb-xg-MR1">
@@ -91,18 +70,18 @@
                         <viewControllerLayoutGuide type="bottom" id="pOO-RK-NWS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="F6Z-KK-8yx">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AWESOMEADS" translatesAutoresizingMaskIntoConstraints="NO" id="gVW-cs-pNg">
-                                <rect key="frame" x="67" y="67" width="240" height="128"/>
+                                <rect key="frame" x="67" y="87" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Fc8-oo-389"/>
                                     <constraint firstAttribute="height" constant="128" id="v5o-2f-N1a"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="f0W-20-2nF" customClass="SATextField" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                <rect key="frame" x="16" y="195" width="343" height="30"/>
+                                <rect key="frame" x="16" y="215" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7yc-xW-pzt"/>
@@ -112,7 +91,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vvl-s7-k31" customClass="SATextField" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                <rect key="frame" x="16" y="233" width="343" height="30"/>
+                                <rect key="frame" x="16" y="253" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="d6U-Gg-JhJ"/>
@@ -122,7 +101,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x58-mP-XEa">
-                                <rect key="frame" x="259" y="286" width="100" height="30"/>
+                                <rect key="frame" x="259" y="306" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.48627450979999998" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Wxl-2h-NdE"/>
@@ -160,55 +139,97 @@
                         <outlet property="passwordField" destination="vvl-s7-k31" id="djZ-Jo-x6v"/>
                         <outlet property="topContraint" destination="yia-ei-5cs" id="ZnY-Hu-5rl"/>
                         <outlet property="usernameField" destination="f0W-20-2nF" id="6dX-Ar-gXo"/>
-                        <segue destination="9rj-vO-i8s" kind="show" identifier="LoginToTabBar" id="TD3-AL-6HO"/>
+                        <segue destination="wdO-qy-PDs" kind="show" identifier="LoginToMain" id="Obk-c6-kwj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRo-OO-s4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-202" y="425"/>
+            <point key="canvasLocation" x="-1062" y="433"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="mB9-UW-Iwc">
+        <!--Main Controller-->
+        <scene sceneID="vYj-gh-noW">
             <objects>
-                <navigationController id="9rj-vO-i8s" customClass="SANavigationController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XAZ-5O-2Rl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
+                <viewController id="wdO-qy-PDs" customClass="MainController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UQp-fY-6HQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="59k-C9-IXw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rpn-D4-dFC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScM-PF-jRq" userLabel="DemoFormats">
+                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
+                                <connections>
+                                    <segue destination="y2n-ve-Ggy" kind="embed" id="vE4-CJ-svi"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDX-oB-fe8" userLabel="YourPlacement">
+                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
+                                <connections>
+                                    <segue destination="6Zj-SV-Qjd" kind="embed" id="bzm-J8-jv8"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Qa-08-5Vu" userLabel="Header">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AWESOMEADS" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-mb-H7O">
+                                        <rect key="frame" x="67" y="38" width="240" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="Uwn-1P-rUm"/>
+                                            <constraint firstAttribute="height" constant="40" id="aIW-84-BXs"/>
+                                        </constraints>
+                                    </imageView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="t8F-gm-uIS">
+                                        <rect key="frame" x="52.5" y="105" width="270" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="RFc-xc-KBq"/>
+                                            <constraint firstAttribute="width" constant="270" id="bcV-js-kHC"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Your placement"/>
+                                            <segment title="Demo formats"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.1450980392" green="0.43137254899999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="indexChanged:" destination="wdO-qy-PDs" eventType="valueChanged" id="nTm-cF-15i"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="t8F-gm-uIS" firstAttribute="centerX" secondItem="8Qa-08-5Vu" secondAttribute="centerX" id="fUs-Sh-7kl"/>
+                                    <constraint firstItem="uX6-mb-H7O" firstAttribute="centerX" secondItem="8Qa-08-5Vu" secondAttribute="centerX" id="g9k-PP-bZ8"/>
+                                    <constraint firstItem="uX6-mb-H7O" firstAttribute="top" secondItem="8Qa-08-5Vu" secondAttribute="top" constant="38" id="hCO-g0-CVN"/>
+                                    <constraint firstItem="t8F-gm-uIS" firstAttribute="top" secondItem="uX6-mb-H7O" secondAttribute="bottom" constant="27" id="hip-TG-atE"/>
+                                    <constraint firstAttribute="height" constant="150" id="n6Y-S0-2zj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ScM-PF-jRq" firstAttribute="top" secondItem="8Qa-08-5Vu" secondAttribute="bottom" id="475-ge-zjo"/>
+                            <constraint firstItem="8Qa-08-5Vu" firstAttribute="leading" secondItem="rpn-D4-dFC" secondAttribute="leading" id="5aJ-Hk-JBj"/>
+                            <constraint firstAttribute="trailing" secondItem="RDX-oB-fe8" secondAttribute="trailing" id="EuN-Gk-qgU"/>
+                            <constraint firstItem="59k-C9-IXw" firstAttribute="top" secondItem="ScM-PF-jRq" secondAttribute="bottom" id="Haj-E6-ZPp"/>
+                            <constraint firstItem="RDX-oB-fe8" firstAttribute="top" secondItem="8Qa-08-5Vu" secondAttribute="bottom" id="ZQI-rt-hdP"/>
+                            <constraint firstItem="ScM-PF-jRq" firstAttribute="leading" secondItem="rpn-D4-dFC" secondAttribute="leading" id="Zbh-QG-UR5"/>
+                            <constraint firstAttribute="trailing" secondItem="8Qa-08-5Vu" secondAttribute="trailing" id="ZpI-u9-acu"/>
+                            <constraint firstAttribute="trailing" secondItem="ScM-PF-jRq" secondAttribute="trailing" id="lcN-Vi-d1r"/>
+                            <constraint firstItem="59k-C9-IXw" firstAttribute="top" secondItem="RDX-oB-fe8" secondAttribute="bottom" id="mzd-OZ-4z9"/>
+                            <constraint firstItem="RDX-oB-fe8" firstAttribute="leading" secondItem="rpn-D4-dFC" secondAttribute="leading" id="ods-Hu-khM"/>
+                            <constraint firstItem="8Qa-08-5Vu" firstAttribute="top" secondItem="rpn-D4-dFC" secondAttribute="top" id="sJU-73-5Ir"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <segue destination="4tZ-dL-sP6" kind="relationship" relationship="rootViewController" id="OEq-Oe-Vea"/>
+                        <outlet property="demoFormatsContainer" destination="ScM-PF-jRq" id="gAm-Pt-zQU"/>
+                        <outlet property="headerView" destination="8Qa-08-5Vu" id="bHN-pI-Q59"/>
+                        <outlet property="yourPlacementContainer" destination="RDX-oB-fe8" id="5Uq-pa-dsK"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mQa-zn-a63" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ii7-9s-zIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-202" y="1232"/>
-        </scene>
-        <!--Ad Formats-->
-        <scene sceneID="bcC-Hm-8pO">
-            <objects>
-                <tabBarController id="4tZ-dL-sP6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Ad Formats" id="DFq-77-qLL"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Mwt-UM-iYF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="selectedImageTintColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="6Zj-SV-Qjd" kind="relationship" relationship="viewControllers" id="Cca-DI-w68"/>
-                        <segue destination="y2n-ve-Ggy" kind="relationship" relationship="viewControllers" id="uwq-BD-gHq"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fB7-AU-amy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="518" y="1232"/>
+            <point key="canvasLocation" x="-1063.2" y="1167.1664167916042"/>
         </scene>
         <!--Your placement-->
         <scene sceneID="L45-ET-tW9">
@@ -219,11 +240,11 @@
                         <viewControllerLayoutGuide type="bottom" id="agc-a5-8ZY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ku1-VI-sbU">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YN7-mR-I9w">
-                                <rect key="frame" x="0.0" y="140" width="375" height="414"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="377"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserHistoryRowID" rowHeight="80" id="NTR-5p-6fW" customClass="UserHistoryRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
@@ -319,10 +340,10 @@
                             <constraint firstItem="YN7-mR-I9w" firstAttribute="leading" secondItem="ku1-VI-sbU" secondAttribute="leading" id="ykA-LY-Fzb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Your placement" image="your placement_inactive" selectedImage="your placement_active" id="ef8-8F-H92">
+                    <tabBarItem key="tabBarItem" title="Your placement" image="your placement_inactive" selectedImage="your placement_inactive" id="ef8-8F-H92">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.92941176470588238" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.14509803921568626" green="0.43137254901960786" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your placement"/>
                         </userDefinedRuntimeAttributes>
@@ -338,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7T-YP-XiW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1541.5999999999999" y="761.46926536731644"/>
+            <point key="canvasLocation" x="78" y="808"/>
         </scene>
         <!--Creatives-->
         <scene sceneID="mZA-sX-rai">
@@ -349,11 +370,11 @@
                         <viewControllerLayoutGuide type="bottom" id="t7H-0I-tbt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="A26-6o-3O4">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rWw-J6-L0c">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CreativesRowID" rowHeight="130" id="Vrz-yb-dLG" customClass="CreativesRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
@@ -462,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTY-bF-tBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2337" y="762"/>
+            <point key="canvasLocation" x="873" y="808"/>
         </scene>
         <!--Default formats-->
         <scene sceneID="q7j-sT-eDC">
@@ -473,11 +494,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bfM-f0-GKJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oQ5-Uw-a8x">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YNB-s8-4PX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="-20" width="375" height="537"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DemoFormatsRowID" rowHeight="101" id="Yge-qb-baY" customClass="DemoFormatsRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
@@ -500,6 +521,11 @@
                                                         <constraint firstAttribute="height" constant="70" id="Iaw-Ko-2E1"/>
                                                         <constraint firstAttribute="width" constant="70" id="tbY-f8-JdR"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                            <color key="value" red="0.035294117647058823" green="0.84705882352941175" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocq-fw-zVW">
                                                     <rect key="frame" x="125" y="29" width="242" height="21"/>
@@ -543,18 +569,17 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YNB-s8-4PX" firstAttribute="leading" secondItem="oQ5-Uw-a8x" secondAttribute="leading" id="ISb-7X-bbd"/>
-                            <constraint firstAttribute="trailing" secondItem="YNB-s8-4PX" secondAttribute="trailing" id="J5s-q9-shv"/>
-                            <constraint firstAttribute="bottom" secondItem="YNB-s8-4PX" secondAttribute="bottom" constant="49" id="Jot-gk-pNf"/>
-                            <constraint firstItem="YNB-s8-4PX" firstAttribute="top" secondItem="oQ5-Uw-a8x" secondAttribute="top" id="ftz-DI-d4a"/>
+                            <constraint firstAttribute="trailing" secondItem="YNB-s8-4PX" secondAttribute="trailing" id="Bgv-Ei-MAV"/>
+                            <constraint firstItem="YNB-s8-4PX" firstAttribute="leading" secondItem="oQ5-Uw-a8x" secondAttribute="leading" id="Yew-8e-qqC"/>
+                            <constraint firstItem="YNB-s8-4PX" firstAttribute="top" secondItem="xyH-Vm-xMQ" secondAttribute="bottom" constant="-20" id="ZgP-o4-Jie"/>
+                            <constraint firstItem="bfM-f0-GKJ" firstAttribute="top" secondItem="YNB-s8-4PX" secondAttribute="bottom" id="wez-Qf-LXe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Default formats" image="demo formats_inactive" selectedImage="demo formats_active" id="l73-RR-IXL">
+                    <tabBarItem key="tabBarItem" title="Default formats" image="demo formats_inactive" selectedImage="demo formats_inactive" id="l73-RR-IXL">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.92941176470588238" green="0.10980392156862745" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.14509803921568626" green="0.43137254901960786" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Default formats"/>
                         </userDefinedRuntimeAttributes>
@@ -567,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50I-6R-BWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="1479"/>
+            <point key="canvasLocation" x="78" y="1525"/>
         </scene>
         <!--Settings-->
         <scene sceneID="4NG-8e-v7q">
@@ -578,11 +603,11 @@
                         <viewControllerLayoutGuide type="bottom" id="t77-KW-Cy0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zGb-lZ-83g">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kym-R2-dda">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsRowID" rowHeight="61" id="iyT-CX-Ehz" customClass="SettingsRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
@@ -620,7 +645,7 @@
                                                         <constraint firstAttribute="width" constant="49" id="GNR-2k-RPs"/>
                                                         <constraint firstAttribute="height" constant="31" id="wB2-9h-w7Y"/>
                                                     </constraints>
-                                                    <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="onTintColor" red="0.1450980392" green="0.43137254899999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </switch>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -649,11 +674,11 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3X7-9m-RDa">
-                                <rect key="frame" x="0.0" y="487" width="375" height="67"/>
+                                <rect key="frame" x="0.0" y="450" width="375" height="67"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hml-rX-7e1">
                                         <rect key="frame" x="267" y="18.5" width="100" height="30"/>
-                                        <color key="backgroundColor" red="0.078431372550000003" green="0.48627450979999998" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.14509803921568626" green="0.43137254901960786" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="YDE-L9-wrS"/>
                                             <constraint firstAttribute="width" constant="100" id="hhh-rD-36e"/>
@@ -695,7 +720,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9g-yy-8Yf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3252" y="929"/>
+            <point key="canvasLocation" x="1788" y="976"/>
         </scene>
         <!--Display-->
         <scene sceneID="fli-eE-Zqr">
@@ -706,7 +731,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HOO-RC-zrM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mfu-BH-Uo9">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZR-yw-o9i" customClass="SABannerAd">
@@ -717,7 +742,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAC-sh-aAB" customClass="SABannerAd">
-                                <rect key="frame" x="8" y="191.5" width="230" height="220"/>
+                                <rect key="frame" x="8" y="148.5" width="230" height="220"/>
                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="4uV-ob-GJF"/>
@@ -725,25 +750,25 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpJ-X3-cfg">
-                                <rect key="frame" x="246" y="191" width="120" height="221"/>
+                                <rect key="frame" x="246" y="148" width="120" height="221"/>
                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="221" id="IAt-WB-8gm"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsI-ex-hvr" customClass="SABannerAd">
-                                <rect key="frame" x="8" y="501" width="358" height="45"/>
+                                <rect key="frame" x="8" y="464" width="358" height="45"/>
                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Z7h-Jn-4eX"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6Z-Ct-6HB">
-                                <rect key="frame" x="8" y="420" width="359" height="73"/>
+                                <rect key="frame" x="8" y="377" width="359" height="79"/>
                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNl-5O-qAb">
-                                <rect key="frame" x="8" y="66" width="359" height="117"/>
+                                <rect key="frame" x="8" y="66" width="359" height="74"/>
                                 <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -779,18 +804,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zq-y8-GYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4025" y="929"/>
+            <point key="canvasLocation" x="2561" y="976"/>
         </scene>
     </scenes>
     <resources>
-        <image name="AWESOMEADS" width="123" height="19"/>
-        <image name="demo formats_active" width="30" height="30"/>
+        <image name="AWESOMEADS" width="123" height="24"/>
         <image name="demo formats_inactive" width="30" height="30"/>
-        <image name="your placement_active" width="30" height="30"/>
         <image name="your placement_inactive" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TD3-AL-6HO"/>
-        <segue reference="0XS-XA-lzN"/>
+        <segue reference="0sB-s7-TVW"/>
+        <segue reference="Obk-c6-kwj"/>
     </inferredMetricsTieBreakers>
 </document>

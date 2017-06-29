@@ -46,7 +46,7 @@ class UserController: SABaseViewController {
             }
             .subscribe(onNext: { isValid in
                 self.nextButton.isEnabled = isValid
-                self.nextButton.backgroundColor = isValid ? UIColorFromHex(0x147CCD) : UIColor.lightGray
+                self.nextButton.backgroundColor = isValid ? UIColorFromHex(0x256eff) : UIColor.lightGray
             })
             .addDisposableTo(disposeBag)
         

@@ -12,12 +12,6 @@ import RxSwift
 
 class IntroController: SABaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -26,15 +20,15 @@ class IntroController: SABaseViewController {
             .subscribe(onNext: { loggedUser in
                 
                 LoginManager.sharedInstance.setLoggedUser(user: loggedUser)
-                self.performSegue("IntroToTabBar")
+                self.performSegue("IntroToMain")
                 
             }, onError: { (error) in
                 self.performSegue("IntroToLogin")
             })
             .addDisposableTo(disposeBag)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }

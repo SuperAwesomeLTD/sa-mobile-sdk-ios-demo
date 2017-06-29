@@ -137,10 +137,6 @@ class CreativesController: SABaseViewController {
             .addDisposableTo(disposeBag)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     private func loadAdError () {
         SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_load_title".localized,
                                    andMessage: "page_creatives_popup_error_load_message".localized,
@@ -161,5 +157,9 @@ class CreativesController: SABaseViewController {
                                    andTextField: false,
                                    andKeyboardTyle: .default,
                                    andPressed: nil)
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }

@@ -146,4 +146,8 @@ class SettingsController: SABaseViewController {
         SAVideoAd.setAd(ad)
         SAVideoAd.play(ad.placementId, fromVC: self)
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 }

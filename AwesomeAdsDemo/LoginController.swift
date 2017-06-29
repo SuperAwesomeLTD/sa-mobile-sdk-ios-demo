@@ -51,7 +51,7 @@ class LoginController: SABaseViewController {
             }
             .subscribe(onNext: { isValid in
                 self.loginButton.isEnabled = isValid
-                self.loginButton.backgroundColor = isValid ? UIColorFromHex(0xED1C24) : UIColor.lightGray
+                self.loginButton.backgroundColor = isValid ? UIColorFromHex(0x256eff) : UIColor.lightGray
             })
             .addDisposableTo(disposeBag)
         
@@ -84,7 +84,7 @@ class LoginController: SABaseViewController {
                     LoginManager.sharedInstance.setLoggedUser(user: loginUser)
                     
                     // go forward
-                    self.performSegue("LoginToTabBar")
+                    self.performSegue("LoginToMain")
                 }
                 else {
                     self.authError()
@@ -117,5 +117,9 @@ class LoginController: SABaseViewController {
         topContraint.constant = maxContraintHeight
         usernameField.resignFirstResponder()
         passwordField.resignFirstResponder()
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }
