@@ -385,7 +385,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.42352941179999998" green="0.61568627450000002" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1450980392" green="0.43137254899999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="zzp-s7-5nk" firstAttribute="centerY" secondItem="62p-AX-LPt" secondAttribute="centerY" id="9aL-lm-0h6"/>
                                     <constraint firstItem="zzp-s7-5nk" firstAttribute="centerX" secondItem="62p-AX-LPt" secondAttribute="centerX" id="CfO-ON-Fj8"/>
@@ -749,7 +749,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.42352941179999998" green="0.61568627450000002" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1450980392" green="0.43137254899999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="wQ2-D8-eCm" firstAttribute="centerY" secondItem="uJT-7G-ECf" secondAttribute="centerY" id="GTf-Ht-yhl"/>
                                     <constraint firstItem="2aD-JR-c6S" firstAttribute="centerY" secondItem="uJT-7G-ECf" secondAttribute="centerY" id="QGS-Eo-7y6"/>
@@ -859,7 +859,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.42352941179999998" green="0.61568627450000002" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1450980392" green="0.43137254899999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="kqK-aG-JcK" firstAttribute="centerY" secondItem="WsC-lY-7dc" secondAttribute="centerY" id="ISp-Qw-BU1"/>
                                     <constraint firstItem="kqK-aG-JcK" firstAttribute="centerX" secondItem="WsC-lY-7dc" secondAttribute="centerX" id="Ltr-Bk-7Q6"/>
