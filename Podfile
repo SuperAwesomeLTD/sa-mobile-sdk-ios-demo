@@ -6,11 +6,12 @@ target 'AwesomeAdsDemo' do
   use_frameworks!
 
   # Pods for TestRxGesture
-  pod 'RxSwift', '3.1.0'
-  pod 'RxCocoa', '3.1.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'SuperAwesome', '5.7.0'
   pod 'Kingfisher', '~> 3.0'
-  pod 'RxTableView', '1.0.2'
+  pod 'RxTableAndCollectionView', '1.1.5'
+  pod 'ObjectMapper', '~> 2.2'
 
   target 'AwesomeAdsDemo_Tests' do
       inherit! :search_paths

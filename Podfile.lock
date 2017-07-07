@@ -1,11 +1,12 @@
 PODS:
-  - Kingfisher (3.10.1)
-  - RxCocoa (3.1.0):
-    - RxSwift (~> 3.1)
-  - RxSwift (3.1.0)
-  - RxTableView (1.0.2):
-    - RxCocoa (= 3.1.0)
-    - RxSwift (= 3.1.0)
+  - Kingfisher (3.10.3)
+  - ObjectMapper (2.2.7)
+  - RxCocoa (3.5.0):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.5.0)
+  - RxTableAndCollectionView (1.1.5):
+    - RxCocoa
+    - RxSwift
   - SAAdLoader (1.1.2):
     - SAModelSpace (= 0.4.9)
     - SANetworking (= 0.2.9)
@@ -63,16 +64,18 @@ PODS:
 
 DEPENDENCIES:
   - Kingfisher (~> 3.0)
-  - RxCocoa (= 3.1.0)
-  - RxSwift (= 3.1.0)
-  - RxTableView (= 1.0.2)
+  - ObjectMapper (~> 2.2)
+  - RxCocoa
+  - RxSwift
+  - RxTableAndCollectionView (= 1.1.5)
   - SuperAwesome (= 5.7.0)
 
 SPEC CHECKSUMS:
-  Kingfisher: 33a1b82140fcb14a9fc13f78dfde2a03ff8de8cb
-  RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
-  RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
-  RxTableView: 828cc637f8e6eb24230d238bf4176cdfe5657782
+  Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
+  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
+  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
+  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  RxTableAndCollectionView: e589efbf099aae0f9951712fb3b883fdc393db1d
   SAAdLoader: ca3d4021f27fb50c0dbd5eae73bd8043fdbc919c
   SACPI: bc27c5a465b0ff8f0b110c2a31cb069ce6adac43
   SAEvents: 0a7f4e94b47b18af1304cf598fd31e31bff5d006
@@ -86,6 +89,6 @@ SPEC CHECKSUMS:
   SAWebPlayer: d7ee083d0a8acb4dc9350156637c65fb286708ed
   SuperAwesome: 6ddc3bbbf9e2d2c117f87b1b41e3d7603aa4b92b
 
-PODFILE CHECKSUM: f563e85444dbc035763a84d4450af8579ec81db0
+PODFILE CHECKSUM: 7d81babb4d7f6ab25ed80b8789dc7e25c33a14e3
 
 COCOAPODS: 1.2.1

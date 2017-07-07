@@ -12,7 +12,7 @@ import RxCocoa
 import SuperAwesome
 import SAModelSpace
 import SAUtils
-import RxTableView
+import RxTableAndCollectionView
 
 class DemoFormatsController: SABaseViewController {
 
@@ -35,17 +35,15 @@ class DemoFormatsController: SABaseViewController {
                 self.rxTable = RxTableView
                     .create()
                     .bind(toTable: self.tableView)
-                    .estimateRowHeight(101)
-                    .customiseRow(forReuseIdentifier: "DemoFormatsRowID") { (index, cell: DemoFormatsRow, model: DemoFormatsViewModel) in
+                    .customise(rowForReuseIdentifier: "DemoFormatsRowID", andHeight: UITableViewAutomaticDimension) { (index, row: DemoFormatsRow, model: DemoFormatsViewModel) in
                         
-                        cell.backgroundColor = index.row % 2 == 0 ? UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) : UIColor.white
-                        cell.icon.image = UIImage(named: model.getSource())
-                        cell.title.text = model.getName()
-                        cell.details.text = model.getDetails()
+                        row.backgroundColor = index.row % 2 == 0 ? UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) : UIColor.white
+                        row.icon.image = UIImage(named: model.getSource())
+                        row.title.text = model.getName()
+                        row.details.text = model.getDetails()
                         
                     }
-                    .clickRow(forReuseIdentifier: "DemoFormatsRowID") { (index, model: DemoFormatsViewModel) in
-                        
+                    .did(clickOnRowWithReuseIdentifier: "DemoFormatsRowID") { (index, model: DemoFormatsViewModel) in
                         SALoadScreen.getInstance().show()
                         
                         SuperAwesome.loadTestAd(placementId: model.getPlacementId())
@@ -63,10 +61,9 @@ class DemoFormatsController: SABaseViewController {
                                 SALoadScreen.getInstance().hide()
                             })
                             .addDisposableTo(self.disposeBag)
-                        
                     }
                 
-                self.rxTable?.update(dataArry)
+                self.rxTable?.update(withData: dataArry)
                 
             })
             .addDisposableTo(disposeBag)

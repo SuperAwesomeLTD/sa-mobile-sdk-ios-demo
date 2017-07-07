@@ -15,14 +15,13 @@ class IntroController: SABaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        LoginManager.sharedInstance
-            .check()
-            .subscribe(onNext: { loggedUser in
-                
-                LoginManager.sharedInstance.setLoggedUser(user: loggedUser)
+        UserWorker.isUserLoggedIn()
+            .flatMap { logedUser -> Single<UserProfile> in
+                return UserWorker.getProfile(forToken: DataStore.shared.jwtToken!)
+            }
+            .subscribe(onSuccess: { profile in
                 self.performSegue("IntroToMain")
-                
-            }, onError: { (error) in
+            }, onError: { error in
                 self.performSegue("IntroToLogin")
             })
             .addDisposableTo(disposeBag)

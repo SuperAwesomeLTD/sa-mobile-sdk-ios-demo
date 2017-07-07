@@ -12,7 +12,7 @@ import RxSwift
 import SAUtils
 import SuperAwesome
 import SAModelSpace
-import RxTableView
+import RxTableAndCollectionView
 
 class SettingsController: SABaseViewController {
 
@@ -55,8 +55,7 @@ class SettingsController: SABaseViewController {
                         self.rxTable = RxTableView
                             .create()
                             .bind(toTable: self.tableView)
-                            .estimateRowHeight(250)
-                            .customiseRow(forReuseIdentifier: "SettingsRowID") { (index, cell: SettingsRow, model: SettingsViewModel) in
+                            .customise(rowForReuseIdentifier: "SettingsRowID", andHeight: UITableViewAutomaticDimension) { (index, cell: SettingsRow, model: SettingsViewModel) in
                                 
                                 cell.backgroundColor = index.row % 2 == 0 ? UIColor.white : UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1)
                                 cell.settingsItem?.text = model.getItemTitle()
@@ -70,7 +69,7 @@ class SettingsController: SABaseViewController {
                                     .addDisposableTo(self.disposeBag)
                                 
                             }
-                        self.rxTable?.update(dataArry)
+                        self.rxTable?.update(withData: dataArry)
                         
                     })
                     .addDisposableTo(self.disposeBag)

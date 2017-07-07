@@ -5,7 +5,7 @@ import SAUtils
 import SuperAwesome
 import SAModelSpace
 import Kingfisher
-import RxTableView
+import RxTableAndCollectionView
 
 class CreativesController: SABaseViewController {
     
@@ -38,8 +38,7 @@ class CreativesController: SABaseViewController {
                 self.rxTable = RxTableView
                     .create()
                     .bind(toTable: self.tableView)
-                    .estimateRowHeight(130)
-                    .customiseRow(forReuseIdentifier: "CreativesRowID") { (index, cell: CreativesRow, model: CreativesViewModel) in
+                    .customise(rowForReuseIdentifier: "CreativesRowID", andHeight: UITableViewAutomaticDimension) { (index, cell: CreativesRow, model: CreativesViewModel) in
                         
                         // set the default image no matter what
                         cell.icon.image = UIImage(named: "icon_placeholder")
@@ -102,7 +101,7 @@ class CreativesController: SABaseViewController {
                         cell.os.text = model.getOSTarget()
                         
                     }
-                    .clickRow(forReuseIdentifier: "CreativesRowID") { (index, model: CreativesViewModel) in
+                    .did(clickOnRowWithReuseIdentifier: "CreativesRowID") { (index, model: CreativesViewModel) in
                         
                         if model.getFormat() != .unknown {
                             
@@ -126,7 +125,7 @@ class CreativesController: SABaseViewController {
                             self.unsupportedFormatError()
                         }
                     }
-                self.rxTable?.update(creatives)
+                self.rxTable?.update(withData: creatives)
                 
             }, onError: { error in
                 

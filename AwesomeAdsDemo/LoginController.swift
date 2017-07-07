@@ -62,33 +62,25 @@ class LoginController: SABaseViewController {
                 self.resignFields()
                 SALoadScreen.getInstance().show()
             })
-            .flatMap { Void -> Observable<LoginUser> in
-                return LoginManager.sharedInstance.login(username: self.model.getUsername(), password: self.model.getPassword())
+            .flatMap { () -> Observable<LogedUser> in
+                return UserWorker.login(userWithUsername: self.model.getUsername(), andPassword: self.model.getPassword()).asObservable()
             }
-            .subscribe(onNext: { loginUser in
-                
-                // stop this
+            .flatMap { logedUser -> Observable<UserProfile> in
+                return UserWorker.getProfile(forToken: logedUser.token!).asObservable()
+            }
+            .do(onNext: { profile in
                 SALoadScreen.getInstance().hide()
+            }, onError: { error in
+                SALoadScreen.getInstance().hide()
+            })
+            .catchErrorAndContinue { error in
+                self.authError()
+            }
+            .subscribe(onNext: { profile in
                 
-                // if user is valid
-                if (loginUser.isValid()) {
-                    
-                    // clear fields
-                    self.clearFields()
-                    self.clearModel()
-                    
-                    // save the user
-                    LoginManager.sharedInstance.saveUser(user: loginUser)
-                    
-                    // set it for the current session
-                    LoginManager.sharedInstance.setLoggedUser(user: loginUser)
-                    
-                    // go forward
-                    self.performSegue("LoginToMain")
-                }
-                else {
-                    self.authError()
-                }
+                self.clearFields()
+                self.clearModel()
+                self.performSegue("LoginToMain")
                 
             })
             .addDisposableTo(disposeBag)
