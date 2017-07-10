@@ -1,15 +1,15 @@
 //
-//  Company.swift
+//  Permission.swift
 //  AwesomeAdsDemo
 //
-//  Created by Gabriel Coman on 06/07/2017.
+//  Created by Gabriel Coman on 10/07/2017.
 //  Copyright © 2017 Gabriel Coman. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import ObjectMapper
 
-class Company: Mappable {
+class Permission: Mappable {
 
     var id: Int?
     var name: String?

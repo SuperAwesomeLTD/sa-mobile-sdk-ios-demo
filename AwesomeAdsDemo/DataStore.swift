@@ -24,7 +24,7 @@ class DataStore {
         }
     }
     
-    var company: Company?
+    var companies: [Company] = []
     var profile: UserProfile?
     
 }

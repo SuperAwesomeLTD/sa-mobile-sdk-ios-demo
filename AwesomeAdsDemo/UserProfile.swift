@@ -15,6 +15,7 @@ class UserProfile: Mappable {
     var username: String?
     var email: String?
     var companyId: Int?
+    var permissions: [Permission] = []
     var logedUser: LogedUser?
     
     required public init?(map: Map) {
@@ -26,9 +27,16 @@ class UserProfile: Mappable {
         username <- map["username"]
         email <- map["email"]
         companyId <- map["companyId"]
+        permissions <- map["permissions"]
     }
     
     public var isValid:  Bool {
         return logedUser?.isValid ?? false
+    }
+    
+    public var canImpersonate: Bool {
+        return permissions.filter { permission -> Bool in
+            return permission.name! == "Impersonation"
+        }.count == 1
     }
 }
