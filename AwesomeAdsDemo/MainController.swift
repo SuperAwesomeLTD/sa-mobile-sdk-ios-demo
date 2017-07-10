@@ -38,4 +38,16 @@ class MainController: SABaseViewController {
             break; 
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let dest = segue.destination as? ProfileController {
+            
+            dest.goBack = {
+                let embed: AppController? = self.getChild()
+                embed?.loadData()
+            }
+        }
+    }
 }

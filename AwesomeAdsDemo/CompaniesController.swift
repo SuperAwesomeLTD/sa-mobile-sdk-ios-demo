@@ -17,7 +17,7 @@ class CompaniesController: SABaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: SATextField!
     
-    private var rxTable: RxTableView?
+    fileprivate var rxTable: RxTableView?
     
     var selectedCompany: ((Int) -> Void)?
     
@@ -56,9 +56,35 @@ class CompaniesController: SABaseViewController {
                 self.rxTable?.update(withData: companies)
             })
             .addDisposableTo(disposeBag)
+        
+        //
+        // get all companies
+        getAllCompanies()
     }
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+//
+// business logic
+extension CompaniesController {
+    
+    func getAllCompanies() {
+        
+        guard let token = DataStore.shared.jwtToken else {
+            return
+        }
+        
+        UserWorker.getCompanies(forJWTToken: token)
+            .subscribe(onSuccess: { companies in
+                
+                self.rxTable?.update(withData: companies)
+                
+            }, onError: { error in
+                // do nothing
+            })
+            .addDisposableTo(self.disposeBag)
     }
 }

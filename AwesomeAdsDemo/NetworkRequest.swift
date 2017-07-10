@@ -13,6 +13,7 @@ public enum NetworkOperation {
     case getProfile(forJWTToken: String)
     case getApps(forCompany: Int, andJWTToken: String)
     case getCompanies(forJWTToken: String)
+    case getCompany(forId: Int, andJWTToken: String)
 }
 
 public enum NetworkMethod {
@@ -38,6 +39,8 @@ class NetworkRequest: Request {
             return .GET
         case .getCompanies(_):
             return .GET
+        case .getCompany(_, _):
+            return .GET
         }
     }
     
@@ -51,6 +54,8 @@ class NetworkRequest: Request {
             return "https://api.dashboard.superawesome.tv/v2/companies/\(company)/apps"
         case .getCompanies(_):
             return "https://api.dashboard.superawesome.tv/v2/companies"
+        case .getCompany(let id, _):
+            return "https://api.dashboard.superawesome.tv/v2/companies/\(id)"
         }
     }
     
@@ -94,6 +99,10 @@ class NetworkRequest: Request {
             return [
                 "aa-user-token": jwtToken
             ]
+        case .getCompany(_, let jwtToken):
+            return [
+                "aa-user-token": jwtToken
+            ]
         }
     }
     
@@ -104,11 +113,7 @@ class NetworkRequest: Request {
                 "username" : username,
                 "password" : password
             ]
-        case .getProfile(_):
-            return [:]
-        case .getApps(_, _):
-            return [:]
-        case .getCompanies(_):
+        default:
             return [:]
         }
     }

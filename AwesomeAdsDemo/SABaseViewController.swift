@@ -56,3 +56,19 @@ class SABaseViewController: UIViewController {
         self.prepared? (segue, sender)
     }
 }
+
+extension SABaseViewController {
+    
+    func getChild <T: UIViewController> () -> T? {
+        
+        var childVC: T?
+        
+        self.childViewControllers.forEach { child in
+            if let child = child as? T {
+                childVC = child
+            }
+        }
+        
+        return childVC
+    }
+}

@@ -50,6 +50,9 @@
 		1B904C9F1F1384BA008254FB /* CompaniesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B904C9E1F1384BA008254FB /* CompaniesController.swift */; };
 		1B904CA11F1384CD008254FB /* CompanyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B904CA01F1384CD008254FB /* CompanyRow.swift */; };
 		1B904CA31F139B85008254FB /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B904CA21F139B85008254FB /* Permission.swift */; };
+		1B904CA61F139ED4008254FB /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B904CA51F139ED4008254FB /* ProfileController.swift */; };
+		1B904CA81F139EE4008254FB /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B904CA71F139EE4008254FB /* ProfileRow.swift */; };
+		1B904CAA1F13A357008254FB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B904CA91F13A357008254FB /* ProfileViewModel.swift */; };
 		1B974A151E016E3C00CE9EA7 /* SATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B974A141E016E3C00CE9EA7 /* SATextField.swift */; };
 		1B993B4B1E0300E400EE5001 /* AwesomeAdsDemo_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B993B4A1E0300E400EE5001 /* AwesomeAdsDemo_Tests.swift */; };
 		1BBA88E91DFFFE0B00C94553 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA88EB1DFFFE0B00C94553 /* Localizable.strings */; };
@@ -123,6 +126,9 @@
 		1B904C9E1F1384BA008254FB /* CompaniesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompaniesController.swift; sourceTree = "<group>"; };
 		1B904CA01F1384CD008254FB /* CompanyRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyRow.swift; sourceTree = "<group>"; };
 		1B904CA21F139B85008254FB /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		1B904CA51F139ED4008254FB /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		1B904CA71F139EE4008254FB /* ProfileRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
+		1B904CA91F13A357008254FB /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		1B974A141E016E3C00CE9EA7 /* SATextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SATextField.swift; sourceTree = "<group>"; };
 		1B993B481E0300E300EE5001 /* AwesomeAdsDemo_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeAdsDemo_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B993B4A1E0300E400EE5001 /* AwesomeAdsDemo_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeAdsDemo_Tests.swift; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 		1B46E6281DE8492700353E8C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B904CA41F139EC7008254FB /* Profile */,
 				1BFEA6F01E8AA68C0023807D /* Intro */,
 				1BFEA6AC1E8927FC0023807D /* Login */,
 				1B6875291F0503E6003FC719 /* Main */,
@@ -388,6 +395,16 @@
 				1B904CA01F1384CD008254FB /* CompanyRow.swift */,
 			);
 			name = Companies;
+			sourceTree = "<group>";
+		};
+		1B904CA41F139EC7008254FB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1B904CA51F139ED4008254FB /* ProfileController.swift */,
+				1B904CA91F13A357008254FB /* ProfileViewModel.swift */,
+				1B904CA71F139EE4008254FB /* ProfileRow.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		1B993B491E0300E400EE5001 /* AwesomeAdsDemo_Tests */ = {
@@ -650,6 +667,7 @@
 				1B904C791F0E8840008254FB /* Placement.swift in Sources */,
 				1B904C841F0E9051008254FB /* Workers+Login.swift in Sources */,
 				1B904C9C1F138216008254FB /* Workers+Companies.swift in Sources */,
+				1B904CAA1F13A357008254FB /* ProfileViewModel.swift in Sources */,
 				1B904C691F0E7DBD008254FB /* NetworkTask.swift in Sources */,
 				1B904C601F0E7D39008254FB /* Request.swift in Sources */,
 				1B68752B1F0503F3003FC719 /* MainController.swift in Sources */,
@@ -665,6 +683,8 @@
 				1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */,
 				1B904C821F0E903D008254FB /* Workers.swift in Sources */,
 				1BFEA6AE1E89281A0023807D /* LoginController.swift in Sources */,
+				1B904CA61F139ED4008254FB /* ProfileController.swift in Sources */,
+				1B904CA81F139EE4008254FB /* ProfileRow.swift in Sources */,
 				1B974A151E016E3C00CE9EA7 /* SATextField.swift in Sources */,
 				1BFEA6B01E8930710023807D /* LoginModel.swift in Sources */,
 				1B56355F1DEC7E7C00EEA239 /* SettingsRow.swift in Sources */,

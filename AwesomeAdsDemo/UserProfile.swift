@@ -14,6 +14,7 @@ class UserProfile: Mappable {
     var id: Int?
     var username: String?
     var email: String?
+    var phone: String?
     var companyId: Int?
     var permissions: [Permission] = []
     var logedUser: LogedUser?
@@ -26,6 +27,7 @@ class UserProfile: Mappable {
         id <- map["id"]
         username <- map["username"]
         email <- map["email"]
+        phone <- map["phoneNumber"]
         companyId <- map["companyId"]
         permissions <- map["permissions"]
     }

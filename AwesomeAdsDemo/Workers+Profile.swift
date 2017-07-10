@@ -15,6 +15,10 @@ extension UserWorker {
     
     static func getProfile (forToken jwtToken: String) -> Single<UserProfile> {
         
+        if let profile = DataStore.shared.profile {
+            return Single.just(profile)
+        }
+        
         let operation = NetworkOperation.getProfile(forJWTToken: jwtToken)
         let request = NetworkRequest(withOperation: operation)
         let task = NetworkTask()
