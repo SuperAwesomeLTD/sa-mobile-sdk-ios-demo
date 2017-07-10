@@ -85,7 +85,7 @@ extension ProfileController {
                 UserWorker.getCompany(forId: profile.companyId!, andJWTToken: token)
                     .subscribe(onSuccess: { company in
                         
-                        models.append(ProfileViewModel(withFieldName: "Company", andFieldValue: company.name!, andActive: true))
+                        models.append(ProfileViewModel(withFieldName: "Company", andFieldValue: company.name!, andActive: profile.canImpersonate))
                         self.rxTable?.update(withData: models)
                         
                     }, onError: { error in
