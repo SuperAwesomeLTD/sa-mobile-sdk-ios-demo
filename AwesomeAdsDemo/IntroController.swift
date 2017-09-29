@@ -14,16 +14,24 @@ class IntroController: SABaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        store?.addListener(self)
+        store?.dispatch(checkIsUserLoggedInAction)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        store?.removeListener(self)
+    }
+}
+
+extension IntroController: HandlesStateUpdates {
+    func handle(_ state: AppState) {
         
-        UserWorker.isUserLoggedIn()
-            .flatMap { logedUser -> Single<UserProfile> in
-                return UserWorker.getProfile(forToken: DataStore.shared.jwtToken!)
-            }
-            .subscribe(onSuccess: { profile in
-                self.performSegue("IntroToMain")
-            }, onError: { error in
-                self.performSegue("IntroToLogin")
-            })
-            .addDisposableTo(disposeBag)
+        if state.loginState.jwtToken != nil {
+            self.performSegue("IntroToMain")
+        }
+        else {
+            self.performSegue("IntroToLogin")
+        }
     }
 }

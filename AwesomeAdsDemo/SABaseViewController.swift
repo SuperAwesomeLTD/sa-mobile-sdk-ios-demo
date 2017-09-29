@@ -12,12 +12,17 @@ import RxSwift
 
 class SABaseViewController: UIViewController {
 
+    var store: Store<AppState>?
+    
     private var prepared: ((_ segue: UIStoryboardSegue, _ sender: Any?) -> Void)?
     
     let disposeBag = DisposeBag ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let del = UIApplication.shared.delegate as! AppDelegate
+        store = del.store
     }
 
     override func didReceiveMemoryWarning() {
