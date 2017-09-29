@@ -9,41 +9,8 @@
 "page_login_popup_more_message" = "Username of password incorrect.";
 "page_login_popup_more_ok_button" = "Try again!";
 
-// user controller
-"page_user_title" = "Your placement";
-
-// demo formats controller
-"page_demo_title" = "Default formats";
-
-"page_demo_table_row_1_title" = "Mobile Small Leaderboard";
-"page_demo_table_row_1_details" = "Size: 300x50";
-
-"page_demo_table_row_2_title" = "Mobile Leaderboard";
-"page_demo_table_row_2_details" = "Size: 320x50";
-
-"page_demo_table_row_3_title" = "Tablet Leaderboard";
-"page_demo_table_row_3_details" = "Size: 728x90";
-
-"page_demo_table_row_4_title" = "Tablet MPU";
-"page_demo_table_row_4_details" = "Size: 300x250";
-
-"page_demo_table_row_5_title" = "Mobile Interstitial Portrait";
-"page_demo_table_row_5_details" = "Size: 320x480";
-
-"page_demo_table_row_6_title" = "Mobile Interstitial Landscape";
-"page_demo_table_row_6_details" = "Size: 480x320";
-
-"page_demo_table_row_7_title" = "Tablet Interstitial Portrait";
-"page_demo_table_row_7_details" = "Size: 768x1024";
-
-"page_demo_table_row_8_title" = "Tablet Interstitial Landscape";
-"page_demo_table_row_8_details" = "Size: 1024x768";
-
-"page_demo_table_row_9_title" = "Mobile Video";
-"page_demo_table_row_9_details" = "Size: 600x480";
-
-"page_demo_table_row_def_title" = "Title";
-"page_demo_table_row_def_details" = "Details";
+// app/main controller
+"page_main_search_placeholder" = "Search apps or placements ...";
 
 // for the "creatives" activity
 "page_creatives_title" = "Select Ad";

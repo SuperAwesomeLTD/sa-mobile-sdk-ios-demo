@@ -15,7 +15,7 @@ import SAModelSpace
 import SAAdLoader
 import SASession
 
-extension SuperAwesome {
+extension SALoader {
     
     enum SAError : Error {
         case InvalidData

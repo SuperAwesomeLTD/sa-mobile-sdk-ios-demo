@@ -4,6 +4,7 @@ import RxCocoa
 import SAUtils
 import SuperAwesome
 import SAModelSpace
+import SAAdLoader
 import Kingfisher
 import RxTableAndCollectionView
 
@@ -23,7 +24,7 @@ class CreativesController: SABaseViewController {
         titleText.text = "Select Ad".localized
         SALoadScreen.getInstance().show()
         
-        SuperAwesome.loadCreatives(placementId: placementId)
+        SALoader.loadCreatives(placementId: placementId)
             .map { creative -> CreativesViewModel in
                 return CreativesViewModel (creative)
             }

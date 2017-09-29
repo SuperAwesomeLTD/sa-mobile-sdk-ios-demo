@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 import SAUtils
 import SuperAwesome
+import SAAdLoader
 import SAModelSpace
 import RxTableAndCollectionView
 
@@ -38,7 +39,7 @@ class SettingsController: SABaseViewController {
         SALoadScreen.getInstance().show()
         
         // process the ad that's come from the segue
-        SuperAwesome.processAd(ad: ad)
+        SALoader.processAd(ad: ad)
             .subscribe(onNext: { response in
                 
                 let format = AdFormat.fromResponse(response)
