@@ -104,8 +104,8 @@ class CreativesController: SABaseViewController {
                     }
                     .did(clickOnRowWithReuseIdentifier: "CreativesRowID") { (index, model: CreativesViewModel) in
                         
-                        if model.getFormat() != .unknown {
-                            
+//                        if model.getFormat() != .unknown {
+                        
                             let ad = SAAd ()
                             ad.placementId = self.placementId
                             ad.lineItemId = 10000;
@@ -121,10 +121,10 @@ class CreativesController: SABaseViewController {
                                 })
                                 .addDisposableTo(self.disposeBag)
                             
-                        }
-                        else {
-                            self.unsupportedFormatError()
-                        }
+//                        }
+//                        else {
+//                            self.unsupportedFormatError()
+//                        }
                     }
                 self.rxTable?.update(withData: creatives)
                 

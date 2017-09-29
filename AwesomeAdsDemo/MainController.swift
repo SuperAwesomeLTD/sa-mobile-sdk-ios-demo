@@ -15,13 +15,42 @@ import RxCocoa
 
 class MainController: SABaseViewController {
 
-    @IBOutlet weak var appPlacementSearch: SATextField!
+    @IBOutlet weak var appPlacementSearch: UISearchBar!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var yourPlacementContainer: UIView!
     
     @IBOutlet weak var tableView: UITableView!
     fileprivate var rxTable: RxTableView?
     
+    fileprivate var recogn: UITapGestureRecognizer!
+    
+    fileprivate var searchTerm: String?
+    fileprivate var appData: [App] = []
+    fileprivate var viewModels: [MainViewModel] {
+        return appData
+            .map { (app: App) -> [MainViewModel] in
+                let appVm = AppViewModel(withApp: app)
+                let plcVm = app.placements
+                    .map { (placement: Placement) -> PlacementViewModel in
+                        return PlacementViewModel(withPlacement: placement)
+                    }
+                    .filter { model -> Bool in
+                        if let filter = self.searchTerm, filter != "" {
+                            return model.searcheableText.lowercased().contains(filter.lowercased())
+                        } else {
+                            return true
+                        }
+                    }
+    
+                if plcVm.count > 0 {
+                    return [appVm] + plcVm
+                } else {
+                    return []
+                }
+            }
+            .reduce([]) { (acc, cur) -> [MainViewModel] in
+                return acc + cur
+            }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +62,13 @@ class MainController: SABaseViewController {
         headerView.layer.shadowRadius = 1
         headerView.layer.shadowOpacity = 0.125
         
+        recogn = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        
         rxTable = RxTableView.create()
             .bind(toTable: tableView)
-            .customise(rowForReuseIdentifier: "AppRowID", andHeight: UITableViewAutomaticDimension) { (i, row: AppRow, model: App) in
+            .customise(rowForReuseIdentifier: "AppRowID", andHeight: UITableViewAutomaticDimension) { (i, row: AppRow, model: AppViewModel) in
                 
-                row.appName.text = model.name
+                row.appName.text = model.app.name
             }
             .customise(rowForReuseIdentifier: "PlacementRowID", andHeight: UITableViewAutomaticDimension) { (i, row: PlacementRow, model: PlacementViewModel) in
                 
@@ -64,12 +95,35 @@ class MainController: SABaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if let dest = segue.destination as? ProfileController {
+        self.appPlacementSearch.resignFirstResponder()
+        
+        if let dest = segue.destination as? CompaniesController {
             
-            dest.goBack = {
+            dest.selectedCompany = { companyId in 
+                DataStore.shared.profile?.companyId = companyId
+                self.searchTerm = nil
+                self.appPlacementSearch.text = ""
+                self.appPlacementSearch.resignFirstResponder()
                 self.loadData()
             }
         }
+    }
+}
+
+extension MainController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchTerm = searchText
+        self.rxTable?.update(withData: self.viewModels)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.view.addGestureRecognizer(recogn)
+    }
+    
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        self.appPlacementSearch.resignFirstResponder()
+        self.view.removeGestureRecognizer(recogn)
     }
 }
 
@@ -87,18 +141,9 @@ extension MainController {
             .flatMap { profile -> Single<NetworkData<App>> in
                 return UserWorker.getApps(forCompany: profile.companyId!, andToken: token)
             }
-            .map { apps -> [Any] in
-                
-                return apps.data.map { app -> [Any] in
-                    return [app] + app.placements.map { placement -> PlacementViewModel in
-                        return PlacementViewModel(withPlacement: placement)
-                    }
-                    }.reduce([]) { (acc, cur) -> [Any] in
-                        return acc + cur
-                }
-            }
-            .subscribe(onSuccess: { data in
-                self.rxTable?.update(withData: data)
+            .subscribe(onSuccess: { (apps: NetworkData<App>) in
+                self.appData = apps.data
+                self.rxTable?.update(withData: self.viewModels)
             }, onError: { error in
                 // error
             })
