@@ -12,6 +12,8 @@ target 'AwesomeAdsDemo' do
   pod 'Kingfisher', '~> 3.0'
   pod 'RxTableAndCollectionView', '1.1.5'
   pod 'ObjectMapper', '~> 2.2'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   target 'AwesomeAdsDemo_Tests' do
       inherit! :search_paths

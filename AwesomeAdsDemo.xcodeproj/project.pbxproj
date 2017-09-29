@@ -417,6 +417,7 @@
 				1B46E6101DE8445000353E8C /* Resources */,
 				23C79A0AFBD8C4E1670CC99F /* [CP] Embed Pods Frameworks */,
 				01E25FED3E988E2F76818B33 /* [CP] Copy Pods Resources */,
+				1B2E9E5B1F7E7FB300128D75 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -526,6 +527,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeAdsDemo/Pods-AwesomeAdsDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1B2E9E5B1F7E7FB300128D75 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 81d050ccd36aeca829219e118905b3f96a05ee7a fbd067f165dd406ab625f6cdf6cf417e6d43587d72284d9cffbfc49b91265950";
 		};
 		23C79A0AFBD8C4E1670CC99F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

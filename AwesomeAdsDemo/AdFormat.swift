@@ -126,7 +126,13 @@ enum AdFormat {
                     if width == 320 && height == 480 {
                         return .mobile_portrait_interstitial
                     }
+                    if width == 400 && height == 600 {
+                        return .mobile_portrait_interstitial
+                    }
                     if width == 480 && height == 320 {
+                        return .mobile_landscape_interstitial
+                    }
+                    if width == 600 && height == 400 {
                         return .mobile_landscape_interstitial
                     }
                     if width == 768 && height == 1024 {

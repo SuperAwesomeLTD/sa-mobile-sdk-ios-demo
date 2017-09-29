@@ -385,34 +385,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GxU-0k-ye1" customClass="SATextField" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                <rect key="frame" x="16" y="80" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Z1u-kn-5Zl">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9fq-4Q-VBL"/>
+                                    <constraint firstAttribute="height" constant="44" id="qtu-GH-s1v"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hfr-Kv-Y3J" id="Lqr-oy-do5"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="k8g-2L-QnP" firstAttribute="leading" secondItem="S75-PB-y06" secondAttribute="leading" id="2c4-Mw-kCB"/>
                             <constraint firstItem="CfS-lf-2LE" firstAttribute="leading" secondItem="S75-PB-y06" secondAttribute="leading" id="GP9-Wn-CBA"/>
-                            <constraint firstAttribute="trailing" secondItem="GxU-0k-ye1" secondAttribute="trailing" constant="16" id="KgO-Cx-NjD"/>
+                            <constraint firstItem="CfS-lf-2LE" firstAttribute="top" secondItem="Z1u-kn-5Zl" secondAttribute="bottom" constant="8" id="Jh3-Mb-Dle"/>
+                            <constraint firstAttribute="trailing" secondItem="Z1u-kn-5Zl" secondAttribute="trailing" id="LJa-Jm-bAQ"/>
                             <constraint firstItem="k8g-2L-QnP" firstAttribute="top" secondItem="mdy-xL-ow4" secondAttribute="bottom" id="Mpr-W2-zCI"/>
+                            <constraint firstItem="Z1u-kn-5Zl" firstAttribute="top" secondItem="k8g-2L-QnP" secondAttribute="bottom" constant="8" id="Ssj-ev-PZo"/>
                             <constraint firstAttribute="trailing" secondItem="CfS-lf-2LE" secondAttribute="trailing" id="bT1-af-Z5j"/>
                             <constraint firstAttribute="trailing" secondItem="k8g-2L-QnP" secondAttribute="trailing" id="bqV-5A-jUJ"/>
-                            <constraint firstItem="CfS-lf-2LE" firstAttribute="top" secondItem="GxU-0k-ye1" secondAttribute="bottom" constant="14" id="doI-Nb-ZaE"/>
-                            <constraint firstItem="GxU-0k-ye1" firstAttribute="leading" secondItem="S75-PB-y06" secondAttribute="leading" constant="16" id="hIN-oF-p84"/>
-                            <constraint firstItem="GxU-0k-ye1" firstAttribute="top" secondItem="k8g-2L-QnP" secondAttribute="bottom" constant="16" id="oLe-vQ-gQI"/>
+                            <constraint firstItem="Z1u-kn-5Zl" firstAttribute="leading" secondItem="S75-PB-y06" secondAttribute="leading" id="mLx-h3-yYF"/>
                             <constraint firstItem="7Jq-ob-bLw" firstAttribute="top" secondItem="CfS-lf-2LE" secondAttribute="bottom" id="ybe-DH-I7E"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="pageTitle" destination="oTc-n6-jBo" id="Ee7-qG-xZV"/>
-                        <outlet property="searchField" destination="GxU-0k-ye1" id="Rnc-X5-4CL"/>
+                        <outlet property="searchField" destination="Z1u-kn-5Zl" id="5aV-gf-N4u"/>
                         <outlet property="tableView" destination="CfS-lf-2LE" id="Gkc-LQ-TOs"/>
                     </connections>
                 </viewController>

@@ -15,7 +15,7 @@ class CompaniesController: SABaseViewController {
 
     @IBOutlet weak var pageTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchField: SATextField!
+    @IBOutlet weak var searchField: UISearchBar!
     
     fileprivate var rxTable: RxTableView?
     
@@ -39,24 +39,7 @@ class CompaniesController: SABaseViewController {
                 self.navigationController?.popViewController(animated: true)
                 self.selectedCompany?(model.id!)
             }
-        
-        searchField.rx.text.orEmpty
-            .distinctUntilChanged()
-            .map { search -> [Any] in
                 
-                if search.isEmpty {
-                    return DataStore.shared.companies
-                } else {
-                    return DataStore.shared.companies.filter { company -> Bool in
-                        return company.name!.capitalized.contains(search.capitalized)
-                    }
-                }
-            }
-            .subscribe(onNext: { companies in
-                self.rxTable?.update(withData: companies)
-            })
-            .addDisposableTo(disposeBag)
-        
         //
         // get all companies
         getAllCompanies()
@@ -64,6 +47,25 @@ class CompaniesController: SABaseViewController {
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension CompaniesController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        var items: [Company] = []
+        
+        if searchBar.text == "" {
+            items = DataStore.shared.companies
+        } else {
+            items = DataStore.shared.companies.filter { company -> Bool in
+                return company.name!.lowercased().contains((searchBar.text?.lowercased())!)
+            }
+        }
+        
+        self.rxTable?.update(withData: items)
+        
     }
 }
 
