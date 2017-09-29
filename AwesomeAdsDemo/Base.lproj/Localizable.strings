@@ -11,9 +11,12 @@
 
 // app/main controller
 "page_main_search_placeholder" = "Search apps or placements ...";
+"page_main_change_company" = "Change company";
 
 // for the "creatives" activity
 "page_creatives_title" = "Select Ad";
+
+"page_creatives_search_placeholder" = "Search ads by name ...";
 
 "page_creatives_popup_error_load_title" = "Hey!";
 "page_creatives_popup_error_load_message" = "The Placement ID you tried to load an ad for doesn\'t appear to have any data.";

@@ -15,10 +15,11 @@ import RxCocoa
 
 class MainController: SABaseViewController {
 
+    @IBOutlet weak var changeCompButton: UIButton!
     @IBOutlet weak var appPlacementSearch: UISearchBar!
     @IBOutlet weak var headerView: UIView!
-    
     @IBOutlet weak var tableView: UITableView!
+    
     fileprivate var rxTable: RxTableView?
     
     fileprivate var recogn: UITapGestureRecognizer!
@@ -55,6 +56,7 @@ class MainController: SABaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        changeCompButton.setTitle("page_main_change_company".localized, for: .normal)
         appPlacementSearch.placeholder = "page_main_search_placeholder".localized
         
         headerView.layer.masksToBounds = false
