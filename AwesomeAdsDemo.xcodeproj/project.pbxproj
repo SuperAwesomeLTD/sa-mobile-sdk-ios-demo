@@ -262,7 +262,7 @@
 				1B46E6311DE84C9F00353E8C /* Navigation */,
 				1B46E62A1DE8494100353E8C /* Meta */,
 				1B46E6291DE8493400353E8C /* Storyboard */,
-				1B46E6281DE8492700353E8C /* Controllers */,
+				1B46E6281DE8492700353E8C /* Views */,
 				1B46E6271DE8491D00353E8C /* Delegate */,
 			);
 			path = AwesomeAdsDemo;
@@ -276,7 +276,7 @@
 			name = Delegate;
 			sourceTree = "<group>";
 		};
-		1B46E6281DE8492700353E8C /* Controllers */ = {
+		1B46E6281DE8492700353E8C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1BFEA6F01E8AA68C0023807D /* Intro */,
@@ -292,7 +292,7 @@
 				1B2E9E7E1F7E923800128D75 /* SettingsRow */,
 				1B4A51891DEDEDC50041DE7B /* Display */,
 			);
-			name = Controllers;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		1B46E6291DE8493400353E8C /* Storyboard */ = {
