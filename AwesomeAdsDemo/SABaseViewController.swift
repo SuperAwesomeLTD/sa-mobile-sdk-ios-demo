@@ -12,7 +12,7 @@ import RxSwift
 
 class SABaseViewController: UIViewController, HandlesStateUpdates {
 
-    var store: Store<AppState>?
+    var store: Store<AppState>!
     
     private var prepared: ((_ segue: UIStoryboardSegue, _ sender: Any?) -> Void)?
     

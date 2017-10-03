@@ -11,7 +11,8 @@ import UIKit
 func appReducer (_ previous: AppState, event: Event) -> AppState {
     return AppState(loginState: loginReducer(previous.loginState, event: event),
                     profileState: profileReducer(previous.profileState, event: event),
-                    appState: appsReducer(previous.appState, event: event))
+                    appState: appsReducer(previous.appState, event: event),
+                    companiesState: companiesReducer(previous.companiesState, event: event))
 }
 
 func loginReducer (_ previous: LoginState?, event: Event) -> LoginState? {
@@ -46,6 +47,24 @@ func appsReducer (_ previous: LoadedAppsState, event: Event) -> LoadedAppsState 
         return LoadedAppsState(withFullData: apps)
     case .FilterApps(let search):
         state.search = search
+        return state
+    default:
+        return state
+    }
+}
+
+func companiesReducer (_ previous: CompaniesState, event: Event) -> CompaniesState {
+    var state = previous
+    
+    switch event {
+    case .GotCompanies(let companies):
+        return CompaniesState(withFullData: companies)
+    case .FilterCompanies(let search):
+        state.search = search
+        return state
+    case .SelectCompany(let company):
+        state.selectedCompany = company
+        state.hasSelected = true
         return state
     default:
         return state

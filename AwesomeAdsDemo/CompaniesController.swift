@@ -17,76 +17,41 @@ class CompaniesController: SABaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UISearchBar!
     
-    fileprivate var rxTable: RxTableView?
-    
-    var selectedCompany: ((Int) -> Void)?
+    var viewModel = CompaniesViewModel ()
+    var dataSource = CompaniesDataSource ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pageTitle.text = "page_companies_title".localized
         searchField.placeholder = "page_comapanies_search_placeholder".localized
-        
-        rxTable = RxTableView.create()
-            .bind(toTable: tableView)
-            .customise(rowForReuseIdentifier: "CompanyRowID", andHeight: 60) { (i, row: CompanyRow, model: Company) in
-                
-                row.companyName.text = model.name!
-                row.backgroundColor = i.row % 2 == 0 ? UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) : UIColor.white
-                
-            }
-            .did(clickOnRowWithReuseIdentifier: "CompanyRowID") { (i, model: Company) in
-                self.navigationController?.popViewController(animated: true)
-                self.selectedCompany?(model.id!)
-            }
-                
-        //
-        // get all companies
-        getAllCompanies()
+        dataSource.store = self.store
+        tableView.dataSource = dataSource
+        tableView.delegate = dataSource
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        store?.dispatch(Event.loadCompanies(forJwtToken: jwtToken))
     }
     
     @IBAction func backAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        store?.dispatch(Event.SelectCompany(companyId: companyId))
+    }
+    
+    override func handle(_ state: AppState) {
+        viewModel.data = state.companiesState.filtered
+        dataSource.data = viewModel.viewModels
+        tableView.reloadData()
+        
+        if state.companiesState.hasSelected {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 
 extension CompaniesController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        var items: [Company] = []
-        
-        if searchBar.text == "" {
-            items = DataStore.shared.companies
-        } else {
-            items = DataStore.shared.companies.filter { company -> Bool in
-                return company.name!.lowercased().contains((searchBar.text?.lowercased())!)
-            }
-        }
-        
-        self.rxTable?.update(withData: items)
-        
-    }
-}
-
-//
-// business logic
-extension CompaniesController {
-    
-    func getAllCompanies() {
-        
-        guard let token = DataStore.shared.jwtToken else {
-            return
-        }
-        
-        UserWorker.getCompanies(forJWTToken: token)
-            .subscribe(onSuccess: { companies in
-                
-                self.rxTable?.update(withData: companies)
-                
-            }, onError: { error in
-                // do nothing
-            })
-            .addDisposableTo(self.disposeBag)
+        store?.dispatch(Event.FilterCompanies(withSearchTerm: searchText))
     }
 }

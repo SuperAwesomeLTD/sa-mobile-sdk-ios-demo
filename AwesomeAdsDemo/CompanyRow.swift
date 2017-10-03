@@ -10,9 +10,14 @@ import UIKit
 
 class CompanyRow: UITableViewCell {
 
+    static let Identifier = "CompanyRowID"
+    
     @IBOutlet weak var companyName: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var viewModel: CompanyViewModel! {
+        didSet {
+            companyName.text = viewModel.companyName
+            backgroundColor = viewModel.backgroundColor
+        }
     }
 }

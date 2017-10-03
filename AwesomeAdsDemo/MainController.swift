@@ -20,21 +20,8 @@ class MainController: SABaseViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    private var currentState: AppState {
-        return (store?.getCurrentState())!
-    }
     
-    private var profile: UserProfile? {
-        let profileState = currentState.profileState
-        let profile = profileState?.profile
-        return profile
-    }
     
-    private var jwtToken: String {
-        let loginState = currentState.loginState
-        let token = loginState?.jwtToken ?? ""
-        return token
-    }
     
     var viewModel: MainViewModel = MainViewModel()
     
@@ -63,26 +50,17 @@ class MainController: SABaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store?.dispatch(Event.loadApps(forCompany: (profile?.companyId)!, andJwtToken: jwtToken))
+        store?.dispatch(Event.loadApps(forCompany: companyId, andJwtToken: jwtToken))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
         self.appPlacementSearch.resignFirstResponder()
-        
-        if let dest = segue.destination as? CompaniesController {
-            
-            dest.selectedCompany = { companyId in 
-                DataStore.shared.profile?.companyId = companyId
-                self.appPlacementSearch.text = ""
-                self.appPlacementSearch.resignFirstResponder()
-            }
-        }
+        self.appPlacementSearch.text = ""
     }
     
     override func handle(_ state: AppState) {
-        viewModel.data = state.appState.apps
+        viewModel.data = state.appState.filtered
         tableView.reloadData()
     }
 }

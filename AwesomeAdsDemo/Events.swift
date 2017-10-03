@@ -21,6 +21,11 @@ enum Event {
     // apps
     case GotAppsForCompany(apps: [App])
     case FilterApps(withSearchTerm: String?)
+    // companies
+    case GotCompanies(comps: [Company])
+    case FilterCompanies(withSearchTerm: String?)
+    // selected company
+    case SelectCompany(companyId: Int?)
 }
 
 extension Event {
@@ -51,6 +56,12 @@ extension Event {
                 return loggedUser.token
             }
             .asObservable()
+            .do(onNext: { token in
+                if let token = token {
+                    UserDefaults.standard.set(token, forKey: "jwtToken")
+                    UserDefaults.standard.synchronize()
+                }
+            })
             .flatMap{ (token: String?) -> Observable<Event> in
                 
                 guard let token = token else {
@@ -61,7 +72,7 @@ extension Event {
             }
             .catchError { error -> Observable<Event> in
                 return Observable.just(Event.JwtTokenError)
-        }
+            }
     }
 }
 
@@ -98,6 +109,31 @@ extension Event {
             .asObservable()
             .flatMap { (data: NetworkData<App>) -> Observable<Event> in
                 return Observable.just(Event.GotAppsForCompany(apps: data.data))
+            }
+            .catchError { error -> Observable<Event> in
+                return Observable.just(Event.UserProfileError)
+            }
+    }
+}
+
+extension Event {
+    static func loadCompanies(forJwtToken token: String) -> Observable<Event> {
+        
+        let operation = NetworkOperation.getCompanies(forJWTToken: token)
+        let request = NetworkRequest(withOperation: operation)
+        let task = NetworkTask()
+        return task.execute(withInput: request)
+            .flatMap { rawData -> Single<NetworkData<Company>> in
+                
+                let task = ParseTask<NetworkData<Company>>()
+                return task.execute(withInput: rawData)
+            }
+            .map { data -> [Company] in
+                return data.data
+            }
+            .asObservable()
+            .flatMap { (companies: [Company]) -> Observable<Event> in
+                return Observable.just(Event.GotCompanies(comps: companies))
             }
             .catchError { error -> Observable<Event> in
                 return Observable.just(Event.UserProfileError)

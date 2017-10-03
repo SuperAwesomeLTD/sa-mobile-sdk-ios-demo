@@ -12,6 +12,7 @@ struct AppState: State {
     var loginState: LoginState?
     var profileState: ProfileState?
     var appState = LoadedAppsState()
+    var companiesState = CompaniesState()
 }
 
 struct LoginState: State {
@@ -24,14 +25,25 @@ struct ProfileState: State {
 }
 
 struct LoadedAppsState: State {
-    private var fullApps: [App] = []
+    fileprivate var apps: [App] = []
     var search: String?
     var error: AAError?
-    var apps: [App] {
+    
+    init(withFullData data: [App]) {
+        self.apps = data
+    }
+    
+    init () {
+        // do nothing
+    }
+}
+
+extension LoadedAppsState {
+    var filtered: [App] {
         
         var result: [App] = []
         
-        fullApps.forEach { (app: App) in
+        apps.forEach { (app: App) in
             let placements = app.placements
                 .filter{ (placement: Placement) -> Bool in
                     
@@ -44,7 +56,7 @@ struct LoadedAppsState: State {
                     let searchTerm = "\(name)_\(id)"
                     
                     return searchTerm.lowercased().contains(search.lowercased())
-                }
+            }
             
             if placements.count > 0 {
                 app.placements = placements
@@ -54,12 +66,32 @@ struct LoadedAppsState: State {
         
         return result
     }
+}
+
+struct CompaniesState: State {
+    fileprivate var companies: [Company] = []
+    var search: String?
+    var hasSelected: Bool = false
+    var selectedCompany: Int?
     
-    init(withFullData data: [App]) {
-        self.fullApps = data
+    init(withFullData data: [Company]) {
+        self.companies = data
     }
     
     init () {
         // do nothing
+    }
+}
+
+extension CompaniesState {
+    var filtered: [Company] {
+        
+        guard let search = search, search != "" else {
+            return companies
+        }
+        
+        return companies.filter { (company: Company) -> Bool in
+            return company.name!.lowercased().contains(search.lowercased())
+        }
     }
 }

@@ -12,13 +12,6 @@ import SAUtils
 
 class LoadController: SABaseViewController {
 
-    private var jwtToken: String {
-        let state = store?.getCurrentState()
-        let loginState = state?.loginState
-        let token = loginState?.jwtToken ?? ""
-        return token
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         store?.dispatch(Event.loadUser(withJwtToken: jwtToken))

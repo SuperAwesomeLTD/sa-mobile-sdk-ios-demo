@@ -16,6 +16,10 @@
 		1B2E9E901F7E97DE00128D75 /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E8F1F7E97DE00128D75 /* Reducers.swift */; };
 		1B2E9E921F7E97E400128D75 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E911F7E97E400128D75 /* State.swift */; };
 		1B2E9E951F83954E00128D75 /* LoadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E941F83954E00128D75 /* LoadController.swift */; };
+		1B2E9E971F83D2D500128D75 /* CompaniesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E961F83D2D500128D75 /* CompaniesViewModel.swift */; };
+		1B2E9E9B1F83D88500128D75 /* SABaseViewController+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E9A1F83D88500128D75 /* SABaseViewController+Store.swift */; };
+		1B2E9E9D1F83DB9000128D75 /* CompaniesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E9C1F83DB9000128D75 /* CompaniesDataSource.swift */; };
+		1B2E9E9F1F83DBBF00128D75 /* CompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E9E1F83DBBF00128D75 /* CompanyViewModel.swift */; };
 		1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6151DE8445000353E8C /* AppDelegate.swift */; };
 		1B46E61B1DE8445000353E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E6191DE8445000353E8C /* Main.storyboard */; };
 		1B46E61D1DE8445000353E8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E61C1DE8445000353E8C /* Assets.xcassets */; };
@@ -88,6 +92,10 @@
 		1B2E9E8F1F7E97DE00128D75 /* Reducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		1B2E9E911F7E97E400128D75 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		1B2E9E941F83954E00128D75 /* LoadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadController.swift; sourceTree = "<group>"; };
+		1B2E9E961F83D2D500128D75 /* CompaniesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompaniesViewModel.swift; sourceTree = "<group>"; };
+		1B2E9E9A1F83D88500128D75 /* SABaseViewController+Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SABaseViewController+Store.swift"; sourceTree = "<group>"; };
+		1B2E9E9C1F83DB9000128D75 /* CompaniesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompaniesDataSource.swift; sourceTree = "<group>"; };
+		1B2E9E9E1F83DBBF00128D75 /* CompanyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewModel.swift; sourceTree = "<group>"; };
 		1B46E6121DE8445000353E8C /* AwesomeAdsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeAdsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B46E6151DE8445000353E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B46E61A1DE8445000353E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -206,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				1B904CA01F1384CD008254FB /* CompanyRow.swift */,
+				1B2E9E9E1F83DBBF00128D75 /* CompanyViewModel.swift */,
 			);
 			name = CompanyRow;
 			sourceTree = "<group>";
@@ -294,6 +303,8 @@
 		1B46E6281DE8492700353E8C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1B4A518C1DEDFEC20041DE7B /* SABaseViewController.swift */,
+				1B2E9E9A1F83D88500128D75 /* SABaseViewController+Store.swift */,
 				1BFEA6F01E8AA68C0023807D /* Intro */,
 				1BFEA6AC1E8927FC0023807D /* Login */,
 				1B2E9E931F83953B00128D75 /* Load */,
@@ -333,7 +344,6 @@
 		1B46E6311DE84C9F00353E8C /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				1B4A518C1DEDFEC20041DE7B /* SABaseViewController.swift */,
 				1B520BAD1EAA42B9006FD05E /* SANavigationController.swift */,
 				1BBA88EC1DFFFE2200C94553 /* SAString.swift */,
 				1B974A141E016E3C00CE9EA7 /* SATextField.swift */,
@@ -421,6 +431,8 @@
 			isa = PBXGroup;
 			children = (
 				1B904C9E1F1384BA008254FB /* CompaniesController.swift */,
+				1B2E9E961F83D2D500128D75 /* CompaniesViewModel.swift */,
+				1B2E9E9C1F83DB9000128D75 /* CompaniesDataSource.swift */,
 			);
 			name = Companies;
 			sourceTree = "<group>";
@@ -704,10 +716,13 @@
 				1B5635631DEC804600EEA239 /* SettingsViewModel.swift in Sources */,
 				1BFEA6BE1E896E2D0023807D /* CreativesController.swift in Sources */,
 				1B904C8A1F0E9351008254FB /* UserMetadata.swift in Sources */,
+				1B2E9E9D1F83DB9000128D75 /* CompaniesDataSource.swift in Sources */,
 				1B5635611DEC803C00EEA239 /* SettingsProvider.swift in Sources */,
 				1B2E9E831F7E926E00128D75 /* PlacementRow.swift in Sources */,
+				1B2E9E971F83D2D500128D75 /* CompaniesViewModel.swift in Sources */,
 				1B904C641F0E7D5E008254FB /* AAErrors.swift in Sources */,
 				1BBA88ED1DFFFE2200C94553 /* SAString.swift in Sources */,
+				1B2E9E9F1F83DBBF00128D75 /* CompanyViewModel.swift in Sources */,
 				1B2E9E871F7E929F00128D75 /* PlacementViewModel.swift in Sources */,
 				1B904C821F0E903D008254FB /* Workers.swift in Sources */,
 				1BFEA6AE1E89281A0023807D /* LoginController.swift in Sources */,
@@ -727,6 +742,7 @@
 				1B904C9F1F1384BA008254FB /* CompaniesController.swift in Sources */,
 				1B2E9E8C1F7E97D100128D75 /* Events.swift in Sources */,
 				1B904C861F0E9059008254FB /* Workers+Profile.swift in Sources */,
+				1B2E9E9B1F83D88500128D75 /* SABaseViewController+Store.swift in Sources */,
 				1BFEA6C21E8971D80023807D /* CreativesRow.swift in Sources */,
 				1B4A518D1DEDFEC20041DE7B /* SABaseViewController.swift in Sources */,
 				1B904CA11F1384CD008254FB /* CompanyRow.swift in Sources */,
