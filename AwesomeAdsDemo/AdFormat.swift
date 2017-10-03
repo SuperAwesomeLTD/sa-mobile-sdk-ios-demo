@@ -42,13 +42,11 @@ enum AdFormat {
         
         if let creative = creative {
             switch creative.format {
-            case .invalid:
-                return .unknown
             case .video:
                 return .video
             case .appwall:
                 return .gamewall
-            case .image, .tag, .rich:
+            case .image, .tag, .rich, .invalid:
                 
                 if (creative.details.format.contains("video")) {
                     return .video
@@ -66,13 +64,22 @@ enum AdFormat {
                     if width == 728 && height == 90 {
                         return .bigbanner
                     }
+                    if width == 970 && height == 250 {
+                        return .bigbanner
+                    }
                     if width == 300 && height == 250 {
                         return .mpu
                     }
                     if width == 320 && height == 480 {
                         return .mobile_portrait_interstitial
                     }
+                    if width == 400 && height == 600 {
+                        return .mobile_portrait_interstitial
+                    }
                     if width == 480 && height == 320 {
+                        return .mobile_landscape_interstitial
+                    }
+                    if width == 600 && height == 400 {
                         return .mobile_landscape_interstitial
                     }
                     if width == 768 && height == 1024 {
@@ -118,6 +125,9 @@ enum AdFormat {
                         return .normalbanner
                     }
                     if width == 728 && height == 90 {
+                        return .bigbanner
+                    }
+                    if width == 970 && height == 250 {
                         return .bigbanner
                     }
                     if width == 300 && height == 250 {
