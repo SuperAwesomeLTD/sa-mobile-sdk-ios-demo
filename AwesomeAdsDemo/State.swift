@@ -21,4 +21,5 @@ struct LoginState: State {
 
 struct ProfileState: State {
     var profile: UserProfile?
+    var error: AAError?
 }

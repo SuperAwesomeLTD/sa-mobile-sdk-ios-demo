@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class SABaseViewController: UIViewController {
+class SABaseViewController: UIViewController, HandlesStateUpdates {
 
     var store: Store<AppState>?
     
@@ -23,6 +23,16 @@ class SABaseViewController: UIViewController {
         
         let del = UIApplication.shared.delegate as! AppDelegate
         store = del.store
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        store?.addListener(self)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        store?.removeListener(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,20 +70,8 @@ class SABaseViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         self.prepared? (segue, sender)
     }
-}
-
-extension SABaseViewController {
     
-    func getChild <T: UIViewController> () -> T? {
-        
-        var childVC: T?
-        
-        self.childViewControllers.forEach { child in
-            if let child = child as? T {
-                childVC = child
-            }
-        }
-        
-        return childVC
+    func handle(_ state: AppState) {
+        // do nothing
     }
 }

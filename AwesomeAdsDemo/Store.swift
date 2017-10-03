@@ -43,8 +43,8 @@ class Store <S: State> {
         self.state = self.reducer(self.state, event)
     }
     
-    func dispatch(_ action: () -> Observable<Event>) {
-        let observable = action()
+    func dispatch(_ action: Observable<Event>) {
+        let observable = action
         observable
             .subscribe(onNext: { event in
                 self.dispatch(event)
@@ -58,6 +58,10 @@ class Store <S: State> {
     
     func removeListener(_ listener: HandlesStateUpdates) {
         handlers.remove(listener)
+    }
+    
+    func getCurrentState () -> AppState {
+        return state as! AppState
     }
 }
 

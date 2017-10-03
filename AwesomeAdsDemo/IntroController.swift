@@ -14,24 +14,10 @@ class IntroController: SABaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store?.addListener(self)
-        store?.dispatch(checkIsUserLoggedInAction)
+        store?.dispatch(checkIsUserLoggedInAction())
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        store?.removeListener(self)
-    }
-}
-
-extension IntroController: HandlesStateUpdates {
-    func handle(_ state: AppState) {
-        
-        if state.loginState.jwtToken != nil {
-            self.performSegue("IntroToMain")
-        }
-        else {
-            self.performSegue("IntroToLogin")
-        }
+    override func handle(_ state: AppState) {
+        performSegue(state.loginState.jwtToken != nil ? "IntroToLoad" : "IntroToLogin")
     }
 }

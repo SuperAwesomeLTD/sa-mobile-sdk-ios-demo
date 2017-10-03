@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gl-W3-cVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2655" y="871"/>
+            <point key="canvasLocation" x="-2934" y="482"/>
         </scene>
         <!--Intro Controller-->
         <scene sceneID="Cq0-Sy-K1b">
@@ -41,12 +41,12 @@
                     <navigationItem key="navigationItem" id="16P-ob-2ny"/>
                     <connections>
                         <segue destination="BL5-SW-XJl" kind="show" identifier="IntroToLogin" id="gv9-Pa-lga"/>
-                        <segue destination="wdO-qy-PDs" kind="show" identifier="IntroToMain" id="cKl-Qb-QWv"/>
+                        <segue destination="lMI-ey-JFj" kind="show" identifier="IntroToLoad" animates="NO" id="ESE-BZ-vQ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNu-5e-JcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1916" y="871"/>
+            <point key="canvasLocation" x="-1998" y="482"/>
         </scene>
         <!--Login to AwesomeAds-->
         <scene sceneID="0Fb-xg-MR1">
@@ -135,12 +135,12 @@
                         <outlet property="passwordField" destination="vvl-s7-k31" id="djZ-Jo-x6v"/>
                         <outlet property="topContraint" destination="yia-ei-5cs" id="ZnY-Hu-5rl"/>
                         <outlet property="usernameField" destination="f0W-20-2nF" id="6dX-Ar-gXo"/>
-                        <segue destination="wdO-qy-PDs" kind="show" identifier="LoginToMain" id="Obk-c6-kwj"/>
+                        <segue destination="lMI-ey-JFj" kind="show" identifier="LoginToLoad" id="L26-ee-0QN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRo-OO-s4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1062" y="433"/>
+            <point key="canvasLocation" x="-1063" y="-256"/>
         </scene>
         <!--Main Controller-->
         <scene sceneID="vYj-gh-noW">
@@ -319,6 +319,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ii7-9s-zIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1063" y="1208"/>
+        </scene>
+        <!--Load Controller-->
+        <scene sceneID="PZ1-y1-D3E">
+            <objects>
+                <viewController id="lMI-ey-JFj" customClass="LoadController" customModule="AwesomeAdsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oka-3b-Qs6"/>
+                        <viewControllerLayoutGuide type="bottom" id="gmX-US-Kis"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VhP-ml-OY0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="wdO-qy-PDs" kind="show" identifier="LoadToMain" id="C5f-BR-NEv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCa-cs-ZMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1063" y="482"/>
         </scene>
         <!--Companies Controller-->
         <scene sceneID="Sdc-G2-2PF">
@@ -904,6 +925,6 @@
         <image name="backbtn" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Obk-c6-kwj"/>
+        <segue reference="L26-ee-0QN"/>
     </inferredMetricsTieBreakers>
 </document>

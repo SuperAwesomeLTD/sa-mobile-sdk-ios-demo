@@ -27,8 +27,7 @@ func loginUserAction(withUsername username: String, andPassword password: String
     let task = NetworkTask()
     return task.execute(withInput: request)
         .flatMap { rawData -> Single<LogedUser> in
-            let task = ParseTask<LogedUser>()
-            return task.execute(withInput: rawData)
+            return ParseTask<LogedUser>().execute(withInput: rawData)
         }
         .map { loggedUser -> String? in
             return loggedUser.token
@@ -41,10 +40,26 @@ func loginUserAction(withUsername username: String, andPassword password: String
             }
             
             return Observable.just(JwtTokenFoundEvent(jwtToken: token))
-            
         }
         .catchError { error -> Observable<Event> in
             return Observable.just(ErrorTryingGetJwtTokenEvent(error: AAError.LoginFailed))
         }
+}
+
+func loadUserAction(withJwtToken jwtToken: String) -> Observable<Event> {
     
+    let operation = NetworkOperation.getProfile(forJWTToken: jwtToken)
+    let request = NetworkRequest(withOperation: operation)
+    let task = NetworkTask()
+    return task.execute(withInput: request)
+        .flatMap { rawData -> Single<UserProfile> in
+            return ParseTask<UserProfile>().execute(withInput: rawData)
+        }
+        .asObservable()
+        .flatMap { (profile: UserProfile) -> Observable<Event> in
+            return Observable.just(GetUserProfileEvent(profile: profile))
+        }
+        .catchError { error -> Observable<Event> in
+            return Observable.just(ErrorTryingToGetUserProfileEvent(error: AAError.ParseError))
+        }
 }

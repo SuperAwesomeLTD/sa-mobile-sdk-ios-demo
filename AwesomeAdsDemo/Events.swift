@@ -18,3 +18,11 @@ struct JwtTokenFoundEvent: Event {
 struct ErrorTryingGetJwtTokenEvent: Event {
     var error: AAError?
 }
+
+struct GetUserProfileEvent: Event {
+    var profile: UserProfile
+}
+
+struct ErrorTryingToGetUserProfileEvent: Event {
+    var error: AAError?
+}

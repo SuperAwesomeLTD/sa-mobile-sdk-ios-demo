@@ -35,6 +35,15 @@ func loginReducer (_ previous: LoginState, event: Event) -> LoginState {
 }
 
 func profileReducer (_ previous: ProfileState, event: Event) -> ProfileState {
-    let state = previous
+    var state = previous
+    state.error = nil
+    
+    if let event = event as? GetUserProfileEvent {
+        state.profile = event.profile
+    }
+    else if let event = event as? ErrorTryingToGetUserProfileEvent {
+        state.error = event.error
+    }
+    
     return state
 }

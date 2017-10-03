@@ -21,16 +21,6 @@ class LoginController: SABaseViewController {
         passwordField.placeholder = "page_login_textfield_password_placeholder".localized
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        store?.addListener(self)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        store?.removeListener(self)
-    }
-    
     @IBAction func loginAction(_ sender: Any) {
         
         store?.dispatch(GetJwtTokenEvent())
@@ -38,9 +28,7 @@ class LoginController: SABaseViewController {
         let username = usernameField.text ?? ""
         let password = passwordField.text ?? ""
         
-        store?.dispatch{ () -> Observable<Event> in
-            loginUserAction(withUsername: username, andPassword: password)
-        }
+        store?.dispatch(loginUserAction(withUsername: username, andPassword: password))
     }
     
     fileprivate func authError () {
@@ -52,22 +40,8 @@ class LoginController: SABaseViewController {
                                    andKeyboardTyle: .default,
                                    andPressed: nil)
     }
-}
-
-extension LoginController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.topContraint.constant = self.minContraintHeight
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.topContraint.constant = self.maxContraintHeight
-    }
-}
-
-extension LoginController: HandlesStateUpdates {
-    
-    func handle(_ state: AppState) {
+    override func handle(_ state: AppState) {
         
         if state.loginState.isLoading {
             SALoadScreen.getInstance().show()
@@ -80,7 +54,18 @@ extension LoginController: HandlesStateUpdates {
         }
         
         if state.loginState.jwtToken != nil {
-            performSegue("LoginToMain")
+            performSegue("LoginToLoad")
         }
+    }
+}
+
+extension LoginController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.topContraint.constant = self.minContraintHeight
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.topContraint.constant = self.maxContraintHeight
     }
 }
