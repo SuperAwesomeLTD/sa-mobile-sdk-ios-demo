@@ -18,32 +18,33 @@ func loginReducer (_ previous: LoginState, event: Event) -> LoginState {
     state.isLoading = false
     state.error = nil
     
-    if event is GetJwtTokenEvent {
+    switch event {
+    case .LoadingJwtToken:
         state.isLoading = true
-    }
-    if event is NoJwtTokenFoundEvent {
+        break
+    case .NoJwtToken:
         // do nothing
-    }
-    else if let event = event as? ErrorTryingGetJwtTokenEvent {
-        state.error = event.error
-    }
-    else if let event = event as? JwtTokenFoundEvent {
-        state.jwtToken = event.jwtToken
+        break
+    case .JwtTokenError(let error):
+        state.error = error
+        break
+    case .GotJwtToken(let token):
+        state.jwtToken = token
+        break
+    default:
+        break
     }
     
     return state
 }
 
-func profileReducer (_ previous: ProfileState, event: Event) -> ProfileState {
-    var state = previous
-    state.error = nil
-    
-    if let event = event as? GetUserProfileEvent {
-        state.profile = event.profile
+func profileReducer (_ previous: ProfileState?, event: Event) -> ProfileState? {
+    switch event {
+    case .GotUserProfile(let profile):
+        return ProfileState(profile: profile)
+    case .UserProfileError:
+        return previous
+    default:
+        return previous
     }
-    else if let event = event as? ErrorTryingToGetUserProfileEvent {
-        state.error = event.error
-    }
-    
-    return state
 }

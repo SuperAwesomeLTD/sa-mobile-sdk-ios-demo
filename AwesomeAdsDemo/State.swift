@@ -10,7 +10,7 @@ import UIKit
 
 struct AppState: State {
     var loginState = LoginState()
-    var profileState = ProfileState()
+    var profileState: ProfileState?
 }
 
 struct LoginState: State {
@@ -20,6 +20,5 @@ struct LoginState: State {
 }
 
 struct ProfileState: State {
-    var profile: UserProfile?
-    var error: AAError?
+    var profile: UserProfile
 }

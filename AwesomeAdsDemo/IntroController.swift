@@ -14,7 +14,7 @@ class IntroController: SABaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store?.dispatch(checkIsUserLoggedInAction())
+        store?.dispatch(Event.checkIsUserLoggedIn())
     }
     
     override func handle(_ state: AppState) {

@@ -21,7 +21,7 @@ class LoadController: SABaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store?.dispatch(loadUserAction(withJwtToken: jwtToken))
+        store?.dispatch(Event.loadUser(withJwtToken: jwtToken))
     }
     
     fileprivate func authError () {
@@ -31,18 +31,17 @@ class LoadController: SABaseViewController {
                                    andNOKTitle: nil,
                                    andTextField: false,
                                    andKeyboardTyle: .default) { (btn, val) in
-                                        self.store?.dispatch(loadUserAction(withJwtToken: self.jwtToken))
+                                        self.store?.dispatch(Event.loadUser(withJwtToken: self.jwtToken))
                                    }
     }
     
     override func handle(_ state: AppState) {
         
-        if state.profileState.profile != nil {
-            performSegue("LoadToMain")
+        guard state.profileState != nil else {
+            authError()
+            return
         }
         
-        if state.profileState.error != nil {
-            authError()
-        }
+        performSegue("LoadToMain")
     }
 }

@@ -20,7 +20,6 @@ class SABaseViewController: UIViewController, HandlesStateUpdates {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let del = UIApplication.shared.delegate as! AppDelegate
         store = del.store
     }

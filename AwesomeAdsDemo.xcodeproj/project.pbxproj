@@ -15,7 +15,6 @@
 		1B2E9E871F7E929F00128D75 /* PlacementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E861F7E929F00128D75 /* PlacementViewModel.swift */; };
 		1B2E9E8A1F7E97BE00128D75 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E891F7E97BE00128D75 /* Store.swift */; };
 		1B2E9E8C1F7E97D100128D75 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E8B1F7E97D100128D75 /* Events.swift */; };
-		1B2E9E8E1F7E97D700128D75 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E8D1F7E97D700128D75 /* Actions.swift */; };
 		1B2E9E901F7E97DE00128D75 /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E8F1F7E97DE00128D75 /* Reducers.swift */; };
 		1B2E9E921F7E97E400128D75 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E911F7E97E400128D75 /* State.swift */; };
 		1B2E9E951F83954E00128D75 /* LoadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E941F83954E00128D75 /* LoadController.swift */; };
@@ -90,7 +89,6 @@
 		1B2E9E861F7E929F00128D75 /* PlacementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacementViewModel.swift; sourceTree = "<group>"; };
 		1B2E9E891F7E97BE00128D75 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		1B2E9E8B1F7E97D100128D75 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
-		1B2E9E8D1F7E97D700128D75 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		1B2E9E8F1F7E97DE00128D75 /* Reducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		1B2E9E911F7E97E400128D75 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		1B2E9E941F83954E00128D75 /* LoadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadController.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 				1B2E9E891F7E97BE00128D75 /* Store.swift */,
 				1B2E9E911F7E97E400128D75 /* State.swift */,
 				1B2E9E8B1F7E97D100128D75 /* Events.swift */,
-				1B2E9E8D1F7E97D700128D75 /* Actions.swift */,
 				1B2E9E8F1F7E97DE00128D75 /* Reducers.swift */,
 			);
 			name = App;
@@ -750,7 +747,6 @@
 				1B4A518D1DEDFEC20041DE7B /* SABaseViewController.swift in Sources */,
 				1B904CA11F1384CD008254FB /* CompanyRow.swift in Sources */,
 				1B520BAE1EAA42B9006FD05E /* SANavigationController.swift in Sources */,
-				1B2E9E8E1F7E97D700128D75 /* Actions.swift in Sources */,
 				1B904C8C1F0EA16E008254FB /* Extensions.swift in Sources */,
 				1B904C881F0E9062008254FB /* Workers+Apps.swift in Sources */,
 				1B904C7F1F0E8D58008254FB /* DataStore.swift in Sources */,

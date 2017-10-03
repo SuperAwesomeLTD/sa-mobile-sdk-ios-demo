@@ -23,12 +23,12 @@ class LoginController: SABaseViewController {
     
     @IBAction func loginAction(_ sender: Any) {
         
-        store?.dispatch(GetJwtTokenEvent())
+        store?.dispatch(Event.LoadingJwtToken)
         
         let username = usernameField.text ?? ""
         let password = passwordField.text ?? ""
         
-        store?.dispatch(loginUserAction(withUsername: username, andPassword: password))
+        store?.dispatch(Event.loginUser(withUsername: username, andPassword: password))
     }
     
     fileprivate func authError () {
