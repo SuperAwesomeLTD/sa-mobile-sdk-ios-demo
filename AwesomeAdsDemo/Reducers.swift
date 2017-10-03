@@ -10,32 +10,21 @@ import UIKit
 
 func appReducer (_ previous: AppState, event: Event) -> AppState {
     return AppState(loginState: loginReducer(previous.loginState, event: event),
-                    profileState: profileReducer(previous.profileState, event: event))
+                    profileState: profileReducer(previous.profileState, event: event),
+                    appState: appsReducer(previous.appState, event: event))
 }
 
-func loginReducer (_ previous: LoginState, event: Event) -> LoginState {
-    var state = previous
-    state.isLoading = false
-    state.error = nil
-    
+func loginReducer (_ previous: LoginState?, event: Event) -> LoginState? {
     switch event {
     case .LoadingJwtToken:
-        state.isLoading = true
-        break
-    case .NoJwtToken:
-        // do nothing
-        break
-    case .JwtTokenError(let error):
-        state.error = error
-        break
+        return LoginState(jwtToken: nil, isLoading: true)
+    case .NoJwtToken, .JwtTokenError:
+        return nil
     case .GotJwtToken(let token):
-        state.jwtToken = token
-        break
+        return LoginState(jwtToken: token, isLoading: false)
     default:
-        break
+        return previous
     }
-    
-    return state
 }
 
 func profileReducer (_ previous: ProfileState?, event: Event) -> ProfileState? {
@@ -46,5 +35,19 @@ func profileReducer (_ previous: ProfileState?, event: Event) -> ProfileState? {
         return previous
     default:
         return previous
+    }
+}
+
+func appsReducer (_ previous: LoadedAppsState, event: Event) -> LoadedAppsState {
+    var state = previous
+    
+    switch event {
+    case .GotAppsForCompany(let apps):
+        return LoadedAppsState(withFullData: apps)
+    case .FilterApps(let search):
+        state.search = search
+        return state
+    default:
+        return state
     }
 }

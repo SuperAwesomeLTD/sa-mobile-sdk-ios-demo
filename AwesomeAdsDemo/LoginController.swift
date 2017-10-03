@@ -43,17 +43,19 @@ class LoginController: SABaseViewController {
     
     override func handle(_ state: AppState) {
         
-        if state.loginState.isLoading {
+        guard let loginState = state.loginState else {
+            SALoadScreen.getInstance().hide()
+            authError()
+            return
+        }
+        
+        if loginState.isLoading {
             SALoadScreen.getInstance().show()
         } else {
             SALoadScreen.getInstance().hide()
         }
         
-        if state.loginState.error != nil {
-            authError()
-        }
-        
-        if state.loginState.jwtToken != nil {
+        if loginState.jwtToken != nil {
             performSegue("LoginToLoad")
         }
     }

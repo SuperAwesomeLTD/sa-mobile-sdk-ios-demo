@@ -8,18 +8,12 @@
 
 import UIKit
 
-class PlacementViewModel: MainViewModel {
+class PlacementViewModel {
     
     var placement: Placement
     
     init(withPlacement placement: Placement) {
         self.placement = placement
-        
-        super.init()
-        
-        if let id = placement.id, let name = placement.name {
-            super.searcheableText = "\(id)_\(name)"
-        }
     }
     
     var placementName: String {

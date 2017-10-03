@@ -20,38 +20,25 @@ class MainController: SABaseViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var rxTable: RxTableView?
+    private var currentState: AppState {
+        return (store?.getCurrentState())!
+    }
+    
+    private var profile: UserProfile? {
+        let profileState = currentState.profileState
+        let profile = profileState?.profile
+        return profile
+    }
+    
+    private var jwtToken: String {
+        let loginState = currentState.loginState
+        let token = loginState?.jwtToken ?? ""
+        return token
+    }
+    
+    var viewModel: MainViewModel = MainViewModel()
     
     fileprivate var recogn: UITapGestureRecognizer!
-    
-    fileprivate var searchTerm: String?
-    fileprivate var appData: [App] = []
-    fileprivate var viewModels: [MainViewModel] {
-        return appData
-            .map { (app: App) -> [MainViewModel] in
-                let appVm = AppViewModel(withApp: app)
-                let plcVm = app.placements
-                    .map { (placement: Placement) -> PlacementViewModel in
-                        return PlacementViewModel(withPlacement: placement)
-                    }
-                    .filter { model -> Bool in
-                        if let filter = self.searchTerm, filter != "" {
-                            return model.searcheableText.lowercased().contains(filter.lowercased())
-                        } else {
-                            return true
-                        }
-                    }
-    
-                if plcVm.count > 0 {
-                    return [appVm] + plcVm
-                } else {
-                    return []
-                }
-            }
-            .reduce([]) { (acc, cur) -> [MainViewModel] in
-                return acc + cur
-            }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,32 +53,17 @@ class MainController: SABaseViewController {
         
         recogn = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         
-        rxTable = RxTableView.create()
-            .bind(toTable: tableView)
-            .customise(rowForReuseIdentifier: "AppRowID", andHeight: UITableViewAutomaticDimension) { (i, row: AppRow, model: AppViewModel) in
-                
-                row.appName.text = model.app.name
-            }
-            .customise(rowForReuseIdentifier: "PlacementRowID", andHeight: UITableViewAutomaticDimension) { (i, row: PlacementRow, model: PlacementViewModel) in
-                
-                row.placementName.text = model.placementName
-                row.placementID.text = model.placementId
-                row.placementSize.text = model.placementSize
-                row.placementIcon.image = model.placementIcon
-                
-            }
-            .did(clickOnRowWithReuseIdentifier: "PlacementRowID") { (index, model: PlacementViewModel) in
-                
-                self.performSegue("MainToCreatives")
-                    .subscribe(onNext: { (dest: CreativesController) in
-                        dest.placementId = model.placement.id!
-                    })
-                    .addDisposableTo(self.disposeBag)
-        }
-        
-        //
-        // load
-        loadData()
+        tableView.delegate = viewModel
+        tableView.dataSource = viewModel
+        tableView.estimatedRowHeight = 180
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedSectionHeaderHeight = 100
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        store?.dispatch(Event.loadApps(forCompany: (profile?.companyId)!, andJwtToken: jwtToken))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,20 +75,22 @@ class MainController: SABaseViewController {
             
             dest.selectedCompany = { companyId in 
                 DataStore.shared.profile?.companyId = companyId
-                self.searchTerm = nil
                 self.appPlacementSearch.text = ""
                 self.appPlacementSearch.resignFirstResponder()
-                self.loadData()
             }
         }
+    }
+    
+    override func handle(_ state: AppState) {
+        viewModel.data = state.appState.apps
+        tableView.reloadData()
     }
 }
 
 extension MainController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchTerm = searchText
-        self.rxTable?.update(withData: self.viewModels)
+        store?.dispatch(Event.FilterApps(withSearchTerm: searchText))
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -126,29 +100,5 @@ extension MainController: UISearchBarDelegate {
     func handleTap(_ sender: UITapGestureRecognizer) {
         self.appPlacementSearch.resignFirstResponder()
         self.view.removeGestureRecognizer(recogn)
-    }
-}
-
-//
-// extension business logic
-extension MainController {
-    
-    func loadData() {
-        
-        guard let token = DataStore.shared.jwtToken else {
-            return
-        }
-        
-        UserWorker.getProfile(forToken: token)
-            .flatMap { profile -> Single<NetworkData<App>> in
-                return UserWorker.getApps(forCompany: profile.companyId!, andToken: token)
-            }
-            .subscribe(onSuccess: { (apps: NetworkData<App>) in
-                self.appData = apps.data
-                self.rxTable?.update(withData: self.viewModels)
-            }, onError: { error in
-                // error
-            })
-            .addDisposableTo(self.disposeBag)
     }
 }

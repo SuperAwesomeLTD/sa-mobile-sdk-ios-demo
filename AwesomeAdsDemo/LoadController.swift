@@ -13,8 +13,8 @@ import SAUtils
 class LoadController: SABaseViewController {
 
     private var jwtToken: String {
-        let currentState = store?.getCurrentState()
-        let loginState = currentState?.loginState
+        let state = store?.getCurrentState()
+        let loginState = state?.loginState
         let token = loginState?.jwtToken ?? ""
         return token
     }

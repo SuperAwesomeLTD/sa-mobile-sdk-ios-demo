@@ -18,6 +18,6 @@ class IntroController: SABaseViewController {
     }
     
     override func handle(_ state: AppState) {
-        performSegue(state.loginState.jwtToken != nil ? "IntroToLoad" : "IntroToLogin")
+        performSegue(state.loginState != nil ? "IntroToLoad" : "IntroToLogin")
     }
 }

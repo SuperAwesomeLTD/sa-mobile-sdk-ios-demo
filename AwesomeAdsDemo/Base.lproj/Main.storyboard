@@ -207,34 +207,8 @@
                                 <rect key="frame" x="0.0" y="178" width="375" height="489"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AppRowID" rowHeight="60" id="1KI-Nt-xgp" userLabel="AppCell" customClass="AppRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1KI-Nt-xgp" id="LZP-Zc-1cS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-sY-DEQ">
-                                                    <rect key="frame" x="32" y="20" width="335" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="DeZ-sY-DEQ" firstAttribute="leading" secondItem="LZP-Zc-1cS" secondAttribute="leading" constant="32" id="QqV-hd-OVr"/>
-                                                <constraint firstItem="DeZ-sY-DEQ" firstAttribute="top" secondItem="LZP-Zc-1cS" secondAttribute="top" constant="20" id="Rv3-8f-jFX"/>
-                                                <constraint firstAttribute="bottom" secondItem="DeZ-sY-DEQ" secondAttribute="bottom" constant="19" id="gBE-zd-LqW"/>
-                                                <constraint firstAttribute="trailing" secondItem="DeZ-sY-DEQ" secondAttribute="trailing" constant="8" id="yaJ-n8-qIM"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="appName" destination="DeZ-sY-DEQ" id="lfb-4y-C56"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlacementRowID" rowHeight="100" id="0rj-PW-S4I" userLabel="PlacementCell" customClass="PlacementRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0rj-PW-S4I" id="ZGi-1Y-4LE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>

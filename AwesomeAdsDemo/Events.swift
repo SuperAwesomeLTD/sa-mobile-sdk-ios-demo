@@ -10,12 +10,17 @@ import UIKit
 import RxSwift
 
 enum Event {
+    // jwt token + login
     case LoadingJwtToken
-    case GotJwtToken(token: String)
     case NoJwtToken
-    case JwtTokenError(error: AAError)
+    case JwtTokenError
+    case GotJwtToken(token: String)
+    // profile
     case GotUserProfile(profile: UserProfile)
     case UserProfileError
+    // apps
+    case GotAppsForCompany(apps: [App])
+    case FilterApps(withSearchTerm: String?)
 }
 
 extension Event {
@@ -49,13 +54,13 @@ extension Event {
             .flatMap{ (token: String?) -> Observable<Event> in
                 
                 guard let token = token else {
-                    return Observable.just(Event.JwtTokenError(error: AAError.ParseError))
+                    return Observable.just(Event.JwtTokenError)
                 }
                 
                 return Observable.just(Event.GotJwtToken(token: token))
             }
             .catchError { error -> Observable<Event> in
-                return Observable.just(Event.JwtTokenError(error: AAError.LoginFailed))
+                return Observable.just(Event.JwtTokenError)
         }
     }
 }
@@ -76,6 +81,26 @@ extension Event {
             }
             .catchError { error -> Observable<Event> in
                 return Observable.just(Event.UserProfileError)
-        }
+            }
+    }
+}
+
+extension Event {
+    static func loadApps(forCompany company: Int, andJwtToken token: String) -> Observable<Event> {
+        
+        let operation = NetworkOperation.getApps(forCompany: company, andJWTToken: token)
+        let request = NetworkRequest(withOperation: operation)
+        let task = NetworkTask()
+        return task.execute(withInput: request)
+            .flatMap { rawData -> Single<NetworkData<App>> in
+                return ParseTask<NetworkData<App>>().execute(withInput: rawData)
+            }
+            .asObservable()
+            .flatMap { (data: NetworkData<App>) -> Observable<Event> in
+                return Observable.just(Event.GotAppsForCompany(apps: data.data))
+            }
+            .catchError { error -> Observable<Event> in
+                return Observable.just(Event.UserProfileError)
+            }
     }
 }
