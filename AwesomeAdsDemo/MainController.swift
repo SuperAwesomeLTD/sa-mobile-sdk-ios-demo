@@ -20,10 +20,8 @@ class MainController: SABaseViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
-    
-    var viewModel: MainViewModel = MainViewModel()
+    var viewModel: MainViewModel = MainViewModel ()
+    var dataSource: MainDataSource = MainDataSource ()
     
     fileprivate var recogn: UITapGestureRecognizer!
     
@@ -40,12 +38,10 @@ class MainController: SABaseViewController {
         
         recogn = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         
-        tableView.delegate = viewModel
-        tableView.dataSource = viewModel
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
         tableView.estimatedRowHeight = 180
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedSectionHeaderHeight = 100
-        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +57,7 @@ class MainController: SABaseViewController {
     
     override func handle(_ state: AppState) {
         viewModel.data = state.appState.filtered
+        dataSource.sections = viewModel.sections
         tableView.reloadData()
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewModel: NSObject, UITableViewDataSource, UITableViewDelegate {
+class MainViewModel: NSObject {
     
     struct Section {
         var title: String
@@ -27,35 +27,5 @@ class MainViewModel: NSObject, UITableViewDataSource, UITableViewDelegate {
                 return Section(title: title, models: models)
             }
         }
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].models.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].title
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PlacementRow.Identifier, for: indexPath) as! PlacementRow
-        cell.viewModel = sections[indexPath.section].models[indexPath.row]
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }

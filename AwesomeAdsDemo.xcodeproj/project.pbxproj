@@ -20,6 +20,7 @@
 		1B2E9E9B1F83D88500128D75 /* SABaseViewController+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E9A1F83D88500128D75 /* SABaseViewController+Store.swift */; };
 		1B2E9E9D1F83DB9000128D75 /* CompaniesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E9C1F83DB9000128D75 /* CompaniesDataSource.swift */; };
 		1B2E9E9F1F83DBBF00128D75 /* CompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9E9E1F83DBBF00128D75 /* CompanyViewModel.swift */; };
+		1B2E9EA11F83E4E800128D75 /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E9EA01F83E4E800128D75 /* MainDataSource.swift */; };
 		1B46E6161DE8445000353E8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46E6151DE8445000353E8C /* AppDelegate.swift */; };
 		1B46E61B1DE8445000353E8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E6191DE8445000353E8C /* Main.storyboard */; };
 		1B46E61D1DE8445000353E8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B46E61C1DE8445000353E8C /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		1B2E9E9A1F83D88500128D75 /* SABaseViewController+Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SABaseViewController+Store.swift"; sourceTree = "<group>"; };
 		1B2E9E9C1F83DB9000128D75 /* CompaniesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompaniesDataSource.swift; sourceTree = "<group>"; };
 		1B2E9E9E1F83DBBF00128D75 /* CompanyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewModel.swift; sourceTree = "<group>"; };
+		1B2E9EA01F83E4E800128D75 /* MainDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
 		1B46E6121DE8445000353E8C /* AwesomeAdsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeAdsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B46E6151DE8445000353E8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B46E61A1DE8445000353E8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -222,8 +224,8 @@
 		1B2E9E7D1F7E922D00128D75 /* CreativesRow */ = {
 			isa = PBXGroup;
 			children = (
-				1BFEA6BF1E8971CA0023807D /* CreativesViewModel.swift */,
 				1BFEA6C11E8971D80023807D /* CreativesRow.swift */,
+				1BFEA6BF1E8971CA0023807D /* CreativesViewModel.swift */,
 			);
 			name = CreativesRow;
 			sourceTree = "<group>";
@@ -364,6 +366,7 @@
 			children = (
 				1B68752A1F0503F3003FC719 /* MainController.swift */,
 				1B904C921F0FC912008254FB /* MainViewModel.swift */,
+				1B2E9EA01F83E4E800128D75 /* MainDataSource.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				1B4A518B1DEDEDD40041DE7B /* DisplayController.swift in Sources */,
 				1B904C771F0E881F008254FB /* App.swift in Sources */,
 				1BFEA6C01E8971CA0023807D /* CreativesViewModel.swift in Sources */,
+				1B2E9EA11F83E4E800128D75 /* MainDataSource.swift in Sources */,
 				1B2E9E921F7E97E400128D75 /* State.swift in Sources */,
 				1B2E9E951F83954E00128D75 /* LoadController.swift in Sources */,
 				1BFEA6F21E8AA6960023807D /* IntroController.swift in Sources */,
