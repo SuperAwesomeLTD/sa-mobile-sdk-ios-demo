@@ -12,30 +12,16 @@ import SAUtils
 
 class LoadController: SABaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let token = getCurrentJwtToken()
-        self.tryToLoadUser(forJwtToken: token)
-    }
-    
-    private func getCurrentJwtToken() -> String {
+    private var jwtToken: String {
         let currentState = store?.getCurrentState()
         let loginState = currentState?.loginState
         let token = loginState?.jwtToken ?? ""
         return token
     }
     
-    private func tryToLoadUser (forJwtToken token: String) {
-        store?.dispatch(loadUserAction(withJwtToken: token))
-    }
-    
-    private func handleErrorClick () {
-        let token = self.getCurrentJwtToken()
-        self.tryToLoadUser(forJwtToken: token)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        store?.dispatch(loadUserAction(withJwtToken: jwtToken))
     }
     
     fileprivate func authError () {
@@ -45,7 +31,7 @@ class LoadController: SABaseViewController {
                                    andNOKTitle: nil,
                                    andTextField: false,
                                    andKeyboardTyle: .default) { (btn, val) in
-                                        self.handleErrorClick()
+                                        self.store?.dispatch(loadUserAction(withJwtToken: self.jwtToken))
                                    }
     }
     
