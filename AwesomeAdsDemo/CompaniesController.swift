@@ -24,7 +24,7 @@ class CompaniesController: SABaseViewController {
         super.viewDidLoad()
         pageTitle.text = "page_companies_title".localized
         searchField.placeholder = "page_comapanies_search_placeholder".localized
-        dataSource.store = self.store
+        dataSource.delegate = self
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
     }
@@ -35,17 +35,21 @@ class CompaniesController: SABaseViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
-        store?.dispatch(Event.SelectCompany(companyId: companyId))
+        didSelect(companyId: companyId)
     }
     
     override func handle(_ state: AppState) {
         viewModel.data = state.companiesState.filtered
         dataSource.data = viewModel.viewModels
         tableView.reloadData()
-        
-        if state.companiesState.hasSelected {
-            self.navigationController?.popViewController(animated: true)
-        }
+    }
+}
+
+extension CompaniesController: CompaniesDataSourceDelegate {
+    
+    func didSelect(companyId comp: Int?) {
+        store?.dispatch(Event.SelectCompany(companyId: comp))
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

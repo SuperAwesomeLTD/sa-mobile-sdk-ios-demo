@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import SAAdLoader
+import SAModelSpace
 
 enum Event {
     // jwt token + login
@@ -24,8 +26,10 @@ enum Event {
     // companies
     case GotCompanies(comps: [Company])
     case FilterCompanies(withSearchTerm: String?)
-    // selected company
+    // select company
     case SelectCompany(companyId: Int?)
+    // select placement
+    case SelectPlacement(placementId: Int?)
 }
 
 extension Event {
@@ -43,7 +47,7 @@ extension Event {
 }
 
 extension Event {
-    static func loginUser(withUsername username: String, andPassword password: String) -> Observable<Event> {
+    static func loginUser (withUsername username: String, andPassword password: String) -> Observable<Event> {
         
         let operation = NetworkOperation.login(forUsername: username, andPassword: password)
         let request = NetworkRequest(withOperation: operation)
@@ -77,7 +81,7 @@ extension Event {
 }
 
 extension Event {
-    static func loadUser(withJwtToken jwtToken: String) -> Observable<Event> {
+    static func loadUser (withJwtToken jwtToken: String) -> Observable<Event> {
         
         let operation = NetworkOperation.getProfile(forJWTToken: jwtToken)
         let request = NetworkRequest(withOperation: operation)
@@ -97,7 +101,7 @@ extension Event {
 }
 
 extension Event {
-    static func loadApps(forCompany company: Int, andJwtToken token: String) -> Observable<Event> {
+    static func loadApps (forCompany company: Int, andJwtToken token: String) -> Observable<Event> {
         
         let operation = NetworkOperation.getApps(forCompany: company, andJWTToken: token)
         let request = NetworkRequest(withOperation: operation)
@@ -117,7 +121,7 @@ extension Event {
 }
 
 extension Event {
-    static func loadCompanies(forJwtToken token: String) -> Observable<Event> {
+    static func loadCompanies (forJwtToken token: String) -> Observable<Event> {
         
         let operation = NetworkOperation.getCompanies(forJWTToken: token)
         let request = NetworkRequest(withOperation: operation)
@@ -137,6 +141,20 @@ extension Event {
             }
             .catchError { error -> Observable<Event> in
                 return Observable.just(Event.UserProfileError)
+            }
+    }
+}
+
+extension Event {
+    static func loadCreatives (forPlacementId placementId: Int) -> Observable<Event> {
+        
+        SALoader.loadCreatives(placementId: placementId)
+            .toArray()
+            .flatMap { (creatives: [SACreative]) -> Observable<Event> in
+                
+            }
+            .catchError { error -> Observable<Event> in
+                
             }
     }
 }

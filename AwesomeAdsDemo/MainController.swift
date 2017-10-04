@@ -38,6 +38,8 @@ class MainController: SABaseViewController {
         
         recogn = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         
+        dataSource.delegate = self
+        
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
         tableView.estimatedRowHeight = 180
@@ -59,6 +61,13 @@ class MainController: SABaseViewController {
         viewModel.data = state.appState.filtered
         dataSource.sections = viewModel.sections
         tableView.reloadData()
+    }
+}
+
+extension MainController: MainDataSourceDelegate {
+    func didSelect(placementId placId: Int?) {
+        store?.dispatch(Event.SelectPlacement(placementId: placId))
+        self.performSegue("MainToCreatives")
     }
 }
 

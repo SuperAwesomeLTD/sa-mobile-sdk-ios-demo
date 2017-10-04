@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol CompaniesDataSourceDelegate {
+    func didSelect(companyId comp: Int?)
+}
+
 class CompaniesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var data: [CompanyViewModel] = []
-    var store: Store<AppState>?
+    var delegate: CompaniesDataSourceDelegate?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -29,6 +33,6 @@ class CompaniesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = data[indexPath.row]
-        store?.dispatch(Event.SelectCompany(companyId: model.companyId))
+        delegate?.didSelect(companyId: model.companyId)
     }
 }

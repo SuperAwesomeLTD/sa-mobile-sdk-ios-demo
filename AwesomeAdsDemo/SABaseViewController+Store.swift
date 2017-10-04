@@ -27,6 +27,6 @@ extension SABaseViewController {
     }
     
     var companyId: Int {
-        return currentState.companiesState.selectedCompany ?? currentState.profileState?.profile.companyId ?? -1
+        return currentState.selectedCompany ?? currentState.profileState?.profile.companyId ?? -1
     }
 }

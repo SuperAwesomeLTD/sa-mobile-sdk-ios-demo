@@ -12,7 +12,9 @@ func appReducer (_ previous: AppState, event: Event) -> AppState {
     return AppState(loginState: loginReducer(previous.loginState, event: event),
                     profileState: profileReducer(previous.profileState, event: event),
                     appState: appsReducer(previous.appState, event: event),
-                    companiesState: companiesReducer(previous.companiesState, event: event))
+                    companiesState: companiesReducer(previous.companiesState, event: event),
+                    selectedCompany: selectedCompanyReducer(previous.selectedCompany, event: event),
+                    selectedPlacement: selectedPlacementReducer(previous.selectedPlacement, event: event))
 }
 
 func loginReducer (_ previous: LoginState?, event: Event) -> LoginState? {
@@ -62,11 +64,26 @@ func companiesReducer (_ previous: CompaniesState, event: Event) -> CompaniesSta
     case .FilterCompanies(let search):
         state.search = search
         return state
-    case .SelectCompany(let company):
-        state.selectedCompany = company
-        state.hasSelected = true
-        return state
     default:
         return state
+    }
+}
+
+func selectedCompanyReducer (_ previous: Int?, event: Event) -> Int? {
+    
+    switch event {
+    case .SelectCompany(let company):
+        return company
+    default:
+        return previous
+    }
+}
+
+func selectedPlacementReducer (_ previous: Int?, event: Event) -> Int? {
+    switch event {
+    case .SelectPlacement(let placement):
+        return placement
+    default:
+        return previous
     }
 }

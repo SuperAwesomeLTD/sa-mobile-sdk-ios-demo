@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol MainDataSourceDelegate {
+    func didSelect(placementId placId: Int?)
+}
+
 class MainDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     var sections: [MainViewModel.Section] = []
+    var delegate: MainDataSourceDelegate?
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -39,6 +44,7 @@ class MainDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let model = sections[indexPath.section].models[indexPath.row]
+        delegate?.didSelect(placementId: model.placement.id)
     }
 }

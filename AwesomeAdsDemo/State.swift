@@ -13,6 +13,8 @@ struct AppState: State {
     var profileState: ProfileState?
     var appState = LoadedAppsState()
     var companiesState = CompaniesState()
+    var selectedCompany: Int?
+    var selectedPlacement: Int?
 }
 
 struct LoginState: State {
@@ -71,8 +73,6 @@ extension LoadedAppsState {
 struct CompaniesState: State {
     fileprivate var companies: [Company] = []
     var search: String?
-    var hasSelected: Bool = false
-    var selectedCompany: Int?
     
     init(withFullData data: [Company]) {
         self.companies = data
