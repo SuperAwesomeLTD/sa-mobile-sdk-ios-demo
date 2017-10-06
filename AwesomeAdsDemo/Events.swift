@@ -30,6 +30,9 @@ enum Event {
     case SelectCompany(companyId: Int?)
     // select placement
     case SelectPlacement(placementId: Int?)
+    // creatives
+    case GotCreatives(creatives: [SACreative])
+    case FilterCreatives(withSearchTerm: String?)
 }
 
 extension Event {
@@ -145,17 +148,17 @@ extension Event {
     }
 }
 
-//extension Event {
-//    static func loadCreatives (forPlacementId placementId: Int) -> Observable<Event> {
-//        
-//        SALoader.loadCreatives(placementId: placementId)
-//            .toArray()
-//            .flatMap { (creatives: [SACreative]) -> Observable<Event> in
-//                
-//            }
-//            .catchError { error -> Observable<Event> in
-//                
-//            }
-//    }
-//}
+extension Event {
+    static func loadCreatives (forPlacementId placementId: Int) -> Observable<Event> {
+        
+        return SALoader.loadCreatives(placementId: placementId)
+            .toArray()
+            .flatMap { (creatives: [SACreative]) -> Observable<Event> in
+                return Observable.just(Event.GotCreatives(creatives: creatives))
+            }
+            .catchError { error -> Observable<Event> in
+                return Observable.just(Event.UserProfileError)
+            }
+    }
+}
 

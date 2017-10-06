@@ -16,6 +16,7 @@ struct AppState: State {
     var companiesState = CompaniesState()
     var selectedCompany: Int?
     var selectedPlacement: Int?
+    var creativesState = CreativesState()
 }
 
 struct LoginState: State {
