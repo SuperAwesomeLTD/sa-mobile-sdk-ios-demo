@@ -57,32 +57,26 @@ enum AdFormat {
                     let width = creative.details.width
                     let height = creative.details.height
                     
-                    if width == 300 && height == 50 {
-                        return .smallbanner
+                    switch (width, height) {
+                    case (720, 90): return .bigbanner
+                    case (300, 250): return .mpu
+                    case (468, 60): return .normalbanner
+                    case (120, 600): return .mpu
+                    case (300, 600): return .mpu
+                    case (160, 600): return .mpu
+                    case (970, 250): return .bigbanner
+                    case (970, 90): return .bigbanner
+                    case (300, 50): return .smallbanner
+                    case (320, 50): return .smallbanner
+                    case (728, 90): return .bigbanner
+                    case (320, 480): return .mobile_portrait_interstitial
+                    case (400, 600): return .mobile_portrait_interstitial
+                    case (768, 1024): return .tablet_portrait_interstitial
+                    case (480, 320): return .mobile_landscape_interstitial
+                    case (600, 400): return .mobile_landscape_interstitial
+                    case (1024, 768): return .tablet_landscape_interstitial
+                    default: return .unknown
                     }
-                    if width == 320 && height == 50 {
-                        return .normalbanner
-                    }
-                    if width == 728 && height == 90 {
-                        return .bigbanner
-                    }
-                    if width == 300 && height == 250 {
-                        return .mpu
-                    }
-                    if width == 320 && height == 480 {
-                        return .mobile_portrait_interstitial
-                    }
-                    if width == 480 && height == 320 {
-                        return .mobile_landscape_interstitial
-                    }
-                    if width == 768 && height == 1024 {
-                        return .tablet_portrait_interstitial
-                    }
-                    if width == 1024 && height == 768 {
-                        return .tablet_landscape_interstitial
-                    }
-                    
-                    return .unknown
                 }
             }
         }
@@ -111,38 +105,26 @@ enum AdFormat {
                     let width = ad.creative.details.width
                     let height = ad.creative.details.height
                     
-                    if width == 300 && height == 50 {
-                        return .smallbanner
+                    switch (width, height) {
+                    case (720, 90): return .bigbanner
+                    case (300, 250): return .mpu
+                    case (468, 60): return .normalbanner
+                    case (120, 600): return .mpu
+                    case (300, 600): return .mpu
+                    case (160, 600): return .mpu
+                    case (970, 250): return .bigbanner
+                    case (970, 90): return .bigbanner
+                    case (300, 50): return .smallbanner
+                    case (320, 50): return .smallbanner
+                    case (728, 90): return .bigbanner
+                    case (320, 480): return .mobile_portrait_interstitial
+                    case (400, 600): return .mobile_portrait_interstitial
+                    case (768, 1024): return .tablet_portrait_interstitial
+                    case (480, 320): return .mobile_landscape_interstitial
+                    case (600, 400): return .mobile_landscape_interstitial
+                    case (1024, 768): return .tablet_landscape_interstitial
+                    default: return .unknown
                     }
-                    if width == 320 && height == 50 {
-                        return .normalbanner
-                    }
-                    if width == 728 && height == 90 {
-                        return .bigbanner
-                    }
-                    if width == 300 && height == 250 {
-                        return .mpu
-                    }
-                    if width == 320 && height == 480 {
-                        return .mobile_portrait_interstitial
-                    }
-                    if width == 400 && height == 600 {
-                        return .mobile_portrait_interstitial
-                    }
-                    if width == 480 && height == 320 {
-                        return .mobile_landscape_interstitial
-                    }
-                    if width == 600 && height == 400 {
-                        return .mobile_landscape_interstitial
-                    }
-                    if width == 768 && height == 1024 {
-                        return .tablet_portrait_interstitial
-                    }
-                    if width == 1024 && height == 768 {
-                        return .tablet_landscape_interstitial
-                    }
-                    
-                    return .unknown
                     
                 } else {
                     return .unknown
