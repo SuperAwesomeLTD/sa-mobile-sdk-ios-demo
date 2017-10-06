@@ -49,50 +49,26 @@ class PlacementViewModel {
             let width = self.placement.width,
             let height = self.placement.height {
             
-            if width == 300 && height == 50 {
-                return UIImage(named: "smallbanner")
+            switch (width, height) {
+            case (720, 90): return UIImage(named: "leaderboard")
+            case (300, 250): return UIImage(named: "mpu")
+            case (468, 60): return UIImage(named: "imac468x60")
+            case (120, 600): return UIImage(named: "imac120x600")
+            case (300, 600): return UIImage(named: "imac300x600")
+            case (160, 600): return UIImage(named: "imac160x600")
+            case (970, 250): return UIImage(named: "imac970x250")
+            case (970, 90): return UIImage(named: "imac970x90")
+            case (300, 50): return UIImage(named: "smallbanner")
+            case (320, 50): return UIImage(named: "banner")
+            case (728, 90): return UIImage(named: "leaderboard")
+            case (320, 480): return UIImage(named: "small_inter_port")
+            case (400, 600): return UIImage(named: "small_inter_port")
+            case (768, 1024): return UIImage(named: "large_inter_port")
+            case (480, 320): return UIImage(named: "small_inter_land")
+            case (600, 400): return UIImage(named: "small_inter_land")
+            case (1024, 768): return UIImage(named: "large_inter_land")
+            default: return UIImage(named: "icon_placeholder")
             }
-            if width == 320 && height == 50 {
-                return UIImage(named: "banner")
-            }
-            if width == 728 && height == 90 {
-                return UIImage(named: "leaderboard")
-            }
-            if width == 300 && height == 250 {
-                return UIImage(named: "mpu")
-            }
-            if width == 320 && height == 480 {
-                return UIImage(named: "small_inter_port")
-            }
-            if width == 480 && height == 320 {
-                return UIImage(named: "small_inter_land")
-            }
-            if width == 768 && height == 1024 {
-                return UIImage(named: "large_inter_port")
-            }
-            if width == 1024 && height == 768 {
-                return UIImage(named: "large_inter_land")
-            }
-            if width == 120 && height == 600 {
-                return UIImage(named: "imac120x600")
-            }
-            if width == 160 && height == 600 {
-                return UIImage(named: "imac160x600")
-            }
-            if width == 300 && height == 600 {
-                return UIImage(named: "imac300x600")
-            }
-            if width == 468 && height == 60 {
-                return UIImage(named: "imac468x60")
-            }
-            if width == 970 && height == 90 {
-                return UIImage(named: "imac970x90")
-            }
-            if width == 970 && height == 250 {
-                return UIImage(named: "imac970x250")
-            }
-            
-            return UIImage(named: "icon_placeholder")
         }
         else {
             return UIImage(named: "icon_placeholder")
