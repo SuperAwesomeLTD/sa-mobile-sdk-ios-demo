@@ -21,11 +21,11 @@ func appReducer (_ previous: AppState, event: Event) -> AppState {
 func loginReducer (_ previous: LoginState, event: Event) -> LoginState {
     
     var state = previous
+    state.loginError = false
     
     switch event {
     case .LoadingJwtToken:
         state.isLoading = true
-        state.loginError = false
         return state
     case .NoJwtToken:
         return state
@@ -38,7 +38,8 @@ func loginReducer (_ previous: LoginState, event: Event) -> LoginState {
         state.isEditing = true
         return state
     case .GotJwtToken(let token):
-        return LoginState(jwtToken: token, isLoading: false, isEditing: false, loginError: false)
+        state.jwtToken = token
+        return state
     default:
         return previous
     }
