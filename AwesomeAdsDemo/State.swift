@@ -22,6 +22,7 @@ struct AppState: State {
 struct LoginState: State {
     var jwtToken: String?
     var isLoading: Bool = false
+    var isEditing: Bool = false
 }
 
 struct ProfileState: State {

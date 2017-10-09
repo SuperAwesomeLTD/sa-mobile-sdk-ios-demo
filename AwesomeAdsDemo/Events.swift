@@ -16,6 +16,7 @@ enum Event {
     case LoadingJwtToken
     case NoJwtToken
     case JwtTokenError
+    case EditLoginDetails
     case GotJwtToken(token: String)
     // profile
     case GotUserProfile(profile: UserProfile)

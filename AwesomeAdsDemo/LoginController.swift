@@ -31,22 +31,16 @@ class LoginController: SABaseViewController {
         store?.dispatch(Event.loginUser(withUsername: username, andPassword: password))
     }
     
-    fileprivate func authError () {
-        SAAlert.getInstance().show(withTitle: "page_login_popup_more_title".localized,
-                                   andMessage: "page_login_popup_more_message".localized,
-                                   andOKTitle: "page_login_popup_more_ok_button".localized,
-                                   andNOKTitle: nil,
-                                   andTextField: false,
-                                   andKeyboardTyle: .default,
-                                   andPressed: nil)
-    }
-    
     override func handle(_ state: AppState) {
         
         guard let loginState = state.loginState else {
             SALoadScreen.getInstance().hide()
             authError()
             return
+        }
+        
+        if loginState.isEditing {
+            self.topContraint.constant = self.minContraintHeight
         }
         
         if loginState.isLoading {
@@ -64,10 +58,19 @@ class LoginController: SABaseViewController {
 extension LoginController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.topContraint.constant = self.minContraintHeight
+        store?.dispatch(Event.EditLoginDetails)
     }
+}
+
+extension LoginController {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.topContraint.constant = self.maxContraintHeight
+    fileprivate func authError () {
+        SAAlert.getInstance().show(withTitle: "page_login_popup_more_title".localized,
+                                   andMessage: "page_login_popup_more_message".localized,
+                                   andOKTitle: "page_login_popup_more_ok_button".localized,
+                                   andNOKTitle: nil,
+                                   andTextField: false,
+                                   andKeyboardTyle: .default,
+                                   andPressed: nil)
     }
 }
