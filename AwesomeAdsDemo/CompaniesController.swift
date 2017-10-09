@@ -31,7 +31,7 @@ class CompaniesController: SABaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store?.dispatch(Event.loadCompanies(forJwtToken: store.jwtToken))
+        store.dispatch(Event.loadCompanies(forJwtToken: store.jwtToken))
     }
     
     @IBAction func backAction(_ sender: Any) {

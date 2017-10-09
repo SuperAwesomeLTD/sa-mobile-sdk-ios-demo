@@ -27,7 +27,7 @@ struct LoginState: State {
 }
 
 struct LoadedAppsState: State {
-    fileprivate var apps: [App] = []
+    var apps: [App] = []
     var search: String?
     var error: AAError?
     var filtered: [App] {
@@ -51,49 +51,25 @@ struct LoadedAppsState: State {
         
         return result
     }
-    
-    init(withFullData data: [App]) {
-        self.apps = data
-    }
-    
-    init () {
-        // do nothing
-    }
 }
 
 struct CompaniesState: State {
-    private var companies: [Company] = []
+    var companies: [Company] = []
     var search: String?
     var filtered: [Company] {
         return companies.filter { company -> Bool in
             return selectWith(searchTerm: search, searchItem: company.name)
         }
     }
-    
-    init(withFullData data: [Company]) {
-        self.companies = data
-    }
-    
-    init () {
-        // do nothing
-    }
 }
 
 struct CreativesState: State {
-    private var creatives: [SACreative] = []
+    var creatives: [SACreative] = []
     var search: String?
     var filtered: [SACreative] {
         return creatives.filter { creative -> Bool in
             return selectWith(searchTerm: search, searchItem: creative.name)
         }
-    }
-    
-    init(withFullData data: [SACreative]) {
-        self.creatives = data
-    }
-    
-    init() {
-        // do nothing
     }
 }
 

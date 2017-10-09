@@ -24,7 +24,6 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
         super.viewDidLoad()
         
         searchBar.placeholder = "page_creatives_search_placeholder".localized
-        
         titleText.text = "Select Ad".localized
         
         recogn = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -41,28 +40,6 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
         store.dispatch(Event.loadCreatives(forPlacementId: store.current.selectedPlacement!))
     }
 
-    fileprivate func loadAdError () {
-        SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_load_title".localized,
-                                   andMessage: "page_creatives_popup_error_load_message".localized,
-                                   andOKTitle: "page_creatives_popup_error_load_ok_button".localized,
-                                   andNOKTitle: nil,
-                                   andTextField: false,
-                                   andKeyboardTyle: .default) { (pos, val) in
-            _ = self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
-    fileprivate func unsupportedFormatError () {
-        
-        SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_format_title".localized,
-                                   andMessage: "page_creatives_popup_error_format_message".localized,
-                                   andOKTitle: "page_creatives_popup_error_format_ok_button".localized,
-                                   andNOKTitle: nil,
-                                   andTextField: false,
-                                   andKeyboardTyle: .default,
-                                   andPressed: nil)
-    }
-    
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -107,6 +84,31 @@ extension CreativesController: UISearchBarDelegate {
     func handleTap(_ sender: UITapGestureRecognizer) {
         self.searchBar.resignFirstResponder()
         self.view.removeGestureRecognizer(recogn)
+    }
+}
+
+extension CreativesController {
+    
+    fileprivate func loadAdError () {
+        SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_load_title".localized,
+                                   andMessage: "page_creatives_popup_error_load_message".localized,
+                                   andOKTitle: "page_creatives_popup_error_load_ok_button".localized,
+                                   andNOKTitle: nil,
+                                   andTextField: false,
+                                   andKeyboardTyle: .default) { (pos, val) in
+                                    _ = self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    fileprivate func unsupportedFormatError () {
+        
+        SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_format_title".localized,
+                                   andMessage: "page_creatives_popup_error_format_message".localized,
+                                   andOKTitle: "page_creatives_popup_error_format_ok_button".localized,
+                                   andNOKTitle: nil,
+                                   andTextField: false,
+                                   andKeyboardTyle: .default,
+                                   andPressed: nil)
     }
 }
 

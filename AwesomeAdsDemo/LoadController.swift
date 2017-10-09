@@ -19,12 +19,13 @@ class LoadController: SABaseViewController {
     
     override func handle(_ state: AppState) {
         
-        guard state.profileState != nil else {
-            authError()
-            return
-        }
+        let profileState = state.profileState
         
-        performSegue("LoadToMain")
+        if profileState != nil {
+            performSegue("LoadToMain")
+        } else {
+            authError()
+        }
     }
 }
 

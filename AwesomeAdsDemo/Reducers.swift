@@ -58,10 +58,12 @@ func profileReducer (_ previous: UserProfile?, event: Event) -> UserProfile? {
 
 func appsReducer (_ previous: LoadedAppsState, event: Event) -> LoadedAppsState {
     var state = previous
+    state.search = nil
     
     switch event {
     case .GotAppsForCompany(let apps):
-        return LoadedAppsState(withFullData: apps)
+        state.apps = apps
+        return state
     case .FilterApps(let search):
         state.search = search
         return state
@@ -72,10 +74,12 @@ func appsReducer (_ previous: LoadedAppsState, event: Event) -> LoadedAppsState 
 
 func companiesReducer (_ previous: CompaniesState, event: Event) -> CompaniesState {
     var state = previous
+    state.search = nil
     
     switch event {
     case .GotCompanies(let companies):
-        return CompaniesState(withFullData: companies)
+        state.companies = companies
+        return state
     case .FilterCompanies(let search):
         state.search = search
         return state
@@ -105,10 +109,12 @@ func selectedPlacementReducer (_ previous: Int?, event: Event) -> Int? {
 
 func creativesReducer (_ previous: CreativesState, event: Event) -> CreativesState {
     var state = previous
+    state.search = nil
     
     switch event {
     case .GotCreatives(let creatives):
-        return CreativesState(withFullData: creatives)
+        state.creatives = creatives
+        return state
     case .FilterCreatives(let search):
         state.search = search
         return state

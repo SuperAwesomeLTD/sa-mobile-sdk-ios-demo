@@ -67,7 +67,7 @@ class MainController: SABaseViewController {
 extension MainController: MainDataSourceDelegate {
     func didSelect(placementId placId: Int?) {
         store?.dispatch(Event.SelectPlacement(placementId: placId))
-        self.performSegue("MainToCreatives")
+        performSegue("MainToCreatives")
     }
 }
 

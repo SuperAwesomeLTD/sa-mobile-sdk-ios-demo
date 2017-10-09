@@ -14,6 +14,7 @@ class CreativesViewModel {
     var viewModels: [CreativeViewModel] = []
     var data: [SACreative] = [] {
         didSet {
+            viewModels = []
             for i in 0..<data.count {
                 viewModels.append(CreativeViewModel(withCreative: data[i], atIndex: i))
             }
