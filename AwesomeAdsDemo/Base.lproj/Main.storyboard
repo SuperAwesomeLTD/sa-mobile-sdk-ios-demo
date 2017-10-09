@@ -94,7 +94,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x58-mP-XEa">
-                                <rect key="frame" x="259" y="306" width="100" height="30"/>
+                                <rect key="frame" x="137.5" y="306" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.48627450979999998" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Wxl-2h-NdE"/>
@@ -111,17 +111,26 @@
                                     <action selector="loginAction:" destination="BL5-SW-XJl" eventType="touchUpInside" id="plB-kN-i4a"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="o2B-p4-8aj">
+                                <rect key="frame" x="177.5" y="311" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="NpJ-iv-P3Y"/>
+                                    <constraint firstAttribute="height" constant="20" id="oEK-fo-e62"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="f0W-20-2nF" firstAttribute="top" secondItem="gVW-cs-pNg" secondAttribute="bottom" id="0Ev-fK-Amh"/>
+                            <constraint firstItem="o2B-p4-8aj" firstAttribute="centerX" secondItem="F6Z-KK-8yx" secondAttribute="centerX" id="7JF-Av-ZeS"/>
                             <constraint firstItem="vvl-s7-k31" firstAttribute="top" secondItem="f0W-20-2nF" secondAttribute="bottom" constant="8" id="GpC-yR-Sa4"/>
+                            <constraint firstItem="x58-mP-XEa" firstAttribute="centerX" secondItem="F6Z-KK-8yx" secondAttribute="centerX" id="Kcj-B6-1rD"/>
                             <constraint firstItem="f0W-20-2nF" firstAttribute="leading" secondItem="F6Z-KK-8yx" secondAttribute="leading" constant="16" id="Nvh-j0-xl5"/>
+                            <constraint firstItem="o2B-p4-8aj" firstAttribute="top" secondItem="vvl-s7-k31" secondAttribute="bottom" constant="28" id="Tvx-uk-xjq"/>
                             <constraint firstItem="gVW-cs-pNg" firstAttribute="centerX" secondItem="F6Z-KK-8yx" secondAttribute="centerX" id="W7B-Y6-qme"/>
                             <constraint firstAttribute="trailing" secondItem="vvl-s7-k31" secondAttribute="trailing" constant="16" id="ehC-jg-ifj"/>
                             <constraint firstAttribute="trailing" secondItem="f0W-20-2nF" secondAttribute="trailing" constant="16" id="hcP-Kg-xT3"/>
                             <constraint firstItem="vvl-s7-k31" firstAttribute="leading" secondItem="F6Z-KK-8yx" secondAttribute="leading" constant="16" id="pyf-jg-dGh"/>
-                            <constraint firstAttribute="trailing" secondItem="x58-mP-XEa" secondAttribute="trailing" constant="16" id="xvK-QO-hiy"/>
                             <constraint firstItem="x58-mP-XEa" firstAttribute="top" secondItem="vvl-s7-k31" secondAttribute="bottom" constant="23" id="xyQ-cc-vb6"/>
                             <constraint firstItem="gVW-cs-pNg" firstAttribute="top" secondItem="7Wg-wi-J4i" secondAttribute="bottom" constant="67" id="yia-ei-5cs"/>
                         </constraints>
@@ -130,6 +139,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="E0L-HX-joj"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="o2B-p4-8aj" id="dI2-v8-0bk"/>
                         <outlet property="loginButton" destination="x58-mP-XEa" id="sUV-F7-vru"/>
                         <outlet property="mainLogo" destination="gVW-cs-pNg" id="9I9-TU-rYT"/>
                         <outlet property="passwordField" destination="vvl-s7-k31" id="djZ-Jo-x6v"/>

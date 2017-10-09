@@ -11,12 +11,12 @@ import UIKit
 extension SABaseViewController {
 
     private var currentState: AppState {
-        return store.getCurrentState()
+        return store.current
     }
     
     var jwtToken: String {
         let loginState = currentState.loginState
-        let token = loginState?.jwtToken ?? ""
+        let token = loginState.jwtToken ?? ""
         return token
     }
     

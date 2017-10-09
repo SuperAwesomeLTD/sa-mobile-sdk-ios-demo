@@ -18,16 +18,27 @@ func appReducer (_ previous: AppState, event: Event) -> AppState {
                     creativesState: creativesReducer(previous.creativesState, event: event))
 }
 
-func loginReducer (_ previous: LoginState?, event: Event) -> LoginState? {
+func loginReducer (_ previous: LoginState, event: Event) -> LoginState {
+    
+    var state = previous
+    
     switch event {
     case .LoadingJwtToken:
-        return LoginState(jwtToken: nil, isLoading: true, isEditing: false)
-    case .NoJwtToken, .JwtTokenError:
-        return nil
+        state.isLoading = true
+        state.loginError = false
+        return state
+    case .NoJwtToken:
+        return state
+    case .JwtTokenError:
+        state.isLoading = false
+        state.loginError = true
+        state.jwtToken = nil
+        return state
     case .EditLoginDetails:
-        return LoginState(jwtToken: nil, isLoading: false, isEditing: true)
+        state.isEditing = true
+        return state
     case .GotJwtToken(let token):
-        return LoginState(jwtToken: token, isLoading: false, isEditing: false)
+        return LoginState(jwtToken: token, isLoading: false, isEditing: false, loginError: false)
     default:
         return previous
     }

@@ -17,17 +17,6 @@ class LoadController: SABaseViewController {
         store?.dispatch(Event.loadUser(withJwtToken: jwtToken))
     }
     
-    fileprivate func authError () {
-        SAAlert.getInstance().show(withTitle: "page_load_popup_error_title".localized,
-                                   andMessage: "page_load_popup_error_message".localized,
-                                   andOKTitle: "page_load_popup_error_try_again".localized,
-                                   andNOKTitle: nil,
-                                   andTextField: false,
-                                   andKeyboardTyle: .default) { (btn, val) in
-                                        self.store?.dispatch(Event.loadUser(withJwtToken: self.jwtToken))
-                                   }
-    }
-    
     override func handle(_ state: AppState) {
         
         guard state.profileState != nil else {
@@ -36,5 +25,19 @@ class LoadController: SABaseViewController {
         }
         
         performSegue("LoadToMain")
+    }
+}
+
+extension LoadController {
+    
+    fileprivate func authError () {
+        SAAlert.getInstance().show(withTitle: "page_load_popup_error_title".localized,
+                                   andMessage: "page_load_popup_error_message".localized,
+                                   andOKTitle: "page_load_popup_error_try_again".localized,
+                                   andNOKTitle: nil,
+                                   andTextField: false,
+                                   andKeyboardTyle: .default) { (btn, val) in
+                                    self.store?.dispatch(Event.loadUser(withJwtToken: self.jwtToken))
+        }
     }
 }

@@ -38,7 +38,7 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store.dispatch(Event.loadCreatives(forPlacementId: store.getCurrentState().selectedPlacement!))
+        store.dispatch(Event.loadCreatives(forPlacementId: store.current.selectedPlacement!))
     }
 
     fileprivate func loadAdError () {

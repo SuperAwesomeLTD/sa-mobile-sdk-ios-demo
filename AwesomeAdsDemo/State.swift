@@ -10,7 +10,7 @@ import UIKit
 import SAModelSpace
 
 struct AppState: State {
-    var loginState: LoginState?
+    var loginState = LoginState()
     var profileState: ProfileState?
     var appState = LoadedAppsState()
     var companiesState = CompaniesState()
@@ -23,6 +23,7 @@ struct LoginState: State {
     var jwtToken: String?
     var isLoading: Bool = false
     var isEditing: Bool = false
+    var loginError: Bool = false
 }
 
 struct ProfileState: State {

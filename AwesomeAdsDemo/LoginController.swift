@@ -12,6 +12,7 @@ class LoginController: SABaseViewController {
     @IBOutlet weak var usernameField: SATextField!
     @IBOutlet weak var passwordField: SATextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var topContraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -33,20 +34,14 @@ class LoginController: SABaseViewController {
     
     override func handle(_ state: AppState) {
         
-        guard let loginState = state.loginState else {
-            SALoadScreen.getInstance().hide()
+        let loginState = state.loginState
+        
+        topContraint.constant = loginState.isEditing ? minContraintHeight : maxContraintHeight
+        loginButton.isHidden = loginState.isLoading
+        activityIndicator.isHidden = !loginState.isLoading
+
+        if loginState.loginError {
             authError()
-            return
-        }
-        
-        if loginState.isEditing {
-            self.topContraint.constant = self.minContraintHeight
-        }
-        
-        if loginState.isLoading {
-            SALoadScreen.getInstance().show()
-        } else {
-            SALoadScreen.getInstance().hide()
         }
         
         if loginState.jwtToken != nil {

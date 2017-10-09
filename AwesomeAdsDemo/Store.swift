@@ -60,7 +60,7 @@ class Store <S: State> {
         handlers.remove(listener)
     }
     
-    func getCurrentState () -> AppState {
+    var current: AppState {
         return state as! AppState
     }
 }
