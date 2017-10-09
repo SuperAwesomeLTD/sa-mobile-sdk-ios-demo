@@ -31,11 +31,11 @@ class CompaniesController: SABaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store?.dispatch(Event.loadCompanies(forJwtToken: jwtToken))
+        store?.dispatch(Event.loadCompanies(forJwtToken: store.jwtToken))
     }
     
     @IBAction func backAction(_ sender: Any) {
-        didSelect(companyId: companyId)
+        didSelect(companyId: store.companyId)
     }
     
     override func handle(_ state: AppState) {

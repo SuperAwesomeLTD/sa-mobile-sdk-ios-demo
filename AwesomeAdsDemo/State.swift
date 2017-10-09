@@ -11,7 +11,7 @@ import SAModelSpace
 
 struct AppState: State {
     var loginState = LoginState()
-    var profileState: ProfileState?
+    var profileState: UserProfile?
     var appState = LoadedAppsState()
     var companiesState = CompaniesState()
     var selectedCompany: Int?
@@ -24,10 +24,6 @@ struct LoginState: State {
     var isLoading: Bool = false
     var isEditing: Bool = false
     var loginError: Bool = false
-}
-
-struct ProfileState: State {
-    var profile: UserProfile
 }
 
 struct LoadedAppsState: State {
@@ -66,7 +62,7 @@ struct LoadedAppsState: State {
 }
 
 struct CompaniesState: State {
-    fileprivate var companies: [Company] = []
+    private var companies: [Company] = []
     var search: String?
     var filtered: [Company] {
         return companies.filter { company -> Bool in
@@ -84,7 +80,7 @@ struct CompaniesState: State {
 }
 
 struct CreativesState: State {
-    fileprivate var creatives: [SACreative] = []
+    private var creatives: [SACreative] = []
     var search: String?
     var filtered: [SACreative] {
         return creatives.filter { creative -> Bool in

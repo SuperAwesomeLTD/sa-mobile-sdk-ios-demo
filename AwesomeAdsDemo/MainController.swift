@@ -48,7 +48,7 @@ class MainController: SABaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store?.dispatch(Event.loadApps(forCompany: companyId, andJwtToken: jwtToken))
+        store?.dispatch(Event.loadApps(forCompany: store.companyId, andJwtToken: store.jwtToken))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

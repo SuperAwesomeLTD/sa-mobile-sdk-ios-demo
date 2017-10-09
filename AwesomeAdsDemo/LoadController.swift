@@ -14,7 +14,7 @@ class LoadController: SABaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store?.dispatch(Event.loadUser(withJwtToken: jwtToken))
+        store?.dispatch(Event.loadUser(withJwtToken: store.jwtToken))
     }
     
     override func handle(_ state: AppState) {
@@ -37,7 +37,7 @@ extension LoadController {
                                    andNOKTitle: nil,
                                    andTextField: false,
                                    andKeyboardTyle: .default) { (btn, val) in
-                                    self.store?.dispatch(Event.loadUser(withJwtToken: self.jwtToken))
+                                    self.store?.dispatch(Event.loadUser(withJwtToken: self.store.jwtToken))
         }
     }
 }

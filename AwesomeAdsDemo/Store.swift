@@ -65,3 +65,20 @@ class Store <S: State> {
     }
 }
 
+extension Store {
+   
+    var jwtToken: String {
+        let loginState = current.loginState
+        let token = loginState.jwtToken ?? ""
+        return token
+    }
+    
+    var profile: UserProfile? {
+        return current.profileState
+    }
+    
+    var companyId: Int {
+        return current.selectedCompany ?? current.profileState?.companyId ?? -1
+    }
+}
+

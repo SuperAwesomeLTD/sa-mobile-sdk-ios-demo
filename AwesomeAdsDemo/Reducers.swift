@@ -45,12 +45,12 @@ func loginReducer (_ previous: LoginState, event: Event) -> LoginState {
     }
 }
 
-func profileReducer (_ previous: ProfileState?, event: Event) -> ProfileState? {
+func profileReducer (_ previous: UserProfile?, event: Event) -> UserProfile? {
     switch event {
     case .GotUserProfile(let profile):
-        return ProfileState(profile: profile)
+        return profile
     case .UserProfileError:
-        return previous
+        return nil
     default:
         return previous
     }
