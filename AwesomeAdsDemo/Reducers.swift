@@ -75,6 +75,7 @@ func appsReducer (_ previous: LoadedAppsState, event: Event) -> LoadedAppsState 
 func companiesReducer (_ previous: CompaniesState, event: Event) -> CompaniesState {
     var state = previous
     state.search = nil
+    state.isLoading = false
     
     switch event {
     case .GotCompanies(let companies):
@@ -82,6 +83,9 @@ func companiesReducer (_ previous: CompaniesState, event: Event) -> CompaniesSta
         return state
     case .FilterCompanies(let search):
         state.search = search
+        return state
+    case .LoadingCompanies:
+        state.isLoading = true
         return state
     default:
         return state

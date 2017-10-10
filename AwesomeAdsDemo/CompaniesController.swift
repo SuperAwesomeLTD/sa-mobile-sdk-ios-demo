@@ -16,6 +16,7 @@ class CompaniesController: SABaseViewController {
     @IBOutlet weak var pageTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel = CompaniesViewModel ()
     var dataSource = CompaniesDataSource ()
@@ -31,6 +32,7 @@ class CompaniesController: SABaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        store.dispatch(Event.LoadingCompanies)
         store.dispatch(Event.loadCompanies(forJwtToken: store.jwtToken))
     }
     
@@ -39,9 +41,13 @@ class CompaniesController: SABaseViewController {
     }
     
     override func handle(_ state: AppState) {
-        viewModel.data = state.companiesState.filtered
+        let companiesState = state.companiesState
+        viewModel.data = companiesState.filtered
         dataSource.data = viewModel.viewModels
         tableView.reloadData()
+        
+        activityIndicator.isHidden = !companiesState.isLoading
+        tableView.isHidden = companiesState.isLoading
     }
 }
 

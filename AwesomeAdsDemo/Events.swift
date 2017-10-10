@@ -25,6 +25,7 @@ enum Event {
     case GotAppsForCompany(apps: [App])
     case FilterApps(withSearchTerm: String?)
     // companies
+    case LoadingCompanies
     case GotCompanies(comps: [Company])
     case FilterCompanies(withSearchTerm: String?)
     // select company

@@ -55,6 +55,7 @@ struct LoadedAppsState: State {
 
 struct CompaniesState: State {
     var companies: [Company] = []
+    var isLoading: Bool = false 
     var search: String?
     var filtered: [Company] {
         return companies.filter { company -> Bool in

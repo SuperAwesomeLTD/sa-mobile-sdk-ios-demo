@@ -414,6 +414,13 @@
                                     <outlet property="delegate" destination="hfr-Kv-Y3J" id="Lqr-oy-do5"/>
                                 </connections>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="83h-GD-kUB">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5QT-fa-9PY"/>
+                                    <constraint firstAttribute="width" constant="20" id="hjZ-SK-o19"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -422,14 +429,17 @@
                             <constraint firstItem="CfS-lf-2LE" firstAttribute="top" secondItem="Z1u-kn-5Zl" secondAttribute="bottom" constant="8" id="Jh3-Mb-Dle"/>
                             <constraint firstAttribute="trailing" secondItem="Z1u-kn-5Zl" secondAttribute="trailing" id="LJa-Jm-bAQ"/>
                             <constraint firstItem="k8g-2L-QnP" firstAttribute="top" secondItem="mdy-xL-ow4" secondAttribute="bottom" id="Mpr-W2-zCI"/>
+                            <constraint firstItem="83h-GD-kUB" firstAttribute="centerX" secondItem="S75-PB-y06" secondAttribute="centerX" id="R8D-ML-3Q6"/>
                             <constraint firstItem="Z1u-kn-5Zl" firstAttribute="top" secondItem="k8g-2L-QnP" secondAttribute="bottom" constant="8" id="Ssj-ev-PZo"/>
                             <constraint firstAttribute="trailing" secondItem="CfS-lf-2LE" secondAttribute="trailing" id="bT1-af-Z5j"/>
                             <constraint firstAttribute="trailing" secondItem="k8g-2L-QnP" secondAttribute="trailing" id="bqV-5A-jUJ"/>
+                            <constraint firstItem="83h-GD-kUB" firstAttribute="centerY" secondItem="S75-PB-y06" secondAttribute="centerY" id="dtm-eX-7ET"/>
                             <constraint firstItem="Z1u-kn-5Zl" firstAttribute="leading" secondItem="S75-PB-y06" secondAttribute="leading" id="mLx-h3-yYF"/>
                             <constraint firstItem="7Jq-ob-bLw" firstAttribute="top" secondItem="CfS-lf-2LE" secondAttribute="bottom" id="ybe-DH-I7E"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="83h-GD-kUB" id="tWU-cf-SPO"/>
                         <outlet property="pageTitle" destination="oTc-n6-jBo" id="Ee7-qG-xZV"/>
                         <outlet property="searchField" destination="Z1u-kn-5Zl" id="5aV-gf-N4u"/>
                         <outlet property="tableView" destination="CfS-lf-2LE" id="Gkc-LQ-TOs"/>
@@ -628,7 +638,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kym-R2-dda">
-                                <rect key="frame" x="0.0" y="73" width="375" height="527"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsRowID" rowHeight="61" id="iyT-CX-Ehz" customClass="SettingsRow" customModule="AwesomeAdsDemo" customModuleProvider="target">
@@ -764,7 +774,7 @@
                             <constraint firstAttribute="trailing" secondItem="uJT-7G-ECf" secondAttribute="trailing" id="e4z-zs-G73"/>
                             <constraint firstItem="3X7-9m-RDa" firstAttribute="leading" secondItem="zGb-lZ-83g" secondAttribute="leading" id="qi1-KO-NaA"/>
                             <constraint firstItem="t77-KW-Cy0" firstAttribute="top" secondItem="3X7-9m-RDa" secondAttribute="bottom" id="sgX-sU-c2e"/>
-                            <constraint firstItem="kym-R2-dda" firstAttribute="top" secondItem="uJT-7G-ECf" secondAttribute="bottom" constant="9" id="uBd-uC-dkZ"/>
+                            <constraint firstItem="kym-R2-dda" firstAttribute="top" secondItem="uJT-7G-ECf" secondAttribute="bottom" id="uBd-uC-dkZ"/>
                             <constraint firstAttribute="trailing" secondItem="kym-R2-dda" secondAttribute="trailing" id="w4Q-EK-COC"/>
                             <constraint firstItem="uJT-7G-ECf" firstAttribute="top" secondItem="f1t-f4-B7N" secondAttribute="bottom" id="xH3-GD-gne"/>
                         </constraints>

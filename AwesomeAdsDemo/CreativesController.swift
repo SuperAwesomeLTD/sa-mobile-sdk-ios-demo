@@ -45,9 +45,17 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
     }
     
     override func handle(_ state: AppState) {
-        viewModel.data = state.creativesState.filtered
-        dataSource.data = viewModel.viewModels
-        tableView.reloadData()
+        
+        let creativesState = state.creativesState
+        
+        if creativesState.creatives.count == 0 {
+            loadAdError()
+        }
+        else {
+            viewModel.data = creativesState.filtered
+            dataSource.data = viewModel.viewModels
+            tableView.reloadData()
+        }
     }
     
     func didSelect(placementId id: Int?, andCreative: SACreative) {
@@ -98,17 +106,6 @@ extension CreativesController {
                                    andKeyboardTyle: .default) { (pos, val) in
                                     _ = self.navigationController?.popViewController(animated: true)
         }
-    }
-    
-    fileprivate func unsupportedFormatError () {
-        
-        SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_format_title".localized,
-                                   andMessage: "page_creatives_popup_error_format_message".localized,
-                                   andOKTitle: "page_creatives_popup_error_format_ok_button".localized,
-                                   andNOKTitle: nil,
-                                   andTextField: false,
-                                   andKeyboardTyle: .default,
-                                   andPressed: nil)
     }
 }
 
