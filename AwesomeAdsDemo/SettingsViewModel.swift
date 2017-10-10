@@ -82,6 +82,7 @@ class SettingsViewModel: NSObject {
             case .gamewall: break
             }
             
+            viewModels = []
             for i in 1...7 {
                 if let setting = self.settingsDict[i] as SettingViewModel!, setting.getActive() {
                     viewModels.append(setting)

@@ -14,6 +14,7 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     fileprivate var recogn: UITapGestureRecognizer!
     
@@ -48,13 +49,14 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
         
         let creativesState = state.creativesState
         
+        activityIndicator.isHidden = creativesState.creatives.count > 0
+        tableView.isHidden = creativesState.creatives.count <= 0
+        viewModel.data = creativesState.filtered
+        dataSource.data = viewModel.viewModels
+        tableView.reloadData()
+        
         if creativesState.creatives.count == 0 {
             loadAdError()
-        }
-        else {
-            viewModel.data = creativesState.filtered
-            dataSource.data = viewModel.viewModels
-            tableView.reloadData()
         }
     }
     

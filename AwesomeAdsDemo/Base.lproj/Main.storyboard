@@ -599,9 +599,17 @@
                                     <outlet property="delegate" destination="bah-oC-yF8" id="LoN-vu-Yrn"/>
                                 </connections>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="p1C-lh-ypb">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="XaV-Tc-5jj"/>
+                                    <constraint firstAttribute="height" constant="20" id="a5w-O8-cWp"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="p1C-lh-ypb" firstAttribute="centerY" secondItem="A26-6o-3O4" secondAttribute="centerY" id="KV0-Nw-IL1"/>
                             <constraint firstItem="TPL-Wy-01m" firstAttribute="leading" secondItem="A26-6o-3O4" secondAttribute="leading" id="LXX-Sd-iiW"/>
                             <constraint firstItem="TPL-Wy-01m" firstAttribute="top" secondItem="62p-AX-LPt" secondAttribute="bottom" constant="8" id="XCs-pq-qsE"/>
                             <constraint firstItem="62p-AX-LPt" firstAttribute="leading" secondItem="A26-6o-3O4" secondAttribute="leading" id="e6x-k1-He8"/>
@@ -612,9 +620,11 @@
                             <constraint firstAttribute="trailing" secondItem="62p-AX-LPt" secondAttribute="trailing" id="pDN-XW-3O0"/>
                             <constraint firstItem="t7H-0I-tbt" firstAttribute="top" secondItem="rWw-J6-L0c" secondAttribute="bottom" id="uQJ-53-tE1"/>
                             <constraint firstItem="rWw-J6-L0c" firstAttribute="leading" secondItem="A26-6o-3O4" secondAttribute="leading" id="xD6-yI-5zr"/>
+                            <constraint firstItem="p1C-lh-ypb" firstAttribute="centerX" secondItem="A26-6o-3O4" secondAttribute="centerX" id="zyj-xC-xPX"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="p1C-lh-ypb" id="OAn-TW-l10"/>
                         <outlet property="searchBar" destination="TPL-Wy-01m" id="31s-Up-fmD"/>
                         <outlet property="tableView" destination="rWw-J6-L0c" id="kkV-Am-5Gv"/>
                         <outlet property="titleText" destination="zzp-s7-5nk" id="iI8-fb-4si"/>
@@ -721,6 +731,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loadAction:" destination="WT9-14-Jpq" eventType="touchUpInside" id="ire-Ky-wYZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

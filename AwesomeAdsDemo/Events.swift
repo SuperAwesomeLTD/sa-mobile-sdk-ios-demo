@@ -161,7 +161,7 @@ extension Event {
                 return Observable.just(Event.GotCreatives(creatives: creatives))
             }
             .catchError { error -> Observable<Event> in
-                return Observable.just(Event.UserProfileError)
+                return Observable.just(Event.GotCreatives(creatives: []))
             }
     }
 }
