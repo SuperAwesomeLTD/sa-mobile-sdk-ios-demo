@@ -14,7 +14,6 @@ func appReducer (_ previous: AppState, event: Event) -> AppState {
                     profileState: profileReducer(previous.profileState, event: event),
                     appState: appsReducer(previous.appState, event: event),
                     companiesState: companiesReducer(previous.companiesState, event: event),
-                    selectedCompany: selectedCompanyReducer(previous.selectedCompany, event: event),
                     selectedPlacement: selectedPlacementReducer(previous.selectedPlacement, event: event),
                     creativesState: creativesReducer(previous.creativesState, event: event),
                     adState: adStateReducer(previous.adState, event: event))
@@ -89,18 +88,11 @@ func companiesReducer (_ previous: CompaniesState, event: Event) -> CompaniesSta
     case .LoadingCompanies:
         state.isLoading = true
         return state
+    case .SelectCompany(let company):
+        state.selectedCompany = company
+        return state
     default:
         return state
-    }
-}
-
-func selectedCompanyReducer (_ previous: Int?, event: Event) -> Int? {
-    
-    switch event {
-    case .SelectCompany(let company):
-        return company
-    default:
-        return previous
     }
 }
 

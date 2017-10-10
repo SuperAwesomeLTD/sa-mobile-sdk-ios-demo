@@ -37,7 +37,7 @@ class CompaniesController: SABaseViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
-        didSelect(companyId: store.companyId)
+        didSelect(company: store.company)
     }
     
     override func handle(_ state: AppState) {
@@ -53,8 +53,8 @@ class CompaniesController: SABaseViewController {
 
 extension CompaniesController: CompaniesDataSourceDelegate {
     
-    func didSelect(companyId comp: Int?) {
-        store?.dispatch(Event.SelectCompany(companyId: comp))
+    func didSelect(company comp: Company) {
+        store?.dispatch(Event.SelectCompany(company: comp))
         self.navigationController?.popViewController(animated: true)
     }
 }

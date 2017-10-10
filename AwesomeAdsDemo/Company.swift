@@ -14,6 +14,10 @@ class Company: Mappable {
     var id: Int?
     var name: String?
     
+    init(withId id: Int) {
+        self.id = id
+    }
+    
     required public init?(map: Map) {
         // do nothing
     }

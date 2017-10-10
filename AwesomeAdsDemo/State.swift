@@ -14,7 +14,6 @@ struct AppState: State {
     var profileState: UserProfile?
     var appState = LoadedAppsState()
     var companiesState = CompaniesState()
-    var selectedCompany: Int?
     var selectedPlacement: Int?
     var creativesState = CreativesState()
     var adState = AdState()
@@ -56,6 +55,7 @@ struct LoadedAppsState: State {
 
 struct CompaniesState: State {
     var companies: [Company] = []
+    var selectedCompany: Company?
     var isLoading: Bool = false 
     var search: String?
     var filtered: [Company] {

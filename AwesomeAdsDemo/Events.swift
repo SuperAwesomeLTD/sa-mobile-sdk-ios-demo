@@ -28,8 +28,7 @@ enum Event {
     case LoadingCompanies
     case GotCompanies(comps: [Company])
     case FilterCompanies(withSearchTerm: String?)
-    // select company
-    case SelectCompany(companyId: Int?)
+    case SelectCompany(company: Company)
     // select placement
     case SelectPlacement(placementId: Int?)
     // creatives

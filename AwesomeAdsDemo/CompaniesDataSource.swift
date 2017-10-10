@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CompaniesDataSourceDelegate {
-    func didSelect(companyId comp: Int?)
+    func didSelect(company comp: Company)
 }
 
 class CompaniesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
@@ -33,6 +33,7 @@ class CompaniesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = data[indexPath.row]
-        delegate?.didSelect(companyId: model.companyId)
+        let company = model.company
+        delegate?.didSelect(company: company)
     }
 }

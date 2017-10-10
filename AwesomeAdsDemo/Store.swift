@@ -77,8 +77,10 @@ extension Store {
         return current.profileState
     }
     
-    var companyId: Int {
-        return current.selectedCompany ?? current.profileState?.companyId ?? -1
+    var company: Company {
+        let defaultId = current.profileState?.companyId ?? -1
+        let defaultCompany = Company(withId: defaultId)
+        return current.companiesState.selectedCompany ?? defaultCompany
     }
 }
 

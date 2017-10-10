@@ -10,8 +10,8 @@ import UIKit
 
 class CompanyViewModel {
 
-    private var company: Company
     private var index: Int
+    var company: Company
     
     init(withCompany company: Company, atIndex i: Int) {
         self.company = company
