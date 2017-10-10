@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SAModelSpace
 
 func appReducer (_ previous: AppState, event: Event) -> AppState {
     return AppState(loginState: loginReducer(previous.loginState, event: event),
@@ -15,7 +16,8 @@ func appReducer (_ previous: AppState, event: Event) -> AppState {
                     companiesState: companiesReducer(previous.companiesState, event: event),
                     selectedCompany: selectedCompanyReducer(previous.selectedCompany, event: event),
                     selectedPlacement: selectedPlacementReducer(previous.selectedPlacement, event: event),
-                    creativesState: creativesReducer(previous.creativesState, event: event))
+                    creativesState: creativesReducer(previous.creativesState, event: event),
+                    adState: adStateReducer(previous.adState, event: event))
 }
 
 func loginReducer (_ previous: LoginState, event: Event) -> LoginState {
@@ -122,7 +124,24 @@ func creativesReducer (_ previous: CreativesState, event: Event) -> CreativesSta
     case .FilterCreatives(let search):
         state.search = search
         return state
+    case .SelectCreative(let creative):
+        state.selectedCreative = creative
+        return state
     default:
         return state
     }
 }
+
+func adStateReducer (_ previous: AdState, event: Event) -> AdState {
+    var state = previous
+    switch event {
+    case .GotResponse(let response, let format):
+        state.response = response
+        state.format = format
+        return state
+    default:
+        return state
+    }
+}
+
+

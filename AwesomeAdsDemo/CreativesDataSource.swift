@@ -10,7 +10,7 @@ import UIKit
 import SAModelSpace
 
 protocol CreativesDataSourceDelegate {
-    func didSelect(placementId id: Int?, andCreative: SACreative)
+    func didSelect(placementId id: Int?, andCreative creative: SACreative)
 }
 
 class CreativesDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {

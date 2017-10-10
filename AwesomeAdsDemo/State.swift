@@ -17,6 +17,7 @@ struct AppState: State {
     var selectedCompany: Int?
     var selectedPlacement: Int?
     var creativesState = CreativesState()
+    var adState = AdState()
 }
 
 struct LoginState: State {
@@ -67,11 +68,17 @@ struct CompaniesState: State {
 struct CreativesState: State {
     var creatives: [SACreative] = []
     var search: String?
+    var selectedCreative: SACreative?
     var filtered: [SACreative] {
         return creatives.filter { creative -> Bool in
             return selectWith(searchTerm: search, searchItem: creative.name)
         }
     }
+}
+
+struct AdState: State {
+    var response: SAResponse?
+    var format = AdFormat.unknown
 }
 
 extension State {

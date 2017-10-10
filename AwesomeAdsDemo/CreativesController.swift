@@ -58,24 +58,11 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
         }
     }
     
-    func didSelect(placementId id: Int?, andCreative: SACreative) {
-        
-        self.searchBar.resignFirstResponder()
-        
-        let ad = SAAd ()
-        ad.lineItemId = 10000;
-        ad.creative = andCreative
-        if ad.creative.format == .tag && ad.creative.details.format.contains("video") {
-            ad.creative.format = .video
-            ad.creative.details.vast = ad.creative.details.tag
-        }
-        
-        self.performSegue("CreativesToSettings")
-            .subscribe(onNext: { (dest: SettingsController) in
-                dest.ad = ad
-            })
-            .addDisposableTo(self.disposeBag)
+    func didSelect(placementId id: Int?, andCreative creative: SACreative) {
 
+        self.searchBar.resignFirstResponder()
+        store.dispatch(Event.SelectCreative(creative: creative))
+        self.performSegue("CreativesToSettings")
     }
 }
 

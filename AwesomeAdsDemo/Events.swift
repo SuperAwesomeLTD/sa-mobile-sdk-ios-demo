@@ -35,6 +35,9 @@ enum Event {
     // creatives
     case GotCreatives(creatives: [SACreative])
     case FilterCreatives(withSearchTerm: String?)
+    // selected ad & response for settings
+    case SelectCreative(creative: SACreative)
+    case GotResponse(response: SAResponse?, format: AdFormat)
 }
 
 extension Event {
@@ -47,7 +50,6 @@ extension Event {
         }
         
         return Observable.just(Event.GotJwtToken(token: jwtToken))
-        
     }
 }
 
@@ -160,6 +162,34 @@ extension Event {
             }
             .catchError { error -> Observable<Event> in
                 return Observable.just(Event.UserProfileError)
+            }
+    }
+}
+
+extension Event {
+    static func loadAdResponse (forCreative creative: SACreative?) -> Observable<Event> {
+        
+        // return error if not a valid creative somehow
+        guard let creative = creative else {
+            return Observable.just(Event.GotResponse(response: nil, format: AdFormat.unknown))
+        }
+        
+        // form the ad
+        let ad = SAAd ()
+        ad.lineItemId = 10000;
+        ad.creative = creative
+        if ad.creative.format == .tag && ad.creative.details.format.contains("video") {
+            ad.creative.format = .video
+            ad.creative.details.vast = ad.creative.details.tag
+        }
+
+        return SALoader.processAd(ad: ad)
+            .flatMap { (response: SAResponse) -> Observable<Event> in
+                let format = AdFormat.fromResponse(response)
+                return Observable.just(Event.GotResponse(response: response, format: format))
+            }
+            .catchError { error -> Observable<Event> in
+                return Observable.just(Event.GotResponse(response: nil, format: AdFormat.unknown))
             }
     }
 }

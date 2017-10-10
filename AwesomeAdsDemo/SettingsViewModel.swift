@@ -2,61 +2,147 @@
 //  SettingsViewModel.swift
 //  AwesomeAdsDemo
 //
-//  Created by Gabriel Coman on 28/11/2016.
-//  Copyright © 2016 Gabriel Coman. All rights reserved.
+//  Created by Gabriel Coman on 10/10/2017.
+//  Copyright © 2017 Gabriel Coman. All rights reserved.
 //
 
 import UIKit
 
 class SettingsViewModel: NSObject {
 
-    // member vars
-    private var item: String?
-    private var details: String?
-    private var value: Bool?
-    private var active: Bool = false
+    private let KEY_PARENTAL_GATE = 1
+    private let KEY_TRANSPARENT_BG = 2
+    private let KEY_LOCK_PORTRAIT = 3
+    private let KEY_LOCK_LANSCAPE = 4
+    private let KEY_CLOSE_BUTTON = 5
+    private let KEY_AUTO_CLOSE = 6
+    private let KEY_SMALL_CLICK = 7
     
-    init(item: String, details: String, value: Bool) {
-        super.init()
-        self.item = item
-        self.details = details
-        self.value = value
+    private var settingsDict: [Int:SettingViewModel] = [:]
+    
+    override init() {
+        settingsDict = [
+            KEY_PARENTAL_GATE   : SettingViewModel(item: "page_settings_row_pg_gate_title".localized,
+                                                   details: "page_settings_row_pg_gate_details".localized,
+                                                   value: true,
+                                                   index: KEY_PARENTAL_GATE),
+            KEY_TRANSPARENT_BG  : SettingViewModel(item: "page_settings_row_bg_color_title".localized,
+                                                   details: "page_settings_row_bg_color_details".localized,
+                                                   value: false,
+                                                   index: KEY_TRANSPARENT_BG),
+            KEY_LOCK_PORTRAIT   : SettingViewModel(item: "page_settings_row_lock_portrait_title".localized,
+                                                   details: "page_settings_row_lock_portrait_details".localized,
+                                                   value: false,
+                                                   index: KEY_LOCK_PORTRAIT),
+            KEY_LOCK_LANSCAPE   : SettingViewModel(item: "page_settings_row_lock_landscape_title".localized,
+                                                   details: "page_settings_row_lock_landscape_details".localized,
+                                                   value: false,
+                                                   index: KEY_LOCK_LANSCAPE),
+            KEY_CLOSE_BUTTON    : SettingViewModel(item: "page_settings_row_close_button_title".localized,
+                                                   details: "page_settings_row_close_button_details".localized,
+                                                   value: false,
+                                                   index: KEY_CLOSE_BUTTON),
+            KEY_AUTO_CLOSE      : SettingViewModel(item: "page_settings_row_auto_close_title".localized,
+                                                   details: "page_settings_row_auto_close_details".localized,
+                                                   value: true,
+                                                   index: KEY_AUTO_CLOSE),
+            KEY_SMALL_CLICK     : SettingViewModel(item: "page_settings_row_small_click_title".localized,
+                                                   details: "page_settings_row_small_click_details".localized,
+                                                   value: false,
+                                                   index: KEY_SMALL_CLICK),
+        ]
     }
     
-    func getItemTitle() -> String {
-        if let item = item {
-            return item
-        } else {
-            return "Item"
+    var viewModels: [SettingViewModel] = []
+    var adFormat: AdFormat = AdFormat.unknown {
+        didSet {
+            getParentalGate().setActive(true)
+            
+            switch (adFormat) {
+            case .unknown:
+                getParentalGate().setActive(false)
+                break
+            case .smallbanner, .normalbanner, .bigbanner,  .mpu:
+                getTransparentBg().setActive(true)
+                break
+            case .mobile_portrait_interstitial,
+                 .mobile_landscape_interstitial,
+                 .tablet_portrait_interstitial,
+                 .tablet_landscape_interstitial:
+                getLockToPortrait().setActive(true)
+                getLockToLandscape().setActive(true)
+                break
+            case .video:
+                getLockToPortrait().setActive(true)
+                getLockToLandscape().setActive(true)
+                getCloseButton().setActive(true)
+                getAutoClose().setActive(true)
+                getSmallClick().setActive(true)
+                break
+            case .gamewall: break
+            }
+            
+            for i in 1...7 {
+                if let setting = self.settingsDict[i] as SettingViewModel!, setting.getActive() {
+                    viewModels.append(setting)
+                }
+            }
         }
     }
     
-    func getItemDetails () -> String {
-        if let details = details {
-            return details
-        } else {
-            return "Details"
-        }
+    func getParentalGate () -> SettingViewModel {
+        return settingsDict[KEY_PARENTAL_GATE]!
     }
     
-    func getItemValue () -> Bool {
-        if let value = value {
-            return value
-        } else {
-            return false
-        }
+    func getTransparentBg () -> SettingViewModel {
+        return settingsDict[KEY_TRANSPARENT_BG]!
     }
     
-    func setValue (_ value: Bool) {
-        self.value = value
+    func getLockToPortrait () -> SettingViewModel {
+        return settingsDict[KEY_LOCK_PORTRAIT]!
     }
     
-    func setActive (_ active: Bool) {
-        self.active = active
+    func getLockToLandscape () -> SettingViewModel {
+        return settingsDict[KEY_LOCK_LANSCAPE]!
     }
     
-    func getActive () -> Bool {
-        return active
+    func getCloseButton () -> SettingViewModel {
+        return settingsDict[KEY_CLOSE_BUTTON]!
     }
     
+    func getAutoClose () -> SettingViewModel {
+        return settingsDict[KEY_AUTO_CLOSE]!
+    }
+    
+    func getSmallClick () -> SettingViewModel {
+        return settingsDict[KEY_SMALL_CLICK]!
+    }
+    
+    func getParentalGateValue () -> Bool {
+        return getParentalGate().getItemValue()
+    }
+    
+    func getTransparentBgValue () -> Bool {
+        return getTransparentBg().getItemValue()
+    }
+    
+    func getLockToPortraitValue () -> Bool {
+        return getLockToPortrait().getItemValue()
+    }
+    
+    func getLockToLandscapeValue () -> Bool {
+        return getLockToLandscape().getItemValue()
+    }
+    
+    func getCloseButtonValue () -> Bool {
+        return getCloseButton().getItemValue()
+    }
+    
+    func getAutoCloseValue () -> Bool {
+        return getAutoClose().getItemValue()
+    }
+    
+    func getSmallClickValue () -> Bool {
+        return getSmallClick().getItemValue()
+    }
 }
