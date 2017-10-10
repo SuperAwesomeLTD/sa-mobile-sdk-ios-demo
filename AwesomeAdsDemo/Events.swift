@@ -151,9 +151,12 @@ extension Event {
 }
 
 extension Event {
-    static func loadCreatives (forPlacementId placementId: Int) -> Observable<Event> {
+    static func loadCreatives (forPlacementId placementId: Int, andJwtToken token: String) -> Observable<Event> {
         
-        return SALoader.loadCreatives(placementId: placementId)
+        let request = LoadCreativesRequest(placementId: placementId, token: token)
+        let task = LoadCreativesTask()
+        
+        return task.execute(withInput: request)
             .toArray()
             .flatMap { (creatives: [SACreative]) -> Observable<Event> in
                 return Observable.just(Event.GotCreatives(creatives: creatives))
@@ -181,14 +184,18 @@ extension Event {
             ad.creative.details.vast = ad.creative.details.tag
         }
 
-        return SALoader.processAd(ad: ad)
-            .flatMap { (response: SAResponse) -> Observable<Event> in
+        let request = ProcessAdRequest(ad: ad)
+        let task = ProcessAdTask()
+        
+        return task.execute(withInput: request)
+            .flatMap { (response: SAResponse) -> Single<Event> in
                 let format = AdFormat.fromResponse(response)
-                return Observable.just(Event.GotResponse(response: response, format: format))
+                return Single.just(Event.GotResponse(response: response, format: format))
             }
-            .catchError { error -> Observable<Event> in
-                return Observable.just(Event.GotResponse(response: nil, format: AdFormat.unknown))
+            .catchError { error -> Single<Event> in
+                return Single.just(Event.GotResponse(response: nil, format: AdFormat.unknown))
             }
+            .asObservable()
     }
 }
 

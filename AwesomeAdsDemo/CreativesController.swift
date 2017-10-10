@@ -38,7 +38,9 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        store.dispatch(Event.loadCreatives(forPlacementId: store.selectedPlacement))
+        let placement = store.selectedPlacement
+        let token = store.current.loginState.jwtToken!
+        store.dispatch(Event.loadCreatives(forPlacementId: placement, andJwtToken: token))
     }
 
     @IBAction func backAction(_ sender: Any) {
