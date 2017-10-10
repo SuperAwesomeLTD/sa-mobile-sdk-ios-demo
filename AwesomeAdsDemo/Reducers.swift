@@ -14,7 +14,6 @@ func appReducer (_ previous: AppState, event: Event) -> AppState {
                     profileState: profileReducer(previous.profileState, event: event),
                     appState: appsReducer(previous.appState, event: event),
                     companiesState: companiesReducer(previous.companiesState, event: event),
-                    selectedPlacement: selectedPlacementReducer(previous.selectedPlacement, event: event),
                     creativesState: creativesReducer(previous.creativesState, event: event),
                     adState: adStateReducer(previous.adState, event: event))
 }
@@ -68,6 +67,9 @@ func appsReducer (_ previous: LoadedAppsState, event: Event) -> LoadedAppsState 
     case .FilterApps(let search):
         state.search = search
         return state
+    case .SelectPlacement(let placement):
+        state.selectedPlacement = placement
+        return state
     default:
         return state
     }
@@ -93,15 +95,6 @@ func companiesReducer (_ previous: CompaniesState, event: Event) -> CompaniesSta
         return state
     default:
         return state
-    }
-}
-
-func selectedPlacementReducer (_ previous: Int?, event: Event) -> Int? {
-    switch event {
-    case .SelectPlacement(let placement):
-        return placement
-    default:
-        return previous
     }
 }
 

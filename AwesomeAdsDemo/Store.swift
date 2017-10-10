@@ -82,5 +82,9 @@ extension Store {
         let defaultCompany = Company(withId: defaultId)
         return current.companiesState.selectedCompany ?? defaultCompany
     }
+    
+    var selectedPlacement: Int {
+        return current.appState.selectedPlacement ?? -1
+    }
 }
 

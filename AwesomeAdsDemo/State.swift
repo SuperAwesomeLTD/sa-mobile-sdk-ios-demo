@@ -14,7 +14,6 @@ struct AppState: State {
     var profileState: UserProfile?
     var appState = LoadedAppsState()
     var companiesState = CompaniesState()
-    var selectedPlacement: Int?
     var creativesState = CreativesState()
     var adState = AdState()
 }
@@ -28,6 +27,7 @@ struct LoginState: State {
 
 struct LoadedAppsState: State {
     var apps: [App] = []
+    var selectedPlacement: Int?
     var search: String?
     var error: AAError?
     var filtered: [App] {

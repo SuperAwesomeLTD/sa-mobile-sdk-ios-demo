@@ -21,21 +21,20 @@ enum Event {
     // profile
     case GotUserProfile(profile: UserProfile)
     case UserProfileError
-    // apps
+    // apps & placements
     case GotAppsForCompany(apps: [App])
     case FilterApps(withSearchTerm: String?)
+    case SelectPlacement(placementId: Int?)
     // companies
     case LoadingCompanies
     case GotCompanies(comps: [Company])
     case FilterCompanies(withSearchTerm: String?)
     case SelectCompany(company: Company)
-    // select placement
-    case SelectPlacement(placementId: Int?)
     // creatives
     case GotCreatives(creatives: [SACreative])
     case FilterCreatives(withSearchTerm: String?)
-    // selected ad & response for settings
     case SelectCreative(creative: SACreative)
+    // selected ad & response for settings
     case GotResponse(response: SAResponse?, format: AdFormat)
 }
 
