@@ -75,7 +75,7 @@ class SettingsController: SABaseViewController {
         let adState = state.adState
         
         if adState.format == .unknown {
-            // showError ()
+            self.showError ()
         }
         
         viewModel.adFormat = adState.format
@@ -136,5 +136,19 @@ extension SettingsController {
         SAVideoAd.setSmallClick(provider.getSmallClickValue())
         SAVideoAd.setAd(ad)
         SAVideoAd.play(ad.placementId, fromVC: self)
+    }
+}
+
+extension SettingsController {
+    
+    fileprivate func showError () {
+        SAAlert.getInstance().show(withTitle: "page_creatives_popup_error_load_title".localized,
+                                   andMessage: "page_creatives_popup_error_load_message".localized,
+                                   andOKTitle: "page_creatives_popup_error_load_ok_button".localized,
+                                   andNOKTitle: nil,
+                                   andTextField: false,
+                                   andKeyboardTyle: .default) { (pos, val) in
+                                    _ = self.navigationController?.popViewController(animated: true)
+        }
     }
 }

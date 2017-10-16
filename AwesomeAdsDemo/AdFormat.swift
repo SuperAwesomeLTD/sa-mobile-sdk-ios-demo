@@ -83,7 +83,7 @@ enum AdFormat {
                 return .gamewall
             case .image, .tag, .rich, .invalid:
                 
-                if (creative.details.format.contains("video")) {
+                if let format = creative.details.format, format.contains("video") {
                     return .video
                 }
                 else {
@@ -94,8 +94,8 @@ enum AdFormat {
                     case (300, 50): return .smallbanner
                     case (320, 50): return .banner
                     
-                    case (728, 90): return .leaderboard
                     case (468, 60): return .smallleaderboard
+                    case (728, 90): return .leaderboard
                     case (970, 90): return .pushdown
                     case (970, 250): return .billboard
                         
@@ -144,8 +144,8 @@ enum AdFormat {
                     case (300, 50): return .smallbanner
                     case (320, 50): return .banner
                         
-                    case (728, 90): return .leaderboard
                     case (468, 60): return .smallleaderboard
+                    case (728, 90): return .leaderboard
                     case (970, 90): return .pushdown
                     case (970, 250): return .billboard
                         
@@ -184,8 +184,8 @@ enum AdFormat {
             case (300, 50): return .smallbanner
             case (320, 50): return .banner
                 
-            case (728, 90): return .leaderboard
             case (468, 60): return .smallleaderboard
+            case (728, 90): return .leaderboard
             case (970, 90): return .pushdown
             case (970, 250): return .billboard
                 

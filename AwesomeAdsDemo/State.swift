@@ -61,7 +61,13 @@ struct CompaniesState: State {
     var filtered: [Company] {
         return companies.filter { company -> Bool in
             return selectWith(searchTerm: search, searchItem: company.name)
-        }
+            }.sorted { c1, c2 -> Bool in
+                if let n1 = c1.name, let n2 = c2.name {
+                    return n1.uppercased() < n2.uppercased()
+                } else {
+                    return true
+                }
+            }
     }
 }
 
@@ -72,7 +78,9 @@ struct CreativesState: State {
     var filtered: [SACreative] {
         return creatives.filter { creative -> Bool in
             return selectWith(searchTerm: search, searchItem: creative.name)
-        }
+            }.sorted { c1, c2 -> Bool in
+                return c1.name.uppercased() < c2.name.uppercased()
+            }
     }
 }
 
