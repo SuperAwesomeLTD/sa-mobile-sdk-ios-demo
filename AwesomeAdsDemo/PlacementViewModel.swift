@@ -42,36 +42,29 @@ class PlacementViewModel {
     
     var placementIcon: UIImage? {
         
-        if let format = self.placement.format, format == "video" {
-            return UIImage(named: "video")
+        let format = AdFormat.fromPlacement(placement: self.placement)
+        var localUrl: String = ""
+        
+        switch format {
+        case .unknown: localUrl = "icon_placeholder"; break;
+        case .smallbanner: localUrl = "smallbanner"; break;
+        case .banner: localUrl = "banner"; break
+        case .smallleaderboard: localUrl = "imac468x60"; break;
+        case .leaderboard: localUrl = "leaderboard"; break
+        case .pushdown: localUrl = "imac970x90"; break;
+        case .billboard: localUrl = "imac970x250"; break;
+        case .skinnysky: localUrl = "imac120x600"; break
+        case .sky: localUrl = "imac300x600"; break;
+        case .mpu: localUrl = "mpu"; break;
+        case .doublempu: localUrl = "imac300x600"; break;
+        case .mobile_portrait_interstitial: localUrl = "small_inter_port"; break;
+        case .mobile_landscape_interstitial: localUrl = "small_inter_land"; break;
+        case .tablet_portrait_interstitial: localUrl = "large_inter_port"; break;
+        case .tablet_landscape_interstitial: localUrl = "large_inter_land"; break;
+        case .video: localUrl = "video"; break;
+        case .gamewall: localUrl = "appwall"; break;
         }
-        else if let _ = self.placement.format,
-            let width = self.placement.width,
-            let height = self.placement.height {
-            
-            switch (width, height) {
-            case (720, 90): return UIImage(named: "leaderboard")
-            case (300, 250): return UIImage(named: "mpu")
-            case (468, 60): return UIImage(named: "imac468x60")
-            case (120, 600): return UIImage(named: "imac120x600")
-            case (300, 600): return UIImage(named: "imac300x600")
-            case (160, 600): return UIImage(named: "imac160x600")
-            case (970, 250): return UIImage(named: "imac970x250")
-            case (970, 90): return UIImage(named: "imac970x90")
-            case (300, 50): return UIImage(named: "smallbanner")
-            case (320, 50): return UIImage(named: "banner")
-            case (728, 90): return UIImage(named: "leaderboard")
-            case (320, 480): return UIImage(named: "small_inter_port")
-            case (400, 600): return UIImage(named: "small_inter_port")
-            case (768, 1024): return UIImage(named: "large_inter_port")
-            case (480, 320): return UIImage(named: "small_inter_land")
-            case (600, 400): return UIImage(named: "small_inter_land")
-            case (1024, 768): return UIImage(named: "large_inter_land")
-            default: return UIImage(named: "icon_placeholder")
-            }
-        }
-        else {
-            return UIImage(named: "icon_placeholder")
-        }
+        
+        return UIImage(named: localUrl)
     }
 }

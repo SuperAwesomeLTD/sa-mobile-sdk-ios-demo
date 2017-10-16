@@ -94,6 +94,7 @@ extension SettingsController {
             .subscribe(onNext: { (dest: DisplayController) in
                 
                 dest.parentalGate = provider.getParentalGateValue()
+                dest.bumperPage = provider.getBumperPageValue()
                 dest.bgColor = provider.getTransparentBgValue()
                 dest.format = format
                 dest.response = response
@@ -110,6 +111,7 @@ extension SettingsController {
         let ad = response.ads.object(at: 0) as! SAAd
         
         SAInterstitialAd.setParentalGate(provider.getParentalGateValue())
+        SAInterstitialAd.setBumperPage(provider.getBumperPageValue())
         SAInterstitialAd.setOrientation(
             provider.getLockToLandscapeValue() ? .LANDSCAPE :
                 provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)
@@ -125,6 +127,7 @@ extension SettingsController {
         let ad = response.ads.object(at: 0) as! SAAd
 
         SAVideoAd.setParentalGate(provider.getParentalGateValue())
+        SAVideoAd.setBumperPage(provider.getBumperPageValue())
         SAVideoAd.setOrientation(
             provider.getLockToLandscapeValue() ? .LANDSCAPE :
                 provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)

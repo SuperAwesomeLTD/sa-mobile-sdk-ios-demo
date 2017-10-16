@@ -18,7 +18,7 @@ class SettingRow: UITableViewCell {
     
     var viewModel: SettingViewModel! {
         didSet {
-            backgroundColor = viewModel.getIndex() % 2 == 0 ? UIColor.white : UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1)
+            backgroundColor = viewModel.getIndex() % 2 == 0 ? UIColor.white : UIColor(rgb: 0xf7f7f7)
             settingsItem.text = viewModel.getItemTitle()
             settingsDescription.text = viewModel.getItemDetails()
             settingsSwitch.isOn = viewModel.getItemValue()

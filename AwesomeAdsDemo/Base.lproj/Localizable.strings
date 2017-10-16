@@ -63,6 +63,9 @@
 "page_settings_row_small_click_title" = "Small click button";
 "page_settings_row_small_click_details" = "Enabling this setting will provide a video ad a small button in the bottom-left side of the screen to direct the user to the click through. This setting is disabled by default, and the full video surface is clickable.";
 
+"page_settings_row_bumper_page_title" = "Bumper page enabled";
+"page_settings_row_bumper_page_details" = "Enabling this setting means that users will be greeted by a Bumper Page that countdowns 3 seconds before proceeding to the click through destination.";
+
 "page_settings_popup_error_title" = "Oops!";
 "page_settings_popup_error_message" = "It seems the Placement ID you wanted to load an ad for doesn't contain any actual ads. Please try again!";
 "page_settings_popup_error_ok_button" = "Got it!";

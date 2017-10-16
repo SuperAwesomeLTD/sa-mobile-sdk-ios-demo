@@ -7,10 +7,7 @@ class CreativeViewModel: NSObject {
     private var adFormat: AdFormat = .unknown
     private var creative: SACreative!
     private var index: Int = 0
-    
-    private var imageThumbnailUrl: String?
-    private var videoMidpointThumbnailUrl: String?
-    private var videoStartThumbnailUrl: String?
+    private var remoteUrl: String?
     private var localUrl: String!
     
     init (withCreative creative: SACreative, atIndex index: Int) {
@@ -23,7 +20,7 @@ class CreativeViewModel: NSObject {
             // do nothing
             break
         case .image:
-            imageThumbnailUrl = creative.details.image
+            remoteUrl = creative.details.image
             break
         case .video:
             let videoUrl = creative.details.video
@@ -31,48 +28,30 @@ class CreativeViewModel: NSObject {
                 let parts = videoUrl?.components(separatedBy: "/")
                 if let parts = parts, parts.count > 0 {
                     let startName = parts[parts.count - 1].replacingOccurrences(of: ".mp4", with: "-low-00001.jpg")
-                    videoStartThumbnailUrl = cdnUrl + startName
-                    let midpointName = parts[parts.count - 1].replacingOccurrences(of: ".mp4", with: "-low-00002.jpg")
-                    videoMidpointThumbnailUrl = cdnUrl + midpointName
+                    remoteUrl = cdnUrl + startName
                 }
             }
             break
         }
         
         switch adFormat {
-        case .unknown:
-            localUrl = "icon_placeholder"
-            break
-        case .smallbanner:
-            localUrl = "smallbanner"
-            break
-        case .normalbanner:
-            localUrl = "banner"
-            break
-        case .bigbanner:
-            localUrl = "leaderboard"
-            break
-        case .mpu:
-            localUrl = "mpu"
-            break
-        case .mobile_portrait_interstitial:
-            localUrl = "small_inter_port"
-            break
-        case .mobile_landscape_interstitial:
-            localUrl = "small_inter_land"
-            break
-        case .tablet_portrait_interstitial:
-            localUrl = "large_inter_port"
-            break
-        case .tablet_landscape_interstitial:
-            localUrl = "large_inter_land"
-            break
-        case .video:
-            localUrl = "video"
-            break
-        case .gamewall:
-            localUrl = "appwall"
-            break
+        case .unknown: localUrl = "icon_placeholder"; break;
+        case .smallbanner: localUrl = "smallbanner"; break;
+        case .banner: localUrl = "banner"; break
+        case .smallleaderboard: localUrl = "imac468x60"; break;
+        case .leaderboard: localUrl = "leaderboard"; break
+        case .pushdown: localUrl = "imac970x90"; break;
+        case .billboard: localUrl = "imac970x250"; break;
+        case .skinnysky: localUrl = "imac120x600"; break
+        case .sky: localUrl = "imac300x600"; break;
+        case .mpu: localUrl = "mpu"; break;
+        case .doublempu: localUrl = "imac300x600"; break;
+        case .mobile_portrait_interstitial: localUrl = "small_inter_port"; break;
+        case .mobile_landscape_interstitial: localUrl = "small_inter_land"; break;
+        case .tablet_portrait_interstitial: localUrl = "large_inter_port"; break;
+        case .tablet_landscape_interstitial: localUrl = "large_inter_land"; break;
+        case .video: localUrl = "video"; break;
+        case .gamewall: localUrl = "appwall"; break;
         }
     }
     
@@ -118,16 +97,12 @@ class CreativeViewModel: NSObject {
         return localUrl!
     }
     
-    func getImageThumbnailUrl () -> String? {
-        return imageThumbnailUrl
-    }
-    
-    func getVideoMidpointThumbnailUrl () -> String? {
-        return videoMidpointThumbnailUrl
-    }
-    
-    func getVideoStartThumbnailUrl () -> String? {
-        return videoStartThumbnailUrl
+    func getRemoteUrl () -> URL? {
+        if let url = remoteUrl {
+            return URL(string: url)
+        } else {
+            return nil
+        }
     }
     
     func getCreative () -> SACreative {
@@ -146,7 +121,7 @@ class CreativeViewModel: NSObject {
     
     var backgroundColor: UIColor {
         return index % 2 == 0 ?
-            UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) :
+            UIColor(rgb: 0xf7f7f7) :
             UIColor.white
     }
 }

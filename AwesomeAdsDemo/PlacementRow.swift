@@ -23,10 +23,10 @@ class PlacementRow: UITableViewCell {
     
     var viewModel: PlacementViewModel! {
         didSet {
-            self.placementName.text = viewModel.placementName
-            self.placementID.text = viewModel.placementId
-            self.placementSize.text = viewModel.placementSize
-            self.placementIcon.image = viewModel.placementIcon
+            placementName.text = viewModel.placementName
+            placementID.text = viewModel.placementId
+            placementSize.text = viewModel.placementSize
+            placementIcon.image = viewModel.placementIcon
         }
     }
 }

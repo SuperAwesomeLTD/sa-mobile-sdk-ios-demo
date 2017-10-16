@@ -35,11 +35,11 @@ class SATextField: UITextField, UITextFieldDelegate {
     }
     
     private func setGrayBorder () {
-        border?.backgroundColor = UIColor(colorLiteralRed: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        border?.backgroundColor = UIColor(rgb: 0xcccccc)
     }
     
     private func setGreenBorder () {
-        border?.backgroundColor = UIColor(colorLiteralRed: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        border?.backgroundColor = UIColor(rgb: 0x333333)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

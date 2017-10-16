@@ -20,7 +20,7 @@ class CompanyViewModel {
     
     var backgroundColor: UIColor {
         return index % 2 == 0 ?
-            UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1) :
+            UIColor(rgb: 0xf7f7f7) :
             UIColor.white
     }
     

@@ -21,6 +21,7 @@ class DisplayController: SABaseViewController {
     
     var response: SAResponse?
     var parentalGate: Bool = false
+    var bumperPage: Bool = false
     var bgColor: Bool = false
     var format: AdFormat = .unknown
     
@@ -42,19 +43,22 @@ class DisplayController: SABaseViewController {
         let ad: SAAd = response?.ads.object(at: 0) as! SAAd
         
         switch format {
-        case .smallbanner, .normalbanner:
+        case .smallbanner, .banner:
+            normalAndSmallBanner.setBumperPage(bumperPage)
             normalAndSmallBanner.setParentalGate(parentalGate)
             normalAndSmallBanner.setColor(bgColor)
             normalAndSmallBanner.setAd(ad)
             normalAndSmallBanner.play()
             break
-        case .bigbanner:
+        case .smallleaderboard, .leaderboard, .pushdown, .billboard:
+            bigBanner.setBumperPage(bumperPage)
             bigBanner.setParentalGate(parentalGate)
             bigBanner.setColor(bgColor)
             bigBanner.setAd(ad)
             bigBanner.play()
             break
-        case .mpu:
+        case .mpu, .doublempu, .skinnysky, .sky:
+            mpuBanner.setBumperPage(bumperPage)
             mpuBanner.setParentalGate(parentalGate)
             mpuBanner.setColor(bgColor)
             mpuBanner.setAd(ad)

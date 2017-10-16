@@ -11,12 +11,13 @@ import UIKit
 class SettingsViewModel: NSObject {
 
     private let KEY_PARENTAL_GATE = 1
-    private let KEY_TRANSPARENT_BG = 2
-    private let KEY_LOCK_PORTRAIT = 3
-    private let KEY_LOCK_LANSCAPE = 4
-    private let KEY_CLOSE_BUTTON = 5
-    private let KEY_AUTO_CLOSE = 6
-    private let KEY_SMALL_CLICK = 7
+    private let KEY_BUMPER_PAGE = 2
+    private let KEY_TRANSPARENT_BG = 3
+    private let KEY_LOCK_PORTRAIT = 4
+    private let KEY_LOCK_LANSCAPE = 5
+    private let KEY_CLOSE_BUTTON = 6
+    private let KEY_AUTO_CLOSE = 7
+    private let KEY_SMALL_CLICK = 8
     
     private var settingsDict: [Int:SettingViewModel] = [:]
     
@@ -24,8 +25,12 @@ class SettingsViewModel: NSObject {
         settingsDict = [
             KEY_PARENTAL_GATE   : SettingViewModel(item: "page_settings_row_pg_gate_title".localized,
                                                    details: "page_settings_row_pg_gate_details".localized,
-                                                   value: true,
+                                                   value: false,
                                                    index: KEY_PARENTAL_GATE),
+            KEY_BUMPER_PAGE     : SettingViewModel(item: "page_settings_row_bumper_page_title".localized,
+                                                   details: "page_settings_row_bumper_page_details".localized,
+                                                   value: false,
+                                                   index: KEY_BUMPER_PAGE),
             KEY_TRANSPARENT_BG  : SettingViewModel(item: "page_settings_row_bg_color_title".localized,
                                                    details: "page_settings_row_bg_color_details".localized,
                                                    value: false,
@@ -56,34 +61,25 @@ class SettingsViewModel: NSObject {
     var viewModels: [SettingViewModel] = []
     var adFormat: AdFormat = AdFormat.unknown {
         didSet {
+            
+            getBumperPage().setActive(true)
             getParentalGate().setActive(true)
             
-            switch (adFormat) {
-            case .unknown:
-                getParentalGate().setActive(false)
-                break
-            case .smallbanner, .normalbanner, .bigbanner,  .mpu:
+            if (adFormat.isBannerType()) {
                 getTransparentBg().setActive(true)
-                break
-            case .mobile_portrait_interstitial,
-                 .mobile_landscape_interstitial,
-                 .tablet_portrait_interstitial,
-                 .tablet_landscape_interstitial:
+            } else if (adFormat.isInterstitialType()) {
                 getLockToPortrait().setActive(true)
                 getLockToLandscape().setActive(true)
-                break
-            case .video:
+            } else if (adFormat.isVideoType()) {
                 getLockToPortrait().setActive(true)
                 getLockToLandscape().setActive(true)
                 getCloseButton().setActive(true)
                 getAutoClose().setActive(true)
                 getSmallClick().setActive(true)
-                break
-            case .gamewall: break
             }
             
             viewModels = []
-            for i in 1...7 {
+            for i in 1...8 {
                 if let setting = self.settingsDict[i] as SettingViewModel!, setting.getActive() {
                     viewModels.append(setting)
                 }
@@ -93,6 +89,10 @@ class SettingsViewModel: NSObject {
     
     func getParentalGate () -> SettingViewModel {
         return settingsDict[KEY_PARENTAL_GATE]!
+    }
+    
+    func getBumperPage () -> SettingViewModel {
+        return settingsDict[KEY_BUMPER_PAGE]!
     }
     
     func getTransparentBg () -> SettingViewModel {
@@ -121,6 +121,10 @@ class SettingsViewModel: NSObject {
     
     func getParentalGateValue () -> Bool {
         return getParentalGate().getItemValue()
+    }
+    
+    func getBumperPageValue () -> Bool {
+        return getBumperPage().getItemValue()
     }
     
     func getTransparentBgValue () -> Bool {
