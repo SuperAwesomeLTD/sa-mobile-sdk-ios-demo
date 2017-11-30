@@ -41,13 +41,14 @@ enum Event {
 extension Event {
     static func checkIsUserLoggedIn () -> Observable<Event> {
         
-        let token = UserDefaults.standard.string(forKey: "jwtToken")
-        
-        guard let jwtToken = token else {
+        if let jwtToken = UserDefaults.standard.string(forKey: "jwtToken"),
+           let metadata = UserMetadata.processMetadata(jwtToken: jwtToken),
+           metadata.isValid {
+            return Observable.just(Event.GotJwtToken(token: jwtToken))
+        }
+        else {
             return Observable.just(Event.NoJwtToken)
         }
-        
-        return Observable.just(Event.GotJwtToken(token: jwtToken))
     }
 }
 
