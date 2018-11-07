@@ -102,6 +102,29 @@ SPEC REPOS:
     - SAWebPlayer
     - SuperAwesome
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Crashlytics
+    - Fabric
+    - Kingfisher
+    - ObjectMapper
+    - RxCocoa
+    - RxSwift
+    - RxTableAndCollectionView
+    - SAAdLoader
+    - SABumperPage
+    - SAEvents
+    - SAJsonParser
+    - SAModelSpace
+    - SANetworking
+    - SAParentalGate
+    - SASession
+    - SAUtils
+    - SAVASTParser
+    - SAVideoPlayer
+    - SAWebPlayer
+    - SuperAwesome
+
 SPEC CHECKSUMS:
   Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
   Fabric: e6be012366472553807dada21243c5ab8d904151
@@ -125,6 +148,6 @@ SPEC CHECKSUMS:
   SAWebPlayer: ee76faded1a79e05098cacde55b97e64a98deed2
   SuperAwesome: e9cf9a7650aac2c9f4086e9d72bd96c4c61a627c
 
-PODFILE CHECKSUM: 2a766d3f8419fc32f426b219aa7bb6ed07ca2887
+PODFILE CHECKSUM: 4df415b4e36754adf613767a396e469d76d249d8
 
 COCOAPODS: 1.5.0
