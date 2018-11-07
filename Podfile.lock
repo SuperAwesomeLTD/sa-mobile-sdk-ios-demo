@@ -114,6 +114,7 @@ SPEC REPOS:
     - SAAdLoader
     - SABumperPage
     - SAEvents
+    - SAGDPRKisMinor
     - SAJsonParser
     - SAModelSpace
     - SANetworking
@@ -148,6 +149,6 @@ SPEC CHECKSUMS:
   SAWebPlayer: ee76faded1a79e05098cacde55b97e64a98deed2
   SuperAwesome: e9cf9a7650aac2c9f4086e9d72bd96c4c61a627c
 
-PODFILE CHECKSUM: 4df415b4e36754adf613767a396e469d76d249d8
+PODFILE CHECKSUM: 2a766d3f8419fc32f426b219aa7bb6ed07ca2887
 
 COCOAPODS: 1.5.0

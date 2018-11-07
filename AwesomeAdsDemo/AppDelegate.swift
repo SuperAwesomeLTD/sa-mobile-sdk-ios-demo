@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import SuperAwesome
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.  
+        
+        AwesomeAds.initSDK(true)
         
         Fabric.with([Crashlytics.self])
 
