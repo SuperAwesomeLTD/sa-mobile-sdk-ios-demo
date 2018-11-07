@@ -6,14 +6,14 @@ target 'AwesomeAdsDemo' do
   use_frameworks!
 
   # Pods for TestRxGesture
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'RxSwift', '3.6.1'
+  pod 'RxCocoa', '3.6.1'
   pod 'SuperAwesome', '6.1.4'
   pod 'Kingfisher', '~> 3.0'
   pod 'RxTableAndCollectionView', '1.1.5'
   pod 'ObjectMapper', '~> 2.2'
-  pod 'Fabric'
-  pod 'Crashlytics'
+  pod 'Fabric', '1.7.0'
+  pod 'Crashlytics', '3.9.0'
 
   target 'AwesomeAdsDemo_Tests' do
       inherit! :search_paths

@@ -64,14 +64,37 @@ PODS:
     - SuperAwesome/Base
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
+  - Crashlytics (= 3.9.0)
+  - Fabric (= 1.7.0)
   - Kingfisher (~> 3.0)
   - ObjectMapper (~> 2.2)
-  - RxCocoa
-  - RxSwift
+  - RxCocoa (= 3.6.1)
+  - RxSwift (= 3.6.1)
   - RxTableAndCollectionView (= 1.1.5)
   - SuperAwesome (= 6.1.4)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Crashlytics
+    - Fabric
+    - Kingfisher
+    - ObjectMapper
+    - RxCocoa
+    - RxSwift
+    - RxTableAndCollectionView
+    - SAAdLoader
+    - SABumperPage
+    - SAEvents
+    - SAJsonParser
+    - SAModelSpace
+    - SANetworking
+    - SAParentalGate
+    - SASession
+    - SAUtils
+    - SAVASTParser
+    - SAVideoPlayer
+    - SAWebPlayer
+    - SuperAwesome
 
 SPEC CHECKSUMS:
   Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
@@ -95,6 +118,6 @@ SPEC CHECKSUMS:
   SAWebPlayer: 53311d0e14e87992b9c4cb6797639ff079d6d283
   SuperAwesome: 9f06310f3e2fa133ecab0c1a3c5a6655ca923195
 
-PODFILE CHECKSUM: bd953feea811e72e57df18da6f5b8fa229750785
+PODFILE CHECKSUM: 4df415b4e36754adf613767a396e469d76d249d8
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.0
