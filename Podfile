@@ -8,7 +8,7 @@ target 'AwesomeAdsDemo' do
   # Pods for TestRxGesture
   pod 'RxSwift', '3.6.1'
   pod 'RxCocoa', '3.6.1'
-  pod 'SuperAwesome', '6.1.4'
+  pod 'SuperAwesome', '7.0.1'
   pod 'Kingfisher', '~> 3.0'
   pod 'RxTableAndCollectionView', '1.1.5'
   pod 'ObjectMapper', '~> 2.2'
