@@ -8,7 +8,7 @@
 
 import UIKit
 import RxSwift
-import SAUtils
+import SuperAwesome
 
 class LoadController: SABaseViewController {
 

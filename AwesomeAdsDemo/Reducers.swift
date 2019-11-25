@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SAModelSpace
 
 func appReducer (_ previous: AppState, event: Event) -> AppState {
     return AppState(loginState: loginReducer(previous.loginState, event: event),

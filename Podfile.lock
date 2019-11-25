@@ -2,129 +2,56 @@ PODS:
   - Crashlytics (3.9.0):
     - Fabric (~> 1.7.0)
   - Fabric (1.7.0)
-  - Kingfisher (3.13.1)
-  - ObjectMapper (2.2.9)
-  - RxCocoa (3.6.1):
-    - RxSwift (~> 3.6)
-  - RxSwift (3.6.1)
-  - RxTableAndCollectionView (1.1.5):
+  - Kingfisher (5.10.1):
+    - Kingfisher/Core (= 5.10.1)
+  - Kingfisher/Core (5.10.1)
+  - ObjectMapper (3.3.0)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
+  - RxTableAndCollectionView (1.1.6):
     - RxCocoa
     - RxSwift
-  - SAAdLoader (1.4.2):
-    - SAModelSpace (= 1.0.0)
-    - SANetworking (= 1.0.0)
-    - SASession (= 1.1.2)
-    - SAUtils (= 1.5.5)
-    - SAVASTParser (= 1.7.5)
-  - SABumperPage (1.0.6)
-  - SAEvents (2.2.4):
-    - SAEvents/Core (= 2.2.4)
-    - SAModelSpace (= 1.0.0)
-    - SANetworking (= 1.0.0)
-    - SASession (= 1.1.2)
-    - SAUtils (= 1.5.5)
-  - SAEvents/Core (2.2.4):
-    - SAModelSpace (= 1.0.0)
-    - SANetworking (= 1.0.0)
-    - SASession (= 1.1.2)
-    - SAUtils (= 1.5.5)
-  - SAEvents/Moat (2.2.4):
-    - SAEvents/Core
-    - SAModelSpace (= 1.0.0)
-    - SANetworking (= 1.0.0)
-    - SASession (= 1.1.2)
-    - SAUtils (= 1.5.5)
-  - SAGDPRKisMinor (2.0.0):
-    - SAJsonParser (= 1.3.5)
-    - SANetworking (= 1.0.0)
-    - SAUtils (= 1.5.5)
-  - SAJsonParser (1.3.5)
-  - SAModelSpace (1.0.0):
-    - SAJsonParser (= 1.3.5)
-    - SAUtils (= 1.5.5)
-  - SANetworking (1.0.0)
-  - SAParentalGate (1.0.2)
-  - SASession (1.1.2):
-    - SAUtils (= 1.5.5)
-  - SAUtils (1.5.5)
-  - SAVASTParser (1.7.5):
-    - SAModelSpace (= 1.0.0)
-    - SANetworking (= 1.0.0)
-    - SAUtils (= 1.5.5)
-  - SAVideoPlayer (1.2.5)
-  - SAWebPlayer (1.3.0):
-    - SANetworking (= 1.0.0)
-  - SuperAwesome (7.0.1):
-    - SuperAwesome/Full (= 7.0.1)
-  - SuperAwesome/Base (7.0.1):
-    - SAAdLoader (= 1.4.2)
-    - SABumperPage (= 1.0.6)
-    - SAEvents (= 2.2.4)
-    - SAGDPRKisMinor (= 2.0.0)
-    - SAParentalGate (= 1.0.2)
-    - SAVideoPlayer (= 1.2.5)
-    - SAWebPlayer (= 1.3.0)
-  - SuperAwesome/Full (7.0.1):
-    - SAEvents/Moat
-    - SuperAwesome/Base
+  - SuperAwesome (7.2.0.1):
+    - SuperAwesome/Full (= 7.2.0.1)
+  - SuperAwesome/Full (7.2.0.1)
 
 DEPENDENCIES:
   - Crashlytics (= 3.9.0)
   - Fabric (= 1.7.0)
-  - Kingfisher (~> 3.0)
-  - ObjectMapper (~> 2.2)
-  - RxCocoa (= 3.6.1)
-  - RxSwift (= 3.6.1)
-  - RxTableAndCollectionView (= 1.1.5)
-  - SuperAwesome (= 7.0.1)
+  - Kingfisher
+  - ObjectMapper (~> 3.3.0)
+  - RxCocoa
+  - RxSwift
+  - RxTableAndCollectionView (= 1.1.6)
+  - SuperAwesome (= 7.2.0.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Crashlytics
     - Fabric
     - Kingfisher
     - ObjectMapper
     - RxCocoa
+    - RxRelay
     - RxSwift
     - RxTableAndCollectionView
-    - SAAdLoader
-    - SABumperPage
-    - SAEvents
-    - SAGDPRKisMinor
-    - SAJsonParser
-    - SAModelSpace
-    - SANetworking
-    - SAParentalGate
-    - SASession
-    - SAUtils
-    - SAVASTParser
-    - SAVideoPlayer
-    - SAWebPlayer
     - SuperAwesome
 
 SPEC CHECKSUMS:
   Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
   Fabric: e6be012366472553807dada21243c5ab8d904151
-  Kingfisher: ed9707a409cc47fddafbcd12a43a9757e3600af5
-  ObjectMapper: 63cfe41bc6f8e7c8f44344c49901b8ae7de14c52
-  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
-  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
-  RxTableAndCollectionView: e589efbf099aae0f9951712fb3b883fdc393db1d
-  SAAdLoader: c888a60d899a0e82289ac497ccef54fc4c68de6d
-  SABumperPage: 59cb8525a68cc49a646a416977dbc0c963965eb7
-  SAEvents: ee2cb6b1ce57ec1ad49d7101cc6c50aba531ff5d
-  SAGDPRKisMinor: 1e8ea22afdf16e41f180dcb611ce86077e42cf6b
-  SAJsonParser: a9fac712c99b71e36997010413862866f8246d5a
-  SAModelSpace: 07140f87445b477fbb61e5016a51e9f4c02546c7
-  SANetworking: 672cec0782244c2d780c3c58867e58e8ed2917ee
-  SAParentalGate: 5279fce38eac5fc49c93d99ed45cf86e8a08ec51
-  SASession: 05f174a62318b786ee36e4e34d97c2b96444d0ae
-  SAUtils: 95e06baec2636bfe494d9f8a43ec4def6fb28229
-  SAVASTParser: fa343296e3fd7103a5da210a7c41020a8f280a41
-  SAVideoPlayer: cc118f17151dfd227a3115a9d266e1cae12c1f3c
-  SAWebPlayer: ee76faded1a79e05098cacde55b97e64a98deed2
-  SuperAwesome: e9cf9a7650aac2c9f4086e9d72bd96c4c61a627c
+  Kingfisher: eb36b7dfcc78d60877051c92c119a2865972961a
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxTableAndCollectionView: 10a59bdf99b77c524075a16b879d7d59d1753114
+  SuperAwesome: a1504b3cb120bb1fea6d70b1eb56f416ff121d88
 
-PODFILE CHECKSUM: 2a766d3f8419fc32f426b219aa7bb6ed07ca2887
+PODFILE CHECKSUM: 933dc4991729e2238c1c48ec040c940854987522
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.7.5

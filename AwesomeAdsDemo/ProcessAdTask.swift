@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import SAModelSpace
+import SuperAwesome
 import RxSwift
-import SAAdLoader
-import SASession
 
 class ProcessAdTask: Task {
 
@@ -30,6 +28,9 @@ class ProcessAdTask: Task {
             loader.processAd(testPlacement, andData: payload, andStatus: 200, andSession: session, andResult: { (response: SAResponse?) in
                 
                 if let response = response, response.isValid () {
+                    
+                    (response.ads?.firstObject as? SAAd)?.isPadlockVisible = true
+                    
                     subscriber(.success(response))
                 }
                 else {

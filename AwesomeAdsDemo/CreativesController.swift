@@ -1,10 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SAUtils
 import SuperAwesome
-import SAModelSpace
-import SAAdLoader
 import Kingfisher
 import RxTableAndCollectionView
 
@@ -32,7 +29,7 @@ class CreativesController: SABaseViewController, CreativesDataSourceDelegate {
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.estimatedRowHeight = 180
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         dataSource.delegate = self
     }
     
@@ -80,7 +77,7 @@ extension CreativesController: UISearchBarDelegate {
         self.view.addGestureRecognizer(recogn)
     }
     
-    func handleTap(_ sender: UITapGestureRecognizer) {
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
         self.searchBar.resignFirstResponder()
         self.view.removeGestureRecognizer(recogn)
     }

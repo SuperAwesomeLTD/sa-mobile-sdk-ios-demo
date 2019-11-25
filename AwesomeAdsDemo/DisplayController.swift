@@ -10,7 +10,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SuperAwesome
-import SAModelSpace
 
 class DisplayController: SABaseViewController {
 
@@ -41,9 +40,9 @@ class DisplayController: SABaseViewController {
         super.viewDidAppear(animated)
         
         let ad: SAAd = response?.ads.object(at: 0) as! SAAd
-        
         switch format {
         case .smallbanner, .banner:
+            normalAndSmallBanner.disableMoatLimiting()
             normalAndSmallBanner.setBumperPage(bumperPage)
             normalAndSmallBanner.setParentalGate(parentalGate)
             normalAndSmallBanner.setColor(bgColor)
@@ -51,6 +50,7 @@ class DisplayController: SABaseViewController {
             normalAndSmallBanner.play()
             break
         case .smallleaderboard, .leaderboard, .pushdown, .billboard:
+            bigBanner.disableMoatLimiting()
             bigBanner.setBumperPage(bumperPage)
             bigBanner.setParentalGate(parentalGate)
             bigBanner.setColor(bgColor)
@@ -58,6 +58,7 @@ class DisplayController: SABaseViewController {
             bigBanner.play()
             break
         case .mpu, .doublempu, .skinnysky, .sky:
+            mpuBanner.disableMoatLimiting()
             mpuBanner.setBumperPage(bumperPage)
             mpuBanner.setParentalGate(parentalGate)
             mpuBanner.setColor(bgColor)

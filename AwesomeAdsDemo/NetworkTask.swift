@@ -8,7 +8,7 @@
 
 import Foundation
 import RxSwift
-import SANetworking
+import SuperAwesome
 
 class NetworkTask: Task {
 

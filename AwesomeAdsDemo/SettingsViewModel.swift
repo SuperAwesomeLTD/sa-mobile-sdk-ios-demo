@@ -80,7 +80,7 @@ class SettingsViewModel: NSObject {
             
             viewModels = []
             for i in 1...8 {
-                if let setting = self.settingsDict[i] as SettingViewModel!, setting.getActive() {
+                if let setting = self.settingsDict[i] as? SettingViewModel, setting.getActive() {
                     viewModels.append(setting)
                 }
             }

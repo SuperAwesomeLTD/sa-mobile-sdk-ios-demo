@@ -8,8 +8,7 @@
 
 import UIKit
 import RxSwift
-import SAAdLoader
-import SAModelSpace
+import SuperAwesome
 
 enum Event {
     // jwt token + login
@@ -159,9 +158,10 @@ extension Event {
         
         return task.execute(withInput: request)
             .toArray()
-            .flatMap { (creatives: [SACreative]) -> Observable<Event> in
-                return Observable.just(Event.GotCreatives(creatives: creatives))
-            }
+            .asObservable()
+            .map({ (creatives: [SACreative]) -> Event in
+                return Event.GotCreatives(creatives: creatives)
+            })
             .catchError { error -> Observable<Event> in
                 return Observable.just(Event.GotCreatives(creatives: []))
             }

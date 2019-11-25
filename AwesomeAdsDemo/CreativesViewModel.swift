@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SAModelSpace
+import SuperAwesome
 
 class CreativesViewModel {
 

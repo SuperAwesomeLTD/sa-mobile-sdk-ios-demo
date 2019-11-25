@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SAModelSpace
+import SuperAwesome
 
 struct ProcessAdRequest: Request {
     var ad: SAAd

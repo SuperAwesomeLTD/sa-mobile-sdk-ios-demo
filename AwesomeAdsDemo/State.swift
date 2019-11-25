@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SAModelSpace
+import SuperAwesome
 
 struct AppState: State {
     var loginState = LoginState()

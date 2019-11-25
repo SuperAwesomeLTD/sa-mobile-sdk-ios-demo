@@ -1,7 +1,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import SAUtils
+import SuperAwesome
 
 class LoginController: SABaseViewController {
     

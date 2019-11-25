@@ -9,10 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import SAUtils
 import SuperAwesome
-import SAAdLoader
-import SAModelSpace
 import RxTableAndCollectionView
 
 class SettingsController: SABaseViewController {
@@ -35,7 +32,7 @@ class SettingsController: SABaseViewController {
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.estimatedRowHeight = 180
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -110,6 +107,7 @@ extension SettingsController {
 
         let ad = response.ads.object(at: 0) as! SAAd
         
+        SAInterstitialAd.disableMoatLimiting()
         SAInterstitialAd.setParentalGate(provider.getParentalGateValue())
         SAInterstitialAd.setBumperPage(provider.getBumperPageValue())
         SAInterstitialAd.setOrientation(
@@ -126,16 +124,17 @@ extension SettingsController {
 
         let ad = response.ads.object(at: 0) as! SAAd
 
-        SAVideoAd.setParentalGate(provider.getParentalGateValue())
-        SAVideoAd.setBumperPage(provider.getBumperPageValue())
-        SAVideoAd.setOrientation(
-            provider.getLockToLandscapeValue() ? .LANDSCAPE :
-                provider.getLockToPortraitValue() ? .PORTRAIT : .ANY)
-        SAVideoAd.setCloseButton(provider.getCloseButtonValue())
-        SAVideoAd.setCloseAtEnd(provider.getAutoCloseValue())
-        SAVideoAd.setSmallClick(provider.getSmallClickValue())
-        SAVideoAd.setAd(ad)
-        SAVideoAd.play(ad.placementId, fromVC: self)
+        VideoAd.disableMoatLimiting()
+        VideoAd.setParentalGate(provider.getParentalGateValue())
+        VideoAd.setBumperPage(provider.getBumperPageValue())
+        VideoAd.setOriantation(
+            provider.getLockToLandscapeValue() ? .LANDSCAPE : provider.getLockToPortraitValue() ? .PORTRAIT : .ANY
+        )
+        VideoAd.setCloseButton(provider.getCloseButtonValue())
+        VideoAd.setCloseAtEnd(provider.getAutoCloseValue())
+        VideoAd.setSmallClick(provider.getSmallClickValue())
+        VideoAd.setAd(ad: ad, forPlacementId: ad.placementId)
+        VideoAd.play(withPlacementId: ad.placementId, fromVc: self)
     }
 }
 

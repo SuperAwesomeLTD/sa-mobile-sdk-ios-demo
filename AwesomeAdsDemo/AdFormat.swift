@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SAModelSpace
+import SuperAwesome
 
 //Mobile Small Leaderboard 300x50
 //Mobile Leaderboard 320x50

@@ -22,7 +22,7 @@ class SettingRow: UITableViewCell {
             settingsItem.text = viewModel.getItemTitle()
             settingsDescription.text = viewModel.getItemDetails()
             settingsSwitch.isOn = viewModel.getItemValue()
-            settingsSwitch.addTarget(self, action: #selector(toggle), for: UIControlEvents.valueChanged)
+            settingsSwitch.addTarget(self, action: #selector(toggle), for: UIControl.Event.valueChanged)
         }
     }
     

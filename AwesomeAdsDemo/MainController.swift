@@ -43,7 +43,7 @@ class MainController: SABaseViewController {
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
         tableView.estimatedRowHeight = 180
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,7 +82,7 @@ extension MainController: UISearchBarDelegate {
         self.view.addGestureRecognizer(recogn)
     }
     
-    func handleTap(_ sender: UITapGestureRecognizer) {
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
         self.appPlacementSearch.resignFirstResponder()
         self.view.removeGestureRecognizer(recogn)
     }
