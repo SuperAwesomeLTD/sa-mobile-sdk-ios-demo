@@ -1,0 +1,57 @@
+PODS:
+  - Crashlytics (3.9.0):
+    - Fabric (~> 1.7.0)
+  - Fabric (1.7.0)
+  - Kingfisher (5.12.0):
+    - Kingfisher/Core (= 5.12.0)
+  - Kingfisher/Core (5.12.0)
+  - ObjectMapper (3.3.0)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
+  - RxTableAndCollectionView (1.1.6):
+    - RxCocoa
+    - RxSwift
+  - SuperAwesome (7.2.0.1):
+    - SuperAwesome/Full (= 7.2.0.1)
+  - SuperAwesome/Full (7.2.0.1)
+
+DEPENDENCIES:
+  - Crashlytics (= 3.9.0)
+  - Fabric (= 1.7.0)
+  - Kingfisher
+  - ObjectMapper (~> 3.3.0)
+  - RxCocoa
+  - RxSwift
+  - RxTableAndCollectionView (= 1.1.6)
+  - SuperAwesome (= 7.2.0.1)
+
+SPEC REPOS:
+  trunk:
+    - Crashlytics
+    - Fabric
+    - Kingfisher
+    - ObjectMapper
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - RxTableAndCollectionView
+    - SuperAwesome
+
+SPEC CHECKSUMS:
+  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
+  Fabric: e6be012366472553807dada21243c5ab8d904151
+  Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxTableAndCollectionView: 10a59bdf99b77c524075a16b879d7d59d1753114
+  SuperAwesome: a1504b3cb120bb1fea6d70b1eb56f416ff121d88
+
+PODFILE CHECKSUM: 933dc4991729e2238c1c48ec040c940854987522
+
+COCOAPODS: 1.8.4

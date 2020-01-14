@@ -58,7 +58,7 @@ class MainController: SABaseViewController {
     }
     
     override func handle(_ state: AppState) {
-        changeCompButton.isHidden = !(state.profileState?.canImpersonate ?? true)
+        changeCompButton.isHidden = false
         viewModel.data = state.appState.filtered
         dataSource.sections = viewModel.sections
         tableView.reloadData()

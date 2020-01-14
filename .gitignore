@@ -1,2 +1,15 @@
-Pods/*
-
+Pods/Crashlytics
+Pods/Kingfisher
+Pods/Fabric
+Pods/ObjectMapper
+Pods/Pods.xcodeproj
+Pods/RxCocoa
+Pods/RxSwift
+Pods/RxDelay
+Pods/RxTableAndCollectionView
+Pods/RxRelay
+Pods/Target Support Files
+Pods/SuperAwesome/Pod/Classes/Libs/SAEvents
+Pods/SuperAwesome/Pod/Classes/Libs/SAUtils
+Pods/SuperAwesome/Pod/Classes/Libs/SAWebPlayer
+!sa-mobile-sdk-ios-demo/Pods/SuperAwesome/Pod/Classes/Libs/SASession/Session/SASession.m

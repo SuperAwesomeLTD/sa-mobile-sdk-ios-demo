@@ -2,9 +2,9 @@ PODS:
   - Crashlytics (3.9.0):
     - Fabric (~> 1.7.0)
   - Fabric (1.7.0)
-  - Kingfisher (5.10.1):
-    - Kingfisher/Core (= 5.10.1)
-  - Kingfisher/Core (5.10.1)
+  - Kingfisher (5.12.0):
+    - Kingfisher/Core (= 5.12.0)
+  - Kingfisher/Core (5.12.0)
   - ObjectMapper (3.3.0)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
@@ -30,7 +30,7 @@ DEPENDENCIES:
   - SuperAwesome (= 7.2.0.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Crashlytics
     - Fabric
     - Kingfisher
@@ -44,7 +44,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
   Fabric: e6be012366472553807dada21243c5ab8d904151
-  Kingfisher: eb36b7dfcc78d60877051c92c119a2865972961a
+  Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
