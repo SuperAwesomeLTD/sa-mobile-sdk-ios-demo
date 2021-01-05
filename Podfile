@@ -1,3 +1,6 @@
+source 'git@github.com:CocoaPods/Specs.git'
+# source 'https://cdn.cocoapods.org/'
+
 # Uncomment the next line to define a global platform for your project
 platform :ios, '10.0'
 
@@ -6,10 +9,10 @@ target 'AwesomeAdsDemo' do
   use_frameworks!
 
   # Pods for TestRxGesture
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'SuperAwesome/Moat', '7.2.5'
-  pod 'Kingfisher'
+  pod 'RxSwift', '5.1.1'
+  pod 'RxCocoa', '5.1.1'
+  pod 'SuperAwesome', '7.2.18' #'7.2.5'
+  pod 'Kingfisher', '5.13.4'
   pod 'RxTableAndCollectionView', '1.1.6'
   pod 'ObjectMapper', '~> 3.3.0'
   pod 'Fabric', '1.7.0'

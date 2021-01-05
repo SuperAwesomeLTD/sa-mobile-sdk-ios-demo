@@ -15,24 +15,27 @@ PODS:
   - RxTableAndCollectionView (1.1.6):
     - RxCocoa
     - RxSwift
-  - SAVideoPlayer (2.0.0-beta8)
-  - SuperAwesome/Full (7.2.5):
-    - SAVideoPlayer (= 2.0.0-beta8)
-  - SuperAwesome/Moat (7.2.5):
-    - SuperAwesome/Full
+  - SuperAwesome (7.2.18):
+    - SuperAwesome/Full (= 7.2.18)
+  - SuperAwesome/Base (7.2.18)
+  - SuperAwesome/Full (7.2.18):
+    - SuperAwesome/Base
+    - SuperAwesome/Moat
+  - SuperAwesome/Moat (7.2.18):
+    - SuperAwesome/Base
 
 DEPENDENCIES:
   - Crashlytics (= 3.9.0)
   - Fabric (= 1.7.0)
-  - Kingfisher
+  - Kingfisher (= 5.13.4)
   - ObjectMapper (~> 3.3.0)
-  - RxCocoa
-  - RxSwift
+  - RxCocoa (= 5.1.1)
+  - RxSwift (= 5.1.1)
   - RxTableAndCollectionView (= 1.1.6)
-  - SuperAwesome/Moat (= 7.2.5)
+  - SuperAwesome (= 7.2.18)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Crashlytics
     - Fabric
     - Kingfisher
@@ -41,21 +44,19 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - RxTableAndCollectionView
-    - SAVideoPlayer
     - SuperAwesome
 
 SPEC CHECKSUMS:
-  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
-  Fabric: e6be012366472553807dada21243c5ab8d904151
+  Crashlytics: f501748010b0f5526696e92497c69dc85f41463c
+  Fabric: 034439019f3eb7bde392a2bc6d80097031458580
   Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxTableAndCollectionView: 10a59bdf99b77c524075a16b879d7d59d1753114
-  SAVideoPlayer: f7953c9d6ea1e4875449c148dad53230630f57b8
-  SuperAwesome: eed6efff2170ef6a805ba903e6817cd8e933a0fb
+  SuperAwesome: e6000bebc444149422c68707e14d528606e2633d
 
-PODFILE CHECKSUM: 79e802424269ad26692fd254b5b1ca92649aff69
+PODFILE CHECKSUM: 55eb848af3e1fe492bb3e5894fdf78c94f4fb3e3
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.3
